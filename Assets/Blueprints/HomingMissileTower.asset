@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfec602d062128469c971592513b101, type: 3}
+  m_Name: HomingMissileTower
+  m_EditorClassIdentifier: 
+  type: 1
+  name: HomingMissileTower
+  displayName: Homing Missile Tower
+  image: {fileID: 0}
+  description: Shoots homing missiles at opponent players within a radius
+  health: 500
+  constructionEnergyRequired: 25
+  prefab: {fileID: 2306623362185636472, guid: 7a6560b8326648e4f94012dd5d90b648, type: 3}

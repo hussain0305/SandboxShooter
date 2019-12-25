@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfec602d062128469c971592513b101, type: 3}
+  m_Name: BurstGun
+  m_EditorClassIdentifier: 
+  type: 0
+  name: BurstGun
+  displayName: Burst Gun
+  image: {fileID: 0}
+  description: Shoots three bullets per use
+  health: 250
+  constructionEnergyRequired: 15
+  prefab: {fileID: 2104451162995988648, guid: 660bbf7afe0d1a140b6d3c6a263ba7b1, type: 3}
