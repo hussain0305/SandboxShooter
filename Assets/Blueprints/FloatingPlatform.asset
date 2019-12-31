@@ -20,3 +20,6 @@ MonoBehaviour:
   health: 0
   constructionEnergyRequired: 20
   prefab: {fileID: 8217759996100336589, guid: 1458e53cc9c38f4419c27e278a65f6b1, type: 3}
+  pathStrings:
+  - Prefabs
+  - FloatingPlatform

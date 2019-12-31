@@ -20,3 +20,7 @@ MonoBehaviour:
   health: 500
   constructionEnergyRequired: 25
   prefab: {fileID: 2306623362185636472, guid: 7a6560b8326648e4f94012dd5d90b648, type: 3}
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - HomingMissileTower

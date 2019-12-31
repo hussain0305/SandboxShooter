@@ -7,19 +7,36 @@ public class PlayerUI : MonoBehaviour
 {
     const float ALERT_MSG_DURATION = 2;
 
-    public Text alertMessage;
-    public Text instructionMessage;
-    public GameObject constructionMenu;
+    private Text alertMessage;
+    private Text instructionMessage;
+    private GameObject constructionMenu;
     
-    public Text energyValue;
+    private Text energyValue;
 
     // Start is called before the first frame update
     void Start()
     {
+        FetchUIComponents();
+        Cursor.visible = false;
+    }
+
+    void FetchUIComponents()
+    {
+        CanvasCommunicator canvasCom = GameObject.FindObjectOfType<CanvasCommunicator>();
+        if (!canvasCom)
+        {
+            return;
+        }
+
+        energyValue = canvasCom.GetEnergyValueComponent();
+        alertMessage = canvasCom.GetAlertMessageComponent();
+        instructionMessage = canvasCom.GetInstructionMessageComponent();
+        constructionMenu = canvasCom.GetConstructionMenuComponent();
+        
         alertMessage.gameObject.SetActive(false);
         instructionMessage.gameObject.SetActive(false);
         constructionMenu.SetActive(false);
-        Cursor.visible = false;
+
     }
 
     public void ToggleConstructionMenu()

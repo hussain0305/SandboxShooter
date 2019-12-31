@@ -20,3 +20,7 @@ MonoBehaviour:
   health: 300
   constructionEnergyRequired: 15
   prefab: {fileID: 5862623113351301919, guid: 2e3903aabc21d474bb3b96932d465b5d, type: 3}
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - DoubleMachineGun

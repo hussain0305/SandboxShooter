@@ -8,6 +8,7 @@ TagManager:
   - AlertMessage
   - WeaponUsePosition
   - CameraHolder
+  - Canvas
   layers:
   - Default
   - TransparentFX

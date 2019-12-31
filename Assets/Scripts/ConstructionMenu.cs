@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 
 public class ConstructionMenu : MonoBehaviour
@@ -16,7 +14,7 @@ public class ConstructionMenu : MonoBehaviour
     public void Awake()
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
-        player = GameObject.FindObjectOfType<EPlayerController>();
+        player = gameManager.FetchLocalPlayer();
     }
     void OnEnable()
     {
@@ -85,8 +83,8 @@ public class ConstructionMenu : MonoBehaviour
             if (tSpawn.constructionEnergyRequired < player.playerEnergy.GetEnergy())
             {
                 player.playerEnergy.SpendEnergy(tSpawn.constructionEnergyRequired);
-
-                GameObject spawnedSpawnable = Instantiate(tSpawn.prefab, loc, Quaternion.identity);
+                gameManager.SpawnPlatform(tSpawn.pathStrings, loc);
+                //GameObject spawnedSpawnable = Instantiate(tSpawn.prefab, loc, Quaternion.identity);
             }
             else
             {

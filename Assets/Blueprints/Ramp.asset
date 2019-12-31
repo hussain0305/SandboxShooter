@@ -20,3 +20,7 @@ MonoBehaviour:
   health: 300
   constructionEnergyRequired: 20
   prefab: {fileID: 2864814848847314582, guid: 5a6bcd8709f4ec24996dcfd439b0e27b, type: 3}
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - Ramp

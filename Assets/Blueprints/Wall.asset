@@ -20,3 +20,7 @@ MonoBehaviour:
   health: 750
   constructionEnergyRequired: 15
   prefab: {fileID: 2934413580614794718, guid: e49c762805f4f51438ab4d886be88d3f, type: 3}
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - Wall

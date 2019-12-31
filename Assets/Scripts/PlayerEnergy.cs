@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -41,6 +42,11 @@ public class PlayerEnergy : MonoBehaviour
 
     IEnumerator GainPassiveEnergy()
     {
+        //yield statement below is a fix/jugaad
+        //setup script execution order so UI and energy components don't need to be manually and
+        //sequentially enabled
+
+        yield return new WaitForSeconds(0.1f);
         while (true)
         {
             //add condition here so energy isn't gained while player is dead
@@ -62,14 +68,30 @@ public class PlayerEnergy : MonoBehaviour
         {
             return;
         }
+        GetComponent<PhotonView>().RPC("RPC_DropEnergyPack", RpcTarget.All);
+    }
 
+    [PunRPC]
+    void RPC_DropEnergyPack()
+    {
         hasEnergyPack = false;
         energyPack.transform.SetParent(null);
         energyPack.WasDropped();
         energyPack = null;
     }
 
-    public void PickupEnergyPack(EnergyPack pack)
+    public void PickupEnergyPack(int packID)//EnergyPack pack)
+    {
+        if (hasEnergyPack)
+        {
+            return;
+        }
+        GetComponent<PhotonView>().RPC("RPC_PickupEnergyPack", RpcTarget.All, packID);
+    }
+
+    [PunRPC]
+
+    public void RPC_PickupEnergyPack(int packID)
     {
         if (hasEnergyPack)
         {
@@ -77,12 +99,17 @@ public class PlayerEnergy : MonoBehaviour
         }
 
         hasEnergyPack = true;
-        energyPack = pack;
-        pack.rBody.isKinematic = true;
-        pack.pickupCollider.enabled = false;
-        pack.transform.SetParent(energyPackHolder);
-        pack.transform.SetPositionAndRotation(energyPackHolder.position, energyPackHolder.rotation);
+        energyPack = PhotonView.Find(packID).GetComponent<EnergyPack>();
+        energyPack.rBody.isKinematic = true;
+        energyPack.pickupCollider.enabled = false;
+        energyPack.transform.SetParent(energyPackHolder);
+        energyPack.transform.SetPositionAndRotation(energyPackHolder.position, energyPackHolder.rotation);
+
     }
+
+
+
+
 
 
 

@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class OffensiveControllerBase : MonoBehaviour
@@ -14,6 +14,7 @@ public class OffensiveControllerBase : MonoBehaviour
     public int damage;
     public float projectForce;
     public float cooldown;
+    public Transform turret;
 
     protected bool canShoot;
     protected float mouseX;
@@ -24,13 +25,17 @@ public class OffensiveControllerBase : MonoBehaviour
     protected bool isOccupied;
     private Quaternion originalOrientation;
     private SpawnableGO master;
-    private EPlayerController controllingPlayer;
+    private int controllingPlayer;
+
+    protected PhotonView pView;
+    //private EPlayerController controllingPlayer;
 
     public void Start()
     {
         canShoot = true;
         originalOrientation = transform.rotation;
         master = GetComponentInParent<SpawnableGO>();
+        pView = GetComponent<PhotonView>();
     }
 
     public void OnTriggerEnter(Collider other)
@@ -40,7 +45,7 @@ public class OffensiveControllerBase : MonoBehaviour
             return;
         }
 
-        if (other.gameObject.GetComponent<EPlayerController>())
+        if (other.gameObject.GetComponent<EPlayerController>() && other.gameObject.GetComponent<PhotonView>().IsMine)
         {
             other.gameObject.GetComponent<EPlayerController>().playerUI.DisplayInstructionMessage("Press E to use " + master.displayName);
             other.gameObject.GetComponent<EPlayerController>().SetControlledOffensive(this);
@@ -53,29 +58,44 @@ public class OffensiveControllerBase : MonoBehaviour
         {
             return;
         }
-        if (other.gameObject.GetComponent<EPlayerController>())
+        if (other.gameObject.GetComponent<EPlayerController>() && other.gameObject.GetComponent<PhotonView>().IsMine)
         {
             other.gameObject.GetComponent<EPlayerController>().playerUI.RemoveInstructionMessage();
             other.gameObject.GetComponent<EPlayerController>().SetControlledOffensive();
         }
     }
 
-    public void OffensiveOccuppied(EPlayerController controller, Camera cam)
+    public void OffensiveOccuppied(EPlayerController controller)
+    {
+        int tID = controller.GetComponent<PhotonView>().ViewID;
+
+        pView.RPC("RPC_OffensiveOccupied", RpcTarget.All, tID);
+    }
+
+    [PunRPC]
+    public void RPC_OffensiveOccupied(int controller)
     {
         controllingPlayer = controller;
         isOccupied = true;
-        controllingPlayer.transform.position = playerAnchor.transform.position;
-        cam.transform.SetParent(this.transform);
+        PhotonView.Find(controller).transform.position = playerAnchor.transform.position;
+        Camera cam = PhotonView.Find(controller).GetComponentInChildren<Camera>();
+        cam.transform.SetParent(turret);
         cam.transform.localPosition = cameraAnchor.transform.localPosition;
         cam.transform.localRotation = cameraAnchor.transform.localRotation;
     }
 
     public void OffensiveLeft()
     {
-        controllingPlayer = null;
+        pView.RPC("RPC_OffensiveLeft", RpcTarget.All);
+    }
+
+    [PunRPC]
+    public void RPC_OffensiveLeft()
+    {
+        Debug.Log(controllingPlayer + " left " + name);
+        controllingPlayer = -1;
         isOccupied = false;
         transform.rotation = originalOrientation;
-
     }
 
     public void Shot()
@@ -106,12 +126,12 @@ public class OffensiveControllerBase : MonoBehaviour
         return isOccupied;
     }
 
-    private void SetControllingPlayer(EPlayerController controller)
+    private void SetControllingPlayer(int controller)
     {
         controllingPlayer = controller;
     }
 
-    private EPlayerController GetControllingPlayer()
+    private int GetControllingPlayer()
     {
         return controllingPlayer;
     }

@@ -1,5 +1,6 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
 using System.Collections.Generic;
+using System.IO;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
@@ -16,7 +17,9 @@ public class GameManager : MonoBehaviour
     public void SpawnSpawnable(SpawnableType type, string id, Vector3 location, Quaternion rotation, EPlayerController owner)
     {
         Spawnable receivedBlueprint = GetBlueprint(type, id);
-        GameObject spawnedSpawnable = Instantiate(receivedBlueprint.prefab, location, rotation);
+        
+        //GameObject spawnedSpawnable = Instantiate(receivedBlueprint.prefab, location, rotation);
+        GameObject spawnedSpawnable = PhotonNetwork.Instantiate(Path.Combine(receivedBlueprint.pathStrings), location, rotation, 0);
         spawnedSpawnable.GetComponent<SpawnableGO>().displayName = receivedBlueprint.displayName;
         spawnedSpawnable.GetComponentInChildren<SpawnableHealth>().InitiateSystems(receivedBlueprint.health);
 
@@ -25,6 +28,13 @@ public class GameManager : MonoBehaviour
             spawnedSpawnable.GetComponent<DefensiveBase>().SetOwner(owner);
         }
     }
+
+    public void SpawnPlatform(string[] pathParts, Vector3 loc)
+    {
+        //GameObject spawnedSpawnable = Instantiate(receivedBlueprint.prefab, location, rotation);
+        GameObject spawnedSpawnable = PhotonNetwork.Instantiate(Path.Combine(pathParts), loc, Quaternion.identity, 0);
+    }
+
 
     public Spawnable GetBlueprint(SpawnableType type, string id)
     {
@@ -80,4 +90,27 @@ public class GameManager : MonoBehaviour
         //Ignore collision between bounds and orbitals
         Physics.IgnoreLayerCollision(10, 12);
     }
+
+    public Vector3 GetSpawnLocation()
+    {
+        SpawnPoint[] allPoints = GameObject.FindObjectsOfType<SpawnPoint>();
+        if (allPoints.Length > 0)
+        {
+            return allPoints[Random.Range(0, (allPoints.Length - 1))].transform.position;
+        }
+        return new Vector3(0, 0, 0);
+    }
+
+    public EPlayerController FetchLocalPlayer()
+    {
+        foreach (EPlayerController curr in FindObjectsOfType<EPlayerController>())
+        {
+            if (curr.GetComponent<PhotonView>().IsMine)
+            {
+                return curr;
+            }
+        }
+        return GameObject.FindObjectOfType<EPlayerController>();
+    }
+
 }

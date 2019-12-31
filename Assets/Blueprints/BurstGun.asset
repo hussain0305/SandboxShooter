@@ -20,3 +20,7 @@ MonoBehaviour:
   health: 250
   constructionEnergyRequired: 15
   prefab: {fileID: 2104451162995988648, guid: 660bbf7afe0d1a140b6d3c6a263ba7b1, type: 3}
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - BurstGun

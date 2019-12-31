@@ -64,6 +64,6 @@ public class UIInfoPopup : MonoBehaviour
             }
 
         }
-        return new Vector2(1, 1);
+        //return new Vector2(1, 1);
     }
 }

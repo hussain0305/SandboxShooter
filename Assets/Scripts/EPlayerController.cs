@@ -1,11 +1,14 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
 
 //RUNNING : Player can select between toggling and holding the run button
 
 public class EPlayerController : MonoBehaviour
 {
+    [Header("Components")]
+    public PlayerUI playerUI;
+    public PlayerEnergy playerEnergy;
+
     [Header("Game Settings")]
     public float mouseSensitivity = 50;
 
@@ -17,10 +20,9 @@ public class EPlayerController : MonoBehaviour
     public float jumpRunThreshold = 2;
     public float gravity = 10;
 
-    [HideInInspector]
-    public PlayerUI playerUI;
-    [HideInInspector]
-    public PlayerEnergy playerEnergy;
+    [Header("Camera")]
+    public Camera playerCamera;
+
 
     const float BUILD_DISTANCE = 20; 
     private bool constructionMenuOpen;
@@ -31,17 +33,19 @@ public class EPlayerController : MonoBehaviour
     private float mouseX;
     private float mouseY;
     private float xRotation;
-    private Camera playerCamera;
     private Vector3 camPosition;
     private Vector3 moveDirection;
-    private Animator characterAnimator;
-    private Transform playerBody;
     private Quaternion camRotation;
+    private Transform playerBody;
+    private Animator characterAnimator;
     private GameManager gameManager;
-    private OffensiveControllerBase controlledOffensive;
     private CharacterController characterController;
+    private OffensiveControllerBase controlledOffensive;
+    private EPlayerNetworkPresence networkPresence;
 
-    void Start()
+    private PhotonView pView;
+
+    void Awake()
     {
         FetchComponents();
         InitializeValues();
@@ -49,29 +53,29 @@ public class EPlayerController : MonoBehaviour
         //Cursor.lockState = CursorLockMode.Confined;
     }
 
-    //OnEnable function here can be removed when multiplayer is added
-    //anmd switching players midway is no longer required
-    private void OnEnable()
-    {
-        FetchComponents();
-        InitializeValues();
-    }
-
     void FetchComponents()
     {
-        gameManager = GameObject.FindObjectOfType<GameManager>();
-        characterAnimator = GetComponent<Animator>();
-        characterController = GetComponent<CharacterController>();
-        playerUI = GetComponent<PlayerUI>();
-        playerEnergy = GetComponent<PlayerEnergy>();
         playerBody = GetComponent<Transform>();
+        characterController = GetComponent<CharacterController>();
+        characterAnimator = GetComponent<Animator>();
+        gameManager = GameObject.FindObjectOfType<GameManager>();
+        networkPresence = GetComponent<EPlayerNetworkPresence>();
+        //playerCamera = Camera.main;
 
+        playerUI.enabled = true;
+        playerEnergy.enabled = true;
+
+        pView = GetComponent<PhotonView>();
+
+        if (pView.IsMine)
+        {
+            playerCamera.gameObject.SetActive(true);
+        }
     }
 
     void InitializeValues()
     {
         moveDirection = Vector3.zero;
-        playerCamera = Camera.main;
         camPosition = playerCamera.transform.localPosition;
         camRotation = playerCamera.transform.localRotation;
 
@@ -84,6 +88,11 @@ public class EPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (!pView.IsMine)
+        {
+            return;
+        }
+
         #region Using offensive input
         if (Input.GetButtonDown("Use"))
         {
@@ -243,7 +252,7 @@ public class EPlayerController : MonoBehaviour
     void OccupyOffensive()
     {
         isUsingOffensive = true;
-        controlledOffensive.OffensiveOccuppied(this, playerCamera);
+        controlledOffensive.OffensiveOccuppied(this);        
         playerUI.RemoveInstructionMessage();
     }
 
@@ -268,7 +277,7 @@ public class EPlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Projectile>())
+        if (collision.gameObject.GetComponent<Projectile>() && GetComponent<PhotonView>().IsMine)
         {
             playerEnergy.DropEnergyPack();
         }

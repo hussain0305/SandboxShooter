@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class EnergyPack : MonoBehaviour
@@ -27,7 +27,14 @@ public class EnergyPack : MonoBehaviour
     private EnergyWeaponBase currentEnergyWeapon;
     private EPlayerController player;
 
-    private void Start()
+    private PhotonView pView;
+
+    private void Awake()
+    {
+        pView = GetComponent<PhotonView>();
+    }
+
+    private void OnEnable()
     {
         owner = transform.parent.root;
         player = owner.GetComponent<EPlayerController>();
@@ -39,7 +46,7 @@ public class EnergyPack : MonoBehaviour
 
     void Update()
     {
-        if (!owner)
+        if (!owner || !pView.IsMine)
         {
             return;
         }
@@ -74,17 +81,24 @@ public class EnergyPack : MonoBehaviour
     }
     public void OnTriggerEnter(Collider other)
     {
-        if (!owner)
+        if (!owner || ! pView.IsMine)
         {
             return;
         }
         if (other.GetComponent<PlayerEnergy>() && other.GetComponent<PlayerEnergy>().transform == owner)
         {
-            other.GetComponent<PlayerEnergy>().PickupEnergyPack(this);
+            //other.GetComponent<PlayerEnergy>().PickupEnergyPack(this);
+            other.GetComponent<PlayerEnergy>().PickupEnergyPack(GetComponent<PhotonView>().ViewID);
         }
     }
 
     public void WasDropped()
+    {
+        pView.RPC("RPC_WasDropped", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void RPC_WasDropped()
     {
         DisableAttackBeam();
         energyMaterial.SetColor("_Color", inactiveColor);
@@ -94,18 +108,31 @@ public class EnergyPack : MonoBehaviour
 
     public void DisableAttackBeam()
     {
+        pView.RPC("RPC_DisableAttackBeam", RpcTarget.All);
+    }
+
+    [PunRPC]
+    void RPC_DisableAttackBeam()
+    {
         isShooting = false;
         foreach (GameObject curr in beams)
         {
             curr.SetActive(false);
         }
         masterBeam.SetActive(false);
+
     }
     public void EnableAttackBeam(int beamNo)
     {
+        pView.RPC("RPC_EnableAttackBeam", RpcTarget.All, beamNo);
+    }
+
+    [PunRPC]
+    void RPC_EnableAttackBeam(int beamNo)
+    {
         isShooting = true;
         masterBeam.SetActive(true);
-        for(int loop = 0; loop <= (beamNo - 1); loop++)
+        for (int loop = 0; loop <= (beamNo - 1); loop++)
         {
             beams[loop].SetActive(true);
         }

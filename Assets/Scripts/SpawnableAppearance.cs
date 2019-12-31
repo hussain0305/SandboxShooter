@@ -40,6 +40,7 @@ public class SpawnableAppearance : SpawnableComponentBase
             burnAmount -= 0.01f;
             foreach (Renderer curr in allBodyRenderers)
             {
+                //YAHAN PE
                 curr.material.SetFloat("_SliceAmount", burnAmount);
             }
 

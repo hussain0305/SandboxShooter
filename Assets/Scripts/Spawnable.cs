@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 [CreateAssetMenu(menuName ="Eurus/Spawnable")]
@@ -14,4 +12,6 @@ public class Spawnable : ScriptableObject
     public int health;
     public int constructionEnergyRequired;
     public GameObject prefab;
+
+    public string[] pathStrings;
 }

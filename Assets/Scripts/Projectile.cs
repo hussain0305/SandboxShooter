@@ -6,6 +6,8 @@ public class Projectile : MonoBehaviour
 {
     public float lifetime;
     public ParticleSystem hitEffect;
+
+    public string[] pathStrings;
     
     private int damage;
     void Start()
