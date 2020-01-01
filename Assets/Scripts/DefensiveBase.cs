@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -9,20 +10,16 @@ public class DefensiveBase : MonoBehaviour
 
     public float frequency;
     protected EPlayerController owner;
-    protected List<TestEnemy> opponentsInVicinity;
-    /*
-     * DO NOT DELETE
-     * 
     protected List<EPlayerController> opponentsInVicinity;
-    */
+    private PhotonView pView;
+
+    private void Awake()
+    {
+        pView = GetComponent<PhotonView>();
+    }
     void Start()
     {
-        /*
-         * DO NO DELETE
-         * 
         opponentsInVicinity = new List<EPlayerController>();
-        */
-        opponentsInVicinity = new List<TestEnemy>();
     }
     public EPlayerController GetOwner()
     {
@@ -31,7 +28,16 @@ public class DefensiveBase : MonoBehaviour
 
     public void SetOwner(EPlayerController own)
     {
-        owner = own;
+        if (pView.IsMine)
+        {
+            pView.RPC("RPC_SetOwner", RpcTarget.All, own.GetComponent<PhotonView>().ViewID);
+        }
+    }
+
+    [PunRPC]
+    public void RPC_SetOwner(int own)
+    {
+        owner = PhotonView.Find(own).GetComponent<EPlayerController>();
         if (hasProximityDetector)
         {
             GetComponentInChildren<ProximityDetector>().SetOwner(owner);
@@ -39,29 +45,14 @@ public class DefensiveBase : MonoBehaviour
         }
     }
 
-    /*
-     * DO NOT DELETE
-     * 
     public void OpponentDetected(EPlayerController opponent)
-    */
-    public void OpponentDetected(TestEnemy opponent)
     {
-        /*
-         * DO NO DELETE
-         * 
-        opponentsInVicinity.Add(opponent);
-        */
         opponentsInVicinity.Add(opponent);
         PerformAttack();
     }
 
-    public void OpponentLeft(TestEnemy opponent)
+    public void OpponentLeft(EPlayerController opponent)
     {
-        /*
-         * DO NO DELETE
-         * 
-        opponentsInVicinity.Remove(opponent);
-        */
         if (opponentsInVicinity.Contains(opponent))
         {
             opponentsInVicinity.Remove(opponent);

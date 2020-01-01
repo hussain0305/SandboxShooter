@@ -5,9 +5,9 @@ using UnityEngine;
 public class HomingMissile : MonoBehaviour
 {
     public float homingSpeed;
-    private TestEnemy target;
+    private EPlayerController target;
 
-    public void SetTarget(TestEnemy t)
+    public void SetTarget(EPlayerController t)
     {
         target = t;
         Propel();

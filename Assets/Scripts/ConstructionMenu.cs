@@ -1,12 +1,23 @@
 ﻿using UnityEngine;
-
+using UnityEngine.UI;
 
 public class ConstructionMenu : MonoBehaviour
 {
+    [Header("Panels")]
     public GameObject offence;
     public GameObject defence;
     public GameObject decorations;
+
+    [Header("Buttons")]
+    public Button offenceButton;
+    public Button defenceButton;
+    public Button decorationsButton;
+
+    [Header("Misc")]
     public UIInfoPopup popup;
+
+    public Material highlightedCategoryMaterial;
+    public Material regularCategoryMaterial;
 
     private GameManager gameManager;
     private EPlayerController player;
@@ -15,6 +26,9 @@ public class ConstructionMenu : MonoBehaviour
     {
         gameManager = GameObject.FindObjectOfType<GameManager>();
         player = gameManager.FetchLocalPlayer();
+
+        highlightedCategoryMaterial = new Material(highlightedCategoryMaterial);
+        regularCategoryMaterial = new Material(regularCategoryMaterial);
     }
     void OnEnable()
     {
@@ -22,6 +36,10 @@ public class ConstructionMenu : MonoBehaviour
         offence.SetActive(false);
         defence.SetActive(false);
         decorations.SetActive(false);
+        
+        defenceButton.GetComponent<Image>().material = regularCategoryMaterial;
+        decorationsButton.GetComponent<Image>().material = regularCategoryMaterial;
+        offenceButton.GetComponent<Image>().material = regularCategoryMaterial;
     }
 
     private void OnDisable()
@@ -35,6 +53,10 @@ public class ConstructionMenu : MonoBehaviour
         decorations.SetActive(false);
 
         offence.SetActive(true);
+
+        defenceButton.GetComponent<Image>().material = regularCategoryMaterial;
+        decorationsButton.GetComponent<Image>().material = regularCategoryMaterial;
+        offenceButton.GetComponent<Image>().material = highlightedCategoryMaterial;
     }
 
     public void DefenceSelected()
@@ -43,6 +65,10 @@ public class ConstructionMenu : MonoBehaviour
         decorations.SetActive(false);
 
         defence.SetActive(true);
+
+        offenceButton.GetComponent<Image>().material = regularCategoryMaterial;
+        decorationsButton.GetComponent<Image>().material = regularCategoryMaterial;
+        defenceButton.GetComponent<Image>().material = highlightedCategoryMaterial;
     }
 
     public void DecorationSelected()
@@ -51,6 +77,10 @@ public class ConstructionMenu : MonoBehaviour
         defence.SetActive(false);
 
         decorations.SetActive(true);
+
+        offenceButton.GetComponent<Image>().material = regularCategoryMaterial;
+        defenceButton.GetComponent<Image>().material = regularCategoryMaterial;
+        decorationsButton.GetComponent<Image>().material = highlightedCategoryMaterial;
     }
 
     public void ConstructionSelected(SpawnableType type, string id)

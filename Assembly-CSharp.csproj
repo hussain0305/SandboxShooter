@@ -69,7 +69,7 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSceneTool.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
-    <Compile Include="Assets\Scripts\Ability_Blink.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Ability_Blink.cs" />
     <Compile Include="Assets\Scripts\CanvasCommunicator.cs" />
     <Compile Include="Assets\Scripts\ConstructionMenu.cs" />
     <Compile Include="Assets\Scripts\DefensiveBase.cs" />

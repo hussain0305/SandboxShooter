@@ -44,5 +44,6 @@ MonoBehaviour:
   - RPC_PickupEnergyPack
   - RPC_WasDropped
   - RPC_SpawnWeaponPickup
+  - RPC_SetOwner
   DisableAutoOpenWizard: 1
   ShowSettings: 1

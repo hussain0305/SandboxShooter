@@ -21,9 +21,6 @@ public class ProximityDetector : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        /*
-         * DO NOT DELETE
-         * 
         if (!owner || !GetComponentInParent<SpawnableGO>().isUsable)
         {
             return;
@@ -33,19 +30,13 @@ public class ProximityDetector : MonoBehaviour
         {
             structure.OpponentDetected(other.GetComponent<EPlayerController>());
         }
-        */
-        if (other.GetComponent<TestEnemy>())
-        {
-            structure.OpponentDetected(other.GetComponent<TestEnemy>());
-        }
-
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.GetComponent<TestEnemy>())
+        if (other.GetComponent<EPlayerController>())
         {
-            structure.OpponentLeft(other.GetComponent<TestEnemy>());
+            structure.OpponentLeft(other.GetComponent<EPlayerController>());
         }
     }
 

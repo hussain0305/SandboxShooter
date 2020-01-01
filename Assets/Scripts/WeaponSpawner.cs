@@ -31,7 +31,7 @@ public class WeaponSpawner : MonoBehaviour
             {
                 if (hit.collider.GetComponent<EnergyWeaponPickup>())
                 {
-                    Debug.Log("Already present, so not spawning");
+
                 }
                 else
                 {

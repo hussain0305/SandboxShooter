@@ -33,7 +33,7 @@ public class OffensiveControllerBase : MonoBehaviour
     public void Start()
     {
         canShoot = true;
-        originalOrientation = transform.rotation;
+        originalOrientation = turret.transform.rotation;
         master = GetComponentInParent<SpawnableGO>();
         pView = GetComponent<PhotonView>();
     }
@@ -92,10 +92,9 @@ public class OffensiveControllerBase : MonoBehaviour
     [PunRPC]
     public void RPC_OffensiveLeft()
     {
-        Debug.Log(controllingPlayer + " left " + name);
         controllingPlayer = -1;
         isOccupied = false;
-        transform.rotation = originalOrientation;
+        turret.transform.rotation = originalOrientation;
     }
 
     public void Shot()

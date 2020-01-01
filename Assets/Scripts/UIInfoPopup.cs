@@ -15,16 +15,11 @@ public class UIInfoPopup : MonoBehaviour
 
     public Vector2 cursorOffset;
 
-    private float recHeight;
-    private float recWidth;
-
     private float centerX;
     private float centerY;
 
     void Start()
     {
-        recHeight = GetComponent<RectTransform>().rect.height;
-        recWidth = GetComponent<RectTransform>().rect.width;
         centerX = Screen.width / 2;
         centerY = Screen.height / 2;
     }
@@ -40,13 +35,15 @@ public class UIInfoPopup : MonoBehaviour
             //Top Left
             if (Input.mousePosition.x < centerX)
             {
+                GetComponent<RectTransform>().pivot = new Vector2(0, 1);
                 return new Vector2(Input.mousePosition.x + cursorOffset.x, Input.mousePosition.y + cursorOffset.y);
             }
 
             //Top Right
             else
             {
-                return new Vector2(Input.mousePosition.x - (cursorOffset.x + recWidth), Input.mousePosition.y + cursorOffset.y);
+                GetComponent<RectTransform>().pivot = new Vector2(1, 1);
+                return new Vector2(Input.mousePosition.x - cursorOffset.x, Input.mousePosition.y + cursorOffset.y);
             }
         }
         else
@@ -54,13 +51,15 @@ public class UIInfoPopup : MonoBehaviour
             //Bottom Left
             if (Input.mousePosition.x < centerX)
             {
-                return new Vector2(Input.mousePosition.x + cursorOffset.x, Input.mousePosition.y - cursorOffset.y + recHeight);
+                GetComponent<RectTransform>().pivot = new Vector2(0, 0);
+                return new Vector2(Input.mousePosition.x + cursorOffset.x, Input.mousePosition.y - cursorOffset.y);
             }
 
             //Bottom Right
             else
             {
-                return new Vector2(Input.mousePosition.x - (cursorOffset.x + recWidth), Input.mousePosition.y - cursorOffset.y + recHeight);
+                GetComponent<RectTransform>().pivot = new Vector2(1, 0);
+                return new Vector2(Input.mousePosition.x - cursorOffset.x, Input.mousePosition.y - cursorOffset.y);
             }
 
         }
