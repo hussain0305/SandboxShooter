@@ -34,6 +34,11 @@ public class EnergyPack : MonoBehaviour
         pView = GetComponent<PhotonView>();
     }
 
+    private void Start()
+    {
+        energyMaterial.SetColor("_Color", activeColor);
+    }
+
     private void OnEnable()
     {
         owner = transform.parent.root;

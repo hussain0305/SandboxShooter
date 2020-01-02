@@ -67,6 +67,7 @@ MonoBehaviour:
   lifetime: 3
   hitEffect: {fileID: 3806443029126336785, guid: 835397360f6be6a4f9d9625ccabf5514,
     type: 3}
+  disblanceImpact: 200
   pathStrings:
   - Prefabs
   - Projectiles

@@ -6,6 +6,7 @@ public class Projectile : MonoBehaviour
 {
     public float lifetime;
     public ParticleSystem hitEffect;
+    public float disblanceImpact;
 
     public string[] pathStrings;
     

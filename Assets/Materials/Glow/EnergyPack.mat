@@ -26,4 +26,4 @@ Material:
     m_Floats:
     - _Glow: 0.98
     m_Colors:
-    - _Color: {r: 0.4039216, g: 1, b: 0.003921569, a: 1}
+    - _Color: {r: 1, g: 0.19115901, b: 0, a: 1}

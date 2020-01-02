@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 267301236003811947}
   - component: {fileID: 267301236003811945}
   - component: {fileID: 267301236003811944}
+  - component: {fileID: 2599181165803873431}
   - component: {fileID: 5685804261184778051}
   - component: {fileID: 8368513710497615746}
   - component: {fileID: 6104816749547347404}
@@ -206,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUI: {fileID: 267301236003811947}
   playerEnergy: {fileID: 267301236003811945}
+  playerDisbalance: {fileID: 2599181165803873431}
   mouseSensitivity: 200
   forwardSpeed: 6
   runningSpeed: 12
@@ -258,6 +260,18 @@ MonoBehaviour:
   blinkMarker: {fileID: 6327116472900913199, guid: 247762bf6e67f1545b28fdc51b6f3d4a,
     type: 3}
   trail: {fileID: 8112188100002717570}
+--- !u!114 &2599181165803873431
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267301236003811948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 818cb5586946e9b4cb8a2b68beb60b47, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &5685804261184778051
 MonoBehaviour:
   m_ObjectHideFlags: 0

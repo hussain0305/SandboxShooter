@@ -8,6 +8,7 @@ public class EPlayerController : MonoBehaviour
     [Header("Components")]
     public PlayerUI playerUI;
     public PlayerEnergy playerEnergy;
+    public PlayerDisbalance playerDisbalance;
 
     [Header("Game Settings")]
     public float mouseSensitivity = 50;
@@ -279,7 +280,9 @@ public class EPlayerController : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Projectile>() && GetComponent<PhotonView>().IsMine)
         {
-            playerEnergy.DropEnergyPack();
+            //GetProjectile force here
+            //playerEnergy.DropEnergyPack();
+            playerDisbalance.AddOnDisbalance(collision.gameObject.GetComponent<Projectile>().disblanceImpact);
         }
     }
 

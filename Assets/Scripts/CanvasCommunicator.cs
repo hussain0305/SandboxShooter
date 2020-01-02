@@ -9,6 +9,7 @@ public class CanvasCommunicator : MonoBehaviour
     public Text alertMessage;
     public Text instructionMessage;
     public Text energyValue;
+    public GameObject disbalanceBar;
 
 
     public GameObject GetConstructionMenuComponent()
@@ -30,5 +31,11 @@ public class CanvasCommunicator : MonoBehaviour
     {
         return energyValue;
     }
+
+    public GameObject GetDisbalanceBar()
+    {
+        return disbalanceBar;
+    }
+
 
 }

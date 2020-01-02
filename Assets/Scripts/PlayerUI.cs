@@ -12,6 +12,7 @@ public class PlayerUI : MonoBehaviour
     private GameObject constructionMenu;
     
     private Text energyValue;
+    private GameObject disbalanceBar;
 
     // Start is called before the first frame update
     void Start()
@@ -32,10 +33,12 @@ public class PlayerUI : MonoBehaviour
         alertMessage = canvasCom.GetAlertMessageComponent();
         instructionMessage = canvasCom.GetInstructionMessageComponent();
         constructionMenu = canvasCom.GetConstructionMenuComponent();
-        
+        disbalanceBar = canvasCom.GetDisbalanceBar();
+
         alertMessage.gameObject.SetActive(false);
         instructionMessage.gameObject.SetActive(false);
         constructionMenu.SetActive(false);
+        disbalanceBar.SetActive(false);
 
     }
 
@@ -44,6 +47,25 @@ public class PlayerUI : MonoBehaviour
         constructionMenu.SetActive(!constructionMenu.activeSelf);
         Cursor.visible = constructionMenu.activeSelf;
     }
+
+    #region Disbalance Bar
+
+    public void NewDisbalanceValueReceived(float disbalancePercentage)
+    {
+        if (!disbalanceBar.activeSelf)
+        {
+            disbalanceBar.SetActive(true);
+        }
+        
+        disbalanceBar.GetComponentInChildren<Image>().material.SetFloat("_Percentage", disbalancePercentage);
+        
+        if(disbalancePercentage < 0.01f || disbalancePercentage > 1.00f)
+        {
+            disbalanceBar.SetActive(false);
+        }
+    }
+
+    #endregion
 
     #region Energy Bar
 
