@@ -33,7 +33,6 @@ public class PlayerDisbalance : MonoBehaviour
         disbalanceActivityOngoing = true;
         while (currentDisbalance > 0)
         {
-            Debug.Log("sent " + (currentDisbalance / MAX_DISBALANCE));
             playerUI.NewDisbalanceValueReceived(currentDisbalance / MAX_DISBALANCE);
             if (currentDisbalance >= MAX_DISBALANCE)
             {

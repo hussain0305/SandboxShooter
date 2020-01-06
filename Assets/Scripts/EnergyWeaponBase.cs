@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.IO;
 using UnityEngine;
 
 public class EnergyWeaponBase : MonoBehaviour
@@ -23,6 +23,13 @@ public class EnergyWeaponBase : MonoBehaviour
     public void SetEnergySource(EnergyPack source)
     {
         energySource = source;
+    }
+
+    public void SpawnEnergyProjectile()
+    {
+        spawnedProjectile = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), energySource.nozzle.transform.position, energySource.playerCam.transform.rotation).GetComponent<Projectile>();
+        spawnedProjectile.SetDamage(projectileDamage);
+        spawnedProjectile.GetComponent<Rigidbody>().velocity = spawnedProjectile.transform.forward * projectileSpeed;
     }
 
     public virtual void ShootEnergyWeapon() { }

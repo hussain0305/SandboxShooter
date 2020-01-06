@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3908260949714027871}
   - component: {fileID: 6105704207501934575}
   - component: {fileID: 5105404506444904800}
+  - component: {fileID: 2590654435961366116}
   - component: {fileID: 303154474426011655}
   m_Layer: 0
   m_Name: Ramp
@@ -70,6 +71,23 @@ MonoBehaviour:
   finalMat: {fileID: 2100000, guid: 8e278e54db2251141bce1bef97f6cafd, type: 2}
   allBodyRenderers:
   - {fileID: 3292353274058827494}
+--- !u!114 &2590654435961366116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864814848847314582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dimensions: {x: 2.5, y: 2.5, z: 0.5}
+  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
+  healthRenderer: {fileID: 2152868868891079027}
+  destructionEffect: {fileID: 4359040300246178800, guid: 4eb2f5056a7813e4f93364841bb76938,
+    type: 3}
 --- !u!114 &303154474426011655
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -87,7 +105,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
@@ -196,7 +215,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f094b45871340744ba0aa9bb8ea02564, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthComponent: {fileID: 3069195543449751293}
+  healthComponent: {fileID: 2590654435961366116}
 --- !u!1 &5138314563054390511
 GameObject:
   m_ObjectHideFlags: 0
@@ -208,7 +227,6 @@ GameObject:
   - component: {fileID: 3097780808292904015}
   - component: {fileID: 5621282159510820556}
   - component: {fileID: 2152868868891079027}
-  - component: {fileID: 3069195543449751293}
   m_Layer: 0
   m_Name: HealthBar
   m_TagString: Untagged
@@ -276,19 +294,3 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3069195543449751293
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5138314563054390511}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimensions: {x: 2.5, y: 2.5, z: 0.5}
-  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
-  destructionEffect: {fileID: 4359040300246178800, guid: 4eb2f5056a7813e4f93364841bb76938,
-    type: 3}

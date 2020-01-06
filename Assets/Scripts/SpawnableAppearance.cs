@@ -26,26 +26,43 @@ public class SpawnableAppearance : SpawnableComponentBase
         foreach(Renderer curr in allBodyRenderers)
         {
             curr.material = new Material(dissolveMat);
-            curr.material.SetColor("_Color", objectColor);
-            curr.material.SetColor("_BurnColor", burnColor);
+            curr.material.SetColor("_FillColor", objectColor);
+            //curr.material.SetColor("_Color", objectColor);
+            //curr.material.SetColor("_BurnColor", burnColor);
         }
         StartCoroutine(DissolveIn());
     }
 
     IEnumerator DissolveIn()
     {
-        float burnAmount = 1;
-        while (burnAmount > 0.5f)
+        //float burnAmount = 1;
+        //while (burnAmount > 0.5f)
+        //{
+        //    burnAmount -= 0.01f;
+        //    foreach (Renderer curr in allBodyRenderers)
+        //    {
+        //        //YAHAN PE
+        //        curr.material.SetFloat("_Percentage", burnAmount);
+        //    }
+
+        //    yield return new WaitForSeconds(parentSpawnable.buildTime / 100);
+        //}
+        //foreach (Renderer curr in allBodyRenderers)
+        //{
+        //    curr.material = new Material(finalMat);
+        //    curr.material.SetColor("_Color", objectColor);
+        //}
+        float percentage = 0;
+        while (percentage <= 1)
         {
-            burnAmount -= 0.01f;
+            percentage += 0.01f;
             foreach (Renderer curr in allBodyRenderers)
             {
-                //YAHAN PE
-                curr.material.SetFloat("_SliceAmount", burnAmount);
+                curr.material.SetFloat("_Percentage", percentage);
             }
-
             yield return new WaitForSeconds(parentSpawnable.buildTime / 100);
         }
+
         foreach (Renderer curr in allBodyRenderers)
         {
             curr.material = new Material(finalMat);

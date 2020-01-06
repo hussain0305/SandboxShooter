@@ -69,7 +69,6 @@ GameObject:
   - component: {fileID: 2306623362078835787}
   - component: {fileID: 2306623362078835783}
   - component: {fileID: 2306623362078835782}
-  - component: {fileID: 2306623362078835781}
   - component: {fileID: 2306623362078835780}
   m_Layer: 0
   m_Name: HealthBar
@@ -138,22 +137,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &2306623362078835781
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2306623362078835786}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimensions: {x: 2.5, y: 2.5, z: 0.5}
-  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
-  destructionEffect: {fileID: 4359040300246178800, guid: 88ca7d34807fed84e8466d5dcaacf776,
-    type: 3}
 --- !u!65 &2306623362078835780
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -178,6 +161,7 @@ GameObject:
   - component: {fileID: 2306623362185636475}
   - component: {fileID: 2306623362185636474}
   - component: {fileID: 2306623362185636473}
+  - component: {fileID: 5945768064611565128}
   - component: {fileID: 3797912204367512442}
   - component: {fileID: -5941044379034917795}
   m_Layer: 0
@@ -240,6 +224,23 @@ MonoBehaviour:
   displayName: 
   type: 1
   buildTime: 5
+--- !u!114 &5945768064611565128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306623362185636472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dimensions: {x: 2.5, y: 2.5, z: 0.5}
+  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
+  healthRenderer: {fileID: 2306623362078835782}
+  destructionEffect: {fileID: 4359040300246178800, guid: 88ca7d34807fed84e8466d5dcaacf776,
+    type: 3}
 --- !u!114 &3797912204367512442
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -274,7 +275,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0

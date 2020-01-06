@@ -255,10 +255,19 @@ public class EPlayerController : MonoBehaviour
         isUsingOffensive = true;
         controlledOffensive.OffensiveOccuppied(this);        
         playerUI.RemoveInstructionMessage();
+
+        transform.position = controlledOffensive.playerAnchor.transform.position;
+        playerCamera.transform.SetParent(controlledOffensive.turret);
+        playerCamera.transform.localPosition = controlledOffensive.cameraAnchor.transform.localPosition;
+        playerCamera.transform.localRotation = controlledOffensive.cameraAnchor.transform.localRotation;
     }
 
-    void LeaveOffensive()
+    public void LeaveOffensive()
     {
+        if (!pView.IsMine)
+        {
+            return;
+        }
         isUsingOffensive = false;
         playerCamera.transform.SetParent(this.transform);
         playerCamera.transform.localPosition = camPosition;
@@ -278,10 +287,13 @@ public class EPlayerController : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<Projectile>() && GetComponent<PhotonView>().IsMine)
+        if (!pView.IsMine)
         {
-            //GetProjectile force here
-            //playerEnergy.DropEnergyPack();
+            return;
+        }
+
+        if (collision.gameObject.GetComponent<Projectile>())
+        {
             playerDisbalance.AddOnDisbalance(collision.gameObject.GetComponent<Projectile>().disblanceImpact);
         }
     }

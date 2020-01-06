@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -28,17 +28,27 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.GetComponent<SpawnableHealth>())
+        if (!GetComponent<PhotonView>().IsMine)
         {
-            Instantiate(hitEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
+            return;
         }
+        if (collision.gameObject.GetComponentInParent<SpawnableHealth>())
+        {
+            collision.gameObject.GetComponentInParent<SpawnableHealth>().ProjectileCollided(this);
+            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
+            StartCoroutine(LateDestroy());
+        }
+        else if (collision.gameObject.GetComponent<ProxyHealth>() || collision.gameObject.GetComponent<EPlayerController>())
+        {
+            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
+            StartCoroutine(LateDestroy());
+        }
+    }
 
-        else if (collision.gameObject.GetComponent<ProxyHealth>())
-        {
-            Instantiate(hitEffect, transform.position, transform.rotation);
-            Destroy(gameObject);
-        }
+    [PunRPC]
+    public void RPC_ProjectileCollidedWithSomething()
+    {
+        Instantiate(hitEffect, transform.position, transform.rotation);
     }
 
     public int GetDamage()
@@ -49,6 +59,15 @@ public class Projectile : MonoBehaviour
     IEnumerator DeathCountdown()
     {
         yield return new WaitForSeconds(lifetime);
-        Destroy(gameObject);
+        if (GetComponent<PhotonView>().IsMine)
+        {
+            PhotonNetwork.Destroy(gameObject);
+        }
+    }
+
+    public IEnumerator LateDestroy()
+    {
+        yield return new WaitForSeconds(0.1f);
+        PhotonNetwork.Destroy(gameObject);
     }
 }

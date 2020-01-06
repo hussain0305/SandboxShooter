@@ -90,7 +90,6 @@ public class PlayerEnergy : MonoBehaviour
     }
 
     [PunRPC]
-
     public void RPC_PickupEnergyPack(int packID)
     {
         if (hasEnergyPack)

@@ -11,14 +11,13 @@ public class BurstGun : OffensiveControllerBase
         base.Start();
     }
 
-    // Update is called once per frame
     void Update()
     {
-        if (!pView.IsMine)
+        if (!isOccupied)
         {
             return;
         }
-        if (isOccupied)
+        if (controllerPView.IsMine)
         {
             mouseX = Input.GetAxis("Mouse X") * turretFluidity * Time.deltaTime;
             mouseY = Input.GetAxis("Mouse Y") * turretFluidity * Time.deltaTime;

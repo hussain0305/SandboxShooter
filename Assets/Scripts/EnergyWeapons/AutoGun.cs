@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AutoGun : EnergyWeaponBase
@@ -9,9 +8,10 @@ public class AutoGun : EnergyWeaponBase
         if (player.playerEnergy.GetEnergy() >= projectileCost)
         {
             player.playerEnergy.SpendEnergy(projectileCost);
-            spawnedProjectile = Instantiate(projectile, energySource.nozzle.transform.position, energySource.playerCam.transform.rotation);
-            spawnedProjectile.SetDamage(projectileDamage);
-            spawnedProjectile.GetComponent<Rigidbody>().velocity = spawnedProjectile.transform.forward * projectileSpeed;
+            //spawnedProjectile = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), energySource.nozzle.transform.position, energySource.playerCam.transform.rotation);
+            //spawnedProjectile.SetDamage(projectileDamage);
+            //spawnedProjectile.GetComponent<Rigidbody>().velocity = spawnedProjectile.transform.forward * projectileSpeed;
+            SpawnEnergyProjectile();
             StartCoroutine(DelayedShootFromEnergyPack());
         }
         else

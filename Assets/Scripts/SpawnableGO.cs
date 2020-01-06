@@ -40,7 +40,7 @@ public class SpawnableGO : MonoBehaviour
 
     public void SpawnableIsReadyForBusiness()
     {
-        healthComponent.gameObject.SetActive(true);
+        healthComponent.enabled = true;
         isUsable = true;
     }
 
@@ -48,8 +48,8 @@ public class SpawnableGO : MonoBehaviour
     #region Health
     public void FetchHealthComponent()
     {
-        healthComponent = GetComponentInChildren<SpawnableHealth>();
-        healthComponent.gameObject.SetActive(false);
+        healthComponent = GetComponent<SpawnableHealth>();
+        healthComponent.enabled = false;
     }
     #endregion
 

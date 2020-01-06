@@ -22,13 +22,13 @@ public class OffensiveControllerBase : MonoBehaviour
     protected float xRotation;
     protected float yRotation;
 
-    protected bool isOccupied;
+    public bool isOccupied;//protected
     private Quaternion originalOrientation;
     private SpawnableGO master;
-    private int controllingPlayer;
+    private EPlayerController controllingPlayer;
 
     protected PhotonView pView;
-    //private EPlayerController controllingPlayer;
+    protected PhotonView controllerPView;
 
     public void Start()
     {
@@ -68,20 +68,15 @@ public class OffensiveControllerBase : MonoBehaviour
     public void OffensiveOccuppied(EPlayerController controller)
     {
         int tID = controller.GetComponent<PhotonView>().ViewID;
-
         pView.RPC("RPC_OffensiveOccupied", RpcTarget.All, tID);
     }
 
     [PunRPC]
     public void RPC_OffensiveOccupied(int controller)
     {
-        controllingPlayer = controller;
+        controllingPlayer = PhotonView.Find(controller).GetComponent<EPlayerController>();
+        controllerPView = PhotonView.Find(controller).GetComponent<PhotonView>();
         isOccupied = true;
-        PhotonView.Find(controller).transform.position = playerAnchor.transform.position;
-        Camera cam = PhotonView.Find(controller).GetComponentInChildren<Camera>();
-        cam.transform.SetParent(turret);
-        cam.transform.localPosition = cameraAnchor.transform.localPosition;
-        cam.transform.localRotation = cameraAnchor.transform.localRotation;
     }
 
     public void OffensiveLeft()
@@ -92,7 +87,7 @@ public class OffensiveControllerBase : MonoBehaviour
     [PunRPC]
     public void RPC_OffensiveLeft()
     {
-        controllingPlayer = -1;
+        controllingPlayer = null;
         isOccupied = false;
         turret.transform.rotation = originalOrientation;
     }
@@ -114,23 +109,31 @@ public class OffensiveControllerBase : MonoBehaviour
         proj.SetDamage(damage);
     }
 
+    public void ForceEjectPlayer()
+    {
+        if (controllingPlayer)
+        {
+            controllingPlayer.LeaveOffensive();
+        }
+    }
+
     #region Getters and Setters
-    private void SetIsOccupied(bool occupied)
+    public void SetIsOccupied(bool occupied)
     {
         isOccupied = occupied;
     }
 
-    private bool GetIsOccupied()
+    public bool GetIsOccupied()
     {
         return isOccupied;
     }
 
-    private void SetControllingPlayer(int controller)
+    public void SetControllingPlayer(EPlayerController controller)
     {
         controllingPlayer = controller;
     }
 
-    private int GetControllingPlayer()
+    public EPlayerController GetControllingPlayer()
     {
         return controllingPlayer;
     }

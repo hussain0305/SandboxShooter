@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: DissolveSurface
-  m_Shader: {fileID: 4800000, guid: 3dcbf8cbafaa45a4bb0f07ec2cf7f236, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0f050eb720493ef428340aa88b9d32e2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -41,7 +41,10 @@ Material:
     - _EmissionAmount: 0.98
     - _Glossiness: 0.5
     - _Metallic: 0
+    - _Percentage: 1
     - _SliceAmount: 1
     m_Colors:
+    - _BGColor: {r: 1, g: 1, b: 1, a: 0}
     - _BurnColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 0, g: 0.42721534, b: 1, a: 1}
+    - _FillColor: {r: 1, g: 1, b: 1, a: 1}

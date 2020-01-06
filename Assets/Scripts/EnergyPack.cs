@@ -36,6 +36,9 @@ public class EnergyPack : MonoBehaviour
 
     private void Start()
     {
+        energyMaterial = new Material(energyMaterial);
+        GetComponent<Renderer>().material = energyMaterial;
+
         energyMaterial.SetColor("_Color", activeColor);
     }
 
@@ -129,6 +132,8 @@ public class EnergyPack : MonoBehaviour
     }
     public void EnableAttackBeam(int beamNo)
     {
+        currentEnergyWeapon.ShootEnergyWeapon();
+
         pView.RPC("RPC_EnableAttackBeam", RpcTarget.All, beamNo);
     }
 
@@ -141,7 +146,7 @@ public class EnergyPack : MonoBehaviour
         {
             beams[loop].SetActive(true);
         }
-        currentEnergyWeapon.ShootEnergyWeapon();
+        //currentEnergyWeapon.ShootEnergyWeapon();
     }
 
     public void SetEnergyWeapon(EnergyWeaponBase weapon)

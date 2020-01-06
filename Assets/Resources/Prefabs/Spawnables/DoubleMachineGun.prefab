@@ -71,7 +71,6 @@ GameObject:
   - component: {fileID: 3666704370677398842}
   - component: {fileID: 3666704370677398846}
   - component: {fileID: 3666704370677398841}
-  - component: {fileID: 3666704370677398840}
   - component: {fileID: 3666704370677398843}
   m_Layer: 0
   m_Name: HealthBar
@@ -140,22 +139,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &3666704370677398840
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3666704370677398821}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimensions: {x: 0.5, y: 1.5, z: 0.4}
-  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
-  destructionEffect: {fileID: 4359040300246178800, guid: 7f08a355821ea8c4a955ec05ab231436,
-    type: 3}
 --- !u!136 &3666704370677398843
 CapsuleCollider:
   m_ObjectHideFlags: 0
@@ -4968,6 +4951,7 @@ GameObject:
   - component: {fileID: 5861088024664147557}
   - component: {fileID: 5862623113351301917}
   - component: {fileID: 5862623113351301916}
+  - component: {fileID: 24010200167748644}
   - component: {fileID: 1480970527507574403}
   - component: {fileID: 3832319577231990437}
   - component: {fileID: 8906601353125521577}
@@ -5009,7 +4993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce95ac195610a1d41a0561975dee75cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectColor: {r: 1, g: 1, b: 1, a: 1}
+  objectColor: {r: 0, g: 0.44399524, b: 1, a: 1}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   burnColor: {r: 0.3443396, g: 0.47231075, b: 1, a: 1}
   dissolveMat: {fileID: 2100000, guid: 835d541f0adda5d4a86aa8ac6fb6c528, type: 2}
@@ -5034,6 +5018,23 @@ MonoBehaviour:
   displayName: Double-Barrel Machine Gun
   type: 0
   buildTime: 2
+--- !u!114 &24010200167748644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5862623113351301919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dimensions: {x: 0.5, y: 1.5, z: 0.4}
+  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
+  healthRenderer: {fileID: 3666704370677398841}
+  destructionEffect: {fileID: 4359040300246178800, guid: 7f08a355821ea8c4a955ec05ab231436,
+    type: 3}
 --- !u!114 &1480970527507574403
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5075,9 +5076,10 @@ MonoBehaviour:
   projectile: {fileID: 4979216270300303615, guid: 471527e9870d1e9469c6a092761fed8a,
     type: 3}
   damage: 15
-  projectForce: 1000
+  projectForce: 500
   cooldown: 1
   turret: {fileID: 5857085381124420339}
+  isOccupied: 0
 --- !u!135 &8906601353125521577
 SphereCollider:
   m_ObjectHideFlags: 0

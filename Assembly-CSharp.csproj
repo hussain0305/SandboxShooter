@@ -91,6 +91,7 @@
     <Compile Include="Assets\Scripts\Network\EPhotonLobby.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonRoom.cs" />
     <Compile Include="Assets\Scripts\OffensiveControllerBase.cs" />
+    <Compile Include="Assets\Scripts\PlayerDisbalance.cs" />
     <Compile Include="Assets\Scripts\PlayerEnergy.cs" />
     <Compile Include="Assets\Scripts\PlayerUI.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
@@ -116,7 +117,8 @@
     <None Include="Assets\Shaders\UIShader.shader" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
     <None Include="Assets\Shaders\Glow.shader" />
-    <None Include="Assets\Shaders\GlowLoading.shader" />
+    <None Include="Assets\Shaders\DisbalanceBar.shader" />
+    <None Include="Assets\Shaders\SpawnableFormation.shader" />
     <None Include="Assets\Shaders\HealthBarShader.shader" />
     <None Include="Assets\Shaders\GlowTexture.shader" />
     <None Include="Assets\Models\FattyPolyTurret\Readme.txt" />

@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 661463770}
   - component: {fileID: 661463773}
   - component: {fileID: 661463772}
-  - component: {fileID: 6064041144834724386}
   - component: {fileID: 516996296669570562}
   m_Layer: 0
   m_Name: HealthBar
@@ -80,22 +79,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!114 &6064041144834724386
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 661463769}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  dimensions: {x: 2.5, y: 2.5, z: 0.5}
-  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
-  destructionEffect: {fileID: 4359040300246178800, guid: 4eb2f5056a7813e4f93364841bb76938,
-    type: 3}
 --- !u!65 &516996296669570562
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -120,6 +103,7 @@ GameObject:
   - component: {fileID: 2675310943611507849}
   - component: {fileID: 8631977462008838164}
   - component: {fileID: 6414846453866075406}
+  - component: {fileID: 6436844042279617109}
   - component: {fileID: 9013655857957069106}
   m_Layer: 0
   m_Name: Wall
@@ -179,6 +163,23 @@ MonoBehaviour:
   finalMat: {fileID: 2100000, guid: 8e278e54db2251141bce1bef97f6cafd, type: 2}
   allBodyRenderers:
   - {fileID: 4440775410510093581}
+--- !u!114 &6436844042279617109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2934413580614794718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dimensions: {x: 2.5, y: 2.5, z: 0.5}
+  healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
+  healthRenderer: {fileID: 661463772}
+  destructionEffect: {fileID: 4359040300246178800, guid: 4eb2f5056a7813e4f93364841bb76938,
+    type: 3}
 --- !u!114 &9013655857957069106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -196,7 +197,8 @@ MonoBehaviour:
   prefixField: -1
   Synchronization: 0
   OwnershipTransfer: 0
-  ObservedComponents: []
+  ObservedComponents:
+  - {fileID: 0}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
