@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfec602d062128469c971592513b101, type: 3}
+  m_Name: Trampoline
+  m_EditorClassIdentifier: 
+  type: 2
+  name: Trampoline
+  displayName: Trampoline
+  image: {fileID: 0}
+  description: Jump on it to go higher
+  health: 200
+  constructionEnergyRequired: 30
+  prefab: {fileID: 6352480172696701017, guid: 3d2fe4b26922c4b4188b71a9fe7c1197, type: 3}
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - Trampoline

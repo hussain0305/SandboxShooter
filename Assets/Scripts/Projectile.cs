@@ -32,7 +32,7 @@ public class Projectile : MonoBehaviour
         {
             return;
         }
-        if (collision.gameObject.GetComponentInParent<SpawnableHealth>())
+        if (collision.gameObject.GetComponentInParent<SpawnableHealth>() && !collision.gameObject.GetComponent<ProximityDetector>())
         {
             collision.gameObject.GetComponentInParent<SpawnableHealth>().ProjectileCollided(this);
             GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);

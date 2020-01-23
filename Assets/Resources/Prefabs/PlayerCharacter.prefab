@@ -203,6 +203,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerUI: {fileID: 267301236003811947}
   playerEnergy: {fileID: 267301236003811945}
+  playerDisbalance: {fileID: 0}
   mouseSensitivity: 200
   forwardSpeed: 6
   runningSpeed: 12
@@ -210,6 +211,7 @@ MonoBehaviour:
   jumpSpeed: 10
   jumpRunThreshold: 2
   gravity: 20
+  playerCamera: {fileID: 0}
 --- !u!114 &267301236003811947
 MonoBehaviour:
   m_ObjectHideFlags: 0

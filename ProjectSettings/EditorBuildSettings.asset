@@ -9,6 +9,6 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 46fe34abf6b885b4896e9ad1830f3e39
   - enabled: 1
-    path: Assets/Scenes/SpaceLevel.unity
-    guid: 4631add7bd23cc44e8569e617e12aab3
+    path: Assets/Scenes/NebulaSpace.unity
+    guid: f2af4f48b33ab514e9c1e7d00321c896
   m_configObjects: {}

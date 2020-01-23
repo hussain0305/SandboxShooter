@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: BurstGun
-  m_Shader: {fileID: 4800000, guid: bbbf531ae4b61f0479e54d9cb0add129, type: 3}
+  m_Shader: {fileID: 4800000, guid: 5c9f1b173de1bf441babed616e3bbf9e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
@@ -24,6 +24,9 @@ Material:
         m_Scale: {x: 0.81, y: 1}
         m_Offset: {x: 0, y: 0}
     m_Floats:
-    - _Glow: 0.89
+    - _Emission: 1
+    - _Glossiness: 0
+    - _Glow: 1
+    - _Metallic: 0
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}

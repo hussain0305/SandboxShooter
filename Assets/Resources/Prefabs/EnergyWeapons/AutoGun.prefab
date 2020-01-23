@@ -46,7 +46,7 @@ MonoBehaviour:
   projectile: {fileID: 4822292985700380245, guid: 580d643e417ad214b931ee13743af7ce,
     type: 3}
   durationBetwenShots: 0.1
-  projectileSpeed: 100
+  projectileSpeed: 75
   projectileDamage: 50
   projectileCost: 10
   beamsRequired: 1

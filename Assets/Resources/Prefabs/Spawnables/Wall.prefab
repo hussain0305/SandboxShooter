@@ -90,8 +90,8 @@ BoxCollider:
   m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 1.12376, y: 99.37679, z: 1.021415}
-  m_Center: {x: 0.000007748604, y: 39.77705, z: 0.75431716}
+  m_Size: {x: 1.12376, y: 119.69761, z: 1.021415}
+  m_Center: {x: 0.000007748604, y: 49.937458, z: 0.75431716}
 --- !u!1 &2934413580614794718
 GameObject:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   objectColor: {r: 0, g: 0.42721534, b: 1, a: 1}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   burnColor: {r: 0, g: 0.42721534, b: 1, a: 1}
-  dissolveMat: {fileID: 2100000, guid: 835d541f0adda5d4a86aa8ac6fb6c528, type: 2}
+  formationMat: {fileID: 2100000, guid: 835d541f0adda5d4a86aa8ac6fb6c528, type: 2}
   finalMat: {fileID: 2100000, guid: 8e278e54db2251141bce1bef97f6cafd, type: 2}
   allBodyRenderers:
   - {fileID: 4440775410510093581}
@@ -175,7 +175,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensions: {x: 2.5, y: 2.5, z: 0.5}
   healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
   healthRenderer: {fileID: 661463772}
   destructionEffect: {fileID: 4359040300246178800, guid: 4eb2f5056a7813e4f93364841bb76938,
@@ -228,8 +227,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4440775410510093583}
   m_LocalRotation: {x: 0, y: 0.7071068, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: 0, y: 1.25, z: 0}
-  m_LocalScale: {x: 1, y: 2.5, z: 4.5}
+  m_LocalPosition: {x: 0, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 3, z: 4.5}
   m_Children: []
   m_Father: {fileID: 2675310943611507849}
   m_RootOrder: 0

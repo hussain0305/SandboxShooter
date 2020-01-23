@@ -8,7 +8,7 @@ public class SpawnableAppearance : SpawnableComponentBase
     public Color objectColor;
     public Color damageColor;
     public Color burnColor;
-    public Material dissolveMat;
+    public Material formationMat;
     public Material finalMat;
     public Renderer[] allBodyRenderers;
 
@@ -25,7 +25,7 @@ public class SpawnableAppearance : SpawnableComponentBase
     {
         foreach(Renderer curr in allBodyRenderers)
         {
-            curr.material = new Material(dissolveMat);
+            curr.material = new Material(formationMat);
             curr.material.SetColor("_FillColor", objectColor);
             //curr.material.SetColor("_Color", objectColor);
             //curr.material.SetColor("_BurnColor", burnColor);

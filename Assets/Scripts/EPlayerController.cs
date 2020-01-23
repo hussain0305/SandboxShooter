@@ -13,24 +13,13 @@ public class EPlayerController : MonoBehaviour
     [Header("Game Settings")]
     public float mouseSensitivity = 50;
 
-    [Header("Player Settings")]
-    public float forwardSpeed = 6;
-    public float runningSpeed = 12;
-    public float strafeSpeedMultiplier = 0.5f;
-    public float jumpSpeed = 5f;
-    public float jumpRunThreshold = 2;
-    public float gravity = 10;
-
     [Header("Camera")]
     public Camera playerCamera;
-
+    public GameObject cameraHolder;
 
     const float BUILD_DISTANCE = 20; 
     private bool constructionMenuOpen;
-    private bool playerInAir;
     private bool isUsingOffensive;
-    private float axisHorizontal;
-    private float axisVertical;
     private float mouseX;
     private float mouseY;
     private float xRotation;
@@ -41,6 +30,7 @@ public class EPlayerController : MonoBehaviour
     private Animator characterAnimator;
     private GameManager gameManager;
     private CharacterController characterController;
+    private EPlayerMovement playerMovement;
     private OffensiveControllerBase controlledOffensive;
     private EPlayerNetworkPresence networkPresence;
 
@@ -50,13 +40,13 @@ public class EPlayerController : MonoBehaviour
     {
         FetchComponents();
         InitializeValues();
-
         //Cursor.lockState = CursorLockMode.Confined;
     }
 
     void FetchComponents()
     {
         playerBody = GetComponent<Transform>();
+        playerMovement = GetComponent<EPlayerMovement>();
         characterController = GetComponent<CharacterController>();
         characterAnimator = GetComponent<Animator>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
@@ -81,8 +71,7 @@ public class EPlayerController : MonoBehaviour
         camRotation = playerCamera.transform.localRotation;
 
         constructionMenuOpen = false;
-        playerInAir = false;
-        isUsingOffensive = false;
+        SetIsUsingOffensive(false);
 
     }
 
@@ -114,16 +103,13 @@ public class EPlayerController : MonoBehaviour
             return;
         }
 
-        axisVertical = Input.GetAxis("Vertical");
-        axisHorizontal = Input.GetAxis("Horizontal");
-
         if (!constructionMenuOpen)
         {
             mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
             xRotation -= mouseY;
             xRotation = Mathf.Clamp(xRotation, -45f, 15f);
-            playerCamera.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+            cameraHolder.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
             playerBody.Rotate(Vector3.up * mouseX);
         }
 
@@ -148,37 +134,6 @@ public class EPlayerController : MonoBehaviour
         }
         #endregion
 
-        #region Movement Input
-        if (characterController.isGrounded)
-        {
-            if (playerInAir)
-            {
-                playerInAir = false;
-                characterAnimator.SetTrigger("PlayerLanded");
-            }
-            moveDirection = (Input.GetButton("Run") ? runningSpeed : forwardSpeed) * ((transform.forward * axisVertical) + (transform.right * strafeSpeedMultiplier * axisHorizontal));
-
-            if (Input.GetButtonDown("Jump"))
-            {
-                if (Vector3.Magnitude(characterController.velocity) < jumpRunThreshold)
-                {
-                    characterAnimator.SetTrigger("StandingJump");
-                }
-                else
-                {
-                    characterAnimator.SetTrigger("RunningJump");
-                }
-                playerInAir = true;
-                moveDirection.y = jumpSpeed;
-            }
-        }
-
-        moveDirection.y -= gravity * Time.deltaTime;
-
-        characterController.Move(moveDirection * Time.deltaTime);
-        characterAnimator.SetFloat("VelRight", axisHorizontal);
-        characterAnimator.SetFloat("VelFwd", axisVertical * (Input.GetButton("Run") ? 1 : 0.5f));
-        #endregion
     }
 
     #region Construction Stuff
@@ -252,7 +207,7 @@ public class EPlayerController : MonoBehaviour
 
     void OccupyOffensive()
     {
-        isUsingOffensive = true;
+        SetIsUsingOffensive(true);
         controlledOffensive.OffensiveOccuppied(this);        
         playerUI.RemoveInstructionMessage();
 
@@ -268,8 +223,8 @@ public class EPlayerController : MonoBehaviour
         {
             return;
         }
-        isUsingOffensive = false;
-        playerCamera.transform.SetParent(this.transform);
+        SetIsUsingOffensive(false);
+        playerCamera.transform.SetParent(cameraHolder.transform);
         playerCamera.transform.localPosition = camPosition;
         playerCamera.transform.localRotation = camRotation;
         controlledOffensive.OffensiveLeft();
@@ -318,6 +273,7 @@ public class EPlayerController : MonoBehaviour
     public void SetIsUsingOffensive(bool val)
     {
         isUsingOffensive = val;
+        playerMovement.SetIsUsingOffensive(val);
     }
 
     public bool GetIsUsingOffensive()

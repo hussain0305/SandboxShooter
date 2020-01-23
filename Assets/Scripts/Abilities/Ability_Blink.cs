@@ -7,8 +7,9 @@ public class Ability_Blink : MonoBehaviour
 {
     const int BLINK_COST = 50;
     const float BLINK_DISTANCE = 40;
-    const float BLINK_SPEED = 75;
+    const float BLINK_SPEED = 50;
 
+    private bool canBlink;
     public EPlayerController player;
     public GameObject blinkMarker;
     public TrailRenderer trail;
@@ -23,15 +24,17 @@ public class Ability_Blink : MonoBehaviour
         cam = Camera.main;
         trail.enabled = false;
         spawnedMarker = null;
+        canBlink = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponent<PhotonView>().IsMine)
+        if (!GetComponent<PhotonView>().IsMine || !canBlink)
         {
             return;
         }
+
         if (Input.GetButtonDown("Fire2"))
         {
             if (player.playerEnergy.hasEnergyPack)
@@ -78,6 +81,7 @@ public class Ability_Blink : MonoBehaviour
 
     IEnumerator BlinkTravel()
     {
+        canBlink = false;
         trail.enabled = true;
         player.playerEnergy.SpendEnergy(BLINK_COST);
         while (Vector3.Distance(player.transform.position, markerPosition) > 2)
@@ -86,6 +90,8 @@ public class Ability_Blink : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         Destroy(spawnedMarker);
+        yield return new WaitForSeconds(0.5f);
         trail.enabled = false;
+        canBlink = true;
     }
 }

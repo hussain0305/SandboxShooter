@@ -4996,7 +4996,7 @@ MonoBehaviour:
   objectColor: {r: 0, g: 0.44399524, b: 1, a: 1}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   burnColor: {r: 0.3443396, g: 0.47231075, b: 1, a: 1}
-  dissolveMat: {fileID: 2100000, guid: 835d541f0adda5d4a86aa8ac6fb6c528, type: 2}
+  formationMat: {fileID: 2100000, guid: 835d541f0adda5d4a86aa8ac6fb6c528, type: 2}
   finalMat: {fileID: 2100000, guid: 8f953d3b70c95cf4abdafb9bb8647b81, type: 2}
   allBodyRenderers:
   - {fileID: 5839567152313586755}
@@ -5030,7 +5030,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6028b1d26fe84f447bc6e843a4316ec2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  dimensions: {x: 0.5, y: 1.5, z: 0.4}
   healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
   healthRenderer: {fileID: 3666704370677398841}
   destructionEffect: {fileID: 4359040300246178800, guid: 7f08a355821ea8c4a955ec05ab231436,

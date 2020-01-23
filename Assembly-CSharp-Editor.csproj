@@ -77,6 +77,9 @@
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
     </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
+    </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
     </Reference>
@@ -97,6 +100,9 @@
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -658,6 +664,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="Assembly-CSharp.csproj">
       <Project>{A75AF024-E529-E123-C612-A327B33D142C}</Project>
       <Name>Assembly-CSharp</Name>

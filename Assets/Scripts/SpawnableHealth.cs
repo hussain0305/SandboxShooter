@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class SpawnableHealth : SpawnableComponentBase
 {
-    [Header("Dimensions")]
-    public Vector3 dimensions;
+    //[Header("Dimensions")]
+    //public Vector3 dimensions;
 
 
     [Header("Health Details")]

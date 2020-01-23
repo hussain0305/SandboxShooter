@@ -91,7 +91,7 @@ Material:
     - _t2: 1
     - _t3: 4
     m_Colors:
-    - _CenterColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 0.27450982}
+    - _CenterColor: {r: 0, g: 0, b: 0, a: 0.39215687}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 0.04431629, g: 1, b: 0, a: 1}
     - _EdgeColor: {r: 1, g: 0.1925762, b: 0, a: 1}

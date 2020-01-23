@@ -70,6 +70,7 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability_Blink.cs" />
+    <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\CanvasCommunicator.cs" />
     <Compile Include="Assets\Scripts\ConstructionMenu.cs" />
     <Compile Include="Assets\Scripts\DefensiveBase.cs" />
@@ -78,6 +79,7 @@
     <Compile Include="Assets\Scripts\EnergyWeaponPickup.cs" />
     <Compile Include="Assets\Scripts\EnergyWeapons\AutoGun.cs" />
     <Compile Include="Assets\Scripts\EPlayerController.cs" />
+    <Compile Include="Assets\Scripts\EPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EPlayerNetworkPresence.cs" />
     <Compile Include="Assets\Scripts\Expiry.cs" />
     <Compile Include="Assets\Scripts\FloatingPlatform.cs" />
@@ -86,8 +88,6 @@
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameServer.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
-    <Compile Include="Assets\Scripts\Markers\NetworkMain.cs" />
-    <Compile Include="Assets\Scripts\Markers\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonLobby.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonRoom.cs" />
     <Compile Include="Assets\Scripts\OffensiveControllerBase.cs" />
@@ -107,32 +107,39 @@
     <Compile Include="Assets\Scripts\Spawnables\BurstGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\DoubleBarelMachineGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\HomingMissileTower.cs" />
+    <Compile Include="Assets\Scripts\Spawnables\TrampolineJumpPad.cs" />
+    <Compile Include="Assets\Scripts\TestController.cs" />
     <Compile Include="Assets\Scripts\TestEnemy.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\TestSpawner.cs" />
     <Compile Include="Assets\Scripts\UIInfoPopup.cs" />
+    <Compile Include="Assets\Scripts\Utility\BlinkMarker.cs" />
+    <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
+    <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />
+    <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
+    <None Include="Assets\Shaders\SurfaceGrid.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
     <None Include="Assets\Shaders\UIShader.shader" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
     <None Include="Assets\Shaders\Glow.shader" />
     <None Include="Assets\Shaders\DisbalanceBar.shader" />
+    <None Include="Assets\Shaders\Glow_Surface.shader" />
     <None Include="Assets\Shaders\SpawnableFormation.shader" />
     <None Include="Assets\Shaders\HealthBarShader.shader" />
-    <None Include="Assets\Shaders\GlowTexture.shader" />
     <None Include="Assets\Models\FattyPolyTurret\Readme.txt" />
-    <None Include="Assets\Shaders\GridUnlit.shader" />
     <None Include="Assets\Shaders\GridForming.shader" />
-    <None Include="Assets\Shaders\DissolveSurface.shader" />
     <None Include="Assets\Photon\PhotonUnityNetworking\readme.txt" />
-    <None Include="Assets\Shaders\EnvObjectShader.shader" />
     <None Include="Assets\Photon\PhotonUnityNetworking\changelog.txt" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.VSCode.Editor">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.VSCode.Editor.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AssetIdRemapUtility">
+      <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.ProBuilder.AssetIdRemapUtility.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro.Editor">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.TextMeshPro.Editor.dll</HintPath>
@@ -154,6 +161,9 @@
     </Reference>
     <Reference Include="Unity.Postprocessing.Runtime">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.Postprocessing.Runtime.dll</HintPath>
+    </Reference>
+    <Reference Include="Unity.ProBuilder.AddOns.Editor">
+      <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.ProBuilder.AddOns.Editor.dll</HintPath>
     </Reference>
     <Reference Include="Unity.TextMeshPro">
       <HintPath>E:/Online Projects/SandboxShooter/Library/ScriptAssemblies/Unity.TextMeshPro.dll</HintPath>
@@ -700,6 +710,10 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
+      <Project>{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{C1B9430B-63B5-14C3-9777-93FED3D4AF56}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>
