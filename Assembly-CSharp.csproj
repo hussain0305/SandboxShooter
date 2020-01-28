@@ -107,6 +107,8 @@
     <Compile Include="Assets\Scripts\Spawnables\BurstGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\DoubleBarelMachineGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\HomingMissileTower.cs" />
+    <Compile Include="Assets\Scripts\Spawnables\Tower.cs" />
+    <Compile Include="Assets\Scripts\Spawnables\TowerShield.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TrampolineJumpPad.cs" />
     <Compile Include="Assets\Scripts\TestController.cs" />
     <Compile Include="Assets\Scripts\TestEnemy.cs" />
@@ -116,6 +118,7 @@
     <Compile Include="Assets\Scripts\Utility\BlinkMarker.cs" />
     <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
     <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />
+    <Compile Include="Assets\Scripts\Utility\PlayerBodyPartCollider.cs" />
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
@@ -123,7 +126,6 @@
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
     <None Include="Assets\Shaders\UIShader.shader" />
     <None Include="Assets\Photon\PhotonLibs\Photon3Unity3D.xml" />
-    <None Include="Assets\Shaders\Glow.shader" />
     <None Include="Assets\Shaders\DisbalanceBar.shader" />
     <None Include="Assets\Shaders\Glow_Surface.shader" />
     <None Include="Assets\Shaders\SpawnableFormation.shader" />

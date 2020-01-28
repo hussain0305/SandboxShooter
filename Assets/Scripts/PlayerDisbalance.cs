@@ -27,7 +27,13 @@ public class PlayerDisbalance : MonoBehaviour
             StartCoroutine(BalanceRecovery());
         }
     }
-   
+
+    public void ResetDisbalance()
+    {
+        disbalanceActivityOngoing = false;
+        currentDisbalance = 0;
+    }
+
     IEnumerator BalanceRecovery()
     {
         disbalanceActivityOngoing = true;

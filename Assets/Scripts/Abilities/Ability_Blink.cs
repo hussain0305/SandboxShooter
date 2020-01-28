@@ -6,7 +6,7 @@ using UnityEngine;
 public class Ability_Blink : MonoBehaviour
 {
     const int BLINK_COST = 50;
-    const float BLINK_DISTANCE = 40;
+    const float BLINK_DISTANCE = 55;
     const float BLINK_SPEED = 50;
 
     private bool canBlink;

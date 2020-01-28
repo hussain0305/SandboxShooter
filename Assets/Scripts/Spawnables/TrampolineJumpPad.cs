@@ -15,6 +15,6 @@ public class TrampolineJumpPad : MonoBehaviour
 
     void PlayerJumpedOnPad(EPlayerMovement playerMovement)
     {
-        playerMovement.AddToVelocity(new Vector3(0, 75, 0));
+        playerMovement.AddToVelocity(new Vector3(0, 50, 0));
     }
 }

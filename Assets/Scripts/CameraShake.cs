@@ -37,7 +37,7 @@ public class CameraShake : MonoBehaviour
         {
             return;
         }
-        if (Input.GetButton("Vertical") && Input.GetAxis("Vertical") > 0)
+        if (Input.GetButton("Horizontal") || (Input.GetButton("Vertical") && Input.GetAxis("Vertical") > 0))
         {
             isShaking = true;
             if (Input.GetButton("Run"))

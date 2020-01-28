@@ -9,6 +9,7 @@ public class EPlayerController : MonoBehaviour
     public PlayerUI playerUI;
     public PlayerEnergy playerEnergy;
     public PlayerDisbalance playerDisbalance;
+    public EPlayerMovement playerMovement;
 
     [Header("Game Settings")]
     public float mouseSensitivity = 50;
@@ -24,13 +25,11 @@ public class EPlayerController : MonoBehaviour
     private float mouseY;
     private float xRotation;
     private Vector3 camPosition;
-    private Vector3 moveDirection;
     private Quaternion camRotation;
     private Transform playerBody;
     private Animator characterAnimator;
     private GameManager gameManager;
     private CharacterController characterController;
-    private EPlayerMovement playerMovement;
     private OffensiveControllerBase controlledOffensive;
     private EPlayerNetworkPresence networkPresence;
 
@@ -66,13 +65,13 @@ public class EPlayerController : MonoBehaviour
 
     void InitializeValues()
     {
-        moveDirection = Vector3.zero;
         camPosition = playerCamera.transform.localPosition;
         camRotation = playerCamera.transform.localRotation;
 
         constructionMenuOpen = false;
         SetIsUsingOffensive(false);
 
+        //characterController.detectCollisions = false;
     }
 
     // Update is called once per frame
@@ -240,17 +239,26 @@ public class EPlayerController : MonoBehaviour
         return !(constructionMenuOpen || isUsingOffensive);
     }
 
-    private void OnCollisionEnter(Collision collision)
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if (!pView.IsMine)
+    //    {
+    //        return;
+    //    }
+
+    //    if (collision.gameObject.GetComponent<Projectile>())
+    //    {
+    //        playerDisbalance.AddOnDisbalance(collision.gameObject.GetComponent<Projectile>().disblanceImpact);
+    //    }
+    //}
+
+    public void BodyPartHit(float disbalanceImpact)
     {
         if (!pView.IsMine)
         {
             return;
         }
-
-        if (collision.gameObject.GetComponent<Projectile>())
-        {
-            playerDisbalance.AddOnDisbalance(collision.gameObject.GetComponent<Projectile>().disblanceImpact);
-        }
+        playerDisbalance.AddOnDisbalance(disbalanceImpact);
     }
 
     #region Getters and Setters

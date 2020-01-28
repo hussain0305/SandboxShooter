@@ -27,9 +27,9 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
             mouseX = Input.GetAxis("Mouse X") * turretFluidity * Time.deltaTime;
             mouseY = Input.GetAxis("Mouse Y") * turretFluidity * Time.deltaTime;
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -60f, 15f);
+            xRotation = Mathf.Clamp(xRotation, -60f, 60f);
             yRotation += mouseX;
-            yRotation = Mathf.Clamp(yRotation, -75f, 75f);
+            yRotation = Mathf.Clamp(yRotation, -75, 75);
             turret.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
             if (Input.GetButtonDown("Fire1") && canShoot)
             {

@@ -37,5 +37,5 @@ Material:
     - _SelectedCellY: 0
     m_Colors:
     - _CellColor: {r: 1, g: 1, b: 1, a: 0}
-    - _LineColor: {r: 0.11809096, g: 0.26415092, b: 0, a: 1}
+    - _LineColor: {r: 0.44776106, g: 1, b: 0, a: 1}
     - _SelectedColor: {r: 1, g: 1, b: 1, a: 1}

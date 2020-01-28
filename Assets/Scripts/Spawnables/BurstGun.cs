@@ -22,7 +22,7 @@ public class BurstGun : OffensiveControllerBase
             mouseX = Input.GetAxis("Mouse X") * turretFluidity * Time.deltaTime;
             mouseY = Input.GetAxis("Mouse Y") * turretFluidity * Time.deltaTime;
             xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -60f, 15f);
+            xRotation = Mathf.Clamp(xRotation, -60f, 60f);
             yRotation += mouseX;
             yRotation = Mathf.Clamp(yRotation, -75f, 75f);
             turret.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);

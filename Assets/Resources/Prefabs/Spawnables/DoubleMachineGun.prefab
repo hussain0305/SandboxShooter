@@ -4993,7 +4993,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ce95ac195610a1d41a0561975dee75cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  objectColor: {r: 0, g: 0.44399524, b: 1, a: 1}
   damageColor: {r: 1, g: 0, b: 0, a: 1}
   burnColor: {r: 0.3443396, g: 0.47231075, b: 1, a: 1}
   formationMat: {fileID: 2100000, guid: 835d541f0adda5d4a86aa8ac6fb6c528, type: 2}
@@ -5002,6 +5001,7 @@ MonoBehaviour:
   - {fileID: 5839567152313586755}
   - {fileID: 5840360018108417555}
   - {fileID: 5839589535806744767}
+  rendererOriginalColors: []
 --- !u!114 &5862623113351301916
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -103,7 +103,7 @@ public class PlayerEnergy : MonoBehaviour
         energyPack.pickupCollider.enabled = false;
         energyPack.transform.SetParent(energyPackHolder);
         energyPack.transform.SetPositionAndRotation(energyPackHolder.position, energyPackHolder.rotation);
-
+        GetComponent<PlayerDisbalance>().ResetDisbalance();
     }
 
 

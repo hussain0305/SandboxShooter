@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfec602d062128469c971592513b101, type: 3}
+  m_Name: Tower
+  m_EditorClassIdentifier: 
+  type: 2
+  name: Tower
+  displayName: Tower
+  image: {fileID: 0}
+  description: Tower
+  health: 2000
+  constructionEnergyRequired: 30
+  prefab: {fileID: 5691454625180262640, guid: 58880efe73e81984f987063bf3f6feeb, type: 3}
+  isGridAligned: 1
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - Tower

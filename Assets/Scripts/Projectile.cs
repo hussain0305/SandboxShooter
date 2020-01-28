@@ -45,6 +45,25 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    private void OnTriggerEnter(Collider other)
+    {
+        if (!GetComponent<PhotonView>().IsMine)
+        {
+            return;
+        }
+        if (other.gameObject.GetComponentInParent<SpawnableHealth>() && !other.gameObject.GetComponent<ProximityDetector>())
+        {
+            other.gameObject.GetComponentInParent<SpawnableHealth>().ProjectileCollided(this);
+            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
+            StartCoroutine(LateDestroy());
+        }
+        else if (other.gameObject.GetComponent<ProxyHealth>() || other.gameObject.GetComponent<EPlayerController>())
+        {
+            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
+            StartCoroutine(LateDestroy());
+        }
+    }
+
     [PunRPC]
     public void RPC_ProjectileCollidedWithSomething()
     {
@@ -65,6 +84,10 @@ public class Projectile : MonoBehaviour
         }
     }
 
+    public void DestroyProjectile()
+    {
+        PhotonNetwork.Destroy(gameObject);
+    }
     public IEnumerator LateDestroy()
     {
         yield return new WaitForSeconds(0.1f);

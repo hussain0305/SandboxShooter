@@ -19,7 +19,8 @@ public class GameManager : MonoBehaviour
         Spawnable receivedBlueprint = GetBlueprint(type, id);
         
         //GameObject spawnedSpawnable = Instantiate(receivedBlueprint.prefab, location, rotation);
-        GameObject spawnedSpawnable = PhotonNetwork.Instantiate(Path.Combine(receivedBlueprint.pathStrings), location, rotation, 0);
+        GameObject spawnedSpawnable = PhotonNetwork.Instantiate(Path.Combine(receivedBlueprint.pathStrings), location, 
+            receivedBlueprint.isGridAligned?GetGridAlignedRotation(rotation):rotation, 0);
         spawnedSpawnable.GetComponent<SpawnableGO>().displayName = receivedBlueprint.displayName;
         spawnedSpawnable.GetComponent<SpawnableHealth>().InitiateSystems(receivedBlueprint.health);
 
@@ -27,6 +28,24 @@ public class GameManager : MonoBehaviour
         {
             spawnedSpawnable.GetComponent<DefensiveBase>().SetOwner(owner);
         }
+    }
+
+    public Quaternion GetGridAlignedRotation(Quaternion rawRotation)
+    {
+        if (rawRotation.y < -0.5f)
+        {
+            return Quaternion.Euler(0, 180, 0);
+        }
+        if (rawRotation.y < 0)
+        {
+            return Quaternion.Euler(0, 270, 0);
+        }
+        else if (rawRotation.y < 0.5f)
+        {
+            return Quaternion.Euler(0, 360, 0);
+        }
+        return Quaternion.Euler(0, 90, 0);
+
     }
 
     public void SpawnPlatform(string[] pathParts, Vector3 loc)

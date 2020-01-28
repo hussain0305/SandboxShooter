@@ -7,6 +7,12 @@ public class EPlayerMovement : MonoBehaviour
     const float NORMAL_GRAVITY = 20;
     const float REDUCED_GRAVITY = 1;
 
+    [HideInInspector]
+    public bool isGrounded;
+
+    [HideInInspector]
+    public bool isWallGliding;
+
     //[Header("Movement Settings")]
     private float forwardSpeed = 10;
     private float dashSpeed = 30;
@@ -18,9 +24,7 @@ public class EPlayerMovement : MonoBehaviour
 
     [Header("Visuals")]
     public TrailRenderer trail;
-
-    public bool isGrounded;
-    public bool isWallGliding;
+    
     private bool playerInAir;
     private bool isUsingOffensive;
     private bool isDashing;
@@ -31,6 +35,7 @@ public class EPlayerMovement : MonoBehaviour
     private float axisVertical;
     private Coroutine dashingCoroutine;
     private Vector3 moveDirection;
+    private Vector3 probeOffset;
     private CharacterController characterController;
     private Animator characterAnimator;
     private PhotonView pView;
@@ -52,6 +57,8 @@ public class EPlayerMovement : MonoBehaviour
     {
         StartCoroutine(GravityModificationRoutine());
         gravity = NORMAL_GRAVITY;
+
+        probeOffset = new Vector3(0, 0.1f, 0);
     }
 
     public void Update()
@@ -201,12 +208,12 @@ public class EPlayerMovement : MonoBehaviour
         while (true)
         {
             if (!isGrounded && Input.GetButton("Run") && (
-                Physics.Raycast(transform.position, transform.right, 1) ||
-                Physics.Raycast(transform.position, -1 * transform.right, 1) ||
-                Physics.Raycast(transform.position, transform.forward, 1) ||
-                Physics.Raycast(transform.position, -1 * transform.forward, 1)))
+                Physics.Raycast(transform.position + probeOffset, transform.right, 1, ~(1 << 13)) ||
+                Physics.Raycast(transform.position + probeOffset, -1 * transform.right, 1, ~(1 << 13)) ||
+                Physics.Raycast(transform.position + probeOffset, transform.forward, 1, ~(1 << 13)) ||
+                Physics.Raycast(transform.position + probeOffset, -1 * transform.forward, 1, ~(1 << 13))))
             {
-                if(gravity != REDUCED_GRAVITY)
+                if (gravity != REDUCED_GRAVITY)
                 {
                     SetIsWallGliding(true);
                     SetGravity(REDUCED_GRAVITY);
@@ -214,7 +221,7 @@ public class EPlayerMovement : MonoBehaviour
             }
             else
             {
-                if (gravity != NORMAL_GRAVITY)
+                if (gravity != NORMAL_GRAVITY && isWallGliding)
                 {
                     SetIsWallGliding(false);
                     SetGravity(NORMAL_GRAVITY);

@@ -12,6 +12,7 @@ public class Spawnable : ScriptableObject
     public int health;
     public int constructionEnergyRequired;
     public GameObject prefab;
+    public bool isGridAligned;
 
     public string[] pathStrings;
 }
