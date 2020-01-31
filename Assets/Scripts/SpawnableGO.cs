@@ -21,7 +21,7 @@ public class SpawnableGO : MonoBehaviour
     public void Start()
     {
         isUsable = false;
-        AssignLayer();
+        //AssignLayer();
 
         //Establish references for all components
         FetchAppearanceComponent();

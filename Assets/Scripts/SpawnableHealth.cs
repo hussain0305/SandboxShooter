@@ -85,7 +85,6 @@ public class SpawnableHealth : SpawnableComponentBase
 
     }
 
-
     public void DestroySpawnable()
     {
         Instantiate(destructionEffect, transform.position, destructionEffect.transform.rotation);

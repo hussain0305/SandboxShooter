@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class CanvasCommunicator : MonoBehaviour
@@ -8,7 +6,7 @@ public class CanvasCommunicator : MonoBehaviour
     public GameObject constructionMenu;
     public Text alertMessage;
     public Text instructionMessage;
-    public Text energyValue;
+    public Slider energyBar;
     public GameObject disbalanceBar;
 
 
@@ -27,9 +25,9 @@ public class CanvasCommunicator : MonoBehaviour
         return instructionMessage;
     }
 
-    public Text GetEnergyValueComponent()
+    public Slider GetEnergyBarComponent()
     {
-        return energyValue;
+        return energyBar;
     }
 
     public GameObject GetDisbalanceBar()

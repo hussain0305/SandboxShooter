@@ -1,6 +1,5 @@
 ﻿using Photon.Pun;
 using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,8 +10,8 @@ public class PlayerUI : MonoBehaviour
     private Text alertMessage;
     private Text instructionMessage;
     private GameObject constructionMenu;
-    
-    private Text energyValue;
+
+    private Slider energyBar;
     private GameObject disbalanceBar;
 
     // Start is called before the first frame update
@@ -30,7 +29,7 @@ public class PlayerUI : MonoBehaviour
             return;
         }
 
-        energyValue = canvasCom.GetEnergyValueComponent();
+        energyBar = canvasCom.GetEnergyBarComponent();
         alertMessage = canvasCom.GetAlertMessageComponent();
         instructionMessage = canvasCom.GetInstructionMessageComponent();
         constructionMenu = canvasCom.GetConstructionMenuComponent();
@@ -41,12 +40,31 @@ public class PlayerUI : MonoBehaviour
         constructionMenu.SetActive(false);
         disbalanceBar.SetActive(false);
 
+        constructionMenu.GetComponent<ConstructionMenu>().ForceStart();
     }
 
     public void ToggleConstructionMenu()
     {
         constructionMenu.SetActive(!constructionMenu.activeSelf);
+        constructionMenu.GetComponent<ConstructionMenu>().quickMenu.gameObject.SetActive(!constructionMenu.activeSelf);
         Cursor.visible = constructionMenu.activeSelf;
+    }
+
+    public void QuickMenuScroll(float val)
+    {
+        if (val < 0)
+        {
+            constructionMenu.GetComponent<ConstructionMenu>().ScrollDownQuickList();
+        }
+        if (val > 0)
+        {
+            constructionMenu.GetComponent<ConstructionMenu>().ScrollUpQuickList();
+        }
+    }
+
+    public void QuickConstruct()
+    {
+        constructionMenu.GetComponent<ConstructionMenu>().QuickConstruct();
     }
 
     #region Disbalance Bar
@@ -76,7 +94,7 @@ public class PlayerUI : MonoBehaviour
         {
             return;
         }
-        energyValue.text = "" +value;
+        energyBar.value = (float)value / 1000;
     }
 
     #endregion

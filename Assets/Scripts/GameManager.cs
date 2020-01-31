@@ -89,7 +89,8 @@ public class GameManager : MonoBehaviour
                 }
                 break;
         }
-        return new Spawnable();
+        //return new Spawnable();
+        return ScriptableObject.CreateInstance<Spawnable>();
     }
 
     public bool ObjectExistsAtLocation(Vector3 loc)

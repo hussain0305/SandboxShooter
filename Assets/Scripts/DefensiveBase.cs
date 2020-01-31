@@ -11,7 +11,7 @@ public class DefensiveBase : MonoBehaviour
     public float frequency;
     protected EPlayerController owner;
     protected List<EPlayerController> opponentsInVicinity;
-    private PhotonView pView;
+    protected PhotonView pView;
 
     private void Awake()
     {

@@ -5,7 +5,6 @@ using UnityEngine;
 public class Tower : MonoBehaviour
 {
     public GameObject shield;
-    public GameObject lift;
 
     private Vector3 shieldShrunkScale;
     private Vector3 shieldOriginalScale;
@@ -22,11 +21,10 @@ public class Tower : MonoBehaviour
         if (other.transform.gameObject.GetComponent<EPlayerController>())
         {
             StopAllCoroutines();
-            StartCoroutine(ShrinkShield());
-        }
-        else
-        {
-            Debug.Log("FOUND " + other.name);
+            if (shield)
+            {
+                StartCoroutine(ShrinkShield());
+            }
         }
     }
 
@@ -35,27 +33,28 @@ public class Tower : MonoBehaviour
         if (other.transform.gameObject.GetComponent<EPlayerController>())
         {
             StopAllCoroutines();
-            StartCoroutine(ExpandShield());
+            if (shield)
+            {
+                StartCoroutine(ExpandShield());
+            }
         }
     }
 
     IEnumerator ShrinkShield()
     {
-        while (Vector3.Distance(shield.transform.localScale, shieldShrunkScale) > 1)
+        while (Vector3.Distance(shield.transform.localScale, shieldShrunkScale) > 0.1f)
         {
-            Debug.Log("Shrink");
             shield.transform.localScale = Vector3.Lerp(shield.transform.localScale, shieldShrunkScale, 10 * Time.deltaTime);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForEndOfFrame();
         }
     }
 
     IEnumerator ExpandShield()
     {
-        while (Vector3.Distance(shield.transform.localScale, shieldOriginalScale) > 1)
+        while (Vector3.Distance(shield.transform.localScale, shieldOriginalScale) > 0.1f)
         {
-            Debug.Log("ExpandShield");
             shield.transform.localScale = Vector3.Lerp(shield.transform.localScale, shieldOriginalScale, 10 * Time.deltaTime);
-            yield return new WaitForSeconds(0.1f);
+            yield return new WaitForEndOfFrame();
         }
         shield.transform.localScale = shieldOriginalScale;
     }

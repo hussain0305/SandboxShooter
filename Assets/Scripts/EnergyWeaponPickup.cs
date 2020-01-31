@@ -14,7 +14,8 @@ public class EnergyWeaponPickup : MonoBehaviour
         {
             if (other.GetComponent<EPlayerController>().playerEnergy.energyPack)
             {
-                other.GetComponent<EPlayerController>().playerEnergy.energyPack.SetEnergyWeapon(Instantiate(weapon));
+                //other.GetComponent<EPlayerController>().playerEnergy.energyPack.SetEnergyWeapon(weapon);
+                other.GetComponent<EPlayerController>().PickedUpEnergyWeapon(weapon);
                 Instantiate(destructionEffect, transform.position, destructionEffect.transform.rotation);
                 Destroy(gameObject);
             }

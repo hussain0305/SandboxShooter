@@ -1,16 +1,16 @@
-﻿using System.Collections;
+﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class AutoGun : EnergyWeaponBase
 {
+
     public override void ShootEnergyWeapon()
     {
         if (player.playerEnergy.GetEnergy() >= projectileCost)
         {
             player.playerEnergy.SpendEnergy(projectileCost);
-            //spawnedProjectile = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), energySource.nozzle.transform.position, energySource.playerCam.transform.rotation);
-            //spawnedProjectile.SetDamage(projectileDamage);
-            //spawnedProjectile.GetComponent<Rigidbody>().velocity = spawnedProjectile.transform.forward * projectileSpeed;
+            
             SpawnEnergyProjectile();
             StartCoroutine(DelayedShootFromEnergyPack());
         }
@@ -28,5 +28,20 @@ public class AutoGun : EnergyWeaponBase
         {
             ShootEnergyWeapon();
         }
+    }
+
+    public void SpawnEnergyProjectile()
+    {
+        pView.RPC("RPC_SpawnEnergyProjectile", RpcTarget.All, energySource.nozzle.transform.position,
+            energySource.playerCam.transform.rotation,
+            player.GetComponent<CharacterController>().velocity);
+    }
+
+    [PunRPC]
+    void RPC_SpawnEnergyProjectile(Vector3 pos, Quaternion rot, Vector3 vel)
+    {
+        spawnedProjectile = Instantiate(projectile, pos, rot).GetComponent<Projectile>();
+        spawnedProjectile.SetDamage(projectileDamage);
+        spawnedProjectile.GetComponent<Rigidbody>().velocity = (spawnedProjectile.transform.forward * projectileSpeed) + vel;
     }
 }

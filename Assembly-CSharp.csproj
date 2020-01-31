@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProximityDetector.cs" />
     <Compile Include="Assets\Scripts\ProxyHealth.cs" />
+    <Compile Include="Assets\Scripts\QuickBuildMenu.cs" />
     <Compile Include="Assets\Scripts\Scene_MainMenu.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
     <Compile Include="Assets\Scripts\SpawnableAppearance.cs" />
@@ -105,11 +106,13 @@
     <Compile Include="Assets\Scripts\SpawnableGO.cs" />
     <Compile Include="Assets\Scripts\SpawnableHealth.cs" />
     <Compile Include="Assets\Scripts\Spawnables\BurstGun.cs" />
+    <Compile Include="Assets\Scripts\Spawnables\ChainPlatform.cs" />
     <Compile Include="Assets\Scripts\Spawnables\DoubleBarelMachineGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\HomingMissileTower.cs" />
     <Compile Include="Assets\Scripts\Spawnables\Tower.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TowerShield.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TrampolineJumpPad.cs" />
+    <Compile Include="Assets\Scripts\SpawnPad.cs" />
     <Compile Include="Assets\Scripts\TestController.cs" />
     <Compile Include="Assets\Scripts\TestEnemy.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
@@ -120,6 +123,7 @@
     <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />
     <Compile Include="Assets\Scripts\Utility\PlayerBodyPartCollider.cs" />
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />

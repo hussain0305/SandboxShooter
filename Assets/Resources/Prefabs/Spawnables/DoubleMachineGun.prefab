@@ -24,7 +24,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3666704370232183560}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 1.225, z: 4.103}
+  m_LocalPosition: {x: 0, y: 1.225, z: 4.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5857085381124420339}
@@ -72,7 +72,7 @@ GameObject:
   - component: {fileID: 3666704370677398846}
   - component: {fileID: 3666704370677398841}
   - component: {fileID: 3666704370677398843}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5075,8 +5075,8 @@ MonoBehaviour:
   projectile: {fileID: 4979216270300303615, guid: 471527e9870d1e9469c6a092761fed8a,
     type: 3}
   damage: 15
-  projectForce: 500
-  cooldown: 1
+  projectForce: 195
+  cooldown: 0.2
   turret: {fileID: 5857085381124420339}
   isOccupied: 0
 --- !u!135 &8906601353125521577

@@ -5209,7 +5209,7 @@ GameObject:
   - component: {fileID: 5621161311635875253}
   - component: {fileID: 7280386421874474270}
   - component: {fileID: 5412518450413905402}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
   m_Icon: {fileID: 0}

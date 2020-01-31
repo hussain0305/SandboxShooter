@@ -12,8 +12,9 @@ GameObject:
   - component: {fileID: 4359040300246178800}
   - component: {fileID: 3987477556024285552}
   - component: {fileID: 7850707578825598795}
+  - component: {fileID: 544520910560031842}
   m_Layer: 0
-  m_Name: Break_HomingMissileTower
+  m_Name: Break_Tower
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4712,8 +4713,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e4ecc1482f14140b44154ad34311e1, type: 2}
-  - {fileID: 2100000, guid: 85e4ecc1482f14140b44154ad34311e1, type: 2}
+  - {fileID: 2100000, guid: 4d348605418dcf24aadeb56f2f43627a, type: 2}
+  - {fileID: 2100000, guid: 4d348605418dcf24aadeb56f2f43627a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -4770,6 +4771,27 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifetime: 4
+--- !u!114 &544520910560031842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 209645698944486390}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ObservedComponentsFoldoutOpen: 1
+  Group: 0
+  prefixField: -1
+  Synchronization: 0
+  OwnershipTransfer: 0
+  ObservedComponents: []
+  viewIdField: 0
+  InstantiationId: 0
+  isRuntimeInstantiated: 0
 --- !u!1 &7913504301194950057
 GameObject:
   m_ObjectHideFlags: 0
@@ -9480,8 +9502,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e4ecc1482f14140b44154ad34311e1, type: 2}
-  - {fileID: 2100000, guid: 85e4ecc1482f14140b44154ad34311e1, type: 2}
+  - {fileID: 2100000, guid: 4d348605418dcf24aadeb56f2f43627a, type: 2}
+  - {fileID: 2100000, guid: 4d348605418dcf24aadeb56f2f43627a, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -14248,8 +14270,8 @@ ParticleSystemRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 85e4ecc1482f14140b44154ad34311e1, type: 2}
-  - {fileID: 2100000, guid: 85e4ecc1482f14140b44154ad34311e1, type: 2}
+  - {fileID: 2100000, guid: b83eba5bb449f4544ba97c06624fd9a1, type: 2}
+  - {fileID: 2100000, guid: b83eba5bb449f4544ba97c06624fd9a1, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0

@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System.IO;
 using UnityEngine;
 
 //RUNNING : Player can select between toggling and holding the run button
@@ -131,6 +132,17 @@ public class EPlayerController : MonoBehaviour
                 playerUI.DisplayAlertMessage("Cannot construct without energy pack");
             }
         }
+        
+        if (Input.GetAxis("Mouse ScrollWheel") != 0 && !constructionMenuOpen)
+        {
+            playerUI.QuickMenuScroll(Input.GetAxis("Mouse ScrollWheel"));
+        }
+
+        if (Input.GetButtonDown("Fire3") && !constructionMenuOpen)
+        {
+            playerUI.QuickConstruct();
+        }
+
         #endregion
 
     }
@@ -239,26 +251,28 @@ public class EPlayerController : MonoBehaviour
         return !(constructionMenuOpen || isUsingOffensive);
     }
 
-    //private void OnCollisionEnter(Collision collision)
-    //{
-    //    if (!pView.IsMine)
-    //    {
-    //        return;
-    //    }
-
-    //    if (collision.gameObject.GetComponent<Projectile>())
-    //    {
-    //        playerDisbalance.AddOnDisbalance(collision.gameObject.GetComponent<Projectile>().disblanceImpact);
-    //    }
-    //}
-
-    public void BodyPartHit(float disbalanceImpact)
+    private void OnCollisionEnter(Collision collision)
     {
         if (!pView.IsMine)
         {
             return;
         }
+    }
+
+    public void BodyPartHit(float disbalanceImpact)
+    {
         playerDisbalance.AddOnDisbalance(disbalanceImpact);
+    }
+
+    public bool IsLocalPView()
+    {
+        return pView.IsMine;
+    }
+
+    public void PickedUpEnergyWeapon(EnergyWeaponBase pickedWeapon)
+    {
+        playerEnergy.energyPack.SetEnergyWeapon(PhotonNetwork.Instantiate(Path.Combine(pickedWeapon.pathStrings),
+            new Vector3(0, 0, 0), Quaternion.identity).GetComponent<EnergyWeaponBase>());
     }
 
     #region Getters and Setters

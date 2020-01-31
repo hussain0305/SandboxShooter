@@ -14,8 +14,6 @@ GameObject:
   - component: {fileID: 4822292985700380247}
   - component: {fileID: 4822292985700380244}
   - component: {fileID: 4822292985700380245}
-  - component: {fileID: 3050733349471496492}
-  - component: {fileID: 7525473812310243517}
   m_Layer: 11
   m_Name: EnergyBullet
   m_TagString: Untagged
@@ -111,7 +109,7 @@ Rigidbody:
   m_IsKinematic: 0
   m_Interpolate: 0
   m_Constraints: 0
-  m_CollisionDetection: 1
+  m_CollisionDetection: 2
 --- !u!114 &4822292985700380245
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -128,44 +126,3 @@ MonoBehaviour:
   hitEffect: {fileID: 3806443029126336785, guid: 99288e4d65e43514cbee6d1239ba3c19,
     type: 3}
   disblanceImpact: 100
-  pathStrings:
-  - Prefabs
-  - Projectiles
-  - EnergyBullet
---- !u!114 &3050733349471496492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4822292985700380242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa584fbee541324448dd18d8409c7a41, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  ObservedComponentsFoldoutOpen: 1
-  Group: 0
-  prefixField: -1
-  Synchronization: 2
-  OwnershipTransfer: 0
-  ObservedComponents:
-  - {fileID: 7525473812310243517}
-  viewIdField: 0
-  InstantiationId: 0
-  isRuntimeInstantiated: 0
---- !u!114 &7525473812310243517
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4822292985700380242}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0

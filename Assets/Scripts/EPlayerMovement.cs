@@ -236,9 +236,14 @@ public class EPlayerMovement : MonoBehaviour
         moveDirection += direction;
     }
 
-    void SetGravity(float newGravity)
+    public void SetGravity(float newGravity)
     {
         gravity = newGravity;
+    }
+
+    public void RevertGravity()
+    {
+        SetGravity(NORMAL_GRAVITY);
     }
 
     void SetIsWallGliding(bool glideState)

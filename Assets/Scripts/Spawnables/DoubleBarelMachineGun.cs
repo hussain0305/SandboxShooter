@@ -53,17 +53,19 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
     {
         while(shooting)
         {
-            proj = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, 0).GetComponent<Projectile>();
-            //proj = Instantiate(projectile, nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
-            proj.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * projectForce);
-            SetDamageOnProjectile(proj);
+            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
+            
+            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
 
-            proj = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, 0).GetComponent<Projectile>();
-            //proj = Instantiate(projectile, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
-            proj.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * projectForce);
-            SetDamageOnProjectile(proj);
-
-            yield return new WaitForSeconds(0.05f);
+            yield return new WaitForSeconds(cooldown);
         }
+    }
+
+    [PunRPC]
+    void RPC_SpawnBullet(Vector3 pos, Quaternion rot)
+    {
+        proj = Instantiate(projectile, pos, rot).GetComponent<Projectile>();
+        proj.GetComponent<Rigidbody>().velocity = proj.transform.forward * projectForce;
+        SetDamageOnProjectile(proj);
     }
 }

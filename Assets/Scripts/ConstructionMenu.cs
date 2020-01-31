@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class ConstructionMenu : MonoBehaviour
@@ -15,12 +16,20 @@ public class ConstructionMenu : MonoBehaviour
 
     [Header("Misc")]
     public UIInfoPopup popup;
-
     public Material highlightedCategoryMaterial;
     public Material regularCategoryMaterial;
 
+    [Header("Quick Build Menu")]
+    public Color highlightedColor;
+    public QuickBuildMenu quickMenu;
+    public Transform qSpawnables;
+
     private GameManager gameManager;
     private EPlayerController player;
+    
+    private int qCurrentCategory;
+    private int qCurrentSpawnable;
+
 
     public void Awake()
     {
@@ -29,6 +38,17 @@ public class ConstructionMenu : MonoBehaviour
 
         highlightedCategoryMaterial = new Material(highlightedCategoryMaterial);
         regularCategoryMaterial = new Material(regularCategoryMaterial);
+    }
+
+    public void ForceStart()
+    {
+        gameObject.SetActive(true);
+        qCurrentCategory = 0;
+        qCurrentSpawnable = 0;
+        player = gameManager.FetchLocalPlayer();
+        HighlightQuickSpawnable();
+        quickMenu.ShowSelected();
+        gameObject.SetActive(false);
     }
     void OnEnable()
     {
@@ -45,6 +65,7 @@ public class ConstructionMenu : MonoBehaviour
     private void OnDisable()
     {
         popup.gameObject.SetActive(false);
+        quickMenu.ShowSelected();
     }
 
     public void OffenceSelected()
@@ -89,7 +110,10 @@ public class ConstructionMenu : MonoBehaviour
         Quaternion rot = Quaternion.identity;
         if(player.GetSpawnLocationAndRotation(out loc, out rot))
         {
-            player.ToggleConstructionMenu();
+            if (gameObject.activeSelf)
+            {
+                player.ToggleConstructionMenu();
+            }
             Spawnable tSpawn = gameManager.GetBlueprint(type, id);
             if (tSpawn.constructionEnergyRequired < player.playerEnergy.GetEnergy())
             {
@@ -108,13 +132,15 @@ public class ConstructionMenu : MonoBehaviour
         Quaternion rot = Quaternion.identity;
         if (player.GetSpawnLocationAndRotation(out loc, out rot))
         {
-            player.ToggleConstructionMenu();
+            if (gameObject.activeSelf)
+            {
+                player.ToggleConstructionMenu();
+            }
             Spawnable tSpawn = gameManager.GetBlueprint(SpawnableType.Decoration, "FloatingPlatform");
             if (tSpawn.constructionEnergyRequired < player.playerEnergy.GetEnergy())
             {
                 player.playerEnergy.SpendEnergy(tSpawn.constructionEnergyRequired);
                 gameManager.SpawnPlatform(tSpawn.pathStrings, loc);
-                //GameObject spawnedSpawnable = Instantiate(tSpawn.prefab, loc, Quaternion.identity);
             }
             else
             {
@@ -127,5 +153,70 @@ public class ConstructionMenu : MonoBehaviour
     public UIInfoPopup GetPopup()
     {
         return popup;
+    }
+
+    //=======QUICK CONSTRUCTION MENU STUFF BELOW===========
+
+    public void ScrollDownQuickList()
+    {
+        if (!quickMenu.selectionBlock.activeSelf)
+        {
+            quickMenu.ShowSelections();
+        }
+        qCurrentSpawnable++;
+        if(qCurrentSpawnable > qSpawnables.GetChild(qCurrentCategory).childCount - 1)
+        {
+            qCurrentSpawnable = 0;
+            qCurrentCategory++;
+            qCurrentCategory = qCurrentCategory % qSpawnables.childCount;
+        }
+        HighlightQuickSpawnable();
+    }
+    public void ScrollUpQuickList()
+    {
+        if (!quickMenu.selectionBlock.activeSelf)
+        {
+            quickMenu.ShowSelections();
+        }
+        qCurrentSpawnable--;
+        if (qCurrentSpawnable < 0)
+        {
+            qCurrentCategory--;
+            qCurrentCategory = (qCurrentCategory + qSpawnables.childCount) % qSpawnables.childCount;
+            qCurrentSpawnable = qSpawnables.GetChild(qCurrentCategory).childCount - 1;
+        }
+        HighlightQuickSpawnable();
+
+    }
+
+    void HighlightQuickSpawnable()
+    {
+        for(int loopOuter = 0; loopOuter < qSpawnables.childCount; loopOuter++)
+        {
+            for (int loopInner = 0; loopInner < qSpawnables.GetChild(loopOuter).childCount; loopInner++)
+            {
+                qSpawnables.GetChild(loopOuter).GetChild(loopInner).GetComponent<Text>().color = Color.white;
+            }
+
+        }
+        qSpawnables.GetChild(qCurrentCategory).GetChild(qCurrentSpawnable).GetComponent<Text>().color = highlightedColor;
+
+        quickMenu.StartCondenseListCooldown(qCurrentCategory == 0 ? "Offence" : qCurrentCategory == 1 ?
+            "Defence" : "Decoration", qSpawnables.GetChild(qCurrentCategory).GetChild(qCurrentSpawnable).name);
+    }
+
+    public void QuickConstruct()
+    {
+        SpawnableType type = qCurrentCategory == 0 ? SpawnableType.Offence : qCurrentCategory == 1 ? 
+            SpawnableType.Defence : SpawnableType.Decoration;
+        string spawnableName = qSpawnables.GetChild(qCurrentCategory).GetChild(qCurrentSpawnable).name;
+        if (spawnableName == "FloatingPlatform")
+        {
+            PlatformSelected();
+        }
+        else
+        {
+            ConstructionSelected(type, qSpawnables.GetChild(qCurrentCategory).GetChild(qCurrentSpawnable).name);
+        }
     }
 }

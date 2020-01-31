@@ -1,5 +1,5 @@
-﻿using Photon.Pun;
-using System.Collections;
+﻿using System.Collections;
+using System.IO;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -7,8 +7,6 @@ public class Projectile : MonoBehaviour
     public float lifetime;
     public ParticleSystem hitEffect;
     public float disblanceImpact;
-
-    public string[] pathStrings;
     
     private int damage;
     void Start()
@@ -28,46 +26,15 @@ public class Projectile : MonoBehaviour
 
     void OnCollisionEnter(Collision collision)
     {
-        if (!GetComponent<PhotonView>().IsMine)
-        {
-            return;
-        }
-        if (collision.gameObject.GetComponentInParent<SpawnableHealth>() && !collision.gameObject.GetComponent<ProximityDetector>())
+        if (collision.gameObject.GetComponentInParent<SpawnableHealth>() && !collision.gameObject.GetComponent<TowerShield>())
         {
             collision.gameObject.GetComponentInParent<SpawnableHealth>().ProjectileCollided(this);
-            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
-            StartCoroutine(LateDestroy());
+            StartCoroutine(LateDestroy(0.1f));
         }
-        else if (collision.gameObject.GetComponent<ProxyHealth>() || collision.gameObject.GetComponent<EPlayerController>())
+        else if (collision.gameObject.GetComponent<PlayerBodyPartCollider>())//other.gameObject.GetComponent<ProxyHealth>() || other.gameObject.GetComponent<EPlayerController>())
         {
-            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
-            StartCoroutine(LateDestroy());
+            StartCoroutine(LateDestroy(0.1f));
         }
-    }
-
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!GetComponent<PhotonView>().IsMine)
-        {
-            return;
-        }
-        if (other.gameObject.GetComponentInParent<SpawnableHealth>() && !other.gameObject.GetComponent<ProximityDetector>())
-        {
-            other.gameObject.GetComponentInParent<SpawnableHealth>().ProjectileCollided(this);
-            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
-            StartCoroutine(LateDestroy());
-        }
-        else if (other.gameObject.GetComponent<ProxyHealth>() || other.gameObject.GetComponent<EPlayerController>())
-        {
-            GetComponent<PhotonView>().RPC("RPC_ProjectileCollidedWithSomething", RpcTarget.All);
-            StartCoroutine(LateDestroy());
-        }
-    }
-
-    [PunRPC]
-    public void RPC_ProjectileCollidedWithSomething()
-    {
-        Instantiate(hitEffect, transform.position, transform.rotation);
     }
 
     public int GetDamage()
@@ -78,19 +45,17 @@ public class Projectile : MonoBehaviour
     IEnumerator DeathCountdown()
     {
         yield return new WaitForSeconds(lifetime);
-        if (GetComponent<PhotonView>().IsMine)
-        {
-            PhotonNetwork.Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 
     public void DestroyProjectile()
     {
-        PhotonNetwork.Destroy(gameObject);
+        Instantiate(hitEffect, transform.position, transform.rotation);
+        Destroy(gameObject);
     }
-    public IEnumerator LateDestroy()
+    public IEnumerator LateDestroy(float delay)
     {
-        yield return new WaitForSeconds(0.1f);
-        PhotonNetwork.Destroy(gameObject);
+        yield return new WaitForSeconds(delay);
+        DestroyProjectile();
     }
 }

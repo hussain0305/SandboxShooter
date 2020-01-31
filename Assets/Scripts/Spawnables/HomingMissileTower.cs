@@ -1,5 +1,4 @@
 ﻿using Photon.Pun;
-using System.IO;
 using UnityEngine;
 
 public class HomingMissileTower : DefensiveBase
@@ -18,9 +17,7 @@ public class HomingMissileTower : DefensiveBase
             nozzleRotator.target = opponentsInVicinity[0].transform;
             nozzleRotator.shouldRotate = true;
         }
-        //Projectile h = Instantiate(projectile, nozzle.position, nozzle.rotation);
-        Projectile h = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), nozzle.position, nozzle.rotation, 0).GetComponent<Projectile>();
-        h.GetComponent<HomingMissile>().SetTarget(opponentsInVicinity[0]);
+        pView.RPC("RPC_SpawnHoming", RpcTarget.All);
         StartCoroutine(AttackAgainAfter(frequency));
     }
 
@@ -35,6 +32,15 @@ public class HomingMissileTower : DefensiveBase
                 nozzleRotator.enabled = false;
             }
         }
+    }
+
+    [PunRPC]
+    void RPC_SpawnHoming()
+    {
+        Projectile h = Instantiate(projectile, nozzle.position, nozzle.rotation);
+        //Projectile h = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), nozzle.position, nozzle.rotation, 0).GetComponent<Projectile>();
+        h.GetComponent<HomingMissile>().SetTarget(opponentsInVicinity[0]);
+
     }
 
 }

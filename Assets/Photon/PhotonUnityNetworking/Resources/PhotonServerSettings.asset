@@ -49,5 +49,11 @@ MonoBehaviour:
   - RPC_InitiateSystems
   - RPC_ForceEjectPlayer
   - RPC_ProjectileCollidedWithSomething
+  - SpawnBullet
+  - RPC_SpawnBullet
+  - RPC_SpawnCannonball
+  - RPC_SpawnEnergyProjectile
+  - RPC_SpawnHoming
+  - RPC_PlatformTriggered
   DisableAutoOpenWizard: 1
   ShowSettings: 1
