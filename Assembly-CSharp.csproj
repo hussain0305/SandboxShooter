@@ -109,6 +109,7 @@
     <Compile Include="Assets\Scripts\Spawnables\ChainPlatform.cs" />
     <Compile Include="Assets\Scripts\Spawnables\DoubleBarelMachineGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\HomingMissileTower.cs" />
+    <Compile Include="Assets\Scripts\Spawnables\Ramp.cs" />
     <Compile Include="Assets\Scripts\Spawnables\Tower.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TowerShield.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TrampolineJumpPad.cs" />

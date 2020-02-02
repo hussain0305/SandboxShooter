@@ -124,8 +124,8 @@ public class EPlayerMovement : MonoBehaviour
         else if (Input.GetButtonDown("Jump") && isWallGliding && canWallJump)
         {
             canWallJump = false;
-            moveDirection = 50 * transform.forward;
-            moveDirection += 15 * transform.up;
+            moveDirection = 30 * transform.forward;
+            moveDirection += 7.5f * transform.up;
         }
         moveDirection.y -= gravity * Time.deltaTime;
 
@@ -207,27 +207,45 @@ public class EPlayerMovement : MonoBehaviour
     {
         while (true)
         {
-            if (!isGrounded && Input.GetButton("Run") && (
-                Physics.Raycast(transform.position + probeOffset, transform.right, 1, ~(1 << 13)) ||
-                Physics.Raycast(transform.position + probeOffset, -1 * transform.right, 1, ~(1 << 13)) ||
-                Physics.Raycast(transform.position + probeOffset, transform.forward, 1, ~(1 << 13)) ||
-                Physics.Raycast(transform.position + probeOffset, -1 * transform.forward, 1, ~(1 << 13))))
+            RaycastHit probeHit;
+            if (!isGrounded && Input.GetButton("Run"))            
             {
-                if (gravity != REDUCED_GRAVITY)
+                if((Physics.Raycast(transform.position + probeOffset, transform.right, out probeHit, 1, ~(1 << 13)) && 
+                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)) ||
+                    (Physics.Raycast(transform.position + probeOffset, -1 * transform.right, out probeHit, 1, ~(1 << 13)) &&
+                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)) ||
+                    (Physics.Raycast(transform.position + probeOffset, transform.forward, out probeHit, 1, ~(1 << 13)) &&
+                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)) ||
+                    (Physics.Raycast(transform.position + probeOffset, -1 * transform.forward, out probeHit, 1, ~(1 << 13)) &&
+                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
                 {
-                    SetIsWallGliding(true);
-                    SetGravity(REDUCED_GRAVITY);
+                    Debug.Log("collision angle = " + Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)));
+                    if (gravity != REDUCED_GRAVITY)
+                    {
+                        SetIsWallGliding(true);
+                        SetGravity(REDUCED_GRAVITY);
+                    }
+                }
+                else
+                {
+                    CheckForGravityReversal();
                 }
             }
+
             else
             {
-                if (gravity != NORMAL_GRAVITY && isWallGliding)
-                {
-                    SetIsWallGliding(false);
-                    SetGravity(NORMAL_GRAVITY);
-                }
+                CheckForGravityReversal();
             }
             yield return new WaitForSeconds(0.25f);
+        }
+    }
+
+    void CheckForGravityReversal()
+    {
+        if (gravity != NORMAL_GRAVITY && isWallGliding)
+        {
+            SetIsWallGliding(false);
+            SetGravity(NORMAL_GRAVITY);
         }
     }
 

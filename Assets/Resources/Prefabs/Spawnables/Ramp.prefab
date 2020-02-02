@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 5105404506444904800}
   - component: {fileID: 2590654435961366116}
   - component: {fileID: 303154474426011655}
+  - component: {fileID: 3798632231594839141}
+  - component: {fileID: 1385497255098633782}
   m_Layer: 0
   m_Name: Ramp
   m_TagString: Untagged
@@ -109,6 +111,32 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!65 &3798632231594839141
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864814848847314582}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 4.73, y: 0.64, z: 0.69}
+  m_Center: {x: 0, y: 3.14, z: 1.83}
+--- !u!114 &1385497255098633782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2864814848847314582}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 529fbb32bb215a0439c080123ca92ccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  launchSpeed: 5
 --- !u!1 &3292353274058827488
 GameObject:
   m_ObjectHideFlags: 0
