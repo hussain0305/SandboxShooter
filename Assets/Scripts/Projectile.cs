@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.IO;
 using UnityEngine;
 
 public class Projectile : MonoBehaviour
@@ -9,13 +8,10 @@ public class Projectile : MonoBehaviour
     public float disblanceImpact;
     
     private int damage;
+
+    private int ownerID;
     void Start()
     {
-        //Makes the codebase more robust. But it is probably more efficient to just
-        //be careful and assign the layer in the prefab, eliminating the need for assigning
-        //every individual bullet
-        //gameObject.layer = LayerMask.NameToLayer("Projectiles");
-
         StartCoroutine(DeathCountdown());
     }
 
@@ -29,11 +25,11 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.GetComponentInParent<SpawnableHealth>() && !collision.gameObject.GetComponent<TowerShield>())
         {
             collision.gameObject.GetComponentInParent<SpawnableHealth>().ProjectileCollided(this);
-            StartCoroutine(LateDestroy(0.1f));
+            StartCoroutine(LateDestroy(0.025f));
         }
         else if (collision.gameObject.GetComponent<PlayerBodyPartCollider>())//other.gameObject.GetComponent<ProxyHealth>() || other.gameObject.GetComponent<EPlayerController>())
         {
-            StartCoroutine(LateDestroy(0.1f));
+            StartCoroutine(LateDestroy(0.025f));
         }
     }
 
@@ -57,5 +53,15 @@ public class Projectile : MonoBehaviour
     {
         yield return new WaitForSeconds(delay);
         DestroyProjectile();
+    }
+
+    public int GetOwnerID()
+    {
+        return ownerID;
+    }
+
+    public void SetOwnerID(int id)
+    {
+        ownerID = id;
     }
 }

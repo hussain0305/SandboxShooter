@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using UnityEngine.UI;
 
 public class CanvasCommunicator : MonoBehaviour
@@ -8,32 +9,40 @@ public class CanvasCommunicator : MonoBehaviour
     public Text instructionMessage;
     public Slider energyBar;
     public GameObject disbalanceBar;
+    public GameObject scoreboard;
 
+    public GameObject respawnScreen;
+    public GameObject inGameScreen;
+    public Text respawningInSeconds;
 
-    public GameObject GetConstructionMenuComponent()
+    public void ShowRespawnScreen(float screenDuration)
     {
-        return constructionMenu;
+        inGameScreen.SetActive(false);
+        respawnScreen.SetActive(true);
+        StartCoroutine(RespawnCountdown(screenDuration));
     }
 
-    public Text GetAlertMessageComponent()
+    public void ShowInGameScreen()
     {
-        return alertMessage;
+        respawnScreen.SetActive(false);
+        inGameScreen.SetActive(true);
     }
 
-    public Text GetInstructionMessageComponent()
+    public void SetRespawningInSeconds(int sec)
     {
-        return instructionMessage;
+        respawningInSeconds.text = "" + sec;
     }
 
-    public Slider GetEnergyBarComponent()
+    IEnumerator RespawnCountdown(float countdownDuration)
     {
-        return energyBar;
+        float timeElapsed = 0;
+        while (timeElapsed < countdownDuration)
+        {
+            timeElapsed += 1;
+            SetRespawningInSeconds((int)countdownDuration - (int)timeElapsed);
+            yield return new WaitForSeconds(1);
+        }
+        ShowInGameScreen();
     }
-
-    public GameObject GetDisbalanceBar()
-    {
-        return disbalanceBar;
-    }
-
 
 }

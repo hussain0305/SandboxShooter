@@ -34,14 +34,16 @@ public class AutoGun : EnergyWeaponBase
     {
         pView.RPC("RPC_SpawnEnergyProjectile", RpcTarget.All, energySource.nozzle.transform.position,
             energySource.playerCam.transform.rotation,
-            player.GetComponent<CharacterController>().velocity);
+            player.GetComponent<CharacterController>().velocity,
+            player.GetNetworkID());
     }
 
     [PunRPC]
-    void RPC_SpawnEnergyProjectile(Vector3 pos, Quaternion rot, Vector3 vel)
+    void RPC_SpawnEnergyProjectile(Vector3 pos, Quaternion rot, Vector3 vel, int id)
     {
         spawnedProjectile = Instantiate(projectile, pos, rot).GetComponent<Projectile>();
         spawnedProjectile.SetDamage(projectileDamage);
         spawnedProjectile.GetComponent<Rigidbody>().velocity = (spawnedProjectile.transform.forward * projectileSpeed) + vel;
+        spawnedProjectile.SetOwnerID(id);
     }
 }

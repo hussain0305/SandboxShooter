@@ -219,7 +219,6 @@ public class EPlayerMovement : MonoBehaviour
                     (Physics.Raycast(transform.position + probeOffset, -1 * transform.forward, out probeHit, 1, ~(1 << 13)) &&
                     (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
                 {
-                    Debug.Log("collision angle = " + Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)));
                     if (gravity != REDUCED_GRAVITY)
                     {
                         SetIsWallGliding(true);

@@ -16,7 +16,7 @@ public class PlayerBodyPartCollider : MonoBehaviour
         {
             if (playerController.IsLocalPView())
             {
-                playerController.BodyPartHit(collision.gameObject.GetComponent<Projectile>().disblanceImpact);
+                playerController.BodyPartHit(collision.gameObject.GetComponent<Projectile>().disblanceImpact, collision.gameObject.GetComponent<Projectile>().GetOwnerID());
             }
         }
     }

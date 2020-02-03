@@ -1,10 +1,13 @@
 ﻿using Photon.Pun;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public const float RESPAWN_DURATION = 5;
+
     public List<Spawnable> offensiveSpawnables;
     public List<Spawnable> defensiveSpawnables;
     public List<Spawnable> decorativeSpawnables;
@@ -131,6 +134,11 @@ public class GameManager : MonoBehaviour
             }
         }
         return GameObject.FindObjectOfType<EPlayerController>();
+    }
+
+    public float GetRespawnDuration()
+    {
+        return RESPAWN_DURATION;
     }
 
 }

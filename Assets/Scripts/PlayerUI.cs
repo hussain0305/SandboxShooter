@@ -10,6 +10,7 @@ public class PlayerUI : MonoBehaviour
     private Text alertMessage;
     private Text instructionMessage;
     private GameObject constructionMenu;
+    private GameObject scoreboard;
 
     private Slider energyBar;
     private GameObject disbalanceBar;
@@ -29,11 +30,12 @@ public class PlayerUI : MonoBehaviour
             return;
         }
 
-        energyBar = canvasCom.GetEnergyBarComponent();
-        alertMessage = canvasCom.GetAlertMessageComponent();
-        instructionMessage = canvasCom.GetInstructionMessageComponent();
-        constructionMenu = canvasCom.GetConstructionMenuComponent();
-        disbalanceBar = canvasCom.GetDisbalanceBar();
+        energyBar = canvasCom.energyBar;
+        alertMessage = canvasCom.alertMessage;
+        instructionMessage = canvasCom.instructionMessage;
+        constructionMenu = canvasCom.constructionMenu;
+        disbalanceBar = canvasCom.disbalanceBar;
+        scoreboard = canvasCom.scoreboard;
 
         alertMessage.gameObject.SetActive(false);
         instructionMessage.gameObject.SetActive(false);
@@ -129,4 +131,20 @@ public class PlayerUI : MonoBehaviour
     }
 
     #endregion
+
+    public void ShowRespawnScreen(float screenDuration)
+    {
+        GameObject.FindObjectOfType<CanvasCommunicator>().ShowRespawnScreen(screenDuration);
+    }
+
+    public void ToggleScoreboard()
+    {
+        scoreboard.SetActive(!scoreboard.activeSelf);
+    }
+
+    public void SetScoreboardActive(bool val)
+    {
+        scoreboard.SetActive(val);
+    }
+
 }

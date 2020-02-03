@@ -55,5 +55,13 @@ MonoBehaviour:
   - RPC_SpawnEnergyProjectile
   - RPC_SpawnHoming
   - RPC_PlatformTriggered
+  - RPC_PlayerDied
+  - RPC_RespawnOnClients
+  - RPC_SpawnDeathEffect
+  - RPC_BrokeSpawnable
+  - RPC_KilledPlayer
+  - RPC_WasKilled
+  - RPC_SetNetworkPresenceOnClients
+  - RPC_CommunicateDeathToClients
   DisableAutoOpenWizard: 1
   ShowSettings: 1

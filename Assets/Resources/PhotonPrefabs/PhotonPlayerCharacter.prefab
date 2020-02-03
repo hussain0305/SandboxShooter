@@ -228,6 +228,8 @@ MonoBehaviour:
   mouseSensitivity: 200
   playerCamera: {fileID: 8112188099466557660}
   cameraHolder: {fileID: 5212165264065172665}
+  deathEffect: {fileID: 1789904466085206580, guid: 61d036bb76cd18a45b105a8becd8ecc1,
+    type: 3}
 --- !u!114 &267301236003811947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3276,6 +3278,7 @@ GameObject:
   - component: {fileID: 3176756993010705544}
   - component: {fileID: 8112188099466557658}
   - component: {fileID: 1648166577079276473}
+  - component: {fileID: 2054583147125440710}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -3328,7 +3331,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 122679
+    m_Bits: 4294967295
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -3441,6 +3444,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2054583147125440710
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8112188099466557662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 839ec85ab57ffbc46a71938f47373c64, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &8112188099476399470
 GameObject:
   m_ObjectHideFlags: 0

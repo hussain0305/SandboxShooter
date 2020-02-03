@@ -28,8 +28,11 @@ public class QuickBuildMenu : MonoBehaviour
 
     public void StartCondenseListCooldown(string cat, string spn)
     {
-        StopAllCoroutines();
-        StartCoroutine(CondenseList(cat, spn));
+        if (gameObject.activeSelf)
+        {
+            StopAllCoroutines();
+            StartCoroutine(CondenseList(cat, spn));
+        }
     }
 
     IEnumerator CondenseList(string cat, string spn)

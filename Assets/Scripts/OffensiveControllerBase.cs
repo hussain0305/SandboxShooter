@@ -25,8 +25,8 @@ public class OffensiveControllerBase : MonoBehaviour
     public bool isOccupied;//protected
     private Quaternion originalOrientation;
     private SpawnableGO master;
-    private EPlayerController controllingPlayer;
 
+    protected EPlayerController controllingPlayer;
     protected PhotonView pView;
     protected PhotonView controllerPView;
 
@@ -133,9 +133,5 @@ public class OffensiveControllerBase : MonoBehaviour
         controllingPlayer = controller;
     }
 
-    public EPlayerController GetControllingPlayer()
-    {
-        return controllingPlayer;
-    }
     #endregion
 }

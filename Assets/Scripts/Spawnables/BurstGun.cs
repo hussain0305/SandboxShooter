@@ -44,17 +44,17 @@ public class BurstGun : OffensiveControllerBase
         for (int loop = 0; loop < 3; loop++)
         {
             //proj = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), nozzle.transform.position, nozzle.transform.rotation, 0).GetComponent<Projectile>();
-            pView.RPC("RPC_SpawnCannonball", RpcTarget.All);
+            pView.RPC("RPC_SpawnCannonball", RpcTarget.All, controllingPlayer.GetNetworkID());
             yield return new WaitForSeconds(0.1f);
         }
     }
 
     [PunRPC]
-    void RPC_SpawnCannonball()
+    void RPC_SpawnCannonball(int id)
     {
         proj = Instantiate(projectile, nozzle.transform.position, nozzle.transform.rotation);
         SetDamageOnProjectile(proj);
         proj.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * projectForce);
-
+        proj.SetOwnerID(id);
     }
 }

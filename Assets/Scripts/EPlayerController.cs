@@ -19,6 +19,9 @@ public class EPlayerController : MonoBehaviour
     public Camera playerCamera;
     public GameObject cameraHolder;
 
+    [Header("Misc")]
+    public ParticleSystem deathEffect;
+
     const float BUILD_DISTANCE = 20; 
     private bool constructionMenuOpen;
     private bool isUsingOffensive;
@@ -33,6 +36,7 @@ public class EPlayerController : MonoBehaviour
     private CharacterController characterController;
     private OffensiveControllerBase controlledOffensive;
     private EPlayerNetworkPresence networkPresence;
+    private int networkID;
 
     private PhotonView pView;
 
@@ -40,7 +44,6 @@ public class EPlayerController : MonoBehaviour
     {
         FetchComponents();
         InitializeValues();
-        //Cursor.lockState = CursorLockMode.Confined;
     }
 
     void FetchComponents()
@@ -50,7 +53,6 @@ public class EPlayerController : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         characterAnimator = GetComponent<Animator>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
-        networkPresence = GetComponent<EPlayerNetworkPresence>();
         //playerCamera = Camera.main;
 
         playerUI.enabled = true;
@@ -144,6 +146,17 @@ public class EPlayerController : MonoBehaviour
         }
 
         #endregion
+
+
+        if(Input.GetButtonDown("Scoreboard"))
+        {
+            playerUI.SetScoreboardActive(true);
+        }
+
+        else if (Input.GetButtonUp("Scoreboard"))
+        {
+            playerUI.SetScoreboardActive(false);
+        }
 
     }
 
@@ -259,9 +272,17 @@ public class EPlayerController : MonoBehaviour
         }
     }
 
-    public void BodyPartHit(float disbalanceImpact)
+    public void BodyPartHit(float disbalanceImpact, int attacker)
     {
-        playerDisbalance.AddOnDisbalance(disbalanceImpact);
+        if (playerEnergy.hasEnergyPack)
+        {
+            playerDisbalance.AddOnDisbalance(disbalanceImpact);
+        }
+        else
+        {
+            //health deducation here, not straight death
+            PlayerIsDead(attacker);
+        }
     }
 
     public bool IsLocalPView()
@@ -274,6 +295,34 @@ public class EPlayerController : MonoBehaviour
         playerEnergy.energyPack.SetEnergyWeapon(PhotonNetwork.Instantiate(Path.Combine(pickedWeapon.pathStrings),
             new Vector3(0, 0, 0), Quaternion.identity).GetComponent<EnergyWeaponBase>());
     }
+
+    public void PlayerIsDead(int attacker)
+    {
+        playerUI.ShowRespawnScreen(gameManager.GetRespawnDuration());
+        playerCamera.transform.parent = null;
+        playerCamera.GetComponent<CameraDestroyer>().DestroyIn(gameManager.GetRespawnDuration());
+        networkPresence.StartRespawnCooldown(gameManager.GetRespawnDuration());
+        DestroyPlayerModel(networkID, attacker);//CommunicateDeathToClients
+    }
+
+    public void DestroyPlayerModel(int deceased, int attacker)
+    {
+        if (pView.IsMine)
+        {
+            pView.RPC("RPC_CommunicateDeathToClients", RpcTarget.All, deceased, attacker);
+            PhotonNetwork.Destroy(this.gameObject);
+
+        }
+    }
+
+    [PunRPC]
+    void RPC_CommunicateDeathToClients(int deceased, int attacker)
+    {
+        Instantiate(deathEffect, transform.position, transform.rotation);
+        PhotonView.Find(attacker).GetComponent<EPlayerNetworkPresence>().KilledPlayer();
+        PhotonView.Find(deceased).GetComponent<EPlayerNetworkPresence>().WasKilled();
+    }
+
 
     #region Getters and Setters
 
@@ -301,6 +350,23 @@ public class EPlayerController : MonoBehaviour
     public bool GetIsUsingOffensive()
     {
         return isUsingOffensive;
+    }
+
+    public void SetNetworkPresence(EPlayerNetworkPresence presence, int id)
+    {
+        Debug.Log("NEtwork presence of " +name + " set to " + presence);
+        networkPresence = presence;
+        networkID = id;
+    }
+
+    public int GetNetworkID()
+    {
+        return networkID;
+    }
+
+    public EPlayerNetworkPresence GetNetworkPresence()
+    {
+        return networkPresence;
     }
 
     #endregion

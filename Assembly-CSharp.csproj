@@ -86,6 +86,7 @@
     <Compile Include="Assets\Scripts\Fragment.cs" />
     <Compile Include="Assets\Scripts\GameDictionary.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameScoring.cs" />
     <Compile Include="Assets\Scripts\GameServer.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonLobby.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\ProxyHealth.cs" />
     <Compile Include="Assets\Scripts\QuickBuildMenu.cs" />
     <Compile Include="Assets\Scripts\Scene_MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Scoreboard.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
     <Compile Include="Assets\Scripts\SpawnableAppearance.cs" />
     <Compile Include="Assets\Scripts\SpawnableButton.cs" />
@@ -120,9 +122,11 @@
     <Compile Include="Assets\Scripts\TestSpawner.cs" />
     <Compile Include="Assets\Scripts\UIInfoPopup.cs" />
     <Compile Include="Assets\Scripts\Utility\BlinkMarker.cs" />
+    <Compile Include="Assets\Scripts\Utility\CameraDestroyer.cs" />
     <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
     <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />
     <Compile Include="Assets\Scripts\Utility\PlayerBodyPartCollider.cs" />
+    <Compile Include="Assets\Scripts\Utility\RespawnCameraPosition.cs" />
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />

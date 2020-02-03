@@ -53,19 +53,21 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
     {
         while(shooting)
         {
-            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
+            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, controllingPlayer.GetNetworkID());
             
-            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
+            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, controllingPlayer.GetNetworkID());
 
             yield return new WaitForSeconds(cooldown);
         }
     }
 
     [PunRPC]
-    void RPC_SpawnBullet(Vector3 pos, Quaternion rot)
+    void RPC_SpawnBullet(Vector3 pos, Quaternion rot, int id)
     {
         proj = Instantiate(projectile, pos, rot).GetComponent<Projectile>();
         proj.GetComponent<Rigidbody>().velocity = proj.transform.forward * projectForce;
         SetDamageOnProjectile(proj);
+
+        proj.SetOwnerID(id);
     }
 }

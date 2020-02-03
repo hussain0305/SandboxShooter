@@ -17,7 +17,7 @@ public class HomingMissileTower : DefensiveBase
             nozzleRotator.target = opponentsInVicinity[0].transform;
             nozzleRotator.shouldRotate = true;
         }
-        pView.RPC("RPC_SpawnHoming", RpcTarget.All);
+        pView.RPC("RPC_SpawnHoming", RpcTarget.All, owner.GetNetworkID());
         StartCoroutine(AttackAgainAfter(frequency));
     }
 
@@ -35,12 +35,11 @@ public class HomingMissileTower : DefensiveBase
     }
 
     [PunRPC]
-    void RPC_SpawnHoming()
+    void RPC_SpawnHoming(int id)
     {
         Projectile h = Instantiate(projectile, nozzle.position, nozzle.rotation);
-        //Projectile h = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), nozzle.position, nozzle.rotation, 0).GetComponent<Projectile>();
         h.GetComponent<HomingMissile>().SetTarget(opponentsInVicinity[0]);
-
+        h.SetOwnerID(id);
     }
 
 }
