@@ -63,5 +63,6 @@ MonoBehaviour:
   - RPC_WasKilled
   - RPC_SetNetworkPresenceOnClients
   - RPC_CommunicateDeathToClients
+  - RPC_SpawnBulletWithoutOwner
   DisableAutoOpenWizard: 1
   ShowSettings: 1

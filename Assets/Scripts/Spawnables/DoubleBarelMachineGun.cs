@@ -53,9 +53,18 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
     {
         while(shooting)
         {
-            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, controllingPlayer.GetNetworkID());
-            
-            pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, controllingPlayer.GetNetworkID());
+            if (controllingPlayer)
+            {
+                pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, controllingPlayer.GetNetworkID());
+
+                pView.RPC("RPC_SpawnBullet", RpcTarget.All, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation, controllingPlayer.GetNetworkID());
+            }
+            else
+            {
+                pView.RPC("RPC_SpawnBulletWithoutOwner", RpcTarget.All, nozzle.transform.position - (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
+
+                pView.RPC("RPC_SpawnBulletWithoutOwner", RpcTarget.All, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
+            }
 
             yield return new WaitForSeconds(cooldown);
         }
@@ -70,4 +79,13 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
 
         proj.SetOwnerID(id);
     }
+
+    [PunRPC]
+    void RPC_SpawnBulletWithoutOwner(Vector3 pos, Quaternion rot)
+    {
+        proj = Instantiate(projectile, pos, rot).GetComponent<Projectile>();
+        proj.GetComponent<Rigidbody>().velocity = proj.transform.forward * projectForce;
+        SetDamageOnProjectile(proj);
+    }
+
 }

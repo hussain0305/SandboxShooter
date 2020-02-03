@@ -14,6 +14,10 @@ public class HomingMissile : MonoBehaviour
     }
     public void Propel()
     {
+        if (!target)
+        {
+            return;
+        }
         transform.LookAt(target.transform);
         GetComponent<Rigidbody>().velocity = transform.forward * homingSpeed;
     }

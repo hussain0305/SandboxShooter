@@ -10,7 +10,8 @@ public class ProxyHealth : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<Projectile>())
         {
-            healthComponent.TakeDamage(collision.gameObject.GetComponent<Projectile>().GetDamage());
+            healthComponent.TakeDamage(collision.gameObject.GetComponent<Projectile>().GetDamage(),
+                collision.gameObject.GetComponent<Projectile>().GetOwnerID());
         }
     }
 }

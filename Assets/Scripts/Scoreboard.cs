@@ -29,18 +29,21 @@ public class Scoreboard : MonoBehaviour
             Rect rT;
             
             rT = currRow.GetComponent<RectTransform>().rect;
-            currRow.transform.GetChild(0).GetComponent<Text>().text = "" + currPlayer.GetID();
-            currRow.transform.GetChild(1).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetKills();
-            currRow.transform.GetChild(2).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetDeaths();
-            currRow.transform.GetChild(3).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetSpawnablesBroken();
+            currRow.transform.GetChild(1).GetComponent<Text>().text = "" + currPlayer.GetID();
+            currRow.transform.GetChild(2).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetKills();
+            currRow.transform.GetChild(3).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetDeaths();
+            currRow.transform.GetChild(4).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetSpawnablesBroken();
 
             currRow.transform.SetParent(dynamicBlock.transform);
             currRow.transform.localScale = new Vector3(1, 1, 1);
 
-            //rT.position = new Vector2(0, currentRowPosition);
             currRow.transform.localPosition = new Vector3(0, currentRowPosition, 0);
             currentRowPosition -= rowHeight;
-            //currentRowPosition.y += rowHeight;
+
+            if (currPlayer.IsLocal())
+            {
+                currRow.transform.GetChild(0).gameObject.SetActive(true);
+            }
         }
     }
 }

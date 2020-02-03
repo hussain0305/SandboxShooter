@@ -19,6 +19,8 @@ public class SpawnableHealth : SpawnableComponentBase
     private SpawnableGO master;
     private PhotonView pView;
 
+    private bool jugaad_notEvaluated;
+
     private void Awake()
     {
         master = GetComponentInParent<SpawnableGO>();
@@ -27,15 +29,16 @@ public class SpawnableHealth : SpawnableComponentBase
     new void Start()
     {
         base.Start();
+        jugaad_notEvaluated = false;
     }
 
-    public void TakeDamage(int damageAmount)
+    public void TakeDamage(int damageAmount, int id)
     {
-        pView.RPC("RPC_TakeDamage", RpcTarget.All, damageAmount);
+        pView.RPC("RPC_TakeDamage", RpcTarget.All, damageAmount, id);
     }
 
     [PunRPC]
-    public void RPC_TakeDamage(int damageAmount)
+    public void RPC_TakeDamage(int damageAmount, int id)
     {
         currentHealth -= damageAmount;
         master.GetAppearanceComponent().WasHit();
@@ -45,6 +48,13 @@ public class SpawnableHealth : SpawnableComponentBase
             {
                 GetComponent<OffensiveControllerBase>().ForceEjectPlayer();
             }
+
+            if (!jugaad_notEvaluated)
+            {
+                jugaad_notEvaluated = true;
+                PhotonView.Find(id).GetComponent<EPlayerNetworkPresence>().BrokeSpawnable();
+            }
+
             DestroySpawnable();
         }
         UpdateHealthBar();
@@ -55,13 +65,13 @@ public class SpawnableHealth : SpawnableComponentBase
         healthBar.SetFloat("_HealthPercentage", ((float)currentHealth / (float)health));
     }
 
-    public void ProjectileCollided(Projectile proj)
+    public void ProjectileCollided(Projectile proj, int ownerID)
     {
         if (!master.isUsable)
         {
             return;
         }
-        TakeDamage(proj.GetDamage());
+        TakeDamage(proj.GetDamage(), proj.GetOwnerID());
     }
 
     public void InitiateSystems(int healthFromBP)

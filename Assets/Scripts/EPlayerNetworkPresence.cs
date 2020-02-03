@@ -104,4 +104,9 @@ public class EPlayerNetworkPresence : MonoBehaviour
     //{
     //    gameRecord.AddSpawnableBroken();
     //}
+
+    public bool IsLocal()
+    {
+        return pView.IsMine;
+    }
 }
