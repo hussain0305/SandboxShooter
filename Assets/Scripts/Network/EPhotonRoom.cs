@@ -6,12 +6,14 @@ using UnityEngine.SceneManagement;
 
 public class EPhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 {
-    public int gameScene;
+    public int[] gameScenes;
     [HideInInspector]
     public int currentScene;
 
     public static EPhotonRoom thisRoom;
     private PhotonView pView;
+
+    private int selectedScene;
     void Awake()
     {
         if (thisRoom != null && thisRoom != this)
@@ -53,16 +55,32 @@ public class EPhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
 
     private void OnSceneFinishedLoading(Scene scene, LoadSceneMode mode)
     {
-        currentScene = scene.buildIndex;
-        if (currentScene == gameScene)
+        if (IsAGameScene(scene.buildIndex))
         {
             CreatePlayer();
         }
     }
 
+    bool IsAGameScene(int currentScene)
+    {
+        foreach(int currSceneNumber in gameScenes)
+        {
+            if (currentScene == currSceneNumber)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
+
     public void StartGame()
     {
-        PhotonNetwork.LoadLevel(gameScene);
+        PhotonNetwork.LoadLevel(gameScenes[selectedScene]);
+    }
+
+    public void MapSelected(int index)
+    {
+        selectedScene = index;
     }
 
     public void CreatePlayer()

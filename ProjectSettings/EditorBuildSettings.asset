@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenu.unity
     guid: 46fe34abf6b885b4896e9ad1830f3e39
   - enabled: 1
+    path: Assets/Scenes/Playground.unity
+    guid: 0e8f29cf6ab7e574bbdbd843f7702a7a
+  - enabled: 1
     path: Assets/Scenes/NebulaSpace.unity
     guid: f2af4f48b33ab514e9c1e7d00321c896
   m_configObjects: {}
