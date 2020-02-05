@@ -9,6 +9,7 @@ TagManager:
   - WeaponUsePosition
   - CameraHolder
   - Canvas
+  - OrbSpawnPoint
   layers:
   - Default
   - TransparentFX

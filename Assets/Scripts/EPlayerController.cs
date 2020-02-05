@@ -361,6 +361,13 @@ public class EPlayerController : MonoBehaviour
     public void SetNetworkPresence(EPlayerNetworkPresence presence, int id)
     {
         networkPresence = presence;
+        //networkID = id;
+        pView.RPC("RPC_SetNetworkIDOnClients", RpcTarget.All, id);
+    }
+
+    [PunRPC]
+    void RPC_SetNetworkIDOnClients(int id)
+    {
         networkID = id;
     }
 

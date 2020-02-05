@@ -64,5 +64,13 @@ MonoBehaviour:
   - RPC_SetNetworkPresenceOnClients
   - RPC_CommunicateDeathToClients
   - RPC_SpawnBulletWithoutOwner
+  - RPC_UpdateMaterialOnClients
+  - RPC_PickedUpOnClients
+  - RPC_WasPickedUp
+  - RPC_UpdateDetailsOnClients
+  - RPC_SetNetworkIDOnClients
+  - RPC_EndGameOnClients
+  - RPC_ServerTime
+  - RPC_DestroyTimerOnClients
   DisableAutoOpenWizard: 1
   ShowSettings: 1

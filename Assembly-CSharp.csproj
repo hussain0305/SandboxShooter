@@ -86,9 +86,11 @@
     <Compile Include="Assets\Scripts\Fragment.cs" />
     <Compile Include="Assets\Scripts\GameDictionary.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
+    <Compile Include="Assets\Scripts\GameModes\CollectOrbs.cs" />
     <Compile Include="Assets\Scripts\GameScoring.cs" />
     <Compile Include="Assets\Scripts\GameServer.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
+    <Compile Include="Assets\Scripts\ModeManager.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonLobby.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonRoom.cs" />
     <Compile Include="Assets\Scripts\OffensiveControllerBase.cs" />
@@ -123,6 +125,7 @@
     <Compile Include="Assets\Scripts\UIInfoPopup.cs" />
     <Compile Include="Assets\Scripts\Utility\BlinkMarker.cs" />
     <Compile Include="Assets\Scripts\Utility\CameraDestroyer.cs" />
+    <Compile Include="Assets\Scripts\Utility\CollectibleOrb.cs" />
     <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
     <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />
     <Compile Include="Assets\Scripts\Utility\PlayerBodyPartCollider.cs" />
@@ -721,10 +724,6 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}</Project>
-      <Name>Assembly-CSharp-firstpass</Name>
-    </ProjectReference>
     <ProjectReference Include="PhotonUnityNetworking.Utilities.PhotonPlayer.Editor.csproj">
       <Project>{C1B9430B-63B5-14C3-9777-93FED3D4AF56}</Project>
       <Name>PhotonUnityNetworking.Utilities.PhotonPlayer.Editor</Name>

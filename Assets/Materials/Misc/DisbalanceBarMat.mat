@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _Glow: 1.28
     - _HealthPercentage: 0.8
-    - _Percentage: 1.0318592
+    - _Percentage: 1.0221026
     m_Colors:
     - _BGColor: {r: 0.29281795, g: 1, b: 0, a: 0.23921569}
     - _Color: {r: 0.45527053, g: 1, b: 0, a: 1}

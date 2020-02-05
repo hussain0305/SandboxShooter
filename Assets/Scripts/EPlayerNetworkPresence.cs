@@ -4,11 +4,14 @@ using System.IO;
 using UnityEngine;
 public class EPlayerNetworkPresence : MonoBehaviour
 {
+    [HideInInspector]
+    public PlayerRecord gameRecord;
+
     private PhotonView pView;
 
     private EPlayerController playerController;
 
-    public PlayerRecord gameRecord;
+    private GameObject spawnedPlayer;
 
     private void Start()
     {
@@ -24,17 +27,12 @@ public class EPlayerNetworkPresence : MonoBehaviour
 
     void SpawnPlayer()
     {
-        GameObject spawnedPlayer = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayerCharacter"),
+        spawnedPlayer = PhotonNetwork.Instantiate(Path.Combine("PhotonPrefabs", "PhotonPlayerCharacter"),
                 GameObject.FindObjectOfType<GameManager>().GetSpawnLocation(), Quaternion.identity, 0);
+
         playerController = spawnedPlayer.GetComponent<EPlayerController>();
         playerController.SetNetworkPresence(this, pView.ViewID);
     }
-
-    //[PunRPC]
-    //void RPC_SetNetworkPresenceOnClients()
-    //{
-    //    playerController.SetNetworkPresence(this, pView.ViewID);
-    //}
 
     public void StartRespawnCooldown(float duration)
     {

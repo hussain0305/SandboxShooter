@@ -5,8 +5,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonUnityNetworking.Utili
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp", "Assembly-CSharp.csproj", "{A75AF024-E529-E123-C612-A327B33D142C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Assembly-CSharp-firstpass", "Assembly-CSharp-firstpass.csproj", "{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PhotonChat", "PhotonChat.csproj", "{5F7BCBDA-AE14-88A8-CBB1-46C5273F1588}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PathCreator", "PathCreator.csproj", "{44BF372D-0FD3-0883-1BAE-CE66947CC665}"
@@ -41,10 +39,6 @@ Global
 		{A75AF024-E529-E123-C612-A327B33D142C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A75AF024-E529-E123-C612-A327B33D142C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A75AF024-E529-E123-C612-A327B33D142C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B4652781-F18C-6C3F-1F36-A6E9A3970CB4}.Release|Any CPU.Build.0 = Release|Any CPU
 		{5F7BCBDA-AE14-88A8-CBB1-46C5273F1588}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{5F7BCBDA-AE14-88A8-CBB1-46C5273F1588}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5F7BCBDA-AE14-88A8-CBB1-46C5273F1588}.Release|Any CPU.ActiveCfg = Release|Any CPU
