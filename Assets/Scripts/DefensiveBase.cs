@@ -10,17 +10,13 @@ public class DefensiveBase : MonoBehaviour
 
     public float frequency;
     protected EPlayerController owner;
-    protected List<EPlayerController> opponentsInVicinity;
     protected PhotonView pView;
 
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
     }
-    void Start()
-    {
-        opponentsInVicinity = new List<EPlayerController>();
-    }
+    
     public EPlayerController GetOwner()
     {
         return owner;
@@ -43,27 +39,6 @@ public class DefensiveBase : MonoBehaviour
             GetComponentInChildren<ProximityDetector>().SetOwner(owner);
             GetComponentInChildren<ProximityDetector>().SetStructure(this);
         }
-    }
-
-    public void OpponentDetected(EPlayerController opponent)
-    {
-        opponentsInVicinity.Add(opponent);
-        PerformAttack();
-    }
-
-    public void OpponentLeft(EPlayerController opponent)
-    {
-        if (opponentsInVicinity.Contains(opponent))
-        {
-            opponentsInVicinity.Remove(opponent);
-        }
-        StopAttack();
-    }
-
-    public IEnumerator AttackAgainAfter(float duration)
-    {
-        yield return new WaitForSeconds(duration);
-        PerformAttack();
     }
 
     public virtual void PerformAttack() { }

@@ -1,63 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &803498289
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 803498290}
-  - component: {fileID: 803498291}
-  - component: {fileID: 8902083003267382358}
-  m_Layer: 14
-  m_Name: Proximity
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &803498290
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803498289}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 2306623362185636475}
-  m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!135 &803498291
-SphereCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803498289}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Radius: 40
-  m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8902083003267382358
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 803498289}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: aa0318a1d19cda142803405135bc3fc7, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  type: 1
 --- !u!1 &2306623362078835786
 GameObject:
   m_ObjectHideFlags: 0
@@ -184,7 +126,6 @@ Transform:
   m_Children:
   - {fileID: 2306623362188273286}
   - {fileID: 2306623362078835787}
-  - {fileID: 803498290}
   - {fileID: 740387720583116674}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -254,8 +195,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   projectile: {fileID: 6438379496284935421, guid: a720695c3a61da74bbea5e2cee3e7a54,
     type: 3}
-  hasProximityDetector: 1
-  frequency: 1
+  hasProximityDetector: 0
+  frequency: 2
+  homingSpeed: 200
   nozzleRotator: {fileID: 1520751973688415070}
   nozzle: {fileID: 4727845402316515803}
 --- !u!114 &-5941044379034917795
@@ -536,7 +478,7 @@ Transform:
   m_Children:
   - {fileID: 2644493339010954925}
   m_Father: {fileID: 2306623362185636475}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1520751973688415070
 MonoBehaviour:

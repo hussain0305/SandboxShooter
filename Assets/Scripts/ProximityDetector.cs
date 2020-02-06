@@ -19,26 +19,26 @@ public class ProximityDetector : MonoBehaviour
         yield return new WaitForSeconds(0.5f);
         this.gameObject.layer = LayerMask.NameToLayer("ProximitySensor");
     }
-    private void OnTriggerEnter(Collider other)
-    {
-        if (!owner || !GetComponentInParent<SpawnableGO>().isUsable)
-        {
-            return;
-        }
+    //private void OnTriggerEnter(Collider other)
+    //{
+    //    if (!owner || !GetComponentInParent<SpawnableGO>().isUsable)
+    //    {
+    //        return;
+    //    }
 
-        if (other.GetComponent<EPlayerController>() && other.GetComponent<EPlayerController>() != owner)
-        {
-            structure.OpponentDetected(other.GetComponent<EPlayerController>());
-        }
-    }
+    //    if (other.GetComponent<EPlayerController>() && other.GetComponent<EPlayerController>() != owner)
+    //    {
+    //        structure.OpponentDetected(other.GetComponent<EPlayerController>());
+    //    }
+    //}
 
-    private void OnTriggerExit(Collider other)
-    {
-        if (other.GetComponent<EPlayerController>())
-        {
-            structure.OpponentLeft(other.GetComponent<EPlayerController>());
-        }
-    }
+    //private void OnTriggerExit(Collider other)
+    //{
+    //    if (other.GetComponent<EPlayerController>())
+    //    {
+    //        structure.OpponentLeft(other.GetComponent<EPlayerController>());
+    //    }
+    //}
 
     public void SetOwner(EPlayerController own)
     {
