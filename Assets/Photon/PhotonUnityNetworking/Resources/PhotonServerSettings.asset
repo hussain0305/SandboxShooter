@@ -72,5 +72,6 @@ MonoBehaviour:
   - RPC_EndGameOnClients
   - RPC_ServerTime
   - RPC_DestroyTimerOnClients
+  - RPC_PlayAnimationOnClients
   DisableAutoOpenWizard: 1
   ShowSettings: 1

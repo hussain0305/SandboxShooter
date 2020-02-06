@@ -2,7 +2,7 @@
 using Photon.Pun;
 using UnityEngine;
 
-public class EPlayerMovement : MonoBehaviour
+public class EPlayerMovement : MonoBehaviour, IPunObservable
 {
     const float NORMAL_GRAVITY = 20;
     const float REDUCED_GRAVITY = 1;
@@ -39,12 +39,16 @@ public class EPlayerMovement : MonoBehaviour
     private CharacterController characterController;
     private Animator characterAnimator;
     private PhotonView pView;
+    private PhotonTransformViewClassic pTransform;
+
+    private Vector3 predictionVel;
 
     private void Awake()
     {
         pView = GetComponent<PhotonView>();
         characterController = GetComponent<CharacterController>();
         characterAnimator = GetComponent<Animator>();
+        pTransform = GetComponent<PhotonTransformViewClassic>();
         isDashing = false;
         playerInAir = false;
         currentSpeed = forwardSpeed;
@@ -59,6 +63,7 @@ public class EPlayerMovement : MonoBehaviour
         gravity = NORMAL_GRAVITY;
 
         probeOffset = new Vector3(0, 0.1f, 0);
+
     }
 
     public void Update()
@@ -102,7 +107,7 @@ public class EPlayerMovement : MonoBehaviour
             if (playerInAir)
             {
                 playerInAir = false;
-                characterAnimator.SetTrigger("PlayerLanded");
+                pView.RPC("RPC_PlayAnimationOnClients", RpcTarget.All, "PlayerLanded");
             }
             moveDirection = currentSpeed * ((transform.forward * axisVertical) + (transform.right * strafeSpeedMultiplier * axisHorizontal));
 
@@ -110,11 +115,11 @@ public class EPlayerMovement : MonoBehaviour
             {
                 if (Vector3.Magnitude(characterController.velocity) < jumpRunThreshold)
                 {
-                    characterAnimator.SetTrigger("StandingJump");
+                    pView.RPC("RPC_PlayAnimationOnClients", RpcTarget.All, "StandingJump");
                 }
                 else
                 {
-                    characterAnimator.SetTrigger("RunningJump");
+                    pView.RPC("RPC_PlayAnimationOnClients", RpcTarget.All, "RunningJump");
                 }
                 playerInAir = true;
                 moveDirection.y = jumpSpeed;
@@ -127,9 +132,14 @@ public class EPlayerMovement : MonoBehaviour
             moveDirection = 30 * transform.forward;
             moveDirection += 7.5f * transform.up;
         }
+
         moveDirection.y -= gravity * Time.deltaTime;
 
+
         characterController.Move(moveDirection * Time.deltaTime);
+
+        pTransform.SetSynchronizedValues(characterController.velocity, 0);
+
         characterAnimator.SetFloat("VelRight", axisHorizontal);
         characterAnimator.SetFloat("VelFwd", axisVertical * (Input.GetButton("Run") ? 1 : 0.5f));
     }
@@ -266,6 +276,27 @@ public class EPlayerMovement : MonoBehaviour
     void SetIsWallGliding(bool glideState)
     {
         isWallGliding = glideState;
+    }
+
+    [PunRPC]
+    void RPC_PlayAnimationOnClients(string triggerName)
+    {
+        characterAnimator.SetTrigger(triggerName);
+    }
+
+
+    public void OnPhotonSerializeView(PhotonStream stream, PhotonMessageInfo info)
+    {
+        if (stream.IsWriting)
+        {
+            stream.SendNext(axisHorizontal);
+            stream.SendNext(axisVertical * (Input.GetButton("Run") ? 1 : 0.5f));
+        }
+        else if (stream.IsReading)
+        {
+            characterAnimator.SetFloat("VelRight", (float)stream.ReceiveNext());
+            characterAnimator.SetFloat("VelFwd", (float)stream.ReceiveNext());
+        }
     }
 
 }
