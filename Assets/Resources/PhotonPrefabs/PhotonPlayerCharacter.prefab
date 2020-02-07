@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   isWallGliding: 0
+  playerCam: {fileID: 0}
   trail: {fileID: 8112188100002717570}
 --- !u!114 &267301236003811946
 MonoBehaviour:

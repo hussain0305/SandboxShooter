@@ -26,7 +26,7 @@ Material:
     m_Floats:
     - _CellBrightness: 0
     - _FormLine: 0.9000001
-    - _GridSize: 3
+    - _GridSize: 5
     - _LineBrightness: 0.85
     - _LineSize: 0.038
     - _Line_Brightness: 1

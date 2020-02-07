@@ -25,11 +25,11 @@ public class Projectile : MonoBehaviour
         if (collision.gameObject.GetComponentInParent<SpawnableHealth>() && !collision.gameObject.GetComponent<TowerShield>())
         {
             collision.gameObject.GetComponentInParent<SpawnableHealth>().ProjectileCollided(this, ownerID);
-            StartCoroutine(LateDestroy(0.025f));
+            StartCoroutine(LateDestroy(0.001f));
         }
         else if (collision.gameObject.GetComponent<PlayerBodyPartCollider>())//other.gameObject.GetComponent<ProxyHealth>() || other.gameObject.GetComponent<EPlayerController>())
         {
-            StartCoroutine(LateDestroy(0.025f));
+            StartCoroutine(LateDestroy(0.001f));
         }
     }
 

@@ -36,10 +36,6 @@ public class TowerLift : MonoBehaviour
         if (other.gameObject.GetComponent<EPlayerController>())
         {
             destination = upPosition;
-            //if (!isMoving)
-            //{
-            //    StartCoroutine(MoveLift());
-            //}
             StopAllCoroutines();
             StartCoroutine(MoveLift());
         }
@@ -50,10 +46,6 @@ public class TowerLift : MonoBehaviour
         if (other.gameObject.GetComponent<EPlayerController>())
         {
             destination = downPosition;
-            //if (!isMoving)
-            //{
-            //    StartCoroutine(MoveLift());
-            //}
             StopAllCoroutines();
             StartCoroutine(MoveLift());
         }

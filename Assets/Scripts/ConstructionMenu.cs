@@ -140,7 +140,19 @@ public class ConstructionMenu : MonoBehaviour
             if (tSpawn.constructionEnergyRequired < player.playerEnergy.GetEnergy())
             {
                 player.playerEnergy.SpendEnergy(tSpawn.constructionEnergyRequired);
+                loc.x = Mathf.Clamp(loc.x, -112.5f, 112.5f);
+                loc.z = Mathf.Clamp(loc.z, -112.5f, 112.5f);
                 gameManager.SpawnPlatform(tSpawn.pathStrings, loc);
+
+                //Now Spawn in other quadrants as well.
+                //Assuming loc to be ++, other position would be
+
+                Vector3 tLoc = new Vector3(-1 * loc.x, loc.y, loc.z);
+                gameManager.SpawnPlatform(tSpawn.pathStrings, tLoc);
+                tLoc = new Vector3(loc.x, loc.y, -1 * loc.z);
+                gameManager.SpawnPlatform(tSpawn.pathStrings, tLoc);
+                tLoc = new Vector3(-1 * loc.x, loc.y, -1 * loc.z);
+                gameManager.SpawnPlatform(tSpawn.pathStrings, tLoc);
             }
             else
             {

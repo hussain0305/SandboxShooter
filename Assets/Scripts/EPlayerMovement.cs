@@ -13,6 +13,9 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     [HideInInspector]
     public bool isWallGliding;
 
+    [HideInInspector]
+    public Camera playerCam;
+
     //[Header("Movement Settings")]
     private float forwardSpeed = 10;
     private float dashSpeed = 30;
@@ -64,12 +67,23 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
         probeOffset = new Vector3(0, 0.1f, 0);
 
+        StartCoroutine(FetchCamera());
     }
 
     public void Update()
     {
-        if(!pView.IsMine || !characterController || isUsingOffensive)
+        if(!pView.IsMine || !characterController)
         {
+            return;
+        }
+
+        if (isUsingOffensive)
+        {
+            if (characterAnimator.GetFloat("VelFwd") != 0 || characterAnimator.GetFloat("VelRight") != 0)
+            {
+                pTransform.SetSynchronizedValues(new Vector3(0 ,0 ,0), 0);
+                pView.RPC("RPC_StopOnOccupyingOffensive", RpcTarget.All);
+            }
             return;
         }
 
@@ -129,8 +143,8 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         else if (Input.GetButtonDown("Jump") && isWallGliding && canWallJump)
         {
             canWallJump = false;
-            moveDirection = 30 * transform.forward;
-            moveDirection += 7.5f * transform.up;
+            moveDirection = 30 * playerCam.transform.forward;
+            //moveDirection += 7.5f * transform.up;
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
@@ -297,6 +311,19 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
             characterAnimator.SetFloat("VelRight", (float)stream.ReceiveNext());
             characterAnimator.SetFloat("VelFwd", (float)stream.ReceiveNext());
         }
+    }
+
+    [PunRPC]
+    void RPC_StopOnOccupyingOffensive()
+    {
+        characterAnimator.SetFloat("VelRight", 0);
+        characterAnimator.SetFloat("VelFwd", 0);
+    }
+
+    IEnumerator FetchCamera()
+    {
+        yield return new WaitForSeconds(0.5f);
+        playerCam = GetComponent<EPlayerController>().playerCamera;
     }
 
 }
