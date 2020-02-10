@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class EnergyWeaponBase : MonoBehaviour
 {
+    [Header("Weapon Specific Settings")]
+    public bool requiresBeams;
+    
     public Projectile projectile;
     public float durationBetwenShots;
     public float projectileSpeed;

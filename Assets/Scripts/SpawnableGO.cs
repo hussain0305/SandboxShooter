@@ -40,7 +40,10 @@ public class SpawnableGO : MonoBehaviour
 
     public void SpawnableIsReadyForBusiness()
     {
-        healthComponent.enabled = true;
+        if (healthComponent)
+        {
+            healthComponent.enabled = true;
+        }
         isUsable = true;
     }
 
@@ -49,7 +52,10 @@ public class SpawnableGO : MonoBehaviour
     public void FetchHealthComponent()
     {
         healthComponent = GetComponent<SpawnableHealth>();
-        healthComponent.enabled = false;
+        if (healthComponent)
+        {
+            healthComponent.enabled = false;
+        }
     }
     #endregion
 

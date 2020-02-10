@@ -64,7 +64,12 @@ public class EnergyPack : MonoBehaviour
             {
                 if (hasEnergyWeapon)
                 {
-                    EnableAttackBeam(currentEnergyWeapon.beamsRequired);
+                    if (currentEnergyWeapon.requiresBeams)
+                    {
+                        EnableAttackBeam(currentEnergyWeapon.beamsRequired);
+                    }
+
+                    currentEnergyWeapon.ShootEnergyWeapon();
                 }
                 else
                 {
@@ -79,7 +84,10 @@ public class EnergyPack : MonoBehaviour
 
         if(isShooting && Input.GetButton("Fire1"))
         {
-            rotator.transform.SetPositionAndRotation(rotator.transform.position, playerCam.transform.rotation);
+            if (currentEnergyWeapon.requiresBeams)
+            {
+                rotator.transform.SetPositionAndRotation(rotator.transform.position, playerCam.transform.rotation);
+            }
         }
 
         if (isShooting && Input.GetButtonUp("Fire1"))
@@ -132,8 +140,6 @@ public class EnergyPack : MonoBehaviour
     }
     public void EnableAttackBeam(int beamNo)
     {
-        currentEnergyWeapon.ShootEnergyWeapon();
-
         pView.RPC("RPC_EnableAttackBeam", RpcTarget.All, beamNo);
     }
 

@@ -1,0 +1,33 @@
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class SpikeColorEaser : MonoBehaviour
+{
+    private Vector3 finalScale;
+    void Start()
+    {
+        finalScale = new Vector3(1, 1, 1);
+        StartCoroutine(EaseIn());
+    }
+    IEnumerator EaseIn()
+    {
+        transform.localScale = new Vector3(0, 0, 0);
+        while(Vector3.Distance(transform.localScale, finalScale) > 0.05f)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, finalScale, 3 * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+
+        finalScale = new Vector3(0, 0, 0);
+
+        yield return new WaitForSeconds(2);
+        while (Vector3.Distance(transform.localScale, finalScale) > 0.05f)
+        {
+            transform.localScale = Vector3.Lerp(transform.localScale, finalScale, 3 * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
+        }
+        transform.localScale = finalScale;
+    }
+
+}

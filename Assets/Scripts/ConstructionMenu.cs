@@ -214,7 +214,7 @@ public class ConstructionMenu : MonoBehaviour
         qSpawnables.GetChild(qCurrentCategory).GetChild(qCurrentSpawnable).GetComponent<Text>().color = highlightedColor;
 
         quickMenu.StartCondenseListCooldown(qCurrentCategory == 0 ? "Offence" : qCurrentCategory == 1 ?
-            "Defence" : "Decoration", qSpawnables.GetChild(qCurrentCategory).GetChild(qCurrentSpawnable).name);
+            "Defence" : "Decoration", qSpawnables.GetChild(qCurrentCategory).GetChild(qCurrentSpawnable).GetComponent<Text>().text);
     }
 
     public void QuickConstruct()

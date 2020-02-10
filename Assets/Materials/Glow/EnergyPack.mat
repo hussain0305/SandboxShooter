@@ -29,4 +29,4 @@ Material:
     - _Glow: 0.98
     - _Metallic: 0
     m_Colors:
-    - _Color: {r: 0.4039216, g: 1, b: 0.003921569, a: 1}
+    - _Color: {r: 0.40392157, g: 1, b: 0.003921569, a: 1}

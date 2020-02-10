@@ -25,7 +25,10 @@ public class GameManager : MonoBehaviour
         GameObject spawnedSpawnable = PhotonNetwork.Instantiate(Path.Combine(receivedBlueprint.pathStrings), location, 
             receivedBlueprint.isGridAligned?GetGridAlignedRotation(rotation):rotation, 0);
         spawnedSpawnable.GetComponent<SpawnableGO>().displayName = receivedBlueprint.displayName;
-        spawnedSpawnable.GetComponent<SpawnableHealth>().InitiateSystems(receivedBlueprint.health);
+        if (spawnedSpawnable.GetComponent<SpawnableHealth>())
+        {
+            spawnedSpawnable.GetComponent<SpawnableHealth>().InitiateSystems(receivedBlueprint.health);
+        }
 
         if (spawnedSpawnable.GetComponent<DefensiveBase>())
         {

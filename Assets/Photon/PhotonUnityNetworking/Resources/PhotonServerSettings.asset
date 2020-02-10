@@ -74,5 +74,9 @@ MonoBehaviour:
   - RPC_DestroyTimerOnClients
   - RPC_PlayAnimationOnClients
   - RPC_StopOnOccupyingOffensive
+  - RPC_BallHit
+  - RPC_MeteorShowerCalled
+  - RPC_PickedUpEffectOnClients
+  - RPC_AssignPickupProperties
   DisableAutoOpenWizard: 1
   ShowSettings: 1

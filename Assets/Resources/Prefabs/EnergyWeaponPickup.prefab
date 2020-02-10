@@ -106,7 +106,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 641d488976fdeb34dbfde46d2289fd72, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  weapon: {fileID: 2374551622063277516, guid: f1c85bcbcdd10d340954f2409124f22e, type: 3}
+  allWeaponPickups:
+  - weapon: {fileID: 2374551622063277516, guid: f1c85bcbcdd10d340954f2409124f22e,
+      type: 3}
+    weaponColor: {r: 1, g: 0.6316455, b: 0, a: 1}
+  - weapon: {fileID: -5561961244004089233, guid: 0d5208e6603a81249b6f0bc3142a5112,
+      type: 3}
+    weaponColor: {r: 1, g: 0, b: 0.9600029, a: 1}
   destructionEffect: {fileID: 4359040300246178800, guid: cdebfa068a07d8b46b482baecafc3efc,
     type: 3}
 --- !u!114 &-1024034244089837500

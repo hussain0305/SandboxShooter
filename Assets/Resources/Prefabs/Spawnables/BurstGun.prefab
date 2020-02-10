@@ -4857,7 +4857,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damageColor: {r: 0.9716981, g: 0.1054201, b: 0.1054201, a: 1}
-  burnColor: {r: 0.75294125, g: 0.1254902, b: 0.03137255, a: 1}
   formationMat: {fileID: 2100000, guid: 835d541f0adda5d4a86aa8ac6fb6c528, type: 2}
   finalMat: {fileID: 2100000, guid: 17d1e7f30e8e4d54daa5b176aa81ed75, type: 2}
   allBodyRenderers:

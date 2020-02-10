@@ -6,7 +6,6 @@ public class SpawnableAppearance : SpawnableComponentBase
 {
     [Header("Appearance")]
     public Color damageColor;
-    public Color burnColor;
     public Material formationMat;
     public Material finalMat;
     public Renderer[] allBodyRenderers;

@@ -4,22 +4,19 @@ using System.Collections.Generic;
 using System.IO;
 using UnityEngine;
 
+
 public class WeaponSpawner : MonoBehaviour
 {
-    //Will be used when other weapons are added
-    //public string[] allPickups;
-
-    //private PhotonView pView;
+    private PhotonView pView;
 
     public GameObject rayStart;
     public void Start()
     {
-        //if (GetComponent<PhotonView>() && GetComponent<PhotonView>().IsMine)
-        //{
-        //    pView = GetComponent<PhotonView>();
-        //    StartCoroutine(SpawnWeapon());
-        //}
-        StartCoroutine(SpawnWeapon());
+        pView = GetComponent<PhotonView>();
+        if (pView.IsMine)
+        {
+            StartCoroutine(SpawnWeapon());
+        }
     }
 
     IEnumerator SpawnWeapon()
@@ -35,11 +32,11 @@ public class WeaponSpawner : MonoBehaviour
                 }
                 else
                 {
-                    PhotonNetwork.Instantiate(Path.Combine("Prefabs", "EnergyWeaponPickup"), transform.position, transform.rotation, 0);
+                    EnergyWeaponPickup spawnedPickup = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "EnergyWeaponPickup"), transform.position, transform.rotation, 0).GetComponent<EnergyWeaponPickup>();
+                
                 }
             }
-            yield return new WaitForSeconds(5);
+            yield return new WaitForSeconds(30);
         }
     }
-
 }

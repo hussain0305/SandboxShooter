@@ -78,6 +78,7 @@
     <Compile Include="Assets\Scripts\EnergyWeaponBase.cs" />
     <Compile Include="Assets\Scripts\EnergyWeaponPickup.cs" />
     <Compile Include="Assets\Scripts\EnergyWeapons\AutoGun.cs" />
+    <Compile Include="Assets\Scripts\EnergyWeapons\Spikes.cs" />
     <Compile Include="Assets\Scripts\EPlayerController.cs" />
     <Compile Include="Assets\Scripts\EPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EPlayerNetworkPresence.cs" />
@@ -90,6 +91,7 @@
     <Compile Include="Assets\Scripts\GameScoring.cs" />
     <Compile Include="Assets\Scripts\GameServer.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
+    <Compile Include="Assets\Scripts\Meteor.cs" />
     <Compile Include="Assets\Scripts\ModeManager.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonLobby.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonRoom.cs" />
@@ -117,6 +119,7 @@
     <Compile Include="Assets\Scripts\Spawnables\Tower.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TowerShield.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TrampolineJumpPad.cs" />
+    <Compile Include="Assets\Scripts\Spawnables\WreckingBall.cs" />
     <Compile Include="Assets\Scripts\SpawnPad.cs" />
     <Compile Include="Assets\Scripts\TestController.cs" />
     <Compile Include="Assets\Scripts\TestEnemy.cs" />
@@ -127,10 +130,12 @@
     <Compile Include="Assets\Scripts\Utility\CameraDestroyer.cs" />
     <Compile Include="Assets\Scripts\Utility\CollectibleOrb.cs" />
     <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
+    <Compile Include="Assets\Scripts\Utility\MeteorSpawner.cs" />
     <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />
     <Compile Include="Assets\Scripts\Utility\PlayerBodyPartCollider.cs" />
     <Compile Include="Assets\Scripts\Utility\RespawnCameraPosition.cs" />
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
+    <Compile Include="Assets\Scripts\Utility\SpikeColorEaser.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
