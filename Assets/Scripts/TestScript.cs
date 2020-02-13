@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
 
 [System.Serializable]
@@ -7,7 +6,16 @@ public enum TestMouse { Locked, Confined}
 public class TestScript : MonoBehaviour
 {
     public TestMouse mouseBehaviour;
-    // Start is called before the first frame update
+    public bool isOffline;
+
+    private void Awake()
+    {
+        if (isOffline)
+        {
+            PhotonNetwork.OfflineMode = true;
+        }
+    }
+
     void Start()
     {
         switch (mouseBehaviour)

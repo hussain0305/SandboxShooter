@@ -40,7 +40,7 @@ public class Spikes : EnergyWeaponBase
             spawnedProjectile.SetDamage(projectileDamage);
             spawnedProjectile.GetComponent<Rigidbody>().velocity = (spawnedProjectile.transform.up * projectileSpeed);
             spawnedProjectile.SetOwnerID(id);
-            modPos += spawnedProjectile.transform.forward * 20;
+            modPos += spawnedProjectile.transform.forward * 5;
             yield return new WaitForSeconds(0.25f);
         }
 

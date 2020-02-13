@@ -319,7 +319,7 @@ public class EPlayerController : MonoBehaviour
     void RPC_CommunicateDeathToClients(int deceased, int attacker)
     {
         Instantiate(deathEffect, transform.position, transform.rotation);
-        if (PhotonView.Find(attacker))
+        if (attacker != 0 && PhotonView.Find(attacker))
         {
             PhotonView.Find(attacker).GetComponent<EPlayerNetworkPresence>().KilledPlayer();
         }

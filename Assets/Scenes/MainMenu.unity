@@ -1100,7 +1100,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f13e2c6a792f8d94889ee08d55507273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameScenes: 0100000002000000
+  gameScenes: 010000000200000003000000
   currentScene: 0
 --- !u!1 &637211414
 GameObject:
@@ -1609,6 +1609,8 @@ MonoBehaviour:
     - m_Text: Playground
       m_Image: {fileID: 0}
     - m_Text: Collect Orbs
+      m_Image: {fileID: 0}
+    - m_Text: Open World
       m_Image: {fileID: 0}
   m_OnValueChanged:
     m_PersistentCalls:

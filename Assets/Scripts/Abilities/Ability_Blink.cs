@@ -30,7 +30,7 @@ public class Ability_Blink : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponent<PhotonView>().IsMine || !canBlink)
+        if (!GetComponent<PhotonView>().IsMine || !canBlink || player.GetIsUsingOffensive())
         {
             return;
         }
