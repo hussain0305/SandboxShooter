@@ -29,7 +29,7 @@ public class Scoreboard : MonoBehaviour
             Rect rT;
             
             rT = currRow.GetComponent<RectTransform>().rect;
-            currRow.transform.GetChild(1).GetComponent<Text>().text = "" + currPlayer.GetID();
+            currRow.transform.GetChild(1).GetComponent<Text>().text = "Player " + (currPlayer.GetID()/1000);
             currRow.transform.GetChild(2).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetKills();
             currRow.transform.GetChild(3).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetDeaths();
             currRow.transform.GetChild(4).GetComponent<Text>().text = "" + currPlayer.gameRecord.GetSpawnablesBroken();
