@@ -169,10 +169,21 @@ public class CollectOrbs : ModeManager
 
     void DetermineWinner()
     {
+        foreach (Transform currChild in scoreboardHeader)
+        {
+            Destroy(currChild.gameObject);
+        }
+
+        if (!pView.IsMine)
+        {
+            return;
+        }
+
         int loop = 0;
         int highestScore = 0;
         int highestIndex = 0;
         bool isDraw = false;
+
         foreach (int currentScore in scores)
         {
             if (currentScore > highestScore)
@@ -189,18 +200,14 @@ public class CollectOrbs : ModeManager
             loop++;
         }
 
-        foreach (Transform currChild in scoreboardHeader)
-        {
-            Destroy(currChild.gameObject);
-        }
 
         if (isDraw)
         {
-            scoreboardHeader.GetComponent<TextMesh>().text = "It's a tie";
+            pView.RPC("RPC_DeclareOnClients", RpcTarget.All, "It's a tie");
         }
         else
         {
-            scoreboardHeader.GetComponent<TextMesh>().text = "Player " + highestIndex + " won";
+            pView.RPC("RPC_DeclareOnClients", RpcTarget.All, ("Player " + highestIndex + " won"));
         }
     }
 
@@ -232,4 +239,13 @@ public class CollectOrbs : ModeManager
     {
         timer.text = "" + time;
     }
+
+    //Unfortunately, Photon doesn't allow calling RPCs on base classes, so we can't put this common
+    //function in a base class. Has to be declared in every mode script
+    [PunRPC]
+    void RPC_DeclareOnClients(string msg)
+    {
+        scoreboardHeader.GetComponent<TextMesh>().text = msg;
+    }
+
 }

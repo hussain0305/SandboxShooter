@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class DontFall : BaseGameMode
 {
+    const int LEVEL_SPECIFIC_VALUE = 2000;
+
     public static DontFall dontFallMode;
 
     public float totalRoundTime;
@@ -39,6 +41,11 @@ public class DontFall : BaseGameMode
         pView = GetComponent<PhotonView>();
         scores = new int[8];
 
+        for (int loop = 0; loop < scores.Length; loop++)
+        {
+            scores[loop] = LEVEL_SPECIFIC_VALUE;
+        }
+
         if (!pView.IsMine)
         {
             return;
@@ -59,6 +66,10 @@ public class DontFall : BaseGameMode
         scoreboardHeader.GetComponent<TextMesh>().text = "Scoreboard";
 
         int fallenIndex = fallenID / 1000;
+        if(scores[fallenIndex] == LEVEL_SPECIFIC_VALUE)
+        {
+            scores[fallenIndex] = 0;
+        }
         scores[fallenIndex] += 1;
 
         DisplayScores();
@@ -74,7 +85,7 @@ public class DontFall : BaseGameMode
         }
         foreach (int currentScore in scores)
         {
-            if (currentScore != 0)
+            if (currentScore != LEVEL_SPECIFIC_VALUE)
             {
                 GameObject newRow = Instantiate(new GameObject());
                 newRow.transform.SetParent(scoreboardHeader);
@@ -115,38 +126,50 @@ public class DontFall : BaseGameMode
 
     void DetermineWinner()
     {
-        int loop = 0;
-        int highestScore = 0;
-        int highestIndex = 0;
-        bool isDraw = false;
-        foreach (int currentScore in scores)
-        {
-            if (currentScore > highestScore)
-            {
-                highestScore = currentScore;
-                highestIndex = loop;
-                isDraw = false;
-            }
-            else if (currentScore == highestScore)
-            {
-                isDraw = true;
-            }
-
-            loop++;
-        }
-
         foreach (Transform currChild in scoreboardHeader)
         {
             Destroy(currChild.gameObject);
         }
 
+        if (!pView.IsMine)
+        {
+            return;
+        }
+
+        int index = 0;
+        int lowestScore = LEVEL_SPECIFIC_VALUE;
+        int lowestIndex = 0;
+        bool isDraw = false;
+
+        foreach(EPlayerController currPlayer in GameObject.FindObjectsOfType<EPlayerController>())
+        {
+            index = currPlayer.GetNetworkID() / 1000;
+
+            if(scores[index] == LEVEL_SPECIFIC_VALUE)
+            {
+                scores[index] = 0;
+            }
+
+            if (scores[index] < lowestScore)
+            {
+                lowestScore = scores[index];
+                lowestIndex = index;
+                isDraw = false;
+            }
+            else if (scores[index] == lowestScore)
+            {
+                isDraw = true;
+            }
+
+        }
+
         if (isDraw)
         {
-            scoreboardHeader.GetComponent<TextMesh>().text = "It's a tie";
+            pView.RPC("RPC_DeclareOnClients", RpcTarget.All, "It's a tie");
         }
         else
         {
-            scoreboardHeader.GetComponent<TextMesh>().text = "Player " + highestIndex + " won";
+            pView.RPC("RPC_DeclareOnClients", RpcTarget.All, ("Player " + lowestIndex + " won"));
         }
     }
 
@@ -178,4 +201,14 @@ public class DontFall : BaseGameMode
     {
         timer.text = "" + time;
     }
+
+
+    //Unfortunately, Photon doesn't allow calling RPCs on base classes, so we can't put this common
+    //function in a base class. Has to be declared in every mode script
+    [PunRPC]
+    void RPC_DeclareOnClients(string msg)
+    {
+        scoreboardHeader.GetComponent<TextMesh>().text = msg;
+    }
+
 }
