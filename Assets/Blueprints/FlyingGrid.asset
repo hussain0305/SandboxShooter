@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2cfec602d062128469c971592513b101, type: 3}
+  m_Name: FlyingGrid
+  m_EditorClassIdentifier: 
+  type: 2
+  name: FlyingGrid
+  displayName: Flying Grid
+  image: {fileID: 0}
+  description: 
+  health: 300
+  constructionEnergyRequired: 40
+  prefab: {fileID: 1010822956055372923, guid: 0676ba2ec78d97e4dbb1ece22cd14f65, type: 3}
+  isGridAligned: 1
+  pathStrings:
+  - Prefabs
+  - Spawnables
+  - FlyingGrid

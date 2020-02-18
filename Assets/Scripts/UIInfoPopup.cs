@@ -25,25 +25,26 @@ public class UIInfoPopup : MonoBehaviour
     }
     void Update()
     {
-        transform.position = GetAnchor();
+        transform.position = GetAnchor(Input.mousePosition);
     }
 
-    public Vector2 GetAnchor()
+    public Vector2 GetAnchor(Vector3 mousePos)
     {
-        if (Input.mousePosition.y > centerY)
+        Debug.Log("X " + mousePos.x + " Y " + mousePos.y);
+        if (mousePos.y > centerY)
         {
             //Top Left
-            if (Input.mousePosition.x < centerX)
+            if (mousePos.x < centerX)
             {
                 GetComponent<RectTransform>().pivot = new Vector2(0, 1);
-                return new Vector2(Input.mousePosition.x + cursorOffset.x, Input.mousePosition.y + cursorOffset.y);
+                return new Vector2(mousePos.x + cursorOffset.x, mousePos.y + cursorOffset.y);
             }
 
             //Top Right
             else
             {
                 GetComponent<RectTransform>().pivot = new Vector2(1, 1);
-                return new Vector2(Input.mousePosition.x - cursorOffset.x, Input.mousePosition.y + cursorOffset.y);
+                return new Vector2(mousePos.x - cursorOffset.x, mousePos.y + cursorOffset.y);
             }
         }
         else
@@ -52,17 +53,18 @@ public class UIInfoPopup : MonoBehaviour
             if (Input.mousePosition.x < centerX)
             {
                 GetComponent<RectTransform>().pivot = new Vector2(0, 0);
-                return new Vector2(Input.mousePosition.x + cursorOffset.x, Input.mousePosition.y - cursorOffset.y);
+                return new Vector2(mousePos.x + cursorOffset.x, mousePos.y - cursorOffset.y);
             }
 
             //Bottom Right
             else
             {
                 GetComponent<RectTransform>().pivot = new Vector2(1, 0);
-                return new Vector2(Input.mousePosition.x - cursorOffset.x, Input.mousePosition.y - cursorOffset.y);
+                return new Vector2(mousePos.x - cursorOffset.x, mousePos.y - cursorOffset.y);
             }
 
         }
+
         //return new Vector2(1, 1);
     }
 }
