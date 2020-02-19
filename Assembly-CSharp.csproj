@@ -134,6 +134,7 @@
     <Compile Include="Assets\Scripts\Utility\CameraDestroyer.cs" />
     <Compile Include="Assets\Scripts\Utility\CollectibleOrb.cs" />
     <Compile Include="Assets\Scripts\Utility\FallMode_Detector.cs" />
+    <Compile Include="Assets\Scripts\Utility\FlyingGridChoppers.cs" />
     <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
     <Compile Include="Assets\Scripts\Utility\LerpedMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\MeteorSpawner.cs" />

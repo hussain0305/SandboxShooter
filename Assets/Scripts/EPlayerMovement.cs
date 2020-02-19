@@ -62,11 +62,15 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
     private void Start()
     {
-        StartCoroutine(GravityModificationRoutine());
         gravity = NORMAL_GRAVITY;
-
         probeOffset = new Vector3(0, 0.1f, 0);
 
+        if (!pView.IsMine)
+        {
+            return;
+        }
+
+        StartCoroutine(GravityModificationRoutine());
         StartCoroutine(FetchCamera());
     }
 

@@ -30,7 +30,6 @@ public class UIInfoPopup : MonoBehaviour
 
     public Vector2 GetAnchor(Vector3 mousePos)
     {
-        Debug.Log("X " + mousePos.x + " Y " + mousePos.y);
         if (mousePos.y > centerY)
         {
             //Top Left
