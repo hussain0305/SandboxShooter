@@ -43,6 +43,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     private Animator characterAnimator;
     private PhotonView pView;
     private PhotonTransformViewClassic pTransform;
+    private PlayerExternalMovement externalMovement;
 
     private Vector3 predictionVel;
 
@@ -52,6 +53,8 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         characterController = GetComponent<CharacterController>();
         characterAnimator = GetComponent<Animator>();
         pTransform = GetComponent<PhotonTransformViewClassic>();
+        externalMovement = gameObject.AddComponent<PlayerExternalMovement>();
+        SetExternalMovement(false);
         isDashing = false;
         playerInAir = false;
         currentSpeed = forwardSpeed;
@@ -330,4 +333,9 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         playerCam = GetComponent<EPlayerController>().playerCamera;
     }
 
+
+    public void SetExternalMovement(bool val)
+    {
+        externalMovement.enabled = val;
+    }
 }

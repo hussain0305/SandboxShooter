@@ -170,11 +170,16 @@ public class EPlayerController : MonoBehaviour
     bool PlayerIsAimingCloseEnough()
     {
         RaycastHit hit;
-        if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, BUILD_DISTANCE))
+        if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, BUILD_DISTANCE,
+            ~(1 << LayerMask.NameToLayer("ProximitySensor"))))
         {
             if (hit.collider.tag == "GridFloor")
             {
                 return true;
+            }
+            else
+            {
+                Debug.Log("Thjis is " + hit.collider.tag);
             }
         }
         return false;

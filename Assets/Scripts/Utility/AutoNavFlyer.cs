@@ -47,7 +47,7 @@ public class AutoNavFlyer : MonoBehaviour
         {
             if (CollisionIsImminent(currentDirection) || UnityEngine.Random.Range(1, 20) > 15)
             {
-                Debug.Log("Changing Direction");
+                //Debug.Log("Changing Direction");
                 ChangeDirection();
             }
             yield return new WaitForSeconds(0.5f);
@@ -83,48 +83,47 @@ public class AutoNavFlyer : MonoBehaviour
 
     bool CollisionIsImminent(Direction direction)
     {
-        RaycastHit hit;
         switch (direction)
         {
             case Direction.Up:
                 if (Physics.CheckSphere(probeUp.position, 2))
                 {
-                    Debug.Log("Up Collision Imminent");
+                    //Debug.Log("Up Collision Imminent");
                     return true;
                 }
                 break;
             case Direction.Down:
                 if (Physics.CheckSphere(probeDown.position, 2))
                 {
-                    Debug.Log("Down Collision Imminent");
+                    //Debug.Log("Down Collision Imminent");
                     return true;
                 }
                 break;
             case Direction.Forward:
                 if (Physics.CheckSphere(probeForward.position, 2))
                 {
-                    Debug.Log("Fwd Collision Imminent");
+                    //Debug.Log("Fwd Collision Imminent");
                     return true;
                 }
                 break;
             case Direction.Backward:
                 if (Physics.CheckSphere(probeBackward.position, 2))
                 {
-                    Debug.Log("Bwd Collision Imminent");
+                    //Debug.Log("Bwd Collision Imminent");
                     return true;
                 }
                 break;
             case Direction.Left:
                 if (Physics.CheckSphere(probeLeft.position, 2))
                 {
-                    Debug.Log("Left Collision Imminent");
+                    //Debug.Log("Left Collision Imminent");
                     return true;
                 }
                 break;
             case Direction.Right:
                 if (Physics.CheckSphere(probeRight.position, 2))
                 {
-                    Debug.Log("Right Collision Imminent");
+                    //Debug.Log("Right Collision Imminent");
                     return true;
                 }
                 break;
@@ -143,7 +142,7 @@ public class AutoNavFlyer : MonoBehaviour
             curr = (startAt + loop) % allDirections.Length;
             if (!CollisionIsImminent(allDirections[curr]))
             {
-                Debug.Log("Decided to go " + allDirections[curr]);
+                //Debug.Log("Decided to go " + allDirections[curr]);
 
                 MoveInDirection(allDirections[curr]);
                 break;
