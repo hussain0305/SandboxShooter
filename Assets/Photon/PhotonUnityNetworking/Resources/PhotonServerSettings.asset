@@ -80,5 +80,6 @@ MonoBehaviour:
   - RPC_AssignPickupProperties
   - RPC_FellOnClients
   - RPC_DeclareOnClients
+  - RPC_AttachYourselfTo
   DisableAutoOpenWizard: 1
   ShowSettings: 1

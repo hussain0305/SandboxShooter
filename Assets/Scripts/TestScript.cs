@@ -6,15 +6,6 @@ public enum TestMouse { Locked, Confined}
 public class TestScript : MonoBehaviour
 {
     public TestMouse mouseBehaviour;
-    public bool isOffline;
-
-    private void Awake()
-    {
-        if (isOffline)
-        {
-            PhotonNetwork.OfflineMode = true;
-        }
-    }
 
     void Start()
     {

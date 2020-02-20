@@ -144,8 +144,10 @@
     <Compile Include="Assets\Scripts\Utility\PlayerBodyPartCollider.cs" />
     <Compile Include="Assets\Scripts\Utility\PlayerExternalMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\RespawnCameraPosition.cs" />
+    <Compile Include="Assets\Scripts\Utility\SpawnableAnchor.cs" />
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Utility\SpikeColorEaser.cs" />
+    <Compile Include="Assets\Scripts\Utility\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />

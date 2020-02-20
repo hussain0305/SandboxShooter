@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SpawnableGO : MonoBehaviour
 {
@@ -22,6 +20,7 @@ public class SpawnableGO : MonoBehaviour
     {
         isUsable = false;
         //AssignLayer();
+        gameObject.AddComponent<SpawnableAnchor>();
 
         //Establish references for all components
         FetchAppearanceComponent();

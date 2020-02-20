@@ -56,7 +56,6 @@ public class GameManager : MonoBehaviour
 
     public void SpawnPlatform(string[] pathParts, Vector3 loc)
     {
-        //GameObject spawnedSpawnable = Instantiate(receivedBlueprint.prefab, location, rotation);
         GameObject spawnedSpawnable = PhotonNetwork.Instantiate(Path.Combine(pathParts), loc, Quaternion.identity, 0);
     }
 

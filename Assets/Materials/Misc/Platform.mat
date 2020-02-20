@@ -8,7 +8,7 @@ Material:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Platform
-  m_Shader: {fileID: 4800000, guid: c6aeff016b6e79c44b0c3995c6e6ade7, type: 3}
+  m_Shader: {fileID: 4800000, guid: 0f050eb720493ef428340aa88b9d32e2, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 1
@@ -68,11 +68,13 @@ Material:
     - _Glossiness: 1
     - _GlossyReflections: 1
     - _GridSize: 2
+    - _HealthPercentage: 0.5
     - _LineSize: 0.075
     - _Metallic: 0.786
     - _Mode: 0
     - _OcclusionStrength: 1
     - _Parallax: 0.02
+    - _Percentage: 0.5
     - _RimPower: 1
     - _SmoothnessTextureChannel: 0
     - _SpecularHighlights: 1
@@ -80,11 +82,15 @@ Material:
     - _UVSec: 0
     - _ZWrite: 1
     m_Colors:
+    - _BGColor: {r: 1, g: 0, b: 0, a: 1}
     - _CellColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 0.19607843}
     - _CenterColor: {r: 1, g: 1, b: 1, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorGreen: {r: 1, g: 1, b: 1, a: 1}
+    - _ColorRed: {r: 0.21427305, g: 0.9716981, b: 0.0045834924, a: 1}
     - _ColorTint: {r: 0.04431629, g: 1, b: 0, a: 1}
     - _EdgeColor: {r: 0.10893285, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _FillColor: {r: 0.13207549, g: 0.13207549, b: 0.13207549, a: 1}
     - _LineColor: {r: 1, g: 0.6227779, b: 0, a: 1}
     - _RimColor: {r: 0.09301448, g: 1, b: 0, a: 1}

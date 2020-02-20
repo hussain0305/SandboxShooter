@@ -10,6 +10,7 @@ TagManager:
   - CameraHolder
   - Canvas
   - OrbSpawnPoint
+  - GridFlying
   layers:
   - Default
   - TransparentFX

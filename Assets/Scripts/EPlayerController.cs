@@ -173,13 +173,9 @@ public class EPlayerController : MonoBehaviour
         if(Physics.Raycast(playerCamera.transform.position, playerCamera.transform.forward, out hit, BUILD_DISTANCE,
             ~(1 << LayerMask.NameToLayer("ProximitySensor"))))
         {
-            if (hit.collider.tag == "GridFloor")
+            if (hit.collider.tag == "GridFloor" || hit.collider.tag == "GridFlying")
             {
                 return true;
-            }
-            else
-            {
-                Debug.Log("Thjis is " + hit.collider.tag);
             }
         }
         return false;
@@ -208,6 +204,20 @@ public class EPlayerController : MonoBehaviour
                     playerUI.DisplayAlertMessage("A structure already exists here");
                 }
             }
+            
+            else if (hit.collider.tag.Equals("GridFlying"))
+            {
+                if (AlignOnFlyingGrid(hit, out location))
+                {
+                    rotation = transform.rotation;
+                    return true;
+                }
+                else
+                {
+                    playerUI.DisplayAlertMessage("A structure already exists here");
+                }
+            }
+
             else
             {
                 playerUI.DisplayAlertMessage("Aim on the floor to construct");
@@ -230,6 +240,19 @@ public class EPlayerController : MonoBehaviour
         gridLoc.x = (rawCoordinates.x < 0)? (mulX * 5) - 2.5f : (mulX * 5) + 2.5f;
         gridLoc.z = (rawCoordinates.z < 0) ? (mulZ * 5) - 2.5f : (mulZ * 5) + 2.5f;
         location = gridLoc;
+
+        return !gameManager.ObjectExistsAtLocation(location);
+    }
+
+    bool AlignOnFlyingGrid(RaycastHit hit, out Vector3 location)
+    {
+        Vector3 localGridCoords = hit.transform.InverseTransformPoint(hit.point);
+        Vector3 localAlignedCoords = new Vector3(
+            (localGridCoords.x > (0.5f / 3) ? 0.33f : (localGridCoords.x < (-0.5f / 3)) ? -0.33f : 0),
+            localGridCoords.y,
+            (localGridCoords.z > (0.5f / 3) ? 0.33f : (localGridCoords.z < (-0.5f / 3)) ? -0.33f : 0));
+
+        location = hit.transform.TransformPoint(localAlignedCoords);
 
         return !gameManager.ObjectExistsAtLocation(location);
     }

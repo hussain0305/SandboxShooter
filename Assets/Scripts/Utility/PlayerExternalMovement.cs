@@ -23,12 +23,9 @@ public class PlayerExternalMovement : MonoBehaviour
         characterController = GetComponent<CharacterController>();
         moveDirection = new Vector3(0, 0, 0);
     }
+
     public void LateUpdate()
     {
-        if (!characterController)
-        {
-            SetupEverything();
-        }
         characterController.Move(moveDirection * Time.deltaTime);
     }
 
