@@ -1,10 +1,15 @@
 ﻿using Photon.Pun;
 using Photon.Realtime;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EPhotonLobby : MonoBehaviourPunCallbacks
 {
     public static EPhotonLobby lobby;
+
+    public Text regionText;
+    public GameObject splashScreen;
+
 
     private RoomInfo[] rooms;
 
@@ -20,6 +25,8 @@ public class EPhotonLobby : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
+
+        WasConnected();
     }
 
     public void AttemptJoinRoom()
@@ -31,7 +38,7 @@ public class EPhotonLobby : MonoBehaviourPunCallbacks
     {
         int randomRoom = Random.Range(0, 1000);
         RoomOptions roomSettings = new RoomOptions() { IsVisible = true, IsOpen = true, MaxPlayers = 10 };
-        PhotonNetwork.CreateRoom("Sandbox Shooter Server " + randomRoom, roomSettings);
+        PhotonNetwork.CreateRoom("Sandbox FPS Server " + randomRoom, roomSettings);
     }
 
     public void CreateRoom(string roomName, int numPlayers)
@@ -51,5 +58,14 @@ public class EPhotonLobby : MonoBehaviourPunCallbacks
     {
         CreateRoom();
         //base.OnCreateRoomFailed(returnCode, message);
+    }
+
+
+    void WasConnected()
+    {
+        regionText.text = "Region : " + PhotonNetwork.CloudRegion;
+        regionText.color = Color.green;
+
+        splashScreen.SetActive(false);
     }
 }

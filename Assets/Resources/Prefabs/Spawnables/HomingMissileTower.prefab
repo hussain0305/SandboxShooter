@@ -106,6 +106,7 @@ GameObject:
   - component: {fileID: 5945768064611565128}
   - component: {fileID: 3797912204367512442}
   - component: {fileID: -5941044379034917795}
+  - component: {fileID: 5180879062221475670}
   m_Layer: 0
   m_Name: HomingMissileTower
   m_TagString: Untagged
@@ -221,6 +222,18 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &5180879062221475670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306623362185636472}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6862974e83c1b164b87a107f4d4c0513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2306623362188273291
 GameObject:
   m_ObjectHideFlags: 0

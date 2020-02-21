@@ -4955,6 +4955,7 @@ GameObject:
   - component: {fileID: 1480970527507574403}
   - component: {fileID: 3832319577231990437}
   - component: {fileID: 8906601353125521577}
+  - component: {fileID: 5096146837494155896}
   m_Layer: 0
   m_Name: DoubleMachineGun
   m_TagString: Untagged
@@ -5091,6 +5092,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.02
   m_Center: {x: 0, y: 1.25, z: -2.57}
+--- !u!114 &5096146837494155896
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5862623113351301919}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6862974e83c1b164b87a107f4d4c0513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5862746490480398917
 GameObject:
   m_ObjectHideFlags: 0
@@ -5399,7 +5412,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5857085381124420339}
   - component: {fileID: 5198336376396491395}
-  - component: {fileID: 4605243303886513106}
+  - component: {fileID: 2671015921897384689}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -5442,11 +5455,11 @@ MonoBehaviour:
   Synchronization: 1
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 4605243303886513106}
+  - {fileID: 2671015921897384689}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &4605243303886513106
+--- !u!114 &2671015921897384689
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5455,12 +5468,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 5863642369861770867}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 2
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
 --- !u!1 &5863686355473453877
 GameObject:
   m_ObjectHideFlags: 0

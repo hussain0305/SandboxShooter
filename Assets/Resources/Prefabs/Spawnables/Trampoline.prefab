@@ -210,6 +210,7 @@ GameObject:
   - component: {fileID: 6352480172696701020}
   - component: {fileID: 6352480172696701019}
   - component: {fileID: 6352480172696701018}
+  - component: {fileID: 6454437760164905708}
   m_Layer: 0
   m_Name: Trampoline
   m_TagString: Untagged
@@ -305,3 +306,15 @@ MonoBehaviour:
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
+--- !u!114 &6454437760164905708
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6352480172696701017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6862974e83c1b164b87a107f4d4c0513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

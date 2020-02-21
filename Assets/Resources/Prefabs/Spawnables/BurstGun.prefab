@@ -4802,6 +4802,7 @@ GameObject:
   - component: {fileID: -1671418907475340166}
   - component: {fileID: 4838758525209542974}
   - component: {fileID: 3813983529346627042}
+  - component: {fileID: 8978058678719597511}
   m_Layer: 0
   m_Name: BurstGun
   m_TagString: Untagged
@@ -4937,6 +4938,18 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.02
   m_Center: {x: 0, y: 1.25, z: -2.57}
+--- !u!114 &8978058678719597511
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2104451162995988648}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6862974e83c1b164b87a107f4d4c0513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2104911386543823692
 GameObject:
   m_ObjectHideFlags: 0
@@ -5135,7 +5148,7 @@ GameObject:
   m_Component:
   - component: {fileID: 2107037697113089214}
   - component: {fileID: 6533582963334730871}
-  - component: {fileID: 2957628661530645140}
+  - component: {fileID: 7837111132875712828}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -5177,11 +5190,11 @@ MonoBehaviour:
   Synchronization: 1
   OwnershipTransfer: 0
   ObservedComponents:
-  - {fileID: 2957628661530645140}
+  - {fileID: 7837111132875712828}
   viewIdField: 0
   InstantiationId: 0
   isRuntimeInstantiated: 0
---- !u!114 &2957628661530645140
+--- !u!114 &7837111132875712828
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -5190,12 +5203,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 2105226630554291632}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 627855c7f81362d41938ffe0b1475957, type: 3}
+  m_Script: {fileID: 11500000, guid: 8efc6b1d64977384eb3405357896c656, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_SynchronizePosition: 1
-  m_SynchronizeRotation: 1
-  m_SynchronizeScale: 0
+  m_PositionModel:
+    SynchronizeEnabled: 1
+    TeleportEnabled: 1
+    TeleportIfDistanceGreaterThan: 3
+    InterpolateOption: 2
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 1
+    ExtrapolateOption: 2
+    ExtrapolateSpeed: 1
+    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateNumberOfStoredPositions: 1
+  m_RotationModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 1
+    InterpolateRotateTowardsSpeed: 180
+    InterpolateLerpSpeed: 5
+  m_ScaleModel:
+    SynchronizeEnabled: 0
+    InterpolateOption: 0
+    InterpolateMoveTowardsSpeed: 1
+    InterpolateLerpSpeed: 0
 --- !u!1 &2441674849091306727
 GameObject:
   m_ObjectHideFlags: 0

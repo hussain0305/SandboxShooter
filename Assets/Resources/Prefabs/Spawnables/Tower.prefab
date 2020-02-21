@@ -2171,6 +2171,7 @@ GameObject:
   - component: {fileID: 7817960852647532428}
   - component: {fileID: 4344327298771389478}
   - component: {fileID: 6830977166292095531}
+  - component: {fileID: 1382596506836999219}
   m_Layer: 14
   m_Name: Tower
   m_TagString: Untagged
@@ -2321,6 +2322,18 @@ MonoBehaviour:
   spawnLocationOffset: 11
   spentMaterial: {r: 0.7138634, g: 0, b: 1, a: 0}
   platformHealth: 200
+--- !u!114 &1382596506836999219
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5691454625180262640}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6862974e83c1b164b87a107f4d4c0513, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5703549294819814248
 GameObject:
   m_ObjectHideFlags: 0

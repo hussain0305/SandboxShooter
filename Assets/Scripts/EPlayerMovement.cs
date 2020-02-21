@@ -84,11 +84,13 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
             return;
         }
 
+        pTransform.SetSynchronizedValues(characterController.velocity, 0);
+
         if (isUsingOffensive)
         {
             if (characterAnimator.GetFloat("VelFwd") != 0 || characterAnimator.GetFloat("VelRight") != 0)
             {
-                pTransform.SetSynchronizedValues(new Vector3(0 ,0 ,0), 0);
+                //pTransform.SetSynchronizedValues(new Vector3(0 ,0 ,0), 0);
                 pView.RPC("RPC_StopOnOccupyingOffensive", RpcTarget.All);
             }
             return;
@@ -159,7 +161,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
         characterController.Move(moveDirection * Time.deltaTime);
 
-        pTransform.SetSynchronizedValues(characterController.velocity, 0);
+        //pTransform.SetSynchronizedValues(characterController.velocity, 0);
 
         characterAnimator.SetFloat("VelRight", axisHorizontal);
         characterAnimator.SetFloat("VelFwd", axisVertical * (Input.GetButton("Run") ? 1 : 0.5f));

@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
 using UnityEngine;
 
 
@@ -12,6 +11,7 @@ public class PlayerExternalMovement : MonoBehaviour
 {
     private CharacterController characterController;
     private Vector3 moveDirection;
+    //private PhotonTransformViewClassic pTransform;
 
     private void Awake()
     {
@@ -21,12 +21,14 @@ public class PlayerExternalMovement : MonoBehaviour
     void SetupEverything()
     {
         characterController = GetComponent<CharacterController>();
+        //pTransform = GetComponent<PhotonTransformViewClassic>();
         moveDirection = new Vector3(0, 0, 0);
     }
 
     public void LateUpdate()
     {
         characterController.Move(moveDirection * Time.deltaTime);
+        //pTransform.SetSynchronizedValues(moveDirection * Time.deltaTime, 0);
     }
 
     public void AddToVelocity(Vector3 direction)

@@ -35,6 +35,10 @@ public class AutoNavFlyer : MonoBehaviour
             return;
         }
 
+    }
+
+    public void StartMoving()
+    {
         MoveInDirection(Direction.Up);
 
         StartCoroutine(CheckForImminentCollisions());
