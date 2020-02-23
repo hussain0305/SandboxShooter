@@ -106,7 +106,7 @@ public class ConstructionMenu : MonoBehaviour
 
     public void ConstructionSelected(SpawnableType type, string id)
     {
-        Vector3 loc = new Vector3(0, 0, 0);
+        Vector3 loc = Vector3.zero;
         Quaternion rot = Quaternion.identity;
         if(player.GetSpawnLocationAndRotation(out loc, out rot))
         {
@@ -128,7 +128,7 @@ public class ConstructionMenu : MonoBehaviour
     }
     public void PlatformSelected()
     {
-        Vector3 loc = new Vector3(0, 0, 0);
+        Vector3 loc = Vector3.zero;
         Quaternion rot = Quaternion.identity;
         if (player.GetSpawnLocationAndRotation(out loc, out rot))
         {

@@ -4,6 +4,7 @@ using UnityEngine;
 public class FlyingGridPlayerDetector : MonoBehaviour
 {
     private Rigidbody rBody;
+    private AutoNavFlyer flyer;
     private PhotonView pView;
 
     private bool marked = false;
@@ -11,6 +12,7 @@ public class FlyingGridPlayerDetector : MonoBehaviour
     private void Start()
     {
         rBody = GetComponentInParent<Rigidbody>();
+        //flyer = GetComponentInParent<AutoNavFlyer>();
         pView = GetComponentInParent<PhotonView>();
     }
 
@@ -24,7 +26,7 @@ public class FlyingGridPlayerDetector : MonoBehaviour
 
         if (other.GetComponent<EPlayerController>())
         {
-            other.GetComponent<PlayerExternalMovement>().AddToVelocity(rBody.velocity);
+            other.GetComponent<PlayerExternalMovement>().SetVelocity(rBody.velocity);//flyer.GetDirectionalVelocity()
         }
     }
 
@@ -35,6 +37,7 @@ public class FlyingGridPlayerDetector : MonoBehaviour
         {
             return;
         }
+
         if (!marked)
         {
             GetComponentInParent<AutoNavFlyer>().StartMoving();
@@ -53,6 +56,12 @@ public class FlyingGridPlayerDetector : MonoBehaviour
         {
             return;
         }
+
+        if (other.GetComponent<EPlayerController>())
+        {
+            other.GetComponent<PlayerExternalMovement>().SetVelocity(Vector3.zero);
+        }
+
         if (other.GetComponent<EPlayerMovement>())
         {
             other.GetComponent<EPlayerMovement>().SetExternalMovement(false);
@@ -62,30 +71,3 @@ public class FlyingGridPlayerDetector : MonoBehaviour
 
 
 }
-
-
-//public void OnCollisionStay(Collision collision)
-//{
-//    if (collision.transform.GetComponent<EPlayerController>())
-//    {
-//        collision.transform.GetComponent<PlayerExternalMovement>().AddToVelocity(rBody.velocity * Time.deltaTime);
-//    }
-//}
-
-
-//public void OnCollisionEnter(Collision collision)
-//{
-//    if (collision.transform.GetComponent<EPlayerMovement>())
-//    {
-//        collision.transform.GetComponent<EPlayerMovement>().SetExternalMovement(true);
-//    }
-//}
-
-//public void OnCollisionExit(Collision collision)
-//{
-//    if (collision.transform.GetComponent<EPlayerMovement>())
-//    {
-//        collision.transform.GetComponent<EPlayerMovement>().SetExternalMovement(false);
-//    }
-
-//}

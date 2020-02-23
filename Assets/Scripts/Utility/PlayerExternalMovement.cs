@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 
@@ -11,7 +12,6 @@ public class PlayerExternalMovement : MonoBehaviour
 {
     private CharacterController characterController;
     private Vector3 moveDirection;
-    //private PhotonTransformViewClassic pTransform;
 
     private void Awake()
     {
@@ -21,19 +21,43 @@ public class PlayerExternalMovement : MonoBehaviour
     void SetupEverything()
     {
         characterController = GetComponent<CharacterController>();
-        //pTransform = GetComponent<PhotonTransformViewClassic>();
-        moveDirection = new Vector3(0, 0, 0);
+        moveDirection = Vector3.zero;
     }
 
     public void LateUpdate()
     {
         characterController.Move(moveDirection * Time.deltaTime);
-        //pTransform.SetSynchronizedValues(moveDirection * Time.deltaTime, 0);
     }
 
-    public void AddToVelocity(Vector3 direction)
+    public void SetVelocity(Vector3 direction)
     {
         moveDirection = direction;
+    }
+
+    private void OnEnable()
+    {
+        StartCoroutine(CheckIfStillOnGround());
+    }
+
+    IEnumerator CheckIfStillOnGround()
+    {
+        while (true)
+        {
+            if(Physics.CheckSphere(transform.position, 4, (1 << LayerMask.NameToLayer("BuildingDetector")))){
+
+            }
+            else
+            {
+                ForceStop();
+            }
+            yield return new WaitForSeconds(1);
+        }
+    }
+
+    void ForceStop()
+    {
+        StopAllCoroutines();
+        this.enabled = false;
     }
 
 }

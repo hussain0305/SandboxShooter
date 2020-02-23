@@ -12,7 +12,7 @@ public class SpikeColorEaser : MonoBehaviour
     }
     IEnumerator EaseIn()
     {
-        transform.localScale = new Vector3(0, 0, 0);
+        transform.localScale = Vector3.zero;
         while(Vector3.Distance(transform.localScale, finalScale) > 0.05f)
         {
             transform.localScale = Vector3.Lerp(transform.localScale, finalScale, 3 * Time.deltaTime);
@@ -23,7 +23,7 @@ public class SpikeColorEaser : MonoBehaviour
 
         GetComponent<Rigidbody>().velocity = 12 * GetComponent<Rigidbody>().velocity;
 
-        finalScale = new Vector3(0, 0, 0);
+        finalScale = Vector3.zero;
 
         yield return new WaitForSeconds(1.75f);
 

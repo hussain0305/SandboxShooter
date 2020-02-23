@@ -1,4 +1,5 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using Photon.Pun;
 using UnityEngine;
 
@@ -6,56 +7,53 @@ public enum Direction { Forward, Backward, Right, Left, Up, Down };
 
 public class AutoNavFlyer : MonoBehaviour
 {
-    public Transform probeForward;
-    public Transform probeBackward;
-    public Transform probeRight;
-    public Transform probeLeft;
-    public Transform probeUp;
-    public Transform probeDown;
-
-    private Direction currentDirection;
 
     private PhotonView pView;
     private Rigidbody rBody;
 
     private readonly float flySpeed = 7.5f;
 
-    private Direction[] allDirections;
+    private List<Direction> availableDirections;
+
+    private PhotonTransformViewClassic pTransform;
 
     void Start()
     {
         pView = GetComponent<PhotonView>();
         rBody = GetComponent<Rigidbody>();
+        pTransform = GetComponent<PhotonTransformViewClassic>();
 
-        allDirections = new Direction[] { Direction.Up, Direction.Down,
+        availableDirections = new List<Direction> { Direction.Up, Direction.Down,
             Direction.Forward, Direction.Backward, Direction.Right, Direction.Left };
 
+    }
+
+    public bool PViewIsMine()
+    {
+        return pView.IsMine;
+    }
+
+    public void StartMoving()
+    {
         if (!pView.IsMine)
         {
             return;
         }
 
+        StartCoroutine(FireUp());
     }
 
-    public void StartMoving()
-    {
-        MoveInDirection(Direction.Up);
-
-        StartCoroutine(CheckForImminentCollisions());
-    }
-
-    IEnumerator CheckForImminentCollisions()
+    IEnumerator FireUp()
     {
         yield return new WaitForSeconds(1);
-        while (true)
-        {
-            if (CollisionIsImminent(currentDirection) || UnityEngine.Random.Range(1, 20) > 15)
-            {
-                //Debug.Log("Changing Direction");
-                ChangeDirection();
-            }
-            yield return new WaitForSeconds(0.5f);
-        }
+        MoveInDirection(Direction.Up);
+        StartCoroutine(LookForRedirection());
+    }
+
+    public void StopMoving()
+    {
+        rBody.velocity = Vector3.zero;
+        Redirect();
     }
 
     public void MoveInDirection(Direction direction)
@@ -63,7 +61,7 @@ public class AutoNavFlyer : MonoBehaviour
         switch (direction)
         {
             case Direction.Up:
-                rBody.velocity = transform.up * flySpeed;
+                rBody.velocity = transform.up * flySpeed; ;
                 break;
             case Direction.Down:
                 rBody.velocity = -1 * transform.up * flySpeed;
@@ -82,75 +80,35 @@ public class AutoNavFlyer : MonoBehaviour
                 break;
         }
 
-        currentDirection = direction;
+        pTransform.SetSynchronizedValues(rBody.velocity, 0);
     }
 
-    bool CollisionIsImminent(Direction direction)
+    public void Redirect()
     {
-        switch (direction)
+        MoveInDirection(availableDirections[Random.Range(0, availableDirections.Count)]);
+    }
+
+    public void DirectionUnavailable(Direction blockDir)
+    {
+        availableDirections.Remove(blockDir);
+    }
+
+    public void DirectionAvailable(Direction availDir)
+    {
+        if (availableDirections.Contains(availDir))
         {
-            case Direction.Up:
-                if (Physics.CheckSphere(probeUp.position, 2))
-                {
-                    //Debug.Log("Up Collision Imminent");
-                    return true;
-                }
-                break;
-            case Direction.Down:
-                if (Physics.CheckSphere(probeDown.position, 2))
-                {
-                    //Debug.Log("Down Collision Imminent");
-                    return true;
-                }
-                break;
-            case Direction.Forward:
-                if (Physics.CheckSphere(probeForward.position, 2))
-                {
-                    //Debug.Log("Fwd Collision Imminent");
-                    return true;
-                }
-                break;
-            case Direction.Backward:
-                if (Physics.CheckSphere(probeBackward.position, 2))
-                {
-                    //Debug.Log("Bwd Collision Imminent");
-                    return true;
-                }
-                break;
-            case Direction.Left:
-                if (Physics.CheckSphere(probeLeft.position, 2))
-                {
-                    //Debug.Log("Left Collision Imminent");
-                    return true;
-                }
-                break;
-            case Direction.Right:
-                if (Physics.CheckSphere(probeRight.position, 2))
-                {
-                    //Debug.Log("Right Collision Imminent");
-                    return true;
-                }
-                break;
+            return;
         }
-
-        return false;
-
+        availableDirections.Add(availDir);
     }
 
-    public void ChangeDirection()
+    IEnumerator LookForRedirection()
     {
-        int startAt = UnityEngine.Random.Range(0, allDirections.Length);
-        int curr;
-        for (int loop = 0; loop < allDirections.Length; loop++)
+        while (true)
         {
-            curr = (startAt + loop) % allDirections.Length;
-            if (!CollisionIsImminent(allDirections[curr]))
-            {
-                //Debug.Log("Decided to go " + allDirections[curr]);
-
-                MoveInDirection(allDirections[curr]);
-                break;
-            }
+            Redirect();
+            yield return new WaitForSeconds(5);
         }
     }
+
 }

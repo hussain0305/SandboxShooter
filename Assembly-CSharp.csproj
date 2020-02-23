@@ -125,12 +125,14 @@
     <Compile Include="Assets\Scripts\Spawnables\TrampolineJumpPad.cs" />
     <Compile Include="Assets\Scripts\Spawnables\WreckingBall.cs" />
     <Compile Include="Assets\Scripts\SpawnPad.cs" />
+    <Compile Include="Assets\Scripts\Temp\qwe.cs" />
     <Compile Include="Assets\Scripts\TestController.cs" />
     <Compile Include="Assets\Scripts\TestEnemy.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\TestSpawner.cs" />
     <Compile Include="Assets\Scripts\UIInfoPopup.cs" />
     <Compile Include="Assets\Scripts\Utility\AutoNavFlyer.cs" />
+    <Compile Include="Assets\Scripts\Utility\AutoNavFlyerProbe.cs" />
     <Compile Include="Assets\Scripts\Utility\BlinkMarker.cs" />
     <Compile Include="Assets\Scripts\Utility\CameraDestroyer.cs" />
     <Compile Include="Assets\Scripts\Utility\CollectibleOrb.cs" />
@@ -148,6 +150,7 @@
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Utility\SpikeColorEaser.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
+    <Compile Include="Assets\Scripts\Utility\TurretRotationReplicator.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />

@@ -44,18 +44,13 @@ public class SpawnableHealth : SpawnableComponentBase
         master.GetAppearanceComponent().WasHit();
         if (currentHealth <= 0)
         {
-            if (GetComponent<OffensiveControllerBase>() && GetComponent<OffensiveControllerBase>().GetIsOccupied())
-            {
-                GetComponent<OffensiveControllerBase>().ForceEjectPlayer();
-            }
 
             if (!jugaad_notEvaluated)
             {
                 jugaad_notEvaluated = true;
-                PhotonView.Find(id).GetComponent<EPlayerNetworkPresence>().BrokeSpawnable();
+                DestroySpawnable(id);
             }
 
-            DestroySpawnable();
         }
         UpdateHealthBar();
     }
@@ -95,12 +90,39 @@ public class SpawnableHealth : SpawnableComponentBase
 
     }
 
-    public void DestroySpawnable()
+    public void DestroySpawnable(int id)
     {
+        if (GetComponent<OffensiveControllerBase>() && GetComponent<OffensiveControllerBase>().GetIsOccupied())
+        {
+            GetComponent<OffensiveControllerBase>().ForceEjectPlayer();
+        }
+
+        AlsoDestroyChildren(id);
+
+        PhotonView.Find(id).GetComponent<EPlayerNetworkPresence>().BrokeSpawnable();
+
         Instantiate(destructionEffect, transform.position, destructionEffect.transform.rotation);
         if (pView.IsMine)
         {
             PhotonNetwork.Destroy(transform.gameObject);
+        }
+    }
+
+    void AlsoDestroyChildren(int id)
+    {
+        SpawnableHealth[] allSpawnables = GetComponentsInChildren<SpawnableHealth>();
+        if (allSpawnables.Length == 1)
+        {
+            return;
+        }
+
+        foreach(SpawnableHealth curr in allSpawnables)
+        {
+            if (curr == this)
+            {
+                continue;
+            }
+            curr.DestroySpawnable(id);
         }
     }
 }

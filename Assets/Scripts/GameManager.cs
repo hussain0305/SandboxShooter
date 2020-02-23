@@ -123,7 +123,7 @@ public class GameManager : MonoBehaviour
         {
             return allPoints[Random.Range(0, (allPoints.Length - 1))].transform.position;
         }
-        return new Vector3(0, 0, 0);
+        return Vector3.zero;
     }
 
     public EPlayerController FetchLocalPlayer()

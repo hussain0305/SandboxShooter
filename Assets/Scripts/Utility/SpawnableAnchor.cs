@@ -33,7 +33,7 @@ public class SpawnableAnchor : MonoBehaviour
 
     bool HasFlyingGridBelow(out int gridID)
     {
-        Collider[] allHits = Physics.OverlapSphere(transform.position, 1, 1 << LayerMask.NameToLayer("Bounds"));
+        Collider[] allHits = Physics.OverlapSphere(transform.position, 1, (1 << LayerMask.NameToLayer("FloatingPlatform")));
         foreach(Collider currCol in allHits)
         {
             if (currCol.transform.GetComponent<FlyingGridChoppers>())
@@ -52,7 +52,7 @@ public class SpawnableAnchor : MonoBehaviour
         int count = 0;
         while (count < 5)
         {
-            allHits = Physics.OverlapSphere(transform.position, 1, 1 << LayerMask.NameToLayer("Bounds"));
+            allHits = Physics.OverlapSphere(transform.position, 1, (1 << LayerMask.NameToLayer("Bounds") | 1 << LayerMask.NameToLayer("FloatingPlatform")));
             if (allHits.Length == 0)
             {
                 PhotonNetwork.Destroy(this.gameObject);

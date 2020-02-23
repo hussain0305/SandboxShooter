@@ -111,7 +111,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         axisHorizontal = Input.GetAxis("Horizontal");
 
         #region Grounded Check
-        if (Physics.Raycast(transform.position, -1 * transform.up, 0.005f))
+        if (Physics.Raycast(transform.position, -1 * transform.up, 0.02f))//0.005
         {
             isGrounded = true;
             if (!canWallJump)
@@ -119,9 +119,10 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
                 canWallJump = true;
             }
         }
-        else
+        else //if(isGrounded)
         {
             isGrounded = false;
+
         }
         #endregion
 
@@ -158,7 +159,6 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
         moveDirection.y -= gravity * Time.deltaTime;
 
-
         characterController.Move(moveDirection * Time.deltaTime);
 
         //pTransform.SetSynchronizedValues(characterController.velocity, 0);
@@ -189,6 +189,11 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         }
         dashingCoroutine = StartCoroutine(StopDashing());
 
+    }
+
+    public void StopInherentMovement()
+    {
+        characterController.Move(Vector3.zero);
     }
 
     IEnumerator DashForward()
@@ -338,6 +343,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
     public void SetExternalMovement(bool val)
     {
+
         externalMovement.enabled = val;
     }
 }

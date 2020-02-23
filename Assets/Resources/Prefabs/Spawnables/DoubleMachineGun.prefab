@@ -5413,6 +5413,7 @@ GameObject:
   - component: {fileID: 5857085381124420339}
   - component: {fileID: 5198336376396491395}
   - component: {fileID: 2671015921897384689}
+  - component: {fileID: 2914261799659729885}
   m_Layer: 0
   m_Name: Turret
   m_TagString: Untagged
@@ -5472,7 +5473,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_PositionModel:
-    SynchronizeEnabled: 1
+    SynchronizeEnabled: 0
     TeleportEnabled: 1
     TeleportIfDistanceGreaterThan: 3
     InterpolateOption: 2
@@ -5480,18 +5481,30 @@ MonoBehaviour:
     InterpolateLerpSpeed: 1
     ExtrapolateOption: 2
     ExtrapolateSpeed: 1
-    ExtrapolateIncludingRoundTripTime: 1
+    ExtrapolateIncludingRoundTripTime: 0
     ExtrapolateNumberOfStoredPositions: 1
   m_RotationModel:
-    SynchronizeEnabled: 0
-    InterpolateOption: 1
-    InterpolateRotateTowardsSpeed: 180
-    InterpolateLerpSpeed: 5
+    SynchronizeEnabled: 1
+    InterpolateOption: 2
+    InterpolateRotateTowardsSpeed: 360
+    InterpolateLerpSpeed: 100
   m_ScaleModel:
     SynchronizeEnabled: 0
     InterpolateOption: 0
     InterpolateMoveTowardsSpeed: 1
     InterpolateLerpSpeed: 0
+--- !u!114 &2914261799659729885
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5863642369861770867}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17a98b8225b10154d987821075acc677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5863686355473453877
 GameObject:
   m_ObjectHideFlags: 0

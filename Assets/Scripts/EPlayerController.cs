@@ -54,16 +54,16 @@ public class EPlayerController : MonoBehaviour
         characterAnimator = GetComponent<Animator>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
         //playerCamera = Camera.main;
+        pView = GetComponent<PhotonView>();
+
+        if (!pView.IsMine)
+        {
+            return;
+        }
 
         playerUI.enabled = true;
         playerEnergy.enabled = true;
-
-        pView = GetComponent<PhotonView>();
-
-        if (pView.IsMine)
-        {
-            playerCamera.gameObject.SetActive(true);
-        }
+        playerCamera.gameObject.SetActive(true);
     }
 
     void InitializeValues()
@@ -71,6 +71,10 @@ public class EPlayerController : MonoBehaviour
         camPosition = playerCamera.transform.localPosition;
         camRotation = playerCamera.transform.localRotation;
 
+        if (!pView.IsMine)
+        {
+            return;
+        }
         constructionMenuOpen = false;
         SetIsUsingOffensive(false);
 
@@ -183,7 +187,7 @@ public class EPlayerController : MonoBehaviour
 
     public bool GetSpawnLocationAndRotation(out Vector3 location, out Quaternion rotation)
     {
-        Vector3 loc = new Vector3(0, 0, 0);
+        Vector3 loc = Vector3.zero;
         Quaternion rot = Quaternion.identity;
         location = loc;
         rotation = rot;
@@ -264,6 +268,7 @@ public class EPlayerController : MonoBehaviour
         controlledOffensive.OffensiveOccuppied(this);        
         playerUI.RemoveInstructionMessage();
 
+        playerMovement.StopInherentMovement();
         transform.position = controlledOffensive.playerAnchor.transform.position;
         playerCamera.transform.SetParent(controlledOffensive.turret);
         playerCamera.transform.localPosition = controlledOffensive.cameraAnchor.transform.localPosition;
@@ -322,7 +327,7 @@ public class EPlayerController : MonoBehaviour
     public void PickedUpEnergyWeapon(EnergyWeaponBase pickedWeapon)
     {
         playerEnergy.energyPack.SetEnergyWeapon(PhotonNetwork.Instantiate(Path.Combine(pickedWeapon.pathStrings),
-            new Vector3(0, 0, 0), Quaternion.identity).GetComponent<EnergyWeaponBase>());
+            Vector3.zero, Quaternion.identity).GetComponent<EnergyWeaponBase>());
     }
 
     public void PlayerIsDead(int attacker)

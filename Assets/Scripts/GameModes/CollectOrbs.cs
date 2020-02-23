@@ -132,7 +132,7 @@ public class CollectOrbs : ModeManager
             {
                 GameObject newRow = Instantiate(new GameObject());
                 newRow.transform.SetParent(scoreboardHeader);
-                newRow.transform.localPosition = new Vector3(0, 0, 0);
+                newRow.transform.localPosition = Vector3.zero;
                 newRow.transform.localRotation = Quaternion.identity;
                 newRow.transform.localPosition = new Vector3(0, currentRowPosition, 0);
                 currentRowPosition -= 75;
