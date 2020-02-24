@@ -332,6 +332,10 @@ public class EPlayerController : MonoBehaviour
 
     public void PlayerIsDead(int attacker)
     {
+        if (isUsingOffensive && controlledOffensive)
+        {
+            controlledOffensive.ForceEjectPlayer();
+        }
         playerUI.ShowRespawnScreen(gameManager.GetRespawnDuration());
         playerCamera.transform.parent = null;
         playerCamera.GetComponent<CameraDestroyer>().DestroyIn(gameManager.GetRespawnDuration());

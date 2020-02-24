@@ -88,6 +88,7 @@ public class OffensiveControllerBase : MonoBehaviour
     public void RPC_OffensiveLeft()
     {
         controllingPlayer = null;
+        controllerPView = null;
         isOccupied = false;
         turret.transform.rotation = originalOrientation;
     }

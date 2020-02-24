@@ -25,12 +25,19 @@ public class BurstGun : OffensiveControllerBase
             xRotation = Mathf.Clamp(xRotation, -60f, 60f);
             yRotation += mouseX;
             yRotation = Mathf.Clamp(yRotation, -75f, 75f);
-            turret.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            //turret.localRotation = Quaternion.Euler(xRotation, yRotation, 0f);
+            pView.RPC("RPC_ClientControlledRotation", RpcTarget.All, xRotation, yRotation);
             if (Input.GetButtonDown("Fire1") && canShoot)
             {
                 Shoot();
             }
         }
+    }
+
+    [PunRPC]
+    void RPC_ClientControlledRotation(float x, float y)
+    {
+        turret.localRotation = Quaternion.Euler(x, y, 0);
     }
 
     public void Shoot()

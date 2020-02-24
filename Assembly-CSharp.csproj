@@ -123,7 +123,6 @@
     <Compile Include="Assets\Scripts\Spawnables\Tower.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TowerShield.cs" />
     <Compile Include="Assets\Scripts\Spawnables\TrampolineJumpPad.cs" />
-    <Compile Include="Assets\Scripts\Spawnables\WreckingBall.cs" />
     <Compile Include="Assets\Scripts\SpawnPad.cs" />
     <Compile Include="Assets\Scripts\Temp\qwe.cs" />
     <Compile Include="Assets\Scripts\TestController.cs" />
@@ -150,7 +149,6 @@
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Utility\SpikeColorEaser.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
-    <Compile Include="Assets\Scripts\Utility\TurretRotationReplicator.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />

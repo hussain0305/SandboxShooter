@@ -34,6 +34,10 @@ public class SpawnableHealth : SpawnableComponentBase
 
     public void TakeDamage(int damageAmount, int id)
     {
+        if (!pView.IsMine)
+        {
+            return;
+        }
         pView.RPC("RPC_TakeDamage", RpcTarget.All, damageAmount, id);
     }
 

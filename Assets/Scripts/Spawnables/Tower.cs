@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class Tower : MonoBehaviour
@@ -9,36 +9,66 @@ public class Tower : MonoBehaviour
     private Vector3 shieldShrunkScale;
     private Vector3 shieldOriginalScale;
 
+    private PhotonView pView;
+
+    private bool isReady = false;
+
     // Start is called before the first frame update
     void Start()
     {
         shieldOriginalScale = shield.transform.localScale;
         shieldShrunkScale = new Vector3(shieldOriginalScale.x, shieldOriginalScale.y / 4, shieldOriginalScale.z);
+        pView = GetComponent<PhotonView>();
+
+        StartCoroutine(MarkReady());
     }
 
     private void OnTriggerEnter(Collider other)
     {
+        if(!isReady || !pView || !pView.IsMine)
+        {
+            return;
+        }
+
         if (other.transform.gameObject.GetComponent<EPlayerController>())
         {
-            StopAllCoroutines();
-            if (shield)
-            {
-                StartCoroutine(ShrinkShield());
-            }
+            pView.RPC("RPC_Shrink", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    void RPC_Shrink()
+    {
+        StopAllCoroutines();
+        if (shield)
+        {
+            StartCoroutine(ShrinkShield());
         }
     }
 
     private void OnTriggerExit(Collider other)
     {
+        if (!isReady || !pView || !pView.IsMine)
+        {
+            return;
+        }
+
         if (other.transform.gameObject.GetComponent<EPlayerController>())
         {
-            StopAllCoroutines();
-            if (shield)
-            {
-                StartCoroutine(ExpandShield());
-            }
+            pView.RPC("RPC_Expand", RpcTarget.All);
         }
     }
+
+    [PunRPC]
+    void RPC_Expand()
+    {
+        StopAllCoroutines();
+        if (shield)
+        {
+            StartCoroutine(ExpandShield());
+        }
+    }
+
 
     IEnumerator ShrinkShield()
     {
@@ -57,5 +87,11 @@ public class Tower : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         shield.transform.localScale = shieldOriginalScale;
+    }
+
+    IEnumerator MarkReady()
+    {
+        yield return new WaitForSeconds(2);
+        isReady = true;
     }
 }

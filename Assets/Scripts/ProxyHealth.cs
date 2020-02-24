@@ -13,11 +13,5 @@ public class ProxyHealth : MonoBehaviour
             healthComponent.TakeDamage(collision.gameObject.GetComponent<Projectile>().GetDamage(),
                 collision.gameObject.GetComponent<Projectile>().GetOwnerID());
         }
-
-        if (collision.gameObject.GetComponent<WreckingBall>())
-        {
-            healthComponent.TakeDamage(collision.gameObject.GetComponent<WreckingBall>().GetDamage(),
-                collision.gameObject.GetComponent<WreckingBall>().GetPusherID());
-        }
     }
 }

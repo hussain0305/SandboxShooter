@@ -29,7 +29,7 @@ TagManager:
   - ProximitySensor
   - FloatingPlatform
   - PlayerCapsule
-  - 
+  - BuildingDetector
   - 
   - 
   - 

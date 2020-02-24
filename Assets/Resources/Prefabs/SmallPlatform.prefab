@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 8101541586309082232}
   - component: {fileID: 8101541586309082233}
   - component: {fileID: 8625336020009098768}
-  m_Layer: 0
+  m_Layer: 15
   m_Name: SmallPlatform
   m_TagString: GridFloor
   m_Icon: {fileID: 0}
