@@ -154,7 +154,6 @@
     <Compile Include="Assets\Scripts\Utility\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
-    <Compile Include="Assets\wdsw.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />

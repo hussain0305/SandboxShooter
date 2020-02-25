@@ -94,7 +94,7 @@ Material:
     - _CenterColor: {r: 0, g: 0, b: 0, a: 0.39215687}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 0.04431629, g: 1, b: 0, a: 1}
-    - _EdgeColor: {r: 0.6037736, g: 0.6037736, b: 0.6037736, a: 1}
+    - _EdgeColor: {r: 0.9056604, g: 0.19781548, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GapColor: {r: 1, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.09301448, g: 1, b: 0, a: 1}
