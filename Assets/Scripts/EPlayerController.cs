@@ -89,6 +89,11 @@ public class EPlayerController : MonoBehaviour
             return;
         }
 
+        if (Input.GetButtonDown("PauseMenu"))
+        {
+            playerUI.TogglePauseMenu();
+        }
+
         #region Using offensive input
         if (Input.GetButtonDown("Use"))
         {

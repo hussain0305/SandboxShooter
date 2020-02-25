@@ -11,7 +11,6 @@ public class EPhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
     public int currentScene;
 
     public static EPhotonRoom thisRoom;
-    private PhotonView pView;
 
     private int selectedScene;
     void Awake()
@@ -24,9 +23,6 @@ public class EPhotonRoom : MonoBehaviourPunCallbacks, IInRoomCallbacks
         {
             EPhotonRoom.thisRoom = this;
         }
-
-        pView = GetComponent<PhotonView>();
-
     }
 
     public override void OnEnable()

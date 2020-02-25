@@ -49,7 +49,7 @@ public class SpawnableButton : MonoBehaviour
     {
         createdPopup.gameObject.SetActive(true);
         createdPopup.spawnableName.text = correspodingSpawnable.displayName;
-        //set image
+        createdPopup.spawnableImage.sprite = correspodingSpawnable.image;
         createdPopup.description.text = correspodingSpawnable.description;
         createdPopup.healthValue.text = "" + correspodingSpawnable.health;
         //set attack

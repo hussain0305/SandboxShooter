@@ -15,6 +15,9 @@ public class PlayerUI : MonoBehaviour
     private Slider energyBar;
     private GameObject disbalanceBar;
 
+    private CanvasCommunicator canvasCom;
+    private GameObject pauseMenu;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,7 +27,7 @@ public class PlayerUI : MonoBehaviour
 
     void FetchUIComponents()
     {
-        CanvasCommunicator canvasCom = GameObject.FindObjectOfType<CanvasCommunicator>();
+        canvasCom = GameObject.FindObjectOfType<CanvasCommunicator>();
         if (!canvasCom)
         {
             return;
@@ -36,11 +39,13 @@ public class PlayerUI : MonoBehaviour
         constructionMenu = canvasCom.constructionMenu;
         disbalanceBar = canvasCom.disbalanceBar;
         scoreboard = canvasCom.scoreboard;
+        pauseMenu = canvasCom.pauseMenuScreen;
 
         alertMessage.gameObject.SetActive(false);
         instructionMessage.gameObject.SetActive(false);
         constructionMenu.SetActive(false);
         disbalanceBar.SetActive(false);
+        pauseMenu.SetActive(false);
 
         constructionMenu.GetComponent<ConstructionMenu>().ForceStart();
     }
@@ -134,7 +139,7 @@ public class PlayerUI : MonoBehaviour
 
     public void ShowRespawnScreen(float screenDuration)
     {
-        GameObject.FindObjectOfType<CanvasCommunicator>().ShowRespawnScreen(screenDuration);
+        canvasCom.ShowRespawnScreen(screenDuration);
     }
 
     public void ToggleScoreboard()
@@ -145,6 +150,11 @@ public class PlayerUI : MonoBehaviour
     public void SetScoreboardActive(bool val)
     {
         scoreboard.SetActive(val);
+    }
+
+    public void TogglePauseMenu()
+    {
+        pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
 
 }

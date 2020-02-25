@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: fb549005d32699448a23d1cebfd25e51
+guid: a52140ac3993a2c4d844a9e9b0383c09
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: handwriting-draft_free-version
+  fontName: Supersoulfighter
   fontNames:
-  - handwriting-draft_free-version
+  - Supersoulfighter
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

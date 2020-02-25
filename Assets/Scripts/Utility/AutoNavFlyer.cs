@@ -17,7 +17,7 @@ public class AutoNavFlyer : MonoBehaviour
 
     private PhotonTransformViewClassic pTransform;
 
-    void Start()
+    void Awake()
     {
         pView = GetComponent<PhotonView>();
         rBody = GetComponent<Rigidbody>();

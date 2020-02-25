@@ -15,11 +15,12 @@ MonoBehaviour:
   type: 1
   name: HomingMissileTower
   displayName: Homing Missile Tower
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: c292593486129ef4581eea3704d028cb, type: 3}
   description: Shoots homing missiles at opponent players within a radius
   health: 500
   constructionEnergyRequired: 25
   prefab: {fileID: 2306623362185636472, guid: 7a6560b8326648e4f94012dd5d90b648, type: 3}
+  isGridAligned: 0
   pathStrings:
   - Prefabs
   - Spawnables

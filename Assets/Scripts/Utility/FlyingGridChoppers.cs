@@ -9,10 +9,6 @@ public class FlyingGridChoppers : MonoBehaviour
 
     public void Start()
     {
-        if (!GetComponentInParent<PhotonView>().IsMine)
-        {
-            return;
-        }
         RemoveAllInArea();
     }
 

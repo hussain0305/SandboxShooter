@@ -62,7 +62,7 @@ public class Ability_Blink : MonoBehaviour
             {
                 return;
             }
-            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, BLINK_DISTANCE))
+            if (Physics.Raycast(cam.transform.position, cam.transform.forward, out hit, BLINK_DISTANCE, ~(1 << LayerMask.NameToLayer("ProximitySensor") | 1 << LayerMask.NameToLayer("BuildingDetector"))))
             {
                 markerPosition = hit.point;
             }

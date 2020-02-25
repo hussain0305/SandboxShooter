@@ -1,5 +1,5 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class TowerLift : MonoBehaviour
@@ -9,45 +9,55 @@ public class TowerLift : MonoBehaviour
     public float liftSpeed;
 
     private Vector3 destination;
-    private bool isMoving;
+
+    private PhotonView pView;
 
     void Start()
     {
-        isMoving = false;
         transform.localPosition = downPosition;
+        pView = GetComponent<PhotonView>();
     }
 
     IEnumerator MoveLift()
     {
-        isMoving = true;
         GetComponent<Rigidbody>().velocity = transform.up * liftSpeed *
             ((transform.localPosition.y < destination.y) ? 1 : -1);
+        Debug.Log("Started moving here");
         while (Vector3.Distance(transform.localPosition, destination) > 0.1f)
         {
             yield return new WaitForEndOfFrame();
         }
+        Debug.Log("Stopped moving here");
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         transform.localPosition = destination;
-        isMoving = false;
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other.gameObject.GetComponent<EPlayerController>())
+        if (!other.GetComponent<EPlayerController>() || !other.GetComponent<EPlayerController>().IsLocalPView())
         {
-            destination = upPosition;
-            StopAllCoroutines();
-            StartCoroutine(MoveLift());
+            return;
         }
+        Debug.Log("Calling FROM HERE");
+
+        pView.RPC("RPC_LiftMotion", RpcTarget.All, upPosition);
     }
 
     private void OnTriggerExit(Collider other)
     {
-        if (other.gameObject.GetComponent<EPlayerController>())
+        if (!other.GetComponent<EPlayerController>() || !other.GetComponent<EPlayerController>().IsLocalPView())
         {
-            destination = downPosition;
-            StopAllCoroutines();
-            StartCoroutine(MoveLift());
+            return;
         }
+        pView.RPC("RPC_LiftMotion", RpcTarget.All, downPosition);
+    }
+
+    [PunRPC]
+    void RPC_LiftMotion(Vector3 tDestination)
+    {
+        destination = tDestination;
+        StopAllCoroutines();
+        StartCoroutine(MoveLift());
+
     }
 }

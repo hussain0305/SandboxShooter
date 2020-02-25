@@ -7,14 +7,14 @@ public class EPhotonLobby : MonoBehaviourPunCallbacks
 {
     public static EPhotonLobby lobby;
 
-    public Text regionText;
-    public GameObject splashScreen;
-
-
     private RoomInfo[] rooms;
 
     private void Awake()
     {
+        if (lobby)
+        {
+            Destroy(lobby.gameObject);
+        }
         lobby = this;
     }
     void Start()
@@ -25,8 +25,6 @@ public class EPhotonLobby : MonoBehaviourPunCallbacks
     public override void OnConnectedToMaster()
     {
         PhotonNetwork.AutomaticallySyncScene = true;
-
-        WasConnected();
     }
 
     public void AttemptJoinRoom()
@@ -58,14 +56,5 @@ public class EPhotonLobby : MonoBehaviourPunCallbacks
     {
         CreateRoom();
         //base.OnCreateRoomFailed(returnCode, message);
-    }
-
-
-    void WasConnected()
-    {
-        regionText.text = "Region : " + PhotonNetwork.CloudRegion;
-        regionText.color = Color.green;
-
-        splashScreen.SetActive(false);
     }
 }

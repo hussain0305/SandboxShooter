@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 7859c864120a2be4aa9784e9e85b39fc
+guid: 694e58137cddbd1489bd851bd6b82029
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Poetsen One
+  fontName: Quicksand
   fontNames:
-  - Poetsen One
+  - Quicksand
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

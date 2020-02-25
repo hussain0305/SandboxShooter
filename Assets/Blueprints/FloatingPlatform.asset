@@ -15,11 +15,12 @@ MonoBehaviour:
   type: 2
   name: FloatingPlatform
   displayName: Floating Platform
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 6ace8a2a1b3230343a211dbf22034748, type: 3}
   description: Hovering platform that can be used as construction base
   health: 0
   constructionEnergyRequired: 20
   prefab: {fileID: 8217759996100336589, guid: 1458e53cc9c38f4419c27e278a65f6b1, type: 3}
+  isGridAligned: 0
   pathStrings:
   - Prefabs
   - FloatingPlatform

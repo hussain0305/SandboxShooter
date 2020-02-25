@@ -13,6 +13,7 @@ public class CanvasCommunicator : MonoBehaviour
 
     public GameObject respawnScreen;
     public GameObject inGameScreen;
+    public GameObject pauseMenuScreen;
     public Text respawningInSeconds;
 
     public void ShowRespawnScreen(float screenDuration)

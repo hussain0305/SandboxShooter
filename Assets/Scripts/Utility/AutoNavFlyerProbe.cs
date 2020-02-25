@@ -5,7 +5,7 @@ public class AutoNavFlyerProbe : MonoBehaviour
     public Direction myDirection;
     private AutoNavFlyer navSystem;
 
-    private void Start()
+    private void Awake()
     {
         navSystem = GetComponentInParent<AutoNavFlyer>();
     }

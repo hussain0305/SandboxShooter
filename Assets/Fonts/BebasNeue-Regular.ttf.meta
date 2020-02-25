@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 47127b6bdfebef143a367c704c1d9f41
+guid: 9d383c831ff2ebc44be3b4d23131c62a
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: Mexcellent
+  fontName: Bebas Neue
   fontNames:
-  - Mexcellent
+  - Bebas Neue
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

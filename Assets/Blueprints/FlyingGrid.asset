@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 2
   name: FlyingGrid
   displayName: Flying Grid
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 5815dd620fe1de441b039f2f74531a61, type: 3}
   description: 
   health: 300
   constructionEnergyRequired: 40

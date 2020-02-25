@@ -15,7 +15,7 @@ MonoBehaviour:
   type: 2
   name: Tower
   displayName: Tower
-  image: {fileID: 0}
+  image: {fileID: 21300000, guid: 75751edd196a2b441a69cc914c1e9794, type: 3}
   description: Tower
   health: 2000
   constructionEnergyRequired: 30

@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 48fe7eb1304935a4781fb5235310a5f7
+guid: 458394a68344b3841925ba11f037a5e2
 TrueTypeFontImporter:
   externalObjects: {}
   serializedVersion: 4
@@ -8,9 +8,9 @@ TrueTypeFontImporter:
   characterSpacing: 0
   characterPadding: 1
   includeFontData: 1
-  fontName: 60sSTRIPE
+  fontName: GiantRobotArmy
   fontNames:
-  - 60sSTRIPE
+  - GiantRobotArmy
   fallbackFontReferences: []
   customCharacters: 
   fontRenderingMode: 0

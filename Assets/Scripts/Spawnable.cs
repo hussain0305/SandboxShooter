@@ -7,7 +7,7 @@ public class Spawnable : ScriptableObject
     public SpawnableType type;
     public new string name;
     public string displayName;
-    public Image image;
+    public Sprite image;
     public string description;
     public int health;
     public int constructionEnergyRequired;

@@ -19,13 +19,11 @@ public class Tower : MonoBehaviour
         shieldOriginalScale = shield.transform.localScale;
         shieldShrunkScale = new Vector3(shieldOriginalScale.x, shieldOriginalScale.y / 4, shieldOriginalScale.z);
         pView = GetComponent<PhotonView>();
-
-        StartCoroutine(MarkReady());
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        if(!isReady || !pView || !pView.IsMine)
+        if(!pView || !pView.IsMine)
         {
             return;
         }
@@ -48,7 +46,7 @@ public class Tower : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        if (!isReady || !pView || !pView.IsMine)
+        if (!pView || !pView.IsMine)
         {
             return;
         }
@@ -87,11 +85,5 @@ public class Tower : MonoBehaviour
             yield return new WaitForEndOfFrame();
         }
         shield.transform.localScale = shieldOriginalScale;
-    }
-
-    IEnumerator MarkReady()
-    {
-        yield return new WaitForSeconds(2);
-        isReady = true;
     }
 }

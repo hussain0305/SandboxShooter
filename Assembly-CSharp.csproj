@@ -71,7 +71,6 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability_Blink.cs" />
     <Compile Include="Assets\Scripts\CameraShake.cs" />
-    <Compile Include="Assets\Scripts\CanvasCommunicator.cs" />
     <Compile Include="Assets\Scripts\ConstructionMenu.cs" />
     <Compile Include="Assets\Scripts\DefensiveBase.cs" />
     <Compile Include="Assets\Scripts\EnergyPack.cs" />
@@ -94,6 +93,12 @@
     <Compile Include="Assets\Scripts\GameServer.cs" />
     <Compile Include="Assets\Scripts\Graph\BaseGraph.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
+    <Compile Include="Assets\Scripts\Menus\CanvasCommunicator.cs" />
+    <Compile Include="Assets\Scripts\Menus\Journal.cs" />
+    <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\QuickBuildMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\Scene_MainMainMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\Scene_MainMenu.cs" />
     <Compile Include="Assets\Scripts\Meteor.cs" />
     <Compile Include="Assets\Scripts\ModeManager.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonLobby.cs" />
@@ -106,8 +111,6 @@
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProximityDetector.cs" />
     <Compile Include="Assets\Scripts\ProxyHealth.cs" />
-    <Compile Include="Assets\Scripts\QuickBuildMenu.cs" />
-    <Compile Include="Assets\Scripts\Scene_MainMenu.cs" />
     <Compile Include="Assets\Scripts\Scoreboard.cs" />
     <Compile Include="Assets\Scripts\Spawnable.cs" />
     <Compile Include="Assets\Scripts\SpawnableAppearance.cs" />
@@ -148,8 +151,10 @@
     <Compile Include="Assets\Scripts\Utility\SpawnableAnchor.cs" />
     <Compile Include="Assets\Scripts\Utility\SpawnPoint.cs" />
     <Compile Include="Assets\Scripts\Utility\SpikeColorEaser.cs" />
+    <Compile Include="Assets\Scripts\Utility\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
+    <Compile Include="Assets\wdsw.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
     <None Include="Assets\Photon\PhotonUnityNetworking\link.xml" />
