@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: JournalBG
+  m_Name: MainMenuBG
   m_Shader: {fileID: 4800000, guid: 7e895cc3f0d1ab043af9e9d80b35bfbf, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -61,13 +61,13 @@ Material:
     - _Cutoff: 0.5
     - _DetailNormalMapScale: 1
     - _DstBlend: 0
-    - _EHorizontalCo: 1
+    - _EHorizontalCo: 1.17
     - _EVerticalCo: 2
     - _EdgeTransparency: 0.75
     - _EdgeWidth: 0.001
     - _Emission: 3
-    - _GHorizontalCo: 0.46
-    - _GVerticalCo: 0.96
+    - _GHorizontalCo: 0.58
+    - _GVerticalCo: 1.02
     - _GapWidth: 0.004
     - _GlossMapScale: 1
     - _Glossiness: 1
@@ -91,10 +91,10 @@ Material:
     - _t2: 1
     - _t3: 4
     m_Colors:
-    - _CenterColor: {r: 0.09433961, g: 0.01576421, b: 0, a: 1}
+    - _CenterColor: {r: 0.05660379, g: 0.05660379, b: 0.05660379, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 0.04431629, g: 1, b: 0, a: 1}
-    - _EdgeColor: {r: 1, g: 0, b: 0, a: 1}
+    - _EdgeColor: {r: 0.3171543, g: 0.6792453, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
-    - _GapColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GapColor: {r: 0.09433961, g: 0.09433961, b: 0.09433961, a: 1}
     - _RimColor: {r: 0.09301448, g: 1, b: 0, a: 1}

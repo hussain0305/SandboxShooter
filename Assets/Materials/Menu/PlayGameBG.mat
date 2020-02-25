@@ -64,11 +64,11 @@ Material:
     - _EHorizontalCo: 1.17
     - _EVerticalCo: 2
     - _EdgeTransparency: 0.75
-    - _EdgeWidth: 0.004
+    - _EdgeWidth: 0.001
     - _Emission: 3
     - _GHorizontalCo: 0.58
     - _GVerticalCo: 1.02
-    - _GapWidth: 0.015
+    - _GapWidth: 0.004
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1

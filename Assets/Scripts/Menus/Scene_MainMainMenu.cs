@@ -6,6 +6,11 @@ using UnityEngine.SceneManagement;
 public class Scene_MainMainMenu : MonoBehaviour
 {
     public GameObject journal;
+
+    public void Start()
+    {
+        Cursor.visible = true;
+    }
     public void ButtonPressed_PlayGame()
     {
         SceneManager.LoadScene(1);

@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: EnergyWeaponPickup
+  m_Name: DistriGunBaseNozzle
   m_Shader: {fileID: 4800000, guid: 5c9f1b173de1bf441babed616e3bbf9e, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -25,8 +25,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _Emission: 1
-    - _Glossiness: 0.5
-    - _Glow: 0.98
+    - _Glossiness: 0
+    - _Glow: 1
     - _Metallic: 0
     m_Colors:
-    - _Color: {r: 1, g: 0, b: 0.9600029, a: 1}
+    - _Color: {r: 0.8018868, g: 0.52716, b: 0, a: 1}

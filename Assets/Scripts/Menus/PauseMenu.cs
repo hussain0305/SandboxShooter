@@ -7,7 +7,17 @@ using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviourPunCallbacks, IConnectionCallbacks
 {
+    public override void OnEnable()
+    {
+        base.OnEnable();
+        Cursor.visible = true;
+    }
 
+    public override void OnDisable()
+    {
+        base.OnDisable();
+        Cursor.visible = false;
+    }
     public void ExitToMainMenu()
     {
         StartCoroutine(StartDisconnecting());
