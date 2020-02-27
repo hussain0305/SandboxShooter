@@ -154,6 +154,7 @@
     <Compile Include="Assets\Scripts\Utility\SpikeColorEaser.cs" />
     <Compile Include="Assets\Scripts\Utility\SplashScreen.cs" />
     <Compile Include="Assets\Scripts\Utility\TowerLift.cs" />
+    <Compile Include="Assets\Scripts\Utility\TurretRecoiler.cs" />
     <Compile Include="Assets\Scripts\WeaponSpawner.cs" />
     <None Include="Assets\Shaders\SurfaceGrid.shader" />
     <None Include="Assets\Photon\PhotonLibs\changes-library.txt" />
