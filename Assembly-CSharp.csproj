@@ -120,6 +120,7 @@
     <Compile Include="Assets\Scripts\SpawnableHealth.cs" />
     <Compile Include="Assets\Scripts\Spawnables\BurstGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\ChainPlatform.cs" />
+    <Compile Include="Assets\Scripts\Spawnables\DistributedGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\DoubleBarelMachineGun.cs" />
     <Compile Include="Assets\Scripts\Spawnables\HomingMissileTower.cs" />
     <Compile Include="Assets\Scripts\Spawnables\Ramp.cs" />

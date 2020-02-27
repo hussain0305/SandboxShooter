@@ -64,11 +64,11 @@ Material:
     - _EHorizontalCo: 1
     - _EVerticalCo: 1.54
     - _EdgeTransparency: 0.75
-    - _EdgeWidth: 0.01
+    - _EdgeWidth: 0.007
     - _Emission: 3
     - _GHorizontalCo: 0.66
     - _GVerticalCo: 1.02
-    - _GapWidth: 0.034
+    - _GapWidth: 0.021
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1
@@ -91,10 +91,10 @@ Material:
     - _t2: 1
     - _t3: 4
     m_Colors:
-    - _CenterColor: {r: 0.16037738, g: 0.16037738, b: 0.16037738, a: 1}
+    - _CenterColor: {r: 0.084905684, g: 0.084905684, b: 0.084905684, a: 1}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 0.04431629, g: 1, b: 0, a: 1}
-    - _EdgeColor: {r: 0, g: 1, b: 0.7539096, a: 1}
+    - _EdgeColor: {r: 0.15972686, g: 1, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GapColor: {r: 1, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.09301448, g: 1, b: 0, a: 1}

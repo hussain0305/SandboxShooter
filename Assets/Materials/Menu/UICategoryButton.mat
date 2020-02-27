@@ -67,8 +67,8 @@ Material:
     - _EdgeWidth: 0.283
     - _Emission: 3
     - _GHorizontalCo: 1
-    - _GVerticalCo: 1.14
-    - _GapWidth: 0.328
+    - _GVerticalCo: 1.08
+    - _GapWidth: 0.318
     - _GlossMapScale: 1
     - _Glossiness: 1
     - _GlossyReflections: 1

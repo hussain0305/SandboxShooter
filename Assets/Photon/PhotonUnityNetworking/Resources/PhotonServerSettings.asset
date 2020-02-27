@@ -85,5 +85,6 @@ MonoBehaviour:
   - RPC_Shrink
   - RPC_ClientControlledRotation
   - RPC_LiftMotion
+  - RPC_ShootAt
   DisableAutoOpenWizard: 1
   ShowSettings: 1

@@ -3146,7 +3146,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: cb95b7e6ea1c69e4b825ac7f6d70b5f1, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
@@ -4120,7 +4120,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: cb95b7e6ea1c69e4b825ac7f6d70b5f1, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
@@ -4328,7 +4328,7 @@ MonoBehaviour:
   m_FontData:
     m_Font: {fileID: 12800000, guid: cb95b7e6ea1c69e4b825ac7f6d70b5f1, type: 3}
     m_FontSize: 35
-    m_FontStyle: 1
+    m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 50
@@ -4933,7 +4933,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -0, y: -50}
-  m_SizeDelta: {x: 500, y: 100}
+  m_SizeDelta: {x: 600, y: 100}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &9148878412287118742
 CanvasRenderer:

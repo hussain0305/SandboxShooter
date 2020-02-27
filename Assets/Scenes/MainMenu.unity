@@ -459,7 +459,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -471,7 +471,12 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: 'Shoots 3 projectiles in quick succession. Does quite some damage.
+
+
+
+
+    Could be a little better tho.'
 --- !u!222 &22007487
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -729,7 +734,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -741,7 +746,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Gonna be honest, not really helpful in most scenarios so far. It's probably
+    the worst thing you can waste energy on.
 --- !u!222 &135455818
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1451,7 +1457,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -1463,7 +1469,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Spawns a bunch of these things in line and eviscerates everything in its
+    path. Quite powerful
 --- !u!222 &251270983
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2197,7 +2204,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -2209,7 +2216,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Pretty cool building. Has an elevator in its column that takes you to the
+    top. The shaft is covered by a strong shield. Shield retracts when a player gets
+    near it and attempts to use elevator, so that'd be a good time to attack I guess.
 --- !u!222 &362455278
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -2620,7 +2629,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -2632,7 +2641,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Pretty self-explanatory, this one.
 --- !u!222 &393354194
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3849,7 +3858,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -3861,7 +3870,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Shoots bullets, nothing special.
 --- !u!222 &546032567
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4475,7 +4484,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -4487,7 +4496,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: 'It will seek and destroy your enemies. Enemies need to be within a certain
+    distance to be sought out. Very '
 --- !u!222 &655609007
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -5871,7 +5881,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -5883,7 +5893,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Summons a metoer shower that destroys everything in its path.
 --- !u!222 &828878429
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6187,7 +6197,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -6199,7 +6209,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: 'Shoots bullets indiscriminately. Doesn''t require cooldown.
+
+
+    Shoots two bullets at a time - pretty nifty huh'
 --- !u!222 &881466816
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -6749,7 +6762,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -6761,7 +6774,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Flies around on auto-pilot. Buildings can be spawned on it for interesting
+    effects.
 --- !u!222 &994522685
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -11990,7 +12004,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -12002,7 +12016,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: It blocks stuff from getting past. Like it would stop bullets and whatnot.
+    Not effective against Mexicans
 --- !u!222 &1863554854
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12767,7 +12782,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -12779,7 +12794,10 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: 'Can be spawned in air and buildings built on top of it.
+
+
+    Special feature : mirrors its spawn in each quadrant.'
 --- !u!222 &1981383228
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -12844,7 +12862,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_Font: {fileID: 12800000, guid: 694e58137cddbd1489bd851bd6b82029, type: 3}
     m_FontSize: 20
     m_FontStyle: 0
     m_BestFit: 0
@@ -12856,7 +12874,8 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Description
+  m_Text: Shoots wherever the owner is looking. Spawn a bunch of these and you're
+    set.
 --- !u!222 &2004640879
 CanvasRenderer:
   m_ObjectHideFlags: 0

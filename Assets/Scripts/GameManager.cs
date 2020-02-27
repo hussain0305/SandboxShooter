@@ -34,6 +34,11 @@ public class GameManager : MonoBehaviour
         {
             spawnedSpawnable.GetComponent<DefensiveBase>().SetOwner(owner);
         }
+
+        if (spawnedSpawnable.GetComponent<DistributedGun>())
+        {
+            spawnedSpawnable.GetComponent<DistributedGun>().SetOwner(owner);
+        }
     }
 
     public Quaternion GetGridAlignedRotation(Quaternion rawRotation)

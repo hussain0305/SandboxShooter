@@ -11,10 +11,8 @@ public class Tower : MonoBehaviour
 
     private PhotonView pView;
 
-    private bool isReady = false;
-
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         shieldOriginalScale = shield.transform.localScale;
         shieldShrunkScale = new Vector3(shieldOriginalScale.x, shieldOriginalScale.y / 4, shieldOriginalScale.z);
@@ -34,16 +32,6 @@ public class Tower : MonoBehaviour
         }
     }
 
-    [PunRPC]
-    void RPC_Shrink()
-    {
-        StopAllCoroutines();
-        if (shield)
-        {
-            StartCoroutine(ShrinkShield());
-        }
-    }
-
     private void OnTriggerExit(Collider other)
     {
         if (!pView || !pView.IsMine)
@@ -54,6 +42,16 @@ public class Tower : MonoBehaviour
         if (other.transform.gameObject.GetComponent<EPlayerController>())
         {
             pView.RPC("RPC_Expand", RpcTarget.All);
+        }
+    }
+
+    [PunRPC]
+    void RPC_Shrink()
+    {
+        StopAllCoroutines();
+        if (shield)
+        {
+            StartCoroutine(ShrinkShield());
         }
     }
 
@@ -75,6 +73,7 @@ public class Tower : MonoBehaviour
             shield.transform.localScale = Vector3.Lerp(shield.transform.localScale, shieldShrunkScale, 10 * Time.deltaTime);
             yield return new WaitForEndOfFrame();
         }
+        shield.transform.localScale = shieldShrunkScale;
     }
 
     IEnumerator ExpandShield()
