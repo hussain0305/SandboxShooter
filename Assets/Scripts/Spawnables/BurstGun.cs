@@ -5,8 +5,6 @@ using UnityEngine;
 
 public class BurstGun : OffensiveControllerBase
 {
-    const float RECOIL_RANGE = 0.25f;
-    
     private Projectile proj;
     
     private TurretRecoiler recoiler;
@@ -60,7 +58,11 @@ public class BurstGun : OffensiveControllerBase
         for (int loop = 0; loop < 3; loop++)
         {
             //proj = PhotonNetwork.Instantiate(Path.Combine(projectile.pathStrings), nozzle.transform.position, nozzle.transform.rotation, 0).GetComponent<Projectile>();
-            pView.RPC("RPC_SpawnCannonball", RpcTarget.All, controllingPlayer.GetNetworkID());
+            recoilFactor = new Vector2(0.1f, 0.1f);
+            if (controllingPlayer)
+            {
+                pView.RPC("RPC_SpawnCannonball", RpcTarget.All, controllingPlayer.GetNetworkID());
+            }
             yield return new WaitForSeconds(0.2f);
         }
         recoilFactor = Vector2.zero;
@@ -68,10 +70,7 @@ public class BurstGun : OffensiveControllerBase
 
     [PunRPC]
     void RPC_SpawnCannonball(int id)
-    {
-        recoilFactor.x = Random.Range(0.05f, 0.15f);
-        recoilFactor.y = Random.Range(0.05f, 0.15f);
-        
+    {        
         proj = Instantiate(projectile, nozzle.transform.position, nozzle.transform.rotation);
         SetDamageOnProjectile(proj);
         proj.GetComponent<Rigidbody>().AddForce(nozzle.transform.forward * projectForce);

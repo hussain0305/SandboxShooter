@@ -22,13 +22,13 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
         recoiler = GetComponentInChildren<TurretRecoiler>();
     }
 
-    // Update is called once per frame
     void Update()
     {
         if (!isOccupied)
         {
             return;
         }
+
         if (controllerPView.IsMine)
         {
             mouseX = Input.GetAxis("Mouse X") * turretFluidity * Time.deltaTime;
@@ -42,14 +42,26 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
             pView.RPC("RPC_ClientControlledRotation", RpcTarget.All, xRotation, yRotation);
             if (Input.GetButtonDown("Fire1") && canShoot)
             {
-                shooting = true;
+                pView.RPC("RPC_SetShooting", RpcTarget.All, 1);
                 Shoot();
             }
             if (Input.GetButtonUp("Fire1"))
             {
-                shooting = false;
-                recoilFactor = Vector2.zero;
+                pView.RPC("RPC_SetShooting", RpcTarget.All, 0);
             }
+        }
+    }
+
+    [PunRPC]
+    void RPC_SetShooting(int boolInt)
+    {
+        shooting = true;
+        recoilFactor = new Vector2(0.1f, 0.1f);
+        
+        if (boolInt == 0)
+        {
+            shooting = false;
+            recoilFactor = new Vector2(0, 0);
         }
     }
 
@@ -61,13 +73,12 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
 
     public void Shoot()
     {
-        //Shot();
         StartCoroutine(MachineGunShot());
     }
 
     IEnumerator MachineGunShot()
     {
-        while(shooting)
+        while (shooting)
         {
             if (controllingPlayer)
             {
@@ -85,7 +96,6 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
 
                 pView.RPC("RPC_SpawnBulletWithoutOwner", RpcTarget.All, nozzle.transform.position + (BULLET_OFFSET * nozzle.transform.right), nozzle.transform.rotation);
             }
-
             yield return new WaitForSeconds(cooldown);
         }
     }
@@ -93,27 +103,21 @@ public class DoubleBarelMachineGun : OffensiveControllerBase
     [PunRPC]
     void RPC_SpawnBullet(Vector3 pos, Quaternion rot, int id)
     {
-        //Spawn
         proj = Instantiate(projectile, pos, rot).GetComponent<Projectile>();
         proj.GetComponent<Rigidbody>().velocity = proj.transform.forward * projectForce;
         SetDamageOnProjectile(proj);
         proj.SetOwnerID(id);
 
-        //Recoil Now
         recoiler.Recoil();
-        recoilFactor.x = Random.Range(0.05f, 0.15f);
-        recoilFactor.y = Random.Range(0.05f, 0.15f);
     }
 
     [PunRPC]
     void RPC_SpawnBulletWithoutOwner(Vector3 pos, Quaternion rot)
     {
-        //Spawn
         proj = Instantiate(projectile, pos, rot).GetComponent<Projectile>();
         proj.GetComponent<Rigidbody>().velocity = proj.transform.forward * projectForce;
         SetDamageOnProjectile(proj);
         
-        //Recoil Now
         recoiler.Recoil();
     }
 }
