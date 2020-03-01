@@ -2637,10 +2637,10 @@ RectTransform:
   m_Father: {fileID: 9148878410708423006}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.855, y: 0.45}
-  m_AnchorMax: {x: 1, y: 0.92800003}
-  m_AnchoredPosition: {x: -5, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -5, y: -339.5}
+  m_SizeDelta: {x: 200, y: 521}
   m_Pivot: {x: 1, y: 0.5}
 --- !u!114 &9148878411217189789
 MonoBehaviour:
@@ -2656,7 +2656,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selectionBlock: {fileID: 9148878410583435264}
   selectedBlock: {fileID: 9148878411346001481}
-  categoryName: {fileID: 9148878412492337949}
   spawnableName: {fileID: 9148878412522081942}
   mainHeading: {fileID: 9148878410941302734}
 --- !u!1 &9148878411233085867
@@ -2921,7 +2920,7 @@ RectTransform:
   m_Father: {fileID: 9148878411217189788}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0.84000003}
+  m_AnchorMin: {x: 0, y: 0.86883885}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
@@ -5252,7 +5251,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &9148878412492337948
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5267,10 +5266,10 @@ RectTransform:
   m_Father: {fileID: 9148878411346001482}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 10, y: -50}
-  m_SizeDelta: {x: -20, y: 30}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -50}
+  m_SizeDelta: {x: 180, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9148878412492337950
 CanvasRenderer:
@@ -5305,7 +5304,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 0
     m_MaxSize: 175
-    m_Alignment: 3
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5382,10 +5381,10 @@ RectTransform:
   m_Father: {fileID: 9148878411346001482}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -10, y: -50}
-  m_SizeDelta: {x: -20, y: 30}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: -45}
+  m_SizeDelta: {x: 180, y: 30}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &9148878412522081943
 CanvasRenderer:
@@ -5420,7 +5419,7 @@ MonoBehaviour:
     m_BestFit: 0
     m_MinSize: 1
     m_MaxSize: 40
-    m_Alignment: 5
+    m_Alignment: 4
     m_AlignByGeometry: 0
     m_RichText: 1
     m_HorizontalOverflow: 0
@@ -5964,25 +5963,25 @@ PrefabInstance:
       propertyPath: m_Pivot.y
       value: 1
       objectReference: {fileID: 0}
-    - target: {fileID: 8191643832501088122, guid: 2488355704fabae49b5649bcbae3cf80,
+    - target: {fileID: 5609615750399176482, guid: 2488355704fabae49b5649bcbae3cf80,
         type: 3}
-      propertyPath: m_RaycastTarget
-      value: 0
+      propertyPath: m_AnchoredPosition.x
+      value: -18.399902
       objectReference: {fileID: 0}
     - target: {fileID: 6892715063049844929, guid: 2488355704fabae49b5649bcbae3cf80,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: -18.399902
       objectReference: {fileID: 0}
-    - target: {fileID: 6847944056117026308, guid: 2488355704fabae49b5649bcbae3cf80,
+    - target: {fileID: 8191643832501088122, guid: 2488355704fabae49b5649bcbae3cf80,
         type: 3}
       propertyPath: m_RaycastTarget
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5609615750399176482, guid: 2488355704fabae49b5649bcbae3cf80,
+    - target: {fileID: 6847944056117026308, guid: 2488355704fabae49b5649bcbae3cf80,
         type: 3}
-      propertyPath: m_AnchoredPosition.x
-      value: -18.399902
+      propertyPath: m_RaycastTarget
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4529178998762881211, guid: 2488355704fabae49b5649bcbae3cf80,
         type: 3}

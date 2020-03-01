@@ -6,7 +6,7 @@ public class QuickBuildMenu : MonoBehaviour
     public GameObject selectionBlock;
     public GameObject selectedBlock;
 
-    public Text categoryName;
+    //public Text categoryName;
     public Text spawnableName;
 
     public Text mainHeading;
@@ -23,7 +23,7 @@ public class QuickBuildMenu : MonoBehaviour
     {
         selectionBlock.SetActive(false);
         selectedBlock.SetActive(true);
-        mainHeading.text = "Quick Build Selection";
+        mainHeading.text = "Currently Building";
     }
 
     public void StartCondenseListCooldown(string cat, string spn)
@@ -37,7 +37,7 @@ public class QuickBuildMenu : MonoBehaviour
 
     IEnumerator CondenseList(string cat, string spn)
     {
-        categoryName.text = cat;
+        //categoryName.text = cat;
         spawnableName.text = spn;
         yield return new WaitForSeconds(2);
         ShowSelected();

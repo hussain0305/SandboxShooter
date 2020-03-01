@@ -4,7 +4,6 @@ using UnityEngine;
 public class FlyingGridPlayerDetector : MonoBehaviour
 {
     private Rigidbody rBody;
-    private AutoNavFlyer flyer;
     private PhotonView pView;
 
     private bool marked = false;
@@ -12,7 +11,6 @@ public class FlyingGridPlayerDetector : MonoBehaviour
     private void Start()
     {
         rBody = GetComponentInParent<Rigidbody>();
-        //flyer = GetComponentInParent<AutoNavFlyer>();
         pView = GetComponentInParent<PhotonView>();
     }
 
@@ -24,9 +22,9 @@ public class FlyingGridPlayerDetector : MonoBehaviour
             return;
         }
 
-        if (other.GetComponent<EPlayerController>())
+        if (other.GetComponent<PlayerExternalMovement>())
         {
-            other.GetComponent<PlayerExternalMovement>().SetVelocity(rBody.velocity);//flyer.GetDirectionalVelocity()
+            other.GetComponent<PlayerExternalMovement>().SetVelocity(rBody.velocity);
         }
     }
 

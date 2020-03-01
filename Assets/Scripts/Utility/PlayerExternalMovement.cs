@@ -13,9 +13,27 @@ public class PlayerExternalMovement : MonoBehaviour
     private CharacterController characterController;
     private Vector3 moveDirection;
 
+    private RaycastHit hit;
+    private RaycastHit[] allHits;
+
     private void Awake()
     {
         SetupEverything();
+    }
+
+    public void OnEnable()
+    {
+        StartCoroutine(CheckIfStillOnGround());
+    }
+
+    public void OnDisable()
+    {
+        StopAllCoroutines();
+    }
+
+    public void LateUpdate()
+    {
+        characterController.Move(moveDirection * Time.deltaTime);
     }
 
     void SetupEverything()
@@ -24,27 +42,18 @@ public class PlayerExternalMovement : MonoBehaviour
         moveDirection = Vector3.zero;
     }
 
-    public void LateUpdate()
-    {
-        characterController.Move(moveDirection * Time.deltaTime);
-    }
-
     public void SetVelocity(Vector3 direction)
     {
         moveDirection = direction;
-    }
-
-    private void OnEnable()
-    {
-        StartCoroutine(CheckIfStillOnGround());
     }
 
     IEnumerator CheckIfStillOnGround()
     {
         while (true)
         {
-            if(Physics.CheckSphere(transform.position, 4, (1 << LayerMask.NameToLayer("BuildingDetector")))){
-
+            if (Physics.Raycast(transform.position, -1 * transform.up, out hit, 10, ~(1 << LayerMask.NameToLayer("Travelator"))))
+            {
+                
             }
             else
             {
