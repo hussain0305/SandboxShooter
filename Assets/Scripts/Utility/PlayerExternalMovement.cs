@@ -51,9 +51,9 @@ public class PlayerExternalMovement : MonoBehaviour
     {
         while (true)
         {
-            if (Physics.Raycast(transform.position, -1 * transform.up, out hit, 10, ~(1 << LayerMask.NameToLayer("Travelator"))))
+            if (Physics.Raycast(transform.position, -1 * transform.up, out hit, 10, (1 << LayerMask.NameToLayer("Travelator"))))
             {
-                
+
             }
             else
             {
