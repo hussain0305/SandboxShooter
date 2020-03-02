@@ -5,7 +5,9 @@ using UnityEngine.SceneManagement;
 
 public class Scene_MainMainMenu : MonoBehaviour
 {
+    public GameObject howToPlay;
     public GameObject journal;
+    public GameObject settings;
 
     public void Start()
     {
@@ -16,6 +18,11 @@ public class Scene_MainMainMenu : MonoBehaviour
         SceneManager.LoadScene(1);
     }
 
+    public void ButtonPressed_HowToPlay()
+    {
+        howToPlay.SetActive(!howToPlay.activeSelf);
+    }
+
     public void ButtonPressed_Journal()
     {
         journal.SetActive(!journal.activeSelf);
@@ -23,7 +30,7 @@ public class Scene_MainMainMenu : MonoBehaviour
 
     public void ButtonPressed_Settings()
     {
-
+        settings.SetActive(!settings.activeSelf);
     }
 
     public void ButtonPressed_Exit()

@@ -94,11 +94,15 @@
     <Compile Include="Assets\Scripts\Graph\BaseGraph.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
     <Compile Include="Assets\Scripts\Menus\CanvasCommunicator.cs" />
+    <Compile Include="Assets\Scripts\Menus\HowToPlay.cs" />
     <Compile Include="Assets\Scripts\Menus\Journal.cs" />
+    <Compile Include="Assets\Scripts\Menus\KeyBindings.cs" />
+    <Compile Include="Assets\Scripts\Menus\MapSelection.cs" />
     <Compile Include="Assets\Scripts\Menus\PauseMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\QuickBuildMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\Scene_MainMainMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\Scene_MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\Settings.cs" />
     <Compile Include="Assets\Scripts\Menus\UIPanelSlider.cs" />
     <Compile Include="Assets\Scripts\Meteor.cs" />
     <Compile Include="Assets\Scripts\ModeManager.cs" />
@@ -145,7 +149,6 @@
     <Compile Include="Assets\Scripts\Utility\FlyingGridPlayerDetector.cs" />
     <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
     <Compile Include="Assets\Scripts\Utility\LerpedMovement.cs" />
-    <Compile Include="Assets\Scripts\Utility\MapSelection.cs" />
     <Compile Include="Assets\Scripts\Utility\MeteorSpawner.cs" />
     <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />
     <Compile Include="Assets\Scripts\Utility\PlayerBodyPartCollider.cs" />

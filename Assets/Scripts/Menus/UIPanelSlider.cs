@@ -5,8 +5,8 @@ using UnityEngine;
 public class UIPanelSlider : MonoBehaviour
 {
     public float slideSpeed;
+    public float verticalPosition;
     private float panelWidth;
-    private float panelHeight;
     private float workingPanelWidth;
     private RectTransform rTransform;
 
@@ -22,10 +22,14 @@ public class UIPanelSlider : MonoBehaviour
     {
         rTransform = GetComponent<RectTransform>();
         panelWidth = rTransform.rect.width;
-        panelHeight = rTransform.rect.height;
         workingPanelWidth = panelWidth + 30;
-        outAnchoredPosition = new Vector2(workingPanelWidth / 2, 0);
-        inAnchoredPosition = new Vector2(-workingPanelWidth / 2, 0);
+        outAnchoredPosition = new Vector2(workingPanelWidth / 2, verticalPosition);
+        inAnchoredPosition = new Vector2(-workingPanelWidth / 2, verticalPosition);
+        rTransform.anchoredPosition = outAnchoredPosition;
+    }
+
+    public void ResetPosition()
+    {
         rTransform.anchoredPosition = outAnchoredPosition;
     }
 
