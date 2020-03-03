@@ -68,6 +68,7 @@ public class PlayerEnergy : MonoBehaviour
         {
             return;
         }
+        playerUI.SetEnergyDroppedMessage(true);
         GetComponent<PhotonView>().RPC("RPC_DropEnergyPack", RpcTarget.All);
     }
 
@@ -86,6 +87,7 @@ public class PlayerEnergy : MonoBehaviour
         {
             return;
         }
+        playerUI.SetEnergyDroppedMessage(false);
         GetComponent<PhotonView>().RPC("RPC_PickupEnergyPack", RpcTarget.All, packID);
     }
 

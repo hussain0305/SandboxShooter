@@ -10,8 +10,25 @@ public struct GameTip
 }
 public class HowToPlay : MonoBehaviour
 {
-    public GameTip[] allTips;
+    public Transform allTipsCluster;
 
+    private GameTip[] allTips;
+
+    private void Awake()
+    {
+        PrepareList();
+    }
+
+    public void PrepareList()
+    {
+        allTips = new GameTip[allTipsCluster.childCount];
+        foreach (Transform currTip in allTipsCluster)
+        {
+            allTips[currTip.GetSiblingIndex()].buttonName = currTip.GetChild(0).GetChild(0).GetComponent<Text>();
+            allTips[currTip.GetSiblingIndex()].correspondingSlider = currTip.GetComponentInChildren<UIPanelSlider>();
+            allTips[currTip.GetSiblingIndex()].isOut = true;
+        }
+    }
     public void OnEnable()
     {
         ResetEverything();

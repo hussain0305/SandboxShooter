@@ -144,6 +144,7 @@
     <Compile Include="Assets\Scripts\Utility\BlinkMarker.cs" />
     <Compile Include="Assets\Scripts\Utility\CameraDestroyer.cs" />
     <Compile Include="Assets\Scripts\Utility\CollectibleOrb.cs" />
+    <Compile Include="Assets\Scripts\Utility\DroppedEnergyBarFlasher.cs" />
     <Compile Include="Assets\Scripts\Utility\FallMode_Detector.cs" />
     <Compile Include="Assets\Scripts\Utility\FlyingGridChoppers.cs" />
     <Compile Include="Assets\Scripts\Utility\FlyingGridPlayerDetector.cs" />

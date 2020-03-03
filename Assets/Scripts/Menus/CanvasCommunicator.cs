@@ -11,11 +11,21 @@ public class CanvasCommunicator : MonoBehaviour
     public GameObject disbalanceBar;
     public GameObject scoreboard;
 
+    public GameObject energyBarMain;
+    public GameObject energyDroppedMain;
+    public RectTransform quickBuildMenuRect;
+
     public GameObject respawnScreen;
     public GameObject inGameScreen;
     public GameObject pauseMenuScreen;
     public Text respawningInSeconds;
 
+    private float originalAnchoredY;
+
+    private void Awake()
+    {
+        originalAnchoredY = quickBuildMenuRect.anchoredPosition.y;
+    }
     public void ShowRespawnScreen(float screenDuration)
     {
         inGameScreen.SetActive(false);
@@ -44,6 +54,22 @@ public class CanvasCommunicator : MonoBehaviour
             yield return new WaitForSeconds(1);
         }
         ShowInGameScreen();
+    }
+
+    public void SetEnergyDroppedMessage(bool val)
+    {
+        energyBarMain.SetActive(!val);
+        energyDroppedMain.SetActive(val);
+
+        if (val)
+        {
+            quickBuildMenuRect.anchoredPosition = new Vector2(quickBuildMenuRect.anchoredPosition.x, -5000);
+        }
+
+        else
+        {
+            quickBuildMenuRect.anchoredPosition = new Vector2(quickBuildMenuRect.anchoredPosition.x, originalAnchoredY);
+        }
     }
 
 }

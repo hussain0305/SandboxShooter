@@ -48,6 +48,8 @@ public class PlayerUI : MonoBehaviour
         pauseMenu.SetActive(false);
 
         constructionMenu.GetComponent<ConstructionMenu>().ForceStart();
+
+        SetEnergyDroppedMessage(false);
     }
 
     public void ToggleConstructionMenu()
@@ -157,4 +159,8 @@ public class PlayerUI : MonoBehaviour
         pauseMenu.SetActive(!pauseMenu.activeSelf);
     }
 
+    public void SetEnergyDroppedMessage(bool val)
+    {
+        canvasCom.SetEnergyDroppedMessage(val);
+    }
 }
