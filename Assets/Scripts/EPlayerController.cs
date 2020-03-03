@@ -151,13 +151,20 @@ public class EPlayerController : MonoBehaviour
 
         if (Input.GetButtonDown("Fire3") && !constructionMenuOpen)
         {
-            playerUI.QuickConstruct();
+            if (playerEnergy.hasEnergyPack)
+            {
+                playerUI.QuickConstruct();
+            }
+            else
+            {
+                playerUI.DisplayAlertMessage("Cannot construct without energy pack");
+            }
         }
 
         #endregion
 
 
-        if(Input.GetButtonDown("Scoreboard"))
+        if (Input.GetButtonDown("Scoreboard"))
         {
             playerUI.SetScoreboardActive(true);
         }

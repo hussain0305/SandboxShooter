@@ -22,12 +22,10 @@ public class TowerLift : MonoBehaviour
     {
         GetComponent<Rigidbody>().velocity = transform.up * liftSpeed *
             ((transform.localPosition.y < destination.y) ? 1 : -1);
-        Debug.Log("Started moving here");
         while (Vector3.Distance(transform.localPosition, destination) > 0.1f)
         {
             yield return new WaitForEndOfFrame();
         }
-        Debug.Log("Stopped moving here");
         GetComponent<Rigidbody>().velocity = Vector3.zero;
         transform.localPosition = destination;
     }
@@ -38,7 +36,6 @@ public class TowerLift : MonoBehaviour
         {
             return;
         }
-        Debug.Log("Calling FROM HERE");
 
         pView.RPC("RPC_LiftMotion", RpcTarget.All, upPosition);
     }
