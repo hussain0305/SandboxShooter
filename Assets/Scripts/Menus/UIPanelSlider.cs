@@ -13,7 +13,7 @@ public class UIPanelSlider : MonoBehaviour
     private Vector2 outAnchoredPosition;
     private Vector2 inAnchoredPosition;
     // Start is called before the first frame update
-    void Start()
+    void Awake()
     {
         FetchComponentsAndOrient();
     }
