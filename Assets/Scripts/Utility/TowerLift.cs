@@ -4,30 +4,13 @@ using UnityEngine;
 
 public class TowerLift : MonoBehaviour
 {
-    public Vector3 downPosition;
-    public Vector3 upPosition;
-    public float liftSpeed;
-
-    private Vector3 destination;
-
     private PhotonView pView;
+    private Animator animate;
 
     void Start()
     {
-        transform.localPosition = downPosition;
         pView = GetComponent<PhotonView>();
-    }
-
-    IEnumerator MoveLift()
-    {
-        GetComponent<Rigidbody>().velocity = transform.up * liftSpeed *
-            ((transform.localPosition.y < destination.y) ? 1 : -1);
-        while (Vector3.Distance(transform.localPosition, destination) > 0.1f)
-        {
-            yield return new WaitForEndOfFrame();
-        }
-        GetComponent<Rigidbody>().velocity = Vector3.zero;
-        transform.localPosition = destination;
+        animate = GetComponent<Animator>();
     }
 
     private void OnTriggerEnter(Collider other)
@@ -37,7 +20,7 @@ public class TowerLift : MonoBehaviour
             return;
         }
 
-        pView.RPC("RPC_LiftMotion", RpcTarget.All, upPosition);
+        pView.RPC("RPC_LiftMotion", RpcTarget.All, true);// upPosition);
     }
 
     private void OnTriggerExit(Collider other)
@@ -46,15 +29,19 @@ public class TowerLift : MonoBehaviour
         {
             return;
         }
-        pView.RPC("RPC_LiftMotion", RpcTarget.All, downPosition);
+        pView.RPC("RPC_LiftMotion", RpcTarget.All, false);
     }
 
     [PunRPC]
-    void RPC_LiftMotion(Vector3 tDestination)
+    void RPC_LiftMotion(bool goUp)
     {
-        destination = tDestination;
-        StopAllCoroutines();
-        StartCoroutine(MoveLift());
-
+        if (goUp)
+        {
+            animate.SetTrigger("GoUp");
+        }
+        else
+        {
+            animate.SetTrigger("GoDown");
+        }
     }
 }

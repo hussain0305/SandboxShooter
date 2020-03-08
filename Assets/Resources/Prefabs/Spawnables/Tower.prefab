@@ -2693,7 +2693,8 @@ GameObject:
   - component: {fileID: 1347013029895196091}
   - component: {fileID: 5889413721106445172}
   - component: {fileID: 9069782183660780848}
-  m_Layer: 15
+  - component: {fileID: 7766557359226112087}
+  m_Layer: 19
   m_Name: Lift
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2785,9 +2786,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0185ee95210d9f84d81ca8e028f6bb14, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  downPosition: {x: 0, y: -0.09, z: 0}
-  upPosition: {x: 0, y: 30, z: 0}
-  liftSpeed: 10
 --- !u!54 &1347013029895196091
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -2839,6 +2837,25 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 25, z: 1}
   m_Center: {x: 0, y: 11.99, z: 0}
+--- !u!95 &7766557359226112087
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6686543940960408498}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f9d5fa9bf553aa7459a4531ea6fce849, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7752669520302699802
 GameObject:
   m_ObjectHideFlags: 0
