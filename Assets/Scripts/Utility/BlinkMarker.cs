@@ -12,7 +12,7 @@ public class BlinkMarker : MonoBehaviour
     {
         startOfLine = line.gameObject.transform.position;
 
-        if (Physics.Raycast(startOfLine, -1 * transform.up, out hit, 100, ~(1 << LayerMask.NameToLayer("ProximitySensor") | 1 << LayerMask.NameToLayer("BuildingDetector"))))
+        if (Physics.Raycast(startOfLine, -1 * transform.up, out hit, 1000, ~(1 << LayerMask.NameToLayer("ProximitySensor") | 1 << LayerMask.NameToLayer("BuildingDetector"))))
         {
             line.SetPosition(0, startOfLine);
             line.SetPosition(1, hit.point);         

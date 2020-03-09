@@ -24,6 +24,7 @@ public class EPlayerController : MonoBehaviour
 
     const float BUILD_DISTANCE = 20; 
     private bool constructionMenuOpen;
+    private bool anyMenuOpen;
     private bool isUsingOffensive;
     private float mouseX;
     private float mouseY;
@@ -44,6 +45,8 @@ public class EPlayerController : MonoBehaviour
     {
         FetchComponents();
         InitializeValues();
+
+        GetPlayerPreferences();
     }
 
     void FetchComponents()
@@ -75,10 +78,18 @@ public class EPlayerController : MonoBehaviour
         {
             return;
         }
+
         constructionMenuOpen = false;
+        anyMenuOpen = false;
+
         SetIsUsingOffensive(false);
 
         //characterController.detectCollisions = false;
+    }
+
+    void GetPlayerPreferences()
+    {
+        mouseSensitivity = 4 * PlayerPrefs.GetInt("MouseSensitivity", 50);
     }
 
     // Update is called once per frame
@@ -92,6 +103,7 @@ public class EPlayerController : MonoBehaviour
         if (Input.GetButtonDown("PauseMenu"))
         {
             playerUI.TogglePauseMenu();
+            anyMenuOpen = !anyMenuOpen;
         }
 
         #region Using offensive input
@@ -114,7 +126,7 @@ public class EPlayerController : MonoBehaviour
             return;
         }
 
-        if (!constructionMenuOpen)
+        if (!constructionMenuOpen && !anyMenuOpen)
         {
             mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
             mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
