@@ -2,6 +2,9 @@
 public enum SpawnableType { Offence, Defence, Decoration };
 
 [System.Serializable]
+public enum PlayerRelativeDirection { Front, Back, Right, Left};
+
+[System.Serializable]
 public class PlayerRecord
 {
     private EPlayerNetworkPresence player;

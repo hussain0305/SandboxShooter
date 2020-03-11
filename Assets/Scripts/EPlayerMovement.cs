@@ -12,6 +12,8 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
     [HideInInspector]
     public bool isWallGliding;
+    [HideInInspector]
+    public PlayerRelativeDirection glidingDirection;
 
     [HideInInspector]
     public Camera playerCam;
@@ -248,15 +250,41 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
             RaycastHit probeHit;
             if (!isGrounded && Input.GetButton("Run"))            
             {
-                if((Physics.Raycast(transform.position + probeOffset, transform.right, out probeHit, 1, ~(1 << 13)) && 
-                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)) ||
-                    (Physics.Raycast(transform.position + probeOffset, -1 * transform.right, out probeHit, 1, ~(1 << 13)) &&
-                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)) ||
-                    (Physics.Raycast(transform.position + probeOffset, transform.forward, out probeHit, 1, ~(1 << 13)) &&
-                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)) ||
-                    (Physics.Raycast(transform.position + probeOffset, -1 * transform.forward, out probeHit, 1, ~(1 << 13)) &&
+                if ((Physics.Raycast(transform.position + probeOffset, transform.right, out probeHit, 1, ~(1 << 13)) && 
                     (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
                 {
+                    glidingDirection = PlayerRelativeDirection.Right;
+                    if (gravity != REDUCED_GRAVITY)
+                    {
+                        SetIsWallGliding(true);
+                        SetGravity(REDUCED_GRAVITY);
+                    }
+                }
+                else if((Physics.Raycast(transform.position + probeOffset, -1 * transform.right, out probeHit, 1, ~(1 << 13)) &&
+                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
+                {
+                    glidingDirection = PlayerRelativeDirection.Left;
+                    if (gravity != REDUCED_GRAVITY)
+                    {
+                        SetIsWallGliding(true);
+                        SetGravity(REDUCED_GRAVITY);
+                    }
+
+                }
+                else if ((Physics.Raycast(transform.position + probeOffset, transform.forward, out probeHit, 1, ~(1 << 13)) &&
+                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
+                {
+                    glidingDirection = PlayerRelativeDirection.Front;
+                    if (gravity != REDUCED_GRAVITY)
+                    {
+                        SetIsWallGliding(true);
+                        SetGravity(REDUCED_GRAVITY);
+                    }
+                }
+                else if ((Physics.Raycast(transform.position + probeOffset, -1 * transform.forward, out probeHit, 1, ~(1 << 13)) &&
+                    (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
+                {
+                    glidingDirection = PlayerRelativeDirection.Back;
                     if (gravity != REDUCED_GRAVITY)
                     {
                         SetIsWallGliding(true);

@@ -207,6 +207,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isGrounded: 0
   isWallGliding: 0
+  glidingDirection: 0
   playerCam: {fileID: 0}
   trail: {fileID: 8112188100002717570}
 --- !u!114 &267301236003811946
@@ -3347,6 +3348,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cameraAnimator: {fileID: 1648166577079276473}
   isShaking: 0
+  isTilted: 0
+  currentGlidingDirection: 0
 --- !u!114 &8112188099466557658
 MonoBehaviour:
   m_ObjectHideFlags: 0
