@@ -649,6 +649,8 @@ GameObject:
   - component: {fileID: 403358761}
   - component: {fileID: 403358760}
   - component: {fileID: 403358759}
+  - component: {fileID: 403358763}
+  - component: {fileID: 403358762}
   m_Layer: 5
   m_Name: CollectOrbs
   m_TagString: Untagged
@@ -767,6 +769,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 403358757}
   m_CullTransparentMesh: 0
+--- !u!114 &403358762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403358757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 403358763}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 403358763}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &403358763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 403358757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTextAlso: 0
+  hoveredTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoveredMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
 --- !u!1 &451541316
 GameObject:
   m_ObjectHideFlags: 0
@@ -815,6 +875,8 @@ GameObject:
   - component: {fileID: 459807783}
   - component: {fileID: 459807782}
   - component: {fileID: 459807781}
+  - component: {fileID: 459807785}
+  - component: {fileID: 459807784}
   m_Layer: 5
   m_Name: CreateServerButton
   m_TagString: Untagged
@@ -932,6 +994,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 459807779}
   m_CullTransparentMesh: 0
+--- !u!114 &459807784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459807779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 459807785}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 459807785}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &459807785
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 459807779}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTextAlso: 1
+  hoveredTextColor: {r: 1, g: 0.21124832, b: 0, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
 --- !u!1 &522141916
 GameObject:
   m_ObjectHideFlags: 0
@@ -1390,6 +1510,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slideSpeed: 10
+  verticalPosition: 0
 --- !u!114 &730530844
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1415,6 +1536,8 @@ GameObject:
   - component: {fileID: 838259006}
   - component: {fileID: 838259005}
   - component: {fileID: 838259004}
+  - component: {fileID: 838259008}
+  - component: {fileID: 838259007}
   m_Layer: 5
   m_Name: CreateButton
   m_TagString: Untagged
@@ -1532,6 +1655,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 838259002}
   m_CullTransparentMesh: 0
+--- !u!114 &838259007
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838259002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 838259008}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 838259008}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &838259008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 838259002}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTextAlso: 1
+  hoveredTextColor: {r: 0.12682246, g: 0.8584906, b: 0, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
 --- !u!1 &850265385
 GameObject:
   m_ObjectHideFlags: 0
@@ -2423,6 +2604,8 @@ GameObject:
   - component: {fileID: 1355975932}
   - component: {fileID: 1355975931}
   - component: {fileID: 1355975930}
+  - component: {fileID: 1355975934}
+  - component: {fileID: 1355975933}
   m_Layer: 5
   m_Name: JoinServerButton
   m_TagString: Untagged
@@ -2540,6 +2723,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355975928}
   m_CullTransparentMesh: 0
+--- !u!114 &1355975933
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355975928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355975934}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1355975934}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1355975934
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355975928}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTextAlso: 1
+  hoveredTextColor: {r: 1, g: 0.21124832, b: 0, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
 --- !u!1 &1399852366
 GameObject:
   m_ObjectHideFlags: 0
@@ -3168,6 +3409,8 @@ GameObject:
   - component: {fileID: 1794474277}
   - component: {fileID: 1794474276}
   - component: {fileID: 1794474275}
+  - component: {fileID: 1794474279}
+  - component: {fileID: 1794474278}
   m_Layer: 5
   m_Name: OpenWorld
   m_TagString: Untagged
@@ -3286,6 +3529,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1794474273}
   m_CullTransparentMesh: 0
+--- !u!114 &1794474278
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794474273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1794474279}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1794474279}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1794474279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794474273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTextAlso: 0
+  hoveredTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoveredMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
 --- !u!1 &1852332970
 GameObject:
   m_ObjectHideFlags: 0
@@ -3525,6 +3826,8 @@ GameObject:
   - component: {fileID: 1967489044}
   - component: {fileID: 1967489043}
   - component: {fileID: 1967489042}
+  - component: {fileID: 1967489046}
+  - component: {fileID: 1967489045}
   m_Layer: 5
   m_Name: Playground
   m_TagString: Untagged
@@ -3643,6 +3946,64 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1967489040}
   m_CullTransparentMesh: 0
+--- !u!114 &1967489045
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967489040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1967489046}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1967489046}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+--- !u!114 &1967489046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1967489040}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  changeTextAlso: 0
+  hoveredTextColor: {r: 0, g: 0, b: 0, a: 0}
+  hoveredMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
 --- !u!1 &2028702515
 GameObject:
   m_ObjectHideFlags: 0

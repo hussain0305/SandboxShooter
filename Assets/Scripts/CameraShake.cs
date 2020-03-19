@@ -3,26 +3,39 @@ using System.Collections;
 
 public class CameraShake : MonoBehaviour
 {
-    public Animator cameraAnimator;
+    const float CAM_TILT_SPEED = 10.0f;
+    //CAMERA TILT ON GLIDING REMOVED BECAUSE IT DIDN'T FIT WITH THE MECHANICS OF THE GAME
+    //HAVEN'T REMOVED THE CODE PARTS IN CASE IT IS INCLUDED AGAIN LATER IN SOME FORM
 
+
+    public Animator cameraAnimator;
+    [HideInInspector]
     public bool isShaking;
 
-    public bool isTilted;
+    [HideInInspector]
+    public bool shouldTilt;
+    [HideInInspector]
     public PlayerRelativeDirection currentGlidingDirection;
 
     private EPlayerMovement playerMovement;
+    private Vector3 tiltedLookVector;
+    private float tiltAngle;
+    private RaycastHit probeHit;
+    private PlayerRelativeDirection glidingDirection;
+    private float glidingAngle;
+
     private void Start()
     {
         cameraAnimator = GetComponent<Animator>();
         playerMovement = GetComponentInParent<EPlayerMovement>();
         isShaking = false;
-        isTilted = false;
-
-        StartCoroutine(CheckIfPlayerIsMoving());
-        //StartCoroutine(CheckIfPlayerIsGliding());
+        shouldTilt = false;
+        tiltedLookVector = Vector3.zero;
+        StartCoroutine(TrackPlayerActivity());
     }
 
-    IEnumerator CheckIfPlayerIsMoving()
+
+    IEnumerator TrackPlayerActivity()
     {
         while (true)
         {
@@ -30,18 +43,8 @@ public class CameraShake : MonoBehaviour
             {
                 IsMoving();
             }
-            IsGliding();
+            ApplyGlidingTilt();
             yield return new WaitForSeconds(0.2f);
-        }
-    }
-
-    IEnumerator CheckIfPlayerIsGliding()
-    {
-        while (true)
-        {
-            IsGliding();
-
-            yield return new WaitForSeconds(0.5f);
         }
     }
 
@@ -67,71 +70,89 @@ public class CameraShake : MonoBehaviour
         }
     }
 
-    public void IsGliding()
+    float GetTiltAngle()
+    {
+        tiltAngle = 20 - (Mathf.Abs(90 - playerMovement.glidingAngle) / 3.0f);
+        return tiltAngle;
+    }
+
+    public void ApplyGlidingTilt()
     {
         if (playerMovement.isWallGliding)
         {
-            if (!isTilted)
+            if (!shouldTilt)
             {
-                currentGlidingDirection = playerMovement.glidingDirection;
-                TiltCameraForGliding(currentGlidingDirection);
-            }
-
-            if(playerMovement.glidingDirection != currentGlidingDirection)
-            {
-                ReturnFromTiltCamera(currentGlidingDirection);
+                shouldTilt = true;
+                StartCoroutine(TiltCameraRoutine());
             }
         }
 
         else
         {
-            if (isTilted)
+            tiltedLookVector = Vector3.zero;
+            shouldTilt = false;
+        }
+    }
+
+    IEnumerator TiltCameraRoutine()
+    {
+        cameraAnimator.enabled = false;
+        while (shouldTilt)
+        {
+            if ((Physics.Raycast(playerMovement.gameObject.transform.position, playerMovement.gameObject.transform.right, out probeHit, 1, ~(1 << 13)) &&
+                    (Mathf.Cos(Vector3.Dot(playerMovement.gameObject.transform.up, probeHit.normal)) == 1)))
             {
-                ReturnFromTiltCamera(currentGlidingDirection);
+                glidingDirection = PlayerRelativeDirection.Right;
+                glidingAngle = Vector3.Angle(Vector3.Normalize(-playerMovement.gameObject.transform.forward), probeHit.normal);
             }
+            else if ((Physics.Raycast(playerMovement.gameObject.transform.position, -1 * playerMovement.gameObject.transform.right, out probeHit, 1, ~(1 << 13)) &&
+                (Mathf.Cos(Vector3.Dot(playerMovement.gameObject.transform.up, probeHit.normal)) == 1)))
+            {
+                glidingDirection = PlayerRelativeDirection.Left;
+                glidingAngle = Vector3.Angle(Vector3.Normalize(-playerMovement.gameObject.transform.forward), probeHit.normal);
+            }
+            else if ((Physics.Raycast(playerMovement.gameObject.transform.position, playerMovement.gameObject.transform.forward, out probeHit, 1, ~(1 << 13)) &&
+                (Mathf.Cos(Vector3.Dot(playerMovement.gameObject.transform.up, probeHit.normal)) == 1)))
+            {
+                glidingDirection = PlayerRelativeDirection.Front;
+                glidingAngle = Vector3.Angle(Vector3.Normalize(-playerMovement.gameObject.transform.forward), probeHit.normal);
+            }
+            else if ((Physics.Raycast(playerMovement.gameObject.transform.position, -1 * playerMovement.gameObject.transform.forward, out probeHit, 1, ~(1 << 13)) &&
+                (Mathf.Cos(Vector3.Dot(playerMovement.gameObject.transform.up, probeHit.normal)) == 1)))
+            {
+                glidingDirection = PlayerRelativeDirection.Back;
+                glidingAngle = Vector3.Angle(Vector3.Normalize(-playerMovement.gameObject.transform.forward), probeHit.normal);
+            }
+
+            switch (glidingDirection)
+            {
+                case PlayerRelativeDirection.Back:
+                    tiltedLookVector = Vector3.zero;
+                    break;
+                case PlayerRelativeDirection.Front:
+                    tiltedLookVector = new Vector3(0, 40, 0);
+                    break;
+                case PlayerRelativeDirection.Right:
+                    tiltedLookVector = new Vector3(0, 0, GetTiltAngle());
+                    break;
+                case PlayerRelativeDirection.Left:
+                    tiltedLookVector = new Vector3(0, 0, -GetTiltAngle());
+                    break;
+            }
+
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(tiltedLookVector), CAM_TILT_SPEED * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
         }
+        StartCoroutine(RemoveTilt());
     }
 
-    public void TiltCameraForGliding(PlayerRelativeDirection direction)
+    IEnumerator RemoveTilt()
     {
-        switch (direction)
+        while (!shouldTilt && Vector3.Distance(new Vector3(transform.localEulerAngles.x, transform.localEulerAngles.y, transform.localEulerAngles.z), tiltedLookVector) > 0.25f)
         {
-            case PlayerRelativeDirection.Front:
-                cameraAnimator.SetTrigger("GlideStraight");
-                break;
-            case PlayerRelativeDirection.Back:
-                cameraAnimator.SetTrigger("GlideStraight");
-                break;
-            case PlayerRelativeDirection.Right:
-                cameraAnimator.SetTrigger("GlideRight");
-                break;
-            case PlayerRelativeDirection.Left:
-                cameraAnimator.SetTrigger("GlideLeft");
-                break;
+            transform.localRotation = Quaternion.Lerp(transform.localRotation, Quaternion.Euler(tiltedLookVector), CAM_TILT_SPEED * Time.deltaTime);
+            yield return new WaitForEndOfFrame();
         }
-
-        isTilted = true;
+        cameraAnimator.enabled = true;
     }
-
-    public void ReturnFromTiltCamera(PlayerRelativeDirection direction)
-    {
-        switch (direction)
-        {
-            case PlayerRelativeDirection.Front:
-                cameraAnimator.SetTrigger("ReturnFromStraightTilt");
-                break;
-            case PlayerRelativeDirection.Back:
-                cameraAnimator.SetTrigger("ReturnFromStraightTilt");
-                break;
-            case PlayerRelativeDirection.Right:
-                cameraAnimator.SetTrigger("ReturnFromRightTilt");
-                break;
-            case PlayerRelativeDirection.Left:
-                cameraAnimator.SetTrigger("ReturnFromLeftTilt");
-                break;
-        }
-
-        isTilted = false;
-    }
-
 }

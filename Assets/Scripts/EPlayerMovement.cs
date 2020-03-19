@@ -14,6 +14,8 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     public bool isWallGliding;
     [HideInInspector]
     public PlayerRelativeDirection glidingDirection;
+    [HideInInspector]
+    public float glidingAngle;
 
     [HideInInspector]
     public Camera playerCam;
@@ -46,6 +48,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     private PhotonView pView;
     private PhotonTransformViewClassic pTransform;
     private PlayerExternalMovement externalMovement;
+    private RaycastHit probeHit;
 
     private Vector3 predictionVel;
 
@@ -247,13 +250,13 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     {
         while (true)
         {
-            RaycastHit probeHit;
             if (!isGrounded && Input.GetButton("Run"))            
             {
                 if ((Physics.Raycast(transform.position + probeOffset, transform.right, out probeHit, 1, ~(1 << 13)) && 
                     (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
                 {
                     glidingDirection = PlayerRelativeDirection.Right;
+                    glidingAngle = Vector3.Angle(Vector3.Normalize(-playerCam.transform.forward), probeHit.normal);
                     if (gravity != REDUCED_GRAVITY)
                     {
                         SetIsWallGliding(true);
@@ -264,6 +267,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
                     (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
                 {
                     glidingDirection = PlayerRelativeDirection.Left;
+                    glidingAngle = Vector3.Angle(Vector3.Normalize(-playerCam.transform.forward), probeHit.normal);
                     if (gravity != REDUCED_GRAVITY)
                     {
                         SetIsWallGliding(true);
@@ -275,6 +279,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
                     (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
                 {
                     glidingDirection = PlayerRelativeDirection.Front;
+                    glidingAngle = Vector3.Angle(Vector3.Normalize(-playerCam.transform.forward), probeHit.normal);
                     if (gravity != REDUCED_GRAVITY)
                     {
                         SetIsWallGliding(true);
@@ -285,6 +290,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
                     (Mathf.Cos(Vector3.Dot(transform.up, probeHit.normal)) == 1)))
                 {
                     glidingDirection = PlayerRelativeDirection.Back;
+                    glidingAngle = Vector3.Angle(Vector3.Normalize(-playerCam.transform.forward), probeHit.normal);
                     if (gravity != REDUCED_GRAVITY)
                     {
                         SetIsWallGliding(true);
@@ -301,7 +307,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
             {
                 CheckForGravityReversal();
             }
-            yield return new WaitForSeconds(0.25f);
+            yield return new WaitForSeconds(0.2f);
         }
     }
 
