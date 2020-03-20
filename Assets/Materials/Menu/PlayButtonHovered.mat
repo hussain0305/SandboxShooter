@@ -64,7 +64,7 @@ Material:
     - _EHorizontalCo: 1.42
     - _EVerticalCo: 0
     - _EdgeTransparency: 0.75
-    - _EdgeWidth: 0.23
+    - _EdgeWidth: 0.2275
     - _Emission: 3
     - _GHorizontalCo: 0.66
     - _GVerticalCo: 1.02
@@ -94,7 +94,7 @@ Material:
     - _CenterColor: {r: 0.013046686, g: 0.14150938, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 0.04431629, g: 1, b: 0, a: 1}
-    - _EdgeColor: {r: 0.19023676, g: 0.3440179, b: 0.8962264, a: 1}
+    - _EdgeColor: {r: 1, g: 0.95294124, b: 0, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GapColor: {r: 1, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.09301448, g: 1, b: 0, a: 1}

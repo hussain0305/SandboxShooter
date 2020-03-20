@@ -306,6 +306,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &10758184
@@ -1228,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &202707110
@@ -1628,6 +1630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &229146213
@@ -2863,6 +2866,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &362455275
@@ -3930,6 +3934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &422834035
@@ -5988,6 +5993,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &665726142
@@ -6792,7 +6798,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoveredTextColor: {r: 0.990566, g: 0.45488122, b: 0, a: 1}
+  changeTextAlso: 1
+  hoveredTextColor: {r: 0, g: 1, b: 0.073209524, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
 --- !u!114 &739720933
 MonoBehaviour:
@@ -8061,6 +8068,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 0.034784317, g: 1, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 7a65080531862124daa527bb6da1cfd3, type: 2}
 --- !u!1 &874717466
@@ -8764,6 +8772,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &963118781
@@ -9718,6 +9727,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &1054337979
@@ -10183,6 +10193,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &1075280928
@@ -11081,6 +11092,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &1254067185
@@ -12055,7 +12067,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoveredTextColor: {r: 0.990566, g: 0.45488122, b: 0, a: 1}
+  changeTextAlso: 1
+  hoveredTextColor: {r: 0, g: 1, b: 0.073209524, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
 --- !u!114 &1398138612
 MonoBehaviour:
@@ -12655,7 +12668,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hoveredTextColor: {r: 0.990566, g: 0.45488122, b: 0, a: 1}
+  changeTextAlso: 1
+  hoveredTextColor: {r: 0, g: 1, b: 0.073209524, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
 --- !u!114 &1480357479
 MonoBehaviour:
@@ -13522,6 +13536,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &1570390402
@@ -13975,6 +13990,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &1609300712
@@ -14240,6 +14256,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
 --- !u!1 &1625845230 stripped
@@ -14900,7 +14917,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: a52140ac3993a2c4d844a9e9b0383c09, type: 3}
+    m_Font: {fileID: 12800000, guid: cb95b7e6ea1c69e4b825ac7f6d70b5f1, type: 3}
     m_FontSize: 50
     m_FontStyle: 0
     m_BestFit: 0
@@ -16500,6 +16517,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  changeTextAlso: 1
   hoveredTextColor: {r: 0.99215686, g: 0.038454227, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
 --- !u!114 &1964975578
