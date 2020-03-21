@@ -1,5 +1,158 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &116960953526532470
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6698908424829225243}
+  - component: {fileID: 6249974499139537149}
+  m_Layer: 0
+  m_Name: DisplacementTrajectory
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6698908424829225243
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116960953526532470}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3886321525519892607}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!120 &6249974499139537149
+LineRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 116960953526532470}
+  m_Enabled: 1
+  m_CastShadows: 1
+  m_ReceiveShadows: 1
+  m_DynamicOccludee: 1
+  m_MotionVectors: 0
+  m_LightProbeUsage: 0
+  m_ReflectionProbeUsage: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 2100000, guid: 3c51b660b20bfd64f9ac11b6d1b0a5ff, type: 2}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 3
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Positions:
+  - {x: 0, y: 0, z: 0}
+  - {x: 0, y: 0, z: 2}
+  - {x: 0, y: 0, z: 3}
+  - {x: 0, y: 0, z: 4}
+  - {x: 0, y: 0, z: 5}
+  - {x: 0, y: 0, z: 6}
+  - {x: 0, y: 0, z: 7}
+  - {x: 0, y: 0, z: 8}
+  - {x: 0, y: 0, z: 9}
+  - {x: 0, y: 0, z: 10}
+  m_Parameters:
+    serializedVersion: 3
+    widthMultiplier: 1
+    widthCurve:
+      serializedVersion: 2
+      m_Curve:
+      - serializedVersion: 3
+        time: 0
+        value: 0
+        inSlope: 0
+        outSlope: 0
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.33333334
+        outWeight: 0.33333334
+      - serializedVersion: 3
+        time: 0.45223138
+        value: 0.9270067
+        inSlope: 0.6740969
+        outSlope: 0.6740969
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.36170512
+        outWeight: 0.44859475
+      - serializedVersion: 3
+        time: 0.96178347
+        value: 0.23357661
+        inSlope: -4.488443
+        outSlope: -4.488443
+        tangentMode: 0
+        weightedMode: 0
+        inWeight: 0.22430043
+        outWeight: 0
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    colorGradient:
+      serializedVersion: 2
+      key0: {r: 1, g: 1, b: 1, a: 1}
+      key1: {r: 1, g: 1, b: 1, a: 1}
+      key2: {r: 0, g: 0, b: 0, a: 0}
+      key3: {r: 0, g: 0, b: 0, a: 0}
+      key4: {r: 0, g: 0, b: 0, a: 0}
+      key5: {r: 0, g: 0, b: 0, a: 0}
+      key6: {r: 0, g: 0, b: 0, a: 0}
+      key7: {r: 0, g: 0, b: 0, a: 0}
+      ctime0: 0
+      ctime1: 65535
+      ctime2: 0
+      ctime3: 0
+      ctime4: 0
+      ctime5: 0
+      ctime6: 0
+      ctime7: 0
+      atime0: 0
+      atime1: 65535
+      atime2: 0
+      atime3: 0
+      atime4: 0
+      atime5: 0
+      atime6: 0
+      atime7: 0
+      m_Mode: 0
+      m_NumColorKeys: 2
+      m_NumAlphaKeys: 2
+    numCornerVertices: 0
+    numCapVertices: 0
+    alignment: 0
+    textureMode: 0
+    shadowBias: 0.5
+    generateLightingData: 0
+  m_UseWorldSpace: 1
+  m_Loop: 0
 --- !u!1 &254248863411323864
 GameObject:
   m_ObjectHideFlags: 0
@@ -126,8 +279,8 @@ GameObject:
   - component: {fileID: 267301236003811946}
   - component: {fileID: 267301236003811947}
   - component: {fileID: 267301236003811945}
-  - component: {fileID: 267301236003811944}
   - component: {fileID: 2599181165803873431}
+  - component: {fileID: 6299906971986989237}
   - component: {fileID: 5685804261184778051}
   - component: {fileID: 1110552956024569333}
   m_Layer: 16
@@ -153,6 +306,7 @@ Transform:
   - {fileID: 2584580718528330774}
   - {fileID: 8112188099830769174}
   - {fileID: 8112188100002717571}
+  - {fileID: 6698908424829225243}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -260,22 +414,6 @@ MonoBehaviour:
   hasEnergyPack: 0
   energyPack: {fileID: 8112188100718216456}
   energyPackHolder: {fileID: 8112188099830769174}
---- !u!114 &267301236003811944
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 267301236003811948}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dda9fc744a3c3db4abee5dd97f0d3f46, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  player: {fileID: 267301236003811946}
-  blinkMarker: {fileID: 6327116472900913199, guid: 247762bf6e67f1545b28fdc51b6f3d4a,
-    type: 3}
-  trail: {fileID: 8112188100002717570}
 --- !u!114 &2599181165803873431
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -288,6 +426,21 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 818cb5586946e9b4cb8a2b68beb60b47, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &6299906971986989237
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 267301236003811948}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0f70e1d96e248464c98e95afbeb3023c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 267301236003811946}
+  energyPackTrail: {fileID: 8112188100002717570}
+  trajectory: {fileID: 6249974499139537149}
 --- !u!114 &5685804261184778051
 MonoBehaviour:
   m_ObjectHideFlags: 0

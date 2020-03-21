@@ -7,7 +7,7 @@ Material:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: HJournalCategoryButton 1
+  m_Name: JournalCategoryButtonHighlighted
   m_Shader: {fileID: 4800000, guid: 7e895cc3f0d1ab043af9e9d80b35bfbf, type: 3}
   m_ShaderKeywords: 
   m_LightmapFlags: 4
@@ -94,7 +94,7 @@ Material:
     - _CenterColor: {r: 0.013046686, g: 0.14150938, b: 0, a: 0}
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorTint: {r: 0.04431629, g: 1, b: 0, a: 1}
-    - _EdgeColor: {r: 1, g: 0.43632764, b: 0, a: 1}
+    - _EdgeColor: {r: 0.12834787, g: 0, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GapColor: {r: 1, g: 0, b: 0, a: 0}
     - _RimColor: {r: 0.09301448, g: 1, b: 0, a: 1}

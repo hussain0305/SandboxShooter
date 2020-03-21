@@ -294,6 +294,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 4884069}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &4884069
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -306,9 +321,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &10758184
 GameObject:
   m_ObjectHideFlags: 0
@@ -1217,6 +1237,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 175075972}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &175075972
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1229,9 +1264,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &202707110
 GameObject:
   m_ObjectHideFlags: 0
@@ -1618,6 +1658,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 212654840}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &212654840
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1630,9 +1685,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &229146213
 GameObject:
   m_ObjectHideFlags: 0
@@ -2263,6 +2323,8 @@ GameObject:
   - component: {fileID: 312051166}
   - component: {fileID: 312051165}
   - component: {fileID: 312051164}
+  - component: {fileID: 312051167}
+  - component: {fileID: 312051168}
   m_Layer: 5
   m_Name: OffensiveSection
   m_TagString: Untagged
@@ -2282,8 +2344,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1800210467}
-  m_Father: {fileID: 1272685148}
-  m_RootOrder: 1
+  m_Father: {fileID: 1661039371}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -2380,6 +2442,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 312051162}
   m_CullTransparentMesh: 0
+--- !u!114 &312051167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312051162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
+  hoveredTextColor: {r: 0.6852414, g: 0.21226418, b: 1, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  selectedTextColor: {r: 1, g: 0, b: 0.019788265, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  highlightedTextSizeMultiple: 1.1
+--- !u!114 &312051168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 312051162}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 312051167}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 312051167}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 312051167}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &313270172
 GameObject:
   m_ObjectHideFlags: 0
@@ -2854,6 +2994,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 338630603}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &338630603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2866,9 +3021,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &362455275
 GameObject:
   m_ObjectHideFlags: 0
@@ -3922,6 +4082,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 412670253}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &412670253
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3934,9 +4109,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &422834035
 GameObject:
   m_ObjectHideFlags: 0
@@ -4442,6 +4622,8 @@ GameObject:
   - component: {fileID: 487402262}
   - component: {fileID: 487402261}
   - component: {fileID: 487402263}
+  - component: {fileID: 487402264}
+  - component: {fileID: 487402265}
   m_Layer: 5
   m_Name: EnergyWeaponsSection
   m_TagString: Untagged
@@ -4461,8 +4643,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1817808275}
-  m_Father: {fileID: 1272685148}
-  m_RootOrder: 4
+  m_Father: {fileID: 1661039371}
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -4559,6 +4741,84 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &487402264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487402259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
+  hoveredTextColor: {r: 0.6852414, g: 0.21226418, b: 1, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  selectedTextColor: {r: 1, g: 0, b: 0.019788265, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  highlightedTextSizeMultiple: 1.1
+--- !u!114 &487402265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 487402259}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 487402264}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 487402264}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 487402264}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &490260929
 GameObject:
   m_ObjectHideFlags: 0
@@ -5535,6 +5795,8 @@ GameObject:
   - component: {fileID: 587811913}
   - component: {fileID: 587811912}
   - component: {fileID: 587811911}
+  - component: {fileID: 587811914}
+  - component: {fileID: 587811915}
   m_Layer: 5
   m_Name: UtilitySection
   m_TagString: Untagged
@@ -5554,8 +5816,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 2142129429}
-  m_Father: {fileID: 1272685148}
-  m_RootOrder: 3
+  m_Father: {fileID: 1661039371}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -5652,6 +5914,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 587811909}
   m_CullTransparentMesh: 0
+--- !u!114 &587811914
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587811909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
+  hoveredTextColor: {r: 0.6852414, g: 0.21226418, b: 1, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  selectedTextColor: {r: 1, g: 0, b: 0.019788265, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  highlightedTextSizeMultiple: 1.1
+--- !u!114 &587811915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 587811909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 587811914}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 587811914}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 587811914}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &633024162
 GameObject:
   m_ObjectHideFlags: 0
@@ -5981,6 +6321,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 663644417}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &663644417
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5993,9 +6348,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &665726142
 GameObject:
   m_ObjectHideFlags: 0
@@ -6285,6 +6645,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 696620399}
+  - component: {fileID: 696620400}
+  - component: {fileID: 696620401}
   m_Layer: 5
   m_Name: EnergyWeapons
   m_TagString: Untagged
@@ -6313,6 +6675,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &696620400
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696620398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 0
+  hoveredTextColor: {r: 1, g: 0.4136189, b: 0, a: 1}
+  hoveredMaterial: {fileID: 0}
+  selectedTextColor: {r: 1, g: 0.079807915, b: 0, a: 1}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1.25
+--- !u!114 &696620401
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 696620398}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 696620400}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 696620400}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 696620400}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &714575640
 GameObject:
   m_ObjectHideFlags: 0
@@ -6550,6 +6990,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 733504663}
+  - component: {fileID: 733504664}
   m_Layer: 5
   m_Name: SelectionPanel
   m_TagString: Untagged
@@ -6581,6 +7022,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &733504664
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 733504662}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &738072787
 GameObject:
   m_ObjectHideFlags: 0
@@ -6798,9 +7251,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 0, g: 1, b: 0.073209524, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
+  selectedTextColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1
 --- !u!114 &739720933
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8068,9 +8526,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 0.034784317, g: 1, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 7a65080531862124daa527bb6da1cfd3, type: 2}
+  selectedTextColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1
 --- !u!1 &874717466
 GameObject:
   m_ObjectHideFlags: 0
@@ -8153,6 +8616,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 879608361}
+  - component: {fileID: 879608362}
   m_Layer: 5
   m_Name: SelectionPanel
   m_TagString: Untagged
@@ -8181,6 +8645,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &879608362
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 879608360}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &881466813
 GameObject:
   m_ObjectHideFlags: 0
@@ -8343,6 +8819,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 912906659}
+  - component: {fileID: 912906660}
   m_Layer: 5
   m_Name: SelectionPanel
   m_TagString: Untagged
@@ -8371,6 +8848,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &912906660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 912906658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &935976202
 GameObject:
   m_ObjectHideFlags: 0
@@ -8586,6 +9075,90 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+--- !u!1 &959864776 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3644686391577221381, guid: 5d26abd7acc4b324995bfa603d81af4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3644686389968117182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &959864778
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959864776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 0
+  hoveredTextColor: {r: 1, g: 0.4136189, b: 0, a: 1}
+  hoveredMaterial: {fileID: 0}
+  selectedTextColor: {r: 1, g: 0.079807915, b: 0, a: 1}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1.25
+--- !u!114 &959864779
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959864776}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959864778}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959864778}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 959864778}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &963114325
 GameObject:
   m_ObjectHideFlags: 0
@@ -8760,6 +9333,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 963114331}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &963114331
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8772,9 +9360,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &963118781
 GameObject:
   m_ObjectHideFlags: 0
@@ -9128,6 +9721,8 @@ GameObject:
   - component: {fileID: 1008782578}
   - component: {fileID: 1008782577}
   - component: {fileID: 1008782576}
+  - component: {fileID: 1008782580}
+  - component: {fileID: 1008782581}
   m_Layer: 5
   m_Name: EnvironmentSection
   m_TagString: Untagged
@@ -9237,14 +9832,92 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 381974124}
-  m_Father: {fileID: 1272685148}
-  m_RootOrder: 5
+  m_Father: {fileID: 1661039371}
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 700, y: 30}
   m_SizeDelta: {x: 250, y: 60}
   m_Pivot: {x: 0.5, y: 1}
+--- !u!114 &1008782580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008782575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
+  hoveredTextColor: {r: 0.6852414, g: 0.21226418, b: 1, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  selectedTextColor: {r: 1, g: 0, b: 0.019788265, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  highlightedTextSizeMultiple: 1.1
+--- !u!114 &1008782581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1008782575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1008782580}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1008782580}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1008782580}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1020578473
 GameObject:
   m_ObjectHideFlags: 0
@@ -9715,6 +10388,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1050787030}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1050787030
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -9727,9 +10415,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &1054337979
 GameObject:
   m_ObjectHideFlags: 0
@@ -9780,6 +10473,8 @@ GameObject:
   - component: {fileID: 1060990036}
   - component: {fileID: 1060990035}
   - component: {fileID: 1060990034}
+  - component: {fileID: 1060990037}
+  - component: {fileID: 1060990038}
   m_Layer: 5
   m_Name: DefensiveSection
   m_TagString: Untagged
@@ -9799,8 +10494,8 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1031304815}
-  m_Father: {fileID: 1272685148}
-  m_RootOrder: 2
+  m_Father: {fileID: 1661039371}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -9897,6 +10592,84 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1060990032}
   m_CullTransparentMesh: 0
+--- !u!114 &1060990037
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060990032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
+  hoveredTextColor: {r: 0.6852414, g: 0.21226418, b: 1, a: 1}
+  hoveredMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  selectedTextColor: {r: 1, g: 0, b: 0.019788265, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
+  highlightedTextSizeMultiple: 1.1
+--- !u!114 &1060990038
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1060990032}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1060990037}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1060990037}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1060990037}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1061586103
 GameObject:
   m_ObjectHideFlags: 0
@@ -9979,6 +10752,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1062151675}
+  - component: {fileID: 1062151676}
+  - component: {fileID: 1062151677}
   m_Layer: 5
   m_Name: EnergyPack
   m_TagString: Untagged
@@ -10007,6 +10782,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1062151676
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062151674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 0
+  hoveredTextColor: {r: 1, g: 0.4136189, b: 0, a: 1}
+  hoveredMaterial: {fileID: 0}
+  selectedTextColor: {r: 1, g: 0.079807915, b: 0, a: 1}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1.25
+--- !u!114 &1062151677
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1062151674}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1062151676}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1062151676}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1062151676}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1074273767
 GameObject:
   m_ObjectHideFlags: 0
@@ -10181,6 +11034,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1074273773}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1074273773
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -10193,9 +11061,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &1075280928
 GameObject:
   m_ObjectHideFlags: 0
@@ -11080,6 +11953,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1240155020}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1240155020
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -11092,9 +11980,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &1254067185
 GameObject:
   m_ObjectHideFlags: 0
@@ -11275,11 +12168,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 874717467}
-  - {fileID: 312051163}
-  - {fileID: 1060990033}
-  - {fileID: 587811910}
-  - {fileID: 487402260}
-  - {fileID: 1008782579}
+  - {fileID: 1661039371}
   m_Father: {fileID: 1314283537}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -11625,8 +12514,6 @@ MonoBehaviour:
   - {fileID: 587811911}
   - {fileID: 487402263}
   - {fileID: 1008782576}
-  highlightedCategory: {fileID: 2100000, guid: 60bed51a1b7ce1641817e7392283e7a6, type: 2}
-  regularCategory: {fileID: 2100000, guid: 6714865dab4dcba4fac7d20b896004ff, type: 2}
 --- !u!1 &1323673301
 GameObject:
   m_ObjectHideFlags: 0
@@ -12067,9 +12954,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 0, g: 1, b: 0.073209524, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
+  selectedTextColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1
 --- !u!114 &1398138612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12668,9 +13560,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 0, g: 1, b: 0.073209524, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
+  selectedTextColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1
 --- !u!114 &1480357479
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12797,6 +13694,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1506605594}
+  - component: {fileID: 1506605595}
+  - component: {fileID: 1506605596}
   m_Layer: 5
   m_Name: Running
   m_TagString: Untagged
@@ -12825,6 +13724,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1506605595
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506605593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 0
+  hoveredTextColor: {r: 1, g: 0.4136189, b: 0, a: 1}
+  hoveredMaterial: {fileID: 0}
+  selectedTextColor: {r: 1, g: 0.079807915, b: 0, a: 1}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1.25
+--- !u!114 &1506605596
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1506605593}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1506605595}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1506605595}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1506605595}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1507989103
 GameObject:
   m_ObjectHideFlags: 0
@@ -13212,6 +14189,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1550160394}
+  - component: {fileID: 1550160395}
   m_Layer: 5
   m_Name: SelectionPanel
   m_TagString: Untagged
@@ -13241,6 +14219,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &1550160395
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1550160393}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1551055270
 GameObject:
   m_ObjectHideFlags: 0
@@ -13524,6 +14514,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1570161590}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1570161590
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13536,9 +14541,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &1570390402
 GameObject:
   m_ObjectHideFlags: 0
@@ -13978,6 +14988,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1609113639}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1609113639
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -13990,9 +15015,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &1609300712
 GameObject:
   m_ObjectHideFlags: 0
@@ -14244,6 +15274,21 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 0
           m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1609480259}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!114 &1609480259
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14256,9 +15301,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 1, g: 0.8377491, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  selectedTextColor: {r: 1, g: 0.37222314, b: 0, a: 1}
+  selectedMaterial: {fileID: 2100000, guid: 5fd2e8ddf453fe64cb4826a7d67b95c6, type: 2}
+  highlightedTextSizeMultiple: 1.05
 --- !u!1 &1625845230 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3644686391568789584, guid: 5d26abd7acc4b324995bfa603d81af4c,
@@ -14348,6 +15398,90 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1634654238}
   m_CullTransparentMesh: 0
+--- !u!1 &1636263132 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3644686391680287069, guid: 5d26abd7acc4b324995bfa603d81af4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3644686389968117182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1636263134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636263132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 0
+  hoveredTextColor: {r: 1, g: 0.4136189, b: 0, a: 1}
+  hoveredMaterial: {fileID: 0}
+  selectedTextColor: {r: 1, g: 0.079807915, b: 0, a: 1}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1.25
+--- !u!114 &1636263135
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1636263132}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1636263134}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1636263134}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1636263134}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1646341184
 GameObject:
   m_ObjectHideFlags: 0
@@ -14386,6 +15520,59 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1661039370
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1661039371}
+  - component: {fileID: 1661039372}
+  m_Layer: 5
+  m_Name: ThemButtons
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1661039371
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661039370}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 312051163}
+  - {fileID: 1060990033}
+  - {fileID: 587811910}
+  - {fileID: 487402260}
+  - {fileID: 1008782579}
+  m_Father: {fileID: 1272685148}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1661039372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1661039370}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1673366986
 GameObject:
   m_ObjectHideFlags: 0
@@ -15086,6 +16273,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1772072531}
+  - component: {fileID: 1772072532}
+  - component: {fileID: 1772072533}
   m_Layer: 5
   m_Name: VerticalTraversal
   m_TagString: Untagged
@@ -15114,6 +16303,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1772072532
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772072530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 0
+  hoveredTextColor: {r: 1, g: 0.4136189, b: 0, a: 1}
+  hoveredMaterial: {fileID: 0}
+  selectedTextColor: {r: 1, g: 0.079807915, b: 0, a: 1}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1.25
+--- !u!114 &1772072533
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1772072530}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1772072532}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1772072532}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1772072532}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1800210466
 GameObject:
   m_ObjectHideFlags: 0
@@ -15929,6 +17196,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1923522632}
+  - component: {fileID: 1923522633}
+  - component: {fileID: 1923522634}
   m_Layer: 5
   m_Name: GeneralGameplay
   m_TagString: Untagged
@@ -15957,6 +17226,84 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1923522633
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923522631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 0
+  hoveredTextColor: {r: 1, g: 0.4136189, b: 0, a: 1}
+  hoveredMaterial: {fileID: 0}
+  selectedTextColor: {r: 1, g: 0.079807915, b: 0, a: 1}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1.25
+--- !u!114 &1923522634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923522631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 0
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1923522633}
+          m_MethodName: Hovered
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 1
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1923522633}
+          m_MethodName: HoverLeft
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 12
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1923522633}
+          m_MethodName: ButtonClicked
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &1927559641
 GameObject:
   m_ObjectHideFlags: 0
@@ -16517,9 +17864,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8646b708492d0e247bda15ba3831ac27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  changeTextAlso: 1
+  isSelected: 0
+  changeText: 1
+  changeMaterial: 1
   hoveredTextColor: {r: 0.99215686, g: 0.038454227, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 0f344ce974d31ff4fbcf3c09068ba75a, type: 2}
+  selectedTextColor: {r: 0, g: 0, b: 0, a: 0}
+  selectedMaterial: {fileID: 0}
+  highlightedTextSizeMultiple: 1
 --- !u!114 &1964975578
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16778,6 +18130,24 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1981383225}
   m_CullTransparentMesh: 0
+--- !u!1 &1982785785 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3644686391088557372, guid: 5d26abd7acc4b324995bfa603d81af4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 3644686389968117182}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1982785787
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1982785785}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2004640876
 GameObject:
   m_ObjectHideFlags: 0
@@ -17128,6 +18498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2047324536}
+  - component: {fileID: 2047324537}
   m_Layer: 5
   m_Name: AllTips
   m_TagString: Untagged
@@ -17159,6 +18530,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2047324537
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2047324535}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2073679186
 GameObject:
   m_ObjectHideFlags: 0
@@ -17396,6 +18779,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2144597344}
+  - component: {fileID: 2144597345}
   m_Layer: 5
   m_Name: SelectionPanel
   m_TagString: Untagged
@@ -17423,6 +18807,18 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 350, y: 0}
   m_Pivot: {x: 0, y: 0.5}
+--- !u!114 &2144597345
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2144597343}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b6f17a9c04d92a40893cb95ea171524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &3644686389968117182
 PrefabInstance:
   m_ObjectHideFlags: 0

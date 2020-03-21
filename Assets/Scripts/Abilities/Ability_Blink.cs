@@ -18,6 +18,7 @@ public class Ability_Blink : MonoBehaviour
     private Vector3 markerPosition;
     private RaycastHit hit;
     private GameObject spawnedMarker;
+    private PhotonView pView;
 
     void Start()
     {
@@ -25,12 +26,13 @@ public class Ability_Blink : MonoBehaviour
         trail.enabled = false;
         spawnedMarker = null;
         canBlink = true;
+        pView = GetComponent<PhotonView>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!GetComponent<PhotonView>().IsMine || !canBlink || player.GetIsUsingOffensive())
+        if (!pView.IsMine || !canBlink || player.GetIsUsingOffensive())
         {
             return;
         }

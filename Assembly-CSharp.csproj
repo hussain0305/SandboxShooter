@@ -70,6 +70,7 @@
     <Compile Include="Assets\PathCreator\Examples\Scripts\PathSpawner.cs" />
     <Compile Include="Assets\PathCreator\Examples\Scripts\RoadMeshCreator.cs" />
     <Compile Include="Assets\Scripts\Abilities\Ability_Blink.cs" />
+    <Compile Include="Assets\Scripts\Abilities\Ability_Displace.cs" />
     <Compile Include="Assets\Scripts\CameraShake.cs" />
     <Compile Include="Assets\Scripts\ConstructionMenu.cs" />
     <Compile Include="Assets\Scripts\DefensiveBase.cs" />
@@ -101,6 +102,7 @@
     <Compile Include="Assets\Scripts\Menus\QuickBuildMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\Scene_MainMainMenu.cs" />
     <Compile Include="Assets\Scripts\Menus\Scene_MainMenu.cs" />
+    <Compile Include="Assets\Scripts\Menus\SelectedButtonHighlighter.cs" />
     <Compile Include="Assets\Scripts\Menus\Settings.cs" />
     <Compile Include="Assets\Scripts\Menus\UIPanelSlider.cs" />
     <Compile Include="Assets\Scripts\Meteor.cs" />

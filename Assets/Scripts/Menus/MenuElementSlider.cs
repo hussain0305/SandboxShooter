@@ -41,7 +41,6 @@ public class MenuElementSlider : MonoBehaviour
             if (!allElements[loop].isOut)
             {
                 allElements[loop].correspondingSlider.ResetPosition();
-                allElements[loop].buttonName.color = Color.white;
                 allElements[loop].isOut = true;
             }
         }
@@ -58,12 +57,10 @@ public class MenuElementSlider : MonoBehaviour
         if (allElements[panelNo].isOut)
         {
             allElements[panelNo].correspondingSlider.MoveIn();
-            allElements[panelNo].buttonName.color = Color.green;
         }
         else
         {
             allElements[panelNo].correspondingSlider.MoveOut();
-            allElements[panelNo].buttonName.color = Color.white;
         }
         allElements[panelNo].isOut = !allElements[panelNo].isOut;
     }
@@ -75,7 +72,6 @@ public class MenuElementSlider : MonoBehaviour
             if (!allElements[loop].isOut && loop != tipNo)
             {
                 allElements[loop].correspondingSlider.MoveOut();
-                allElements[loop].buttonName.color = Color.white;
                 allElements[loop].isOut = true;
             }
         }

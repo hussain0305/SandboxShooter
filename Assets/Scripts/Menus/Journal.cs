@@ -10,28 +10,24 @@ public class Journal : MonoBehaviour
     [Header("Objects for Appearance")]
     public Button[] allCategoryButtons;
 
-    [Header("Materials")]
-    public Material highlightedCategory;
-    public Material regularCategory;
-
-    public void Start()
-    {
-        highlightedCategory = new Material(highlightedCategory);
-        regularCategory = new Material(regularCategory);
-    }
-
     public void CategorySelected(int category)
     {
         foreach(Transform currCategory in allCategories)
         {
             currCategory.gameObject.SetActive(false);
-            allCategoryButtons[currCategory.GetSiblingIndex()].GetComponent<Image>().material = regularCategory;
 
             if (currCategory.GetSiblingIndex() == category)
             {
                 currCategory.gameObject.SetActive(true);
-                allCategoryButtons[currCategory.GetSiblingIndex()].GetComponent<Image>().material = highlightedCategory;
             }
+        }
+    }
+
+    public void OnEnable()
+    {
+        foreach (Transform currCategory in allCategories)
+        {
+            currCategory.gameObject.SetActive(false);
         }
     }
 

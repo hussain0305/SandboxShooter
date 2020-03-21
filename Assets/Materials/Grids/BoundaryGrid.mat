@@ -25,11 +25,11 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Floats:
     - _CellBrightness: 0
-    - _Emission: 1
+    - _Emission: 0.825
     - _Glossiness: 0.5
     - _GridSize: 10
     - _LineBrightness: 0.85
-    - _LineSize: 0.0125
+    - _LineSize: 0.025
     - _Line_Brightness: 1
     - _Metallic: 0
     - _SelectCell: 0
