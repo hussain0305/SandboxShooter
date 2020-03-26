@@ -104,6 +104,7 @@ MonoBehaviour:
   isUsable: 0
   displayName: 
   type: 2
+  kindOfSpawnable: 9
   buildTime: 1
 --- !u!114 &4682440644840518823
 MonoBehaviour:
@@ -137,8 +138,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
   healthRenderer: {fileID: 423693772282523458}
-  destructionEffect: {fileID: 1789904466085206580, guid: b0d3b994188371349b4103b211bd7d54,
-    type: 3}
 --- !u!114 &1509026203209234164
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +541,7 @@ GameObject:
   - component: {fileID: 1509026204530676071}
   - component: {fileID: 499644554170643863}
   - component: {fileID: 2210317650171808362}
+  - component: {fileID: 5686669935417157262}
   m_Layer: 0
   m_Name: SpawnPressurePadFront
   m_TagString: Untagged
@@ -850,6 +850,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &5686669935417157262
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509026204530676069}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db97aae86aa60864d8025ddfae255960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragmentation: 1
 --- !u!1 &2188176187010070851
 GameObject:
   m_ObjectHideFlags: 0
@@ -864,6 +877,7 @@ GameObject:
   - component: {fileID: 8766867984634282543}
   - component: {fileID: 5412383185261257396}
   - component: {fileID: 1267327361713489378}
+  - component: {fileID: 1959140173645257957}
   m_Layer: 0
   m_Name: SpawnPressurePadRight
   m_TagString: Untagged
@@ -1172,6 +1186,19 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &1959140173645257957
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2188176187010070851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db97aae86aa60864d8025ddfae255960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragmentation: 1
 --- !u!1 &2242655352495566583
 GameObject:
   m_ObjectHideFlags: 0
@@ -1184,6 +1211,7 @@ GameObject:
   - component: {fileID: 4555436882789121907}
   - component: {fileID: 423693772282523458}
   - component: {fileID: 2050509437982530196}
+  - component: {fileID: 7824807698900486980}
   m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
@@ -1264,6 +1292,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.38, y: 249.12, z: 0.31}
   m_Center: {x: 0, y: 0, z: 0.99}
+--- !u!114 &7824807698900486980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2242655352495566583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db97aae86aa60864d8025ddfae255960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragmentation: 1
 --- !u!1 &4958089523635288546
 GameObject:
   m_ObjectHideFlags: 0
@@ -1278,6 +1319,7 @@ GameObject:
   - component: {fileID: 197077801025967357}
   - component: {fileID: 5870658082631319321}
   - component: {fileID: 7932415778925647964}
+  - component: {fileID: 4625732713493314679}
   m_Layer: 0
   m_Name: SpawnPressurePadLeft
   m_TagString: Untagged
@@ -1586,3 +1628,16 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 1.5
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &4625732713493314679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4958089523635288546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db97aae86aa60864d8025ddfae255960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragmentation: 1

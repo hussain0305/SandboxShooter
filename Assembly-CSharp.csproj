@@ -82,7 +82,6 @@
     <Compile Include="Assets\Scripts\EPlayerController.cs" />
     <Compile Include="Assets\Scripts\EPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EPlayerNetworkPresence.cs" />
-    <Compile Include="Assets\Scripts\Expiry.cs" />
     <Compile Include="Assets\Scripts\FloatingPlatform.cs" />
     <Compile Include="Assets\Scripts\Fragment.cs" />
     <Compile Include="Assets\Scripts\GameDictionary.cs" />
@@ -109,6 +108,7 @@
     <Compile Include="Assets\Scripts\ModeManager.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonLobby.cs" />
     <Compile Include="Assets\Scripts\Network\EPhotonRoom.cs" />
+    <Compile Include="Assets\Scripts\ObjectPooler.cs" />
     <Compile Include="Assets\Scripts\OffensiveControllerBase.cs" />
     <Compile Include="Assets\Scripts\OpenWorldGenerator.cs" />
     <Compile Include="Assets\Scripts\PlayerDisbalance.cs" />
@@ -147,10 +147,15 @@
     <Compile Include="Assets\Scripts\Utility\CameraDestroyer.cs" />
     <Compile Include="Assets\Scripts\Utility\CollectibleOrb.cs" />
     <Compile Include="Assets\Scripts\Utility\DroppedEnergyBarFlasher.cs" />
+    <Compile Include="Assets\Scripts\Utility\Expiry.cs" />
+    <Compile Include="Assets\Scripts\Utility\ExpiryPoolObject.cs" />
     <Compile Include="Assets\Scripts\Utility\FallMode_Detector.cs" />
     <Compile Include="Assets\Scripts\Utility\FlyingGridChoppers.cs" />
     <Compile Include="Assets\Scripts\Utility\FlyingGridPlayerDetector.cs" />
+    <Compile Include="Assets\Scripts\Utility\Fragmenter.cs" />
+    <Compile Include="Assets\Scripts\Utility\FragmentMaterializer.cs" />
     <Compile Include="Assets\Scripts\Utility\HomingNozzle.cs" />
+    <Compile Include="Assets\Scripts\Utility\IgnoreThisFor.cs" />
     <Compile Include="Assets\Scripts\Utility\LerpedMovement.cs" />
     <Compile Include="Assets\Scripts\Utility\MeteorSpawner.cs" />
     <Compile Include="Assets\Scripts\Utility\NetworkMain.cs" />

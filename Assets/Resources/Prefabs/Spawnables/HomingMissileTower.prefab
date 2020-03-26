@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 2306623362078835782}
   - component: {fileID: 2306623362078835780}
   - component: {fileID: 3781782428103552225}
+  - component: {fileID: 6493545938803263093}
   m_Layer: 9
   m_Name: HealthBar
   m_TagString: Untagged
@@ -109,6 +110,19 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 126
   m_CollisionDetection: 0
+--- !u!114 &6493545938803263093
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306623362078835786}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db97aae86aa60864d8025ddfae255960, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fragmentation: 1
 --- !u!1 &2306623362185636472
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,6 +195,7 @@ MonoBehaviour:
   isUsable: 0
   displayName: 
   type: 1
+  kindOfSpawnable: 4
   buildTime: 5
 --- !u!114 &5945768064611565128
 MonoBehaviour:
@@ -196,8 +211,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   healthBar: {fileID: 2100000, guid: ec7416e8c8a215049ac6ca28b227b1ea, type: 2}
   healthRenderer: {fileID: 2306623362078835782}
-  destructionEffect: {fileID: 4359040300246178800, guid: 88ca7d34807fed84e8466d5dcaacf776,
-    type: 3}
 --- !u!114 &3797912204367512442
 MonoBehaviour:
   m_ObjectHideFlags: 0

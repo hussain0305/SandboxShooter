@@ -1,8 +1,23 @@
-﻿[System.Serializable]
+﻿using UnityEngine;
+
+[System.Serializable]
 public enum SpawnableType { Offence, Defence, Decoration };
 
 [System.Serializable]
 public enum PlayerRelativeDirection { Front, Back, Right, Left};
+
+[System.Serializable]
+public enum KindOfSpawnable { BurstGun, MachineGun, DistributedGun, Wall, HomingTower, Ramp, FlyingGrid, Tower, Trampoline, ChainPlatform};
+
+[System.Serializable]
+public struct FragmentColorInfo
+{
+    public KindOfSpawnable kindOfSpawnable;
+    public Material bodyMaterial;
+    public Material trailMaterial;
+}
+
+
 
 [System.Serializable]
 public class PlayerRecord

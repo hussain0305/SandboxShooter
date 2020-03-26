@@ -1,19 +1,19 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class Expiry : MonoBehaviour
+public class ExpiryPoolObject : MonoBehaviour
 {
     public float lifetime;
 
     private void Start()
     {
+        StopAllCoroutines();
         StartCoroutine(SuicidePlease());
     }
 
     IEnumerator SuicidePlease()
     {
         yield return new WaitForSeconds(lifetime);
-        Destroy(gameObject);
+        gameObject.SetActive(false);
     }
 }

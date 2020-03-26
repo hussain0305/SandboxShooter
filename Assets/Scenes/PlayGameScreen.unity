@@ -1073,7 +1073,7 @@ MonoBehaviour:
   changeMaterial: 1
   hoveredTextColor: {r: 0.5647059, g: 1, b: 0, a: 1}
   hoveredMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
-  selectedTextColor: {r: 0.23113209, g: 0.5204874, b: 1, a: 1}
+  selectedTextColor: {r: 1, g: 1, b: 1, a: 1}
   selectedMaterial: {fileID: 2100000, guid: 63ca34816d9b7834c8806df38ba460c3, type: 2}
   highlightedTextSizeMultiple: 1.25
 --- !u!1 &522141916

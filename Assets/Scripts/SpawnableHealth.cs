@@ -1,4 +1,5 @@
 ﻿using Photon.Pun;
+using System.Collections;
 using UnityEngine;
 
 public class SpawnableHealth : SpawnableComponentBase
@@ -10,9 +11,6 @@ public class SpawnableHealth : SpawnableComponentBase
     [Header("Health Details")]
     public Material healthBar;
     public Renderer healthRenderer;
-
-    [Header("Death")]
-    public ParticleSystem destructionEffect;
 
     private int health;
     private int currentHealth;
@@ -105,11 +103,19 @@ public class SpawnableHealth : SpawnableComponentBase
 
         PhotonView.Find(id).GetComponent<EPlayerNetworkPresence>().BrokeSpawnable();
 
-        Instantiate(destructionEffect, transform.position, destructionEffect.transform.rotation);
+        Fragmenter frag = gameObject.AddComponent<Fragmenter>();
+        frag.FragmentThisSpawnable(GetComponent<SpawnableGO>().kindOfSpawnable);
+
         if (pView.IsMine)
         {
-            PhotonNetwork.Destroy(transform.gameObject);
+            StartCoroutine(DelayedNetworkDestroy());
         }
+    }
+
+    IEnumerator DelayedNetworkDestroy()
+    {
+        yield return new WaitForSeconds(0.1f);
+        PhotonNetwork.Destroy(transform.gameObject);
     }
 
     void AlsoDestroyChildren(int id)

@@ -11,6 +11,7 @@ TagManager:
   - Canvas
   - OrbSpawnPoint
   - GridFlying
+  - Fragment
   layers:
   - Default
   - TransparentFX
