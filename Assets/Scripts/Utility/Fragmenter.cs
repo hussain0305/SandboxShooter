@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class Fragmenter : MonoBehaviour
 {
@@ -57,13 +55,12 @@ public class Fragmenter : MonoBehaviour
                 currentRowCenter = (currentRowCenter + ((zCurr + Z_CORRECTION) * meshToFragment.gameObject.transform.forward));
                 for (xCurr = -xSize/2; xCurr < xSize/2; xCurr += 2)
                 {
-                    if (Random.Range(1, 10) < 6)
+                    if (Random.Range(1, 11) <= 9)
                     {
                         spawnedFragment = ObjectPooler.CentralObjectPool.SpawnFromPool("Fragment",
                             currentRowCenter + ((xCurr + X_CORRECTION) * meshToFragment.gameObject.transform.right),
                             meshToFragment.transform.root.rotation);
-                        spawnedFragment.GetComponent<FragmentMaterializer>().ApplyMaterial(kind);
-                        spawnedFragment.GetComponent<Rigidbody>().AddForce(Random.Range(1, 10) * 200 * ((spawnedFragment.transform.position - meshToFragment.bounds.center) + verticalForceAddition));
+                        //spawnedFragment.GetComponent<FragmentMaterializer>().InitializeFragment(kind, (Random.Range(1, 10) * 200 * ((spawnedFragment.transform.position - meshToFragment.bounds.center) + verticalForceAddition)));
                     
                     }
                 }

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 1509026203209234187}
   - component: {fileID: 5040108087160223701}
   - component: {fileID: 531828066692330679}
+  - component: {fileID: 1962576515176434493}
   m_Layer: 0
   m_Name: ChainPlatform
   m_TagString: Untagged
@@ -527,6 +528,19 @@ MonoBehaviour:
   spawnLocationOffset: 11
   spentMaterial: {r: 0.7138634, g: 0, b: 1, a: 0}
   platformHealth: 200
+--- !u!114 &1962576515176434493
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509026203209234186}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 25
 --- !u!1 &1509026204530676069
 GameObject:
   m_ObjectHideFlags: 0

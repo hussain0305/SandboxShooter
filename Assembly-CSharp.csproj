@@ -83,7 +83,7 @@
     <Compile Include="Assets\Scripts\EPlayerMovement.cs" />
     <Compile Include="Assets\Scripts\EPlayerNetworkPresence.cs" />
     <Compile Include="Assets\Scripts\FloatingPlatform.cs" />
-    <Compile Include="Assets\Scripts\Fragment.cs" />
+    <Compile Include="Assets\Scripts\FragmentationEffect.cs" />
     <Compile Include="Assets\Scripts\GameDictionary.cs" />
     <Compile Include="Assets\Scripts\GameManager.cs" />
     <Compile Include="Assets\Scripts\GameModes\BaseGameMode.cs" />

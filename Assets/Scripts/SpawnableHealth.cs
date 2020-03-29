@@ -4,10 +4,6 @@ using UnityEngine;
 
 public class SpawnableHealth : SpawnableComponentBase
 {
-    //[Header("Dimensions")]
-    //public Vector3 dimensions;
-
-
     [Header("Health Details")]
     public Material healthBar;
     public Renderer healthRenderer;
@@ -103,8 +99,10 @@ public class SpawnableHealth : SpawnableComponentBase
 
         PhotonView.Find(id).GetComponent<EPlayerNetworkPresence>().BrokeSpawnable();
 
-        Fragmenter frag = gameObject.AddComponent<Fragmenter>();
-        frag.FragmentThisSpawnable(GetComponent<SpawnableGO>().kindOfSpawnable);
+        foreach(FragmentationEffect fEffect in GetComponentsInChildren<FragmentationEffect>())
+        {
+            fEffect.SpawnFragmentationEffect();
+        }
 
         if (pView.IsMine)
         {

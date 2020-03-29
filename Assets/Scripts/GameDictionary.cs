@@ -7,7 +7,7 @@ public enum SpawnableType { Offence, Defence, Decoration };
 public enum PlayerRelativeDirection { Front, Back, Right, Left};
 
 [System.Serializable]
-public enum KindOfSpawnable { BurstGun, MachineGun, DistributedGun, Wall, HomingTower, Ramp, FlyingGrid, Tower, Trampoline, ChainPlatform};
+public enum KindOfSpawnable { BurstGun, MachineGun, DistributedGun, Wall, HomingTower, Ramp, FlyingGrid, Tower, TowerShield, TowerPlatform, Trampoline, ChainPlatform};
 
 [System.Serializable]
 public struct FragmentColorInfo

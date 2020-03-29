@@ -43,8 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2948dee27578227489f11978f93a6463, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  pools:
-  - tag: Fragment
-    prefab: {fileID: 1895954414455950020, guid: 94e7f10d469445c4aa58447f52106e60,
-      type: 3}
-    size: 250
+  pools: []

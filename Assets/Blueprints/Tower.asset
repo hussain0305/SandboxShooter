@@ -17,7 +17,7 @@ MonoBehaviour:
   displayName: Tower
   image: {fileID: 21300000, guid: 75751edd196a2b441a69cc914c1e9794, type: 3}
   description: Tower
-  health: 2000
+  health: 2
   constructionEnergyRequired: 30
   prefab: {fileID: 5691454625180262640, guid: 58880efe73e81984f987063bf3f6feeb, type: 3}
   isGridAligned: 1

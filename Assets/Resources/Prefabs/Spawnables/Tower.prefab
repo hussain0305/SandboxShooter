@@ -200,6 +200,7 @@ GameObject:
   - component: {fileID: 8033705135313236751}
   - component: {fileID: 2397046174645574726}
   - component: {fileID: 1736034170966860997}
+  - component: {fileID: 2480196640319870573}
   m_Layer: 9
   m_Name: TowerShield
   m_TagString: Untagged
@@ -279,8 +280,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 182ff67341d951d4ea91fbdbd6244749, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  destructionEffect: {fileID: 4359040300246178800, guid: 88ca7d34807fed84e8466d5dcaacf776,
-    type: 3}
 --- !u!65 &6282670783457433870
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -333,6 +332,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.30685043, y: 28.00002, z: 4.3018665}
   m_Center: {x: 2.346575, y: 0, z: 0}
+--- !u!114 &2480196640319870573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 89346206622089824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 25
 --- !u!1 &517245255924221673
 GameObject:
   m_ObjectHideFlags: 0
@@ -764,6 +776,7 @@ GameObject:
   - component: {fileID: 5677880652417635070}
   - component: {fileID: 116606541922576560}
   - component: {fileID: 8382083060813458985}
+  - component: {fileID: 2368471233141060706}
   m_Layer: 0
   m_Name: TowerPlatform
   m_TagString: Untagged
@@ -883,6 +896,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 4.8579144, y: 0.51309776, z: 7.3422003}
   m_Center: {x: 0, y: 0, z: -5.3289}
+--- !u!114 &2368471233141060706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3639785654098041458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 10
 --- !u!1 &3698606783813256557
 GameObject:
   m_ObjectHideFlags: 0
@@ -3734,6 +3760,7 @@ GameObject:
   - component: {fileID: 5064351743399873991}
   - component: {fileID: 4462934986332326102}
   - component: {fileID: 6230069969242875861}
+  - component: {fileID: 3423196092364899292}
   m_Layer: 9
   m_Name: TowerColumn
   m_TagString: Untagged
@@ -3853,6 +3880,19 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.523468, y: 30.00344, z: 3.1480765}
   m_Center: {x: 1.838266, y: 0, z: 0}
+--- !u!114 &3423196092364899292
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8732151511561828708}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 25
 --- !u!1 &8903198993858241844
 GameObject:
   m_ObjectHideFlags: 0

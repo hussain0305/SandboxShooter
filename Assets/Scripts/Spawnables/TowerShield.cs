@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class TowerShield : MonoBehaviour
 {
-    const int MAX_HEALTH = 2000;
-
-    public ParticleSystem destructionEffect;
+    const int MAX_HEALTH = 2;//2000;
     
     private int health;
 
@@ -24,7 +22,7 @@ public class TowerShield : MonoBehaviour
 
             if (health < 0)
             {
-                Instantiate(destructionEffect, transform.position, transform.rotation);
+                GetComponent<FragmentationEffect>().SpawnFragmentationEffect();
                 Destroy(this.gameObject);
             }
         }

@@ -228,6 +228,7 @@ GameObject:
   - component: {fileID: 5461976805079744312}
   - component: {fileID: 7332038568368607808}
   - component: {fileID: 9203486809165059444}
+  - component: {fileID: 4417690184919611818}
   m_Layer: 0
   m_Name: DistributedGunBase
   m_TagString: Untagged
@@ -296,6 +297,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &4417690184919611818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5115134693251963055}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 5
 --- !u!1 &5208342360204581937
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,6 +352,7 @@ GameObject:
   - component: {fileID: 7059207571620732176}
   - component: {fileID: 9157311388963430644}
   - component: {fileID: 8619378711733889459}
+  - component: {fileID: 2206061342303209439}
   m_Layer: 0
   m_Name: DGNozzle
   m_TagString: Untagged
@@ -405,6 +420,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2206061342303209439
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6483637582078084270}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 5
 --- !u!1 &6565240729724660466
 GameObject:
   m_ObjectHideFlags: 0

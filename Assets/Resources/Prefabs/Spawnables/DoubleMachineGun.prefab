@@ -5285,6 +5285,7 @@ GameObject:
   - component: {fileID: 5857288240329644091}
   - component: {fileID: 5849050247138060433}
   - component: {fileID: 5839589535806744767}
+  - component: {fileID: 3208189568163594875}
   m_Layer: 0
   m_Name: CannonY_Plate00
   m_TagString: Untagged
@@ -5352,6 +5353,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &3208189568163594875
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5863463814593527897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 8
 --- !u!1 &5863588624120062263
 GameObject:
   m_ObjectHideFlags: 0
@@ -5394,6 +5408,7 @@ GameObject:
   - component: {fileID: 5860894407651763419}
   - component: {fileID: 5849676773897546827}
   - component: {fileID: 5839567152313586755}
+  - component: {fileID: 2378905711294245127}
   m_Layer: 0
   m_Name: CannonY_Barrel03
   m_TagString: Untagged
@@ -5463,6 +5478,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &2378905711294245127
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5863593849229264073}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 8
 --- !u!1 &5863642369861770867
 GameObject:
   m_ObjectHideFlags: 0

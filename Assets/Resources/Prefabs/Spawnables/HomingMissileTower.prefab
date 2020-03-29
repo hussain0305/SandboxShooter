@@ -275,6 +275,7 @@ GameObject:
   - component: {fileID: 2306623362188273286}
   - component: {fileID: 2306623362188273285}
   - component: {fileID: 2306623362188273284}
+  - component: {fileID: 7030780781657788673}
   m_Layer: 0
   m_Name: Tower
   m_TagString: Untagged
@@ -342,6 +343,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!114 &7030780781657788673
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2306623362188273291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  numFragments: 25
 --- !u!1 &4675977910394125083
 GameObject:
   m_ObjectHideFlags: 0
