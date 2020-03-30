@@ -345,6 +345,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numFragments: 25
+  kind: 8
 --- !u!1 &517245255924221673
 GameObject:
   m_ObjectHideFlags: 0
@@ -909,6 +910,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numFragments: 10
+  kind: 9
 --- !u!1 &3698606783813256557
 GameObject:
   m_ObjectHideFlags: 0
@@ -2460,7 +2462,6 @@ MonoBehaviour:
   isUsable: 0
   displayName: 
   type: 2
-  kindOfSpawnable: 7
   buildTime: 3
 --- !u!114 &3548040620997164079
 MonoBehaviour:
@@ -3893,6 +3894,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numFragments: 25
+  kind: 7
 --- !u!1 &8903198993858241844
 GameObject:
   m_ObjectHideFlags: 0

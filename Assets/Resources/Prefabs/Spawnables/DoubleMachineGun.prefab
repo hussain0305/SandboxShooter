@@ -5079,7 +5079,6 @@ MonoBehaviour:
   isUsable: 0
   displayName: Double-Barrel Machine Gun
   type: 0
-  kindOfSpawnable: 1
   buildTime: 2
 --- !u!114 &24010200167748644
 MonoBehaviour:
@@ -5365,7 +5364,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numFragments: 8
+  numFragments: 5
+  kind: 1
 --- !u!1 &5863588624120062263
 GameObject:
   m_ObjectHideFlags: 0
@@ -5490,7 +5490,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b786e240f79f8c542bae5bbc5286852b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  numFragments: 8
+  numFragments: 5
+  kind: 1
 --- !u!1 &5863642369861770867
 GameObject:
   m_ObjectHideFlags: 0

@@ -17,7 +17,6 @@ public class AutoGun : EnergyWeaponBase
         else
         {
             player.playerUI.DisplayAlertMessage("Not enough energy to shoot");
-            energySource.DisableAttackBeam();
         }
     }
 

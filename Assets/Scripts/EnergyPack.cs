@@ -9,10 +9,7 @@ public class EnergyPack : MonoBehaviour
 
     public Material energyMaterial;
 
-    public GameObject rotator;
     public GameObject nozzle;
-    public GameObject masterBeam;
-    public GameObject[] beams;
     public Color activeColor;
     public Color inactiveColor;
     
@@ -49,7 +46,6 @@ public class EnergyPack : MonoBehaviour
         playerCam = Camera.main;
         isShooting = false;
         hasEnergyWeapon = false;
-        DisableAttackBeam();
     }
 
     void Update()
@@ -58,17 +54,12 @@ public class EnergyPack : MonoBehaviour
         {
             return;
         }
-        if(Input.GetButtonDown("Fire1") && player.IsInActiveGameplay())
+        if(Input.GetButtonDown("EnergyWeaponUse") && player.IsInActiveGameplay())
         {
             if (player.playerEnergy.hasEnergyPack)
             {
                 if (hasEnergyWeapon)
                 {
-                    if (currentEnergyWeapon.requiresBeams)
-                    {
-                        EnableAttackBeam(currentEnergyWeapon.beamsRequired);
-                    }
-
                     currentEnergyWeapon.ShootEnergyWeapon();
                 }
                 else
@@ -82,17 +73,13 @@ public class EnergyPack : MonoBehaviour
             }
         }
 
-        if(isShooting && Input.GetButton("Fire1"))
+        if(isShooting && Input.GetButton("EnergyWeaponUse"))
         {
-            if (currentEnergyWeapon.requiresBeams)
-            {
-                rotator.transform.SetPositionAndRotation(rotator.transform.position, playerCam.transform.rotation);
-            }
         }
 
-        if (isShooting && Input.GetButtonUp("Fire1"))
+        if (isShooting && Input.GetButtonUp("EnergyWeaponUse"))
         {
-            DisableAttackBeam();
+            //Stopped using energy weapon
         }
     }
     public void OnTriggerEnter(Collider other)
@@ -116,43 +103,9 @@ public class EnergyPack : MonoBehaviour
     [PunRPC]
     void RPC_WasDropped()
     {
-        DisableAttackBeam();
         energyMaterial.SetColor("_Color", inactiveColor);
         rBody.isKinematic = false;
         StartCoroutine(Countdown());
-    }
-
-    public void DisableAttackBeam()
-    {
-        pView.RPC("RPC_DisableAttackBeam", RpcTarget.All);
-    }
-
-    [PunRPC]
-    void RPC_DisableAttackBeam()
-    {
-        isShooting = false;
-        foreach (GameObject curr in beams)
-        {
-            curr.SetActive(false);
-        }
-        masterBeam.SetActive(false);
-
-    }
-    public void EnableAttackBeam(int beamNo)
-    {
-        pView.RPC("RPC_EnableAttackBeam", RpcTarget.All, beamNo);
-    }
-
-    [PunRPC]
-    void RPC_EnableAttackBeam(int beamNo)
-    {
-        isShooting = true;
-        masterBeam.SetActive(true);
-        for (int loop = 0; loop <= (beamNo - 1); loop++)
-        {
-            beams[loop].SetActive(true);
-        }
-        //currentEnergyWeapon.ShootEnergyWeapon();
     }
 
     public void SetEnergyWeapon(EnergyWeaponBase weapon)

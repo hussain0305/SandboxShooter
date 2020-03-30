@@ -746,7 +746,7 @@ ParticleSystem:
     m_TextureAlphaAffectsParticles: 1
     m_TextureBilinearFiltering: 0
     randomDirectionAmount: 0
-    sphericalDirectionAmount: 0.5
+    sphericalDirectionAmount: 0
     randomPositionAmount: 0
     radius:
       value: 1
@@ -4856,10 +4856,10 @@ MonoBehaviour:
     bodyMaterial: {fileID: 2100000, guid: b83eba5bb449f4544ba97c06624fd9a1, type: 2}
     trailMaterial: {fileID: 2100000, guid: 4d348605418dcf24aadeb56f2f43627a, type: 2}
   - kindOfSpawnable: 8
-    bodyMaterial: {fileID: 2100000, guid: b6fe4f7774c0ab14eaa805441350432e, type: 2}
+    bodyMaterial: {fileID: 2100000, guid: 66b1606d366a5544ebdf2261ee4caa01, type: 2}
     trailMaterial: {fileID: 2100000, guid: b83eba5bb449f4544ba97c06624fd9a1, type: 2}
   - kindOfSpawnable: 9
-    bodyMaterial: {fileID: 2100000, guid: 4d348605418dcf24aadeb56f2f43627a, type: 2}
+    bodyMaterial: {fileID: 2100000, guid: 8e278e54db2251141bce1bef97f6cafd, type: 2}
     trailMaterial: {fileID: 2100000, guid: b6fe4f7774c0ab14eaa805441350432e, type: 2}
   - kindOfSpawnable: 11
     bodyMaterial: {fileID: 2100000, guid: 046f93279c32ef94497d0b623829fc0f, type: 2}

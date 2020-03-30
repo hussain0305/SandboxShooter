@@ -86,7 +86,6 @@ MonoBehaviour:
   isUsable: 0
   displayName: 
   type: 2
-  kindOfSpawnable: 6
   buildTime: 2
 --- !u!114 &1204540407355694783
 MonoBehaviour:
@@ -2038,6 +2037,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numFragments: 25
+  kind: 6
 --- !u!1 &8326616454113983120
 GameObject:
   m_ObjectHideFlags: 0

@@ -75,9 +75,9 @@
     <Compile Include="Assets\Scripts\ConstructionMenu.cs" />
     <Compile Include="Assets\Scripts\DefensiveBase.cs" />
     <Compile Include="Assets\Scripts\EnergyPack.cs" />
-    <Compile Include="Assets\Scripts\EnergyWeaponBase.cs" />
-    <Compile Include="Assets\Scripts\EnergyWeaponPickup.cs" />
     <Compile Include="Assets\Scripts\EnergyWeapons\AutoGun.cs" />
+    <Compile Include="Assets\Scripts\EnergyWeapons\EnergyWeaponBase.cs" />
+    <Compile Include="Assets\Scripts\EnergyWeapons\EnergyWeaponPickup.cs" />
     <Compile Include="Assets\Scripts\EnergyWeapons\Spikes.cs" />
     <Compile Include="Assets\Scripts\EPlayerController.cs" />
     <Compile Include="Assets\Scripts\EPlayerMovement.cs" />
@@ -92,6 +92,10 @@
     <Compile Include="Assets\Scripts\GameScoring.cs" />
     <Compile Include="Assets\Scripts\GameServer.cs" />
     <Compile Include="Assets\Scripts\Graph\BaseGraph.cs" />
+    <Compile Include="Assets\Scripts\HandledWeapons\Crossbow.cs" />
+    <Compile Include="Assets\Scripts\HandledWeapons\HandledWeaponBase.cs" />
+    <Compile Include="Assets\Scripts\HandledWeapons\HandledWeaponPickup.cs" />
+    <Compile Include="Assets\Scripts\HandledWeapons\Rifle.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
     <Compile Include="Assets\Scripts\Menus\CanvasCommunicator.cs" />
     <Compile Include="Assets\Scripts\Menus\Journal.cs" />
@@ -114,6 +118,7 @@
     <Compile Include="Assets\Scripts\PlayerDisbalance.cs" />
     <Compile Include="Assets\Scripts\PlayerEnergy.cs" />
     <Compile Include="Assets\Scripts\PlayerUI.cs" />
+    <Compile Include="Assets\Scripts\PlayerWeapons.cs" />
     <Compile Include="Assets\Scripts\Projectile.cs" />
     <Compile Include="Assets\Scripts\ProximityDetector.cs" />
     <Compile Include="Assets\Scripts\ProxyHealth.cs" />

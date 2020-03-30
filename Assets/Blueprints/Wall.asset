@@ -17,7 +17,7 @@ MonoBehaviour:
   displayName: Wall
   image: {fileID: 21300000, guid: 431a29e2c282f104b8755d4f4335db50, type: 3}
   description: The stuff that houses are made of
-  health: 750
+  health: 500
   constructionEnergyRequired: 15
   prefab: {fileID: 2934413580614794718, guid: e49c762805f4f51438ab4d886be88d3f, type: 3}
   isGridAligned: 0

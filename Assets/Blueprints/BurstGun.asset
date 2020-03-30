@@ -17,7 +17,7 @@ MonoBehaviour:
   displayName: Burst Gun
   image: {fileID: 21300000, guid: 9f67b2f3c4af5834b8edc0e698b2dd96, type: 3}
   description: Shoots three bullets per use
-  health: 250
+  health: 100
   constructionEnergyRequired: 15
   prefab: {fileID: 2104451162995988648, guid: 660bbf7afe0d1a140b6d3c6a263ba7b1, type: 3}
   isGridAligned: 0

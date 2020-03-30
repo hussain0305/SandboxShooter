@@ -11,6 +11,7 @@ public class EPlayerController : MonoBehaviour
     public PlayerEnergy playerEnergy;
     public PlayerDisbalance playerDisbalance;
     public EPlayerMovement playerMovement;
+    public PlayerWeapons handledWeapons;
 
     [Header("Game Settings")]
     public float mouseSensitivity = 50;
@@ -53,9 +54,11 @@ public class EPlayerController : MonoBehaviour
     {
         playerBody = GetComponent<Transform>();
         playerMovement = GetComponent<EPlayerMovement>();
+        handledWeapons = GetComponent<PlayerWeapons>();
         characterController = GetComponent<CharacterController>();
         characterAnimator = GetComponent<Animator>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
+
         //playerCamera = Camera.main;
         pView = GetComponent<PhotonView>();
 
@@ -353,6 +356,13 @@ public class EPlayerController : MonoBehaviour
         playerEnergy.energyPack.SetEnergyWeapon(PhotonNetwork.Instantiate(Path.Combine(pickedWeapon.pathStrings),
             Vector3.zero, Quaternion.identity).GetComponent<EnergyWeaponBase>());
     }
+
+    public void PickedUpHandledWeapon(HandledWeaponBase pickedWeapon)
+    {
+        handledWeapons.PickUpWeapon(PhotonNetwork.Instantiate(Path.Combine(pickedWeapon.pathStrings),
+            Vector3.zero, Quaternion.identity).GetComponent<HandledWeaponBase>());
+    }
+
 
     public void PlayerIsDead(int attacker)
     {

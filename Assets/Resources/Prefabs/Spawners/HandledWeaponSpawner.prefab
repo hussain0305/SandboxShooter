@@ -42,7 +42,7 @@ GameObject:
   - component: {fileID: 8781688711047643073}
   - component: {fileID: 6361129908309728862}
   m_Layer: 0
-  m_Name: WeaponSpawner
+  m_Name: HandledWeaponSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -75,6 +75,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee504f72f44cfa14fb93f44a2b3fe8af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spawnEnergyWeapons: 0
+  spawnHandledWeapons: 1
   rayStart: {fileID: 4019583125058473297}
 --- !u!114 &6361129908309728862
 MonoBehaviour:

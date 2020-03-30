@@ -17,7 +17,7 @@ MonoBehaviour:
   displayName: Ramp
   image: {fileID: 21300000, guid: 611ad7d8ee051f743a4b6527ac4df276, type: 3}
   description: Slanted Wall, kinda
-  health: 300
+  health: 100
   constructionEnergyRequired: 20
   prefab: {fileID: 2864814848847314582, guid: 5a6bcd8709f4ec24996dcfd439b0e27b, type: 3}
   isGridAligned: 0

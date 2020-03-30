@@ -17,7 +17,7 @@ MonoBehaviour:
   displayName: ChainPlatform
   image: {fileID: 21300000, guid: 87576f777b1cab248aafd34bd488cf0a, type: 3}
   description: Chain Platform
-  health: 200
+  health: 100
   constructionEnergyRequired: 0
   prefab: {fileID: 1509026203209234186, guid: 926b72900ac8f1747b85b0b809fb066f, type: 3}
   isGridAligned: 0

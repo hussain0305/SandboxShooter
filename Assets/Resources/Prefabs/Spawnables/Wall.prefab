@@ -175,7 +175,6 @@ MonoBehaviour:
   isUsable: 0
   displayName: Wall
   type: 1
-  kindOfSpawnable: 3
   buildTime: 2
 --- !u!114 &6414846453866075406
 MonoBehaviour:
@@ -335,3 +334,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   numFragments: 20
+  kind: 3

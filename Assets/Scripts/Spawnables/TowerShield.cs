@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class TowerShield : MonoBehaviour
 {
-    const int MAX_HEALTH = 2;//2000;
+    const int MAX_HEALTH = 2000;//2000;
     
     private int health;
 

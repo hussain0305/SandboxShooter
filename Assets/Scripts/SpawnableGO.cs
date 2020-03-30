@@ -10,7 +10,6 @@ public class SpawnableGO : MonoBehaviour
 
     [Header("Spawnable Properties")]
     public SpawnableType type;
-    public KindOfSpawnable kindOfSpawnable;
     public float buildTime;
     
     //Components

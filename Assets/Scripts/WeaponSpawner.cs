@@ -7,6 +7,8 @@ using UnityEngine;
 
 public class WeaponSpawner : MonoBehaviour
 {
+    public bool spawnEnergyWeapons;
+    public bool spawnHandledWeapons;
     private PhotonView pView;
 
     public GameObject rayStart;
@@ -26,14 +28,30 @@ public class WeaponSpawner : MonoBehaviour
             RaycastHit hit;
             if (Physics.Raycast(rayStart.transform.position, -1 * transform.up, out hit, 25))
             {
-                if (hit.collider.GetComponent<EnergyWeaponPickup>())
+                if (spawnEnergyWeapons)
                 {
+                    if (hit.collider.GetComponent<EnergyWeaponPickup>())
+                    {
 
+                    }
+                    else
+                    {
+                        EnergyWeaponPickup spawnedPickup = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "EnergyWeaponPickup"), transform.position, transform.rotation, 0).GetComponent<EnergyWeaponPickup>();
+
+                    }
                 }
-                else
+                else if (spawnHandledWeapons)
                 {
-                    EnergyWeaponPickup spawnedPickup = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "EnergyWeaponPickup"), transform.position, transform.rotation, 0).GetComponent<EnergyWeaponPickup>();
-                
+                    if (hit.collider.GetComponent<HandledWeaponPickup>())
+                    {
+
+                    }
+                    else
+                    {
+                        HandledWeaponPickup spawnedPickup = PhotonNetwork.Instantiate(Path.Combine("Prefabs", "HandledWeaponPickup"), transform.position, transform.rotation, 0).GetComponent<HandledWeaponPickup>();
+
+                    }
+
                 }
             }
             yield return new WaitForSeconds(30);

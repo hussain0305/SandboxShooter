@@ -17,7 +17,7 @@ MonoBehaviour:
   displayName: Double Barell Machine Gun
   image: {fileID: 21300000, guid: cb4e0e266d06e9140ba1db62fe5f0769, type: 3}
   description: Twice as much as a machine gun
-  health: 300
+  health: 100
   constructionEnergyRequired: 15
   prefab: {fileID: 5862623113351301919, guid: 2e3903aabc21d474bb3b96932d465b5d, type: 3}
   isGridAligned: 0

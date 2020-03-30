@@ -17,7 +17,7 @@ MonoBehaviour:
   displayName: Flying Grid
   image: {fileID: 21300000, guid: 5815dd620fe1de441b039f2f74531a61, type: 3}
   description: 
-  health: 1
+  health: 500
   constructionEnergyRequired: 40
   prefab: {fileID: 1010822956055372923, guid: 0676ba2ec78d97e4dbb1ece22cd14f65, type: 3}
   isGridAligned: 1
