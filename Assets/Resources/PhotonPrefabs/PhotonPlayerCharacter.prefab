@@ -310,6 +310,8 @@ MonoBehaviour:
   cameraHolder: {fileID: 5212165264065172665}
   deathEffect: {fileID: 1789904466085206580, guid: 61d036bb76cd18a45b105a8becd8ecc1,
     type: 3}
+  constructionMenuOpen: 0
+  anyMenuOpen: 0
 --- !u!114 &267301236003811947
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -350,7 +352,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0ce49e16383941f44811ed1591181a17, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  weaponHolder: {fileID: 6381631857418369305}
+  spine: {fileID: 422670345517239606}
+  cameraHolder: {fileID: 5212165264065172665}
+  cam: {fileID: 8112188099466557662}
   hasWeapon: 0
+  isADSing: 0
   currentWeapon: {fileID: 0}
 --- !u!114 &2599181165803873431
 MonoBehaviour:
@@ -899,6 +906,36 @@ Transform:
   m_Father: {fileID: 7764916045108369930}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1979077937219622357
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6381631857418369305}
+  m_Layer: 13
+  m_Name: WeaponHolder
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &6381631857418369305
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1979077937219622357}
+  m_LocalRotation: {x: 0.56098557, y: -0.56098557, z: -0.4304593, w: -0.4304593}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2093122621314247663}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 255, y: 0, z: 90}
 --- !u!1 &2118713960669168021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1744,7 +1781,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5212165264065172665}
   m_LocalRotation: {x: 0.08874252, y: -0, z: -0, w: 0.99605465}
-  m_LocalPosition: {x: 0, y: 1.653, z: 0.237}
+  m_LocalPosition: {x: 0, y: 1.663, z: 0.302}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 8112188099466557659}
@@ -2228,6 +2265,7 @@ Transform:
   - {fileID: 2447846079148007320}
   - {fileID: 2939078201214252271}
   - {fileID: 1362829106529070379}
+  - {fileID: 6381631857418369305}
   m_Father: {fileID: 7223449279760920277}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -24,8 +24,12 @@ public class EPlayerController : MonoBehaviour
     public ParticleSystem deathEffect;
 
     const float BUILD_DISTANCE = 20; 
-    private bool constructionMenuOpen;
-    private bool anyMenuOpen;
+    [HideInInspector]
+    public bool constructionMenuOpen;
+    [HideInInspector]
+    public bool anyMenuOpen;
+    
+    
     private bool isUsingOffensive;
     private float mouseX;
     private float mouseY;
@@ -112,7 +116,7 @@ public class EPlayerController : MonoBehaviour
         #region Using offensive input
         if (Input.GetButtonDown("Use"))
         {
-            if (controlledOffensive && !isUsingOffensive && !constructionMenuOpen)
+            if (controlledOffensive && !isUsingOffensive && !constructionMenuOpen && !handledWeapons.isADSing)
             {
                 OccupyOffensive();
             }
@@ -454,4 +458,5 @@ public class EPlayerController : MonoBehaviour
     }
 
     #endregion
+
 }

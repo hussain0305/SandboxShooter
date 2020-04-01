@@ -9,6 +9,7 @@ public class HandledWeaponBase : MonoBehaviour
     public float projectileSpeed;
     public int projectileDamage;
     public string[] pathStrings;
+    public GameObject adsPosition;
 
     protected EPlayerController player;
     protected Projectile spawnedProjectile;
@@ -24,6 +25,16 @@ public class HandledWeaponBase : MonoBehaviour
     public void SetOwner(EPlayerController tPlayer)
     {
         player = tPlayer;
+    }
+
+    public void DestroyWeapon()
+    {
+
+    }
+
+    public GameObject GetADSPosition()
+    {
+        return adsPosition;
     }
 
     public virtual void ShootEnergyWeapon() { }

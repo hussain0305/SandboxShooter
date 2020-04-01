@@ -1,11 +1,11 @@
 fileFormatVersion: 2
-guid: 25b6a5f4e081a274bb017927f2466110
+guid: 7088341ec4ca02f4a9725434b26f03a0
 ModelImporter:
   serializedVersion: 26
   internalIDToNameTable:
   - first:
       74: -203655887218126122
-    second: RifleRun
+    second: RifleAim
   externalObjects: {}
   materials:
     importMaterials: 1
@@ -35,11 +35,11 @@ ModelImporter:
     extraUserProperties: []
     clipAnimations:
     - serializedVersion: 16
-      name: RifleRun
+      name: RifleAim
       takeName: mixamo.com
       internalID: 0
       firstFrame: 0
-      lastFrame: 20
+      lastFrame: 22
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
