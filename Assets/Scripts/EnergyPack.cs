@@ -54,7 +54,7 @@ public class EnergyPack : MonoBehaviour
         {
             return;
         }
-        if(Input.GetButtonDown("EnergyWeaponUse") && player.IsInActiveGameplay())
+        if(Input.GetButtonDown("Fire1") && !player.handledWeapons.isADSing && player.IsInActiveGameplay())//EnergyWeaponUse
         {
             if (player.playerEnergy.hasEnergyPack)
             {
@@ -73,11 +73,11 @@ public class EnergyPack : MonoBehaviour
             }
         }
 
-        if(isShooting && Input.GetButton("EnergyWeaponUse"))
+        if(isShooting && Input.GetButton("Fire1"))//EnergyWeaponUse
         {
         }
 
-        if (isShooting && Input.GetButtonUp("EnergyWeaponUse"))
+        if (isShooting && Input.GetButtonUp("Fire1"))//EnergyWeaponUse
         {
             //Stopped using energy weapon
         }
