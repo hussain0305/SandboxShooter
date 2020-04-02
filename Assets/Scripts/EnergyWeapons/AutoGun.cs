@@ -23,7 +23,7 @@ public class AutoGun : EnergyWeaponBase
     IEnumerator DelayedShootFromEnergyPack()
     {
         yield return new WaitForSeconds(durationBetwenShots);
-        if (energySource.isShooting)
+        if (energySource.isShootingEnergy)
         {
             ShootEnergyWeapon();
         }

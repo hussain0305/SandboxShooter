@@ -112,6 +112,7 @@ public class PlayerWeapons : MonoBehaviour
         playerAnimator.SetTrigger("goADS");
         camAnimator.enabled = false;
         isADSing = true;
+        player.playerMovement.SetADSspeed(isADSing);
         StopAllCoroutines();
         StartCoroutine(MoveCamera(currentWeapon.GetADSPosition(), true));
     }
@@ -121,6 +122,7 @@ public class PlayerWeapons : MonoBehaviour
         playerAnimator.SetTrigger("goHip");
         camAnimator.enabled = true;
         isADSing = false;
+        player.playerMovement.SetADSspeed(isADSing);
         StopAllCoroutines();
         StartCoroutine(MoveCamera(cameraHolder, false));
     }

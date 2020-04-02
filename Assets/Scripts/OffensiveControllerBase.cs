@@ -48,7 +48,7 @@ public class OffensiveControllerBase : MonoBehaviour
         if (other.gameObject.GetComponent<EPlayerController>() && other.gameObject.GetComponent<PhotonView>().IsMine)
         {
             other.gameObject.GetComponent<EPlayerController>().playerUI.DisplayInstructionMessage("Press E to use " + master.displayName);
-            other.gameObject.GetComponent<EPlayerController>().SetControlledOffensive(this);
+            other.gameObject.GetComponent<EPlayerController>().SetOffensiveInVicinity(this);
         }
     }
 
@@ -61,7 +61,7 @@ public class OffensiveControllerBase : MonoBehaviour
         if (other.gameObject.GetComponent<EPlayerController>() && other.gameObject.GetComponent<PhotonView>().IsMine)
         {
             other.gameObject.GetComponent<EPlayerController>().playerUI.RemoveInstructionMessage();
-            other.gameObject.GetComponent<EPlayerController>().SetControlledOffensive();
+            other.gameObject.GetComponent<EPlayerController>().SetOffensiveInVicinity();
         }
     }
 

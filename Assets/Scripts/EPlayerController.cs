@@ -40,7 +40,7 @@ public class EPlayerController : MonoBehaviour
     private Animator characterAnimator;
     private GameManager gameManager;
     private CharacterController characterController;
-    private OffensiveControllerBase controlledOffensive;
+    private OffensiveControllerBase offsensiveInVicinity;
     private EPlayerNetworkPresence networkPresence;
     private int networkID;
 
@@ -102,73 +102,79 @@ public class EPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!pView.IsMine)
+        if (!pView.IsMine || !characterAnimator || !characterController)
         {
             return;
         }
+        //No Need to proceed if critical components aren't established isn't established
 
         if (Input.GetButtonDown("PauseMenu"))
         {
-            playerUI.TogglePauseMenu();
-            anyMenuOpen = !anyMenuOpen;
+            anyMenuOpen = playerUI.TogglePauseMenu();
         }
 
-        #region Using offensive input
+        if (anyMenuOpen)
+        {
+            return;
+        }
+        //If pause menu is open, no other inputs need to be processed
+
         if (Input.GetButtonDown("Use"))
         {
-            if (controlledOffensive && !isUsingOffensive && !constructionMenuOpen && !handledWeapons.isADSing)
+            if (offsensiveInVicinity && !isUsingOffensive && !constructionMenuOpen && !handledWeapons.isADSing)
             {
                 OccupyOffensive();
             }
 
-            else if (controlledOffensive && isUsingOffensive)
+            else if (offsensiveInVicinity && isUsingOffensive)
             {
                 LeaveOffensive();
             }
         }
-        #endregion
 
-        if (!characterAnimator || !characterController || isUsingOffensive)
+        if (isUsingOffensive)
         {
             return;
         }
 
-        if (!constructionMenuOpen && !anyMenuOpen)
-        {
-            mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
-            mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
-            xRotation -= mouseY;
-            xRotation = Mathf.Clamp(xRotation, -45f, 35f);
-            cameraHolder.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
-            playerBody.Rotate(Vector3.up * mouseX);
-        }
-
-        #region Construction Input
         if (Input.GetButtonDown("Build") && !isUsingOffensive)
         {
-            if (playerEnergy.hasEnergyPack)
+            if (constructionMenuOpen)
             {
-                if (PlayerIsAimingCloseEnough()) 
-                {
-                    ToggleConstructionMenu();
-                }
-                else
-                {
-                    playerUI.DisplayAlertMessage("Aim closer on the ground to construct");
-                }
+                ToggleConstructionMenu();
             }
             else
             {
-                playerUI.DisplayAlertMessage("Cannot construct without energy pack");
+                if (playerEnergy.hasEnergyPack)
+                {
+                    if (PlayerIsAimingCloseEnough())
+                    {
+                        ToggleConstructionMenu();
+                    }
+                    else
+                    {
+                        playerUI.DisplayAlertMessage("Aim closer on the ground to construct");
+                    }
+                }
+                else
+                {
+                    playerUI.DisplayAlertMessage("Cannot construct without energy pack");
+                }
             }
         }
+
+        if (constructionMenuOpen)
+        {
+            return;
+        }
+        //No turning, looking around or accessing Scoreboard and quick build menu if construction menu is open
         
-        if (Input.GetAxis("Mouse ScrollWheel") != 0 && !constructionMenuOpen)
+        if (Input.GetAxis("Mouse ScrollWheel") != 0)
         {
             playerUI.QuickMenuScroll(Input.GetAxis("Mouse ScrollWheel"));
         }
 
-        if (Input.GetButtonDown("Fire3") && !constructionMenuOpen)
+        if (Input.GetButtonDown("Fire3"))
         {
             if (playerEnergy.hasEnergyPack)
             {
@@ -180,8 +186,12 @@ public class EPlayerController : MonoBehaviour
             }
         }
 
-        #endregion
-
+        mouseX = Input.GetAxis("Mouse X") * mouseSensitivity * Time.deltaTime;
+        mouseY = Input.GetAxis("Mouse Y") * mouseSensitivity * Time.deltaTime;
+        xRotation -= mouseY;
+        xRotation = Mathf.Clamp(xRotation, -45f, 35f);
+        cameraHolder.transform.localRotation = Quaternion.Euler(xRotation, 0f, 0f);
+        playerBody.Rotate(Vector3.up * mouseX);
 
         if (Input.GetButtonDown("Scoreboard"))
         {
@@ -192,7 +202,6 @@ public class EPlayerController : MonoBehaviour
         {
             playerUI.SetScoreboardActive(false);
         }
-
     }
 
     #region Construction Stuff
@@ -296,14 +305,14 @@ public class EPlayerController : MonoBehaviour
     void OccupyOffensive()
     {
         SetIsUsingOffensive(true);
-        controlledOffensive.OffensiveOccuppied(this);        
+        offsensiveInVicinity.OffensiveOccuppied(this);        
         playerUI.RemoveInstructionMessage();
 
         playerMovement.StopInherentMovement();
-        transform.position = controlledOffensive.playerAnchor.transform.position;
-        playerCamera.transform.SetParent(controlledOffensive.turret);
-        playerCamera.transform.localPosition = controlledOffensive.cameraAnchor.transform.localPosition;
-        playerCamera.transform.localRotation = controlledOffensive.cameraAnchor.transform.localRotation;
+        transform.position = offsensiveInVicinity.playerAnchor.transform.position;
+        playerCamera.transform.SetParent(offsensiveInVicinity.turret);
+        playerCamera.transform.localPosition = offsensiveInVicinity.cameraAnchor.transform.localPosition;
+        playerCamera.transform.localRotation = offsensiveInVicinity.cameraAnchor.transform.localRotation;
     }
 
     public void LeaveOffensive()
@@ -316,8 +325,8 @@ public class EPlayerController : MonoBehaviour
         playerCamera.transform.SetParent(cameraHolder.transform);
         playerCamera.transform.localPosition = camPosition;
         playerCamera.transform.localRotation = camRotation;
-        controlledOffensive.OffensiveLeft();
-        SetControlledOffensive();
+        offsensiveInVicinity.OffensiveLeft();
+        SetOffensiveInVicinity();
     }
 
     public bool IsInActiveGameplay()
@@ -326,7 +335,7 @@ public class EPlayerController : MonoBehaviour
         //has any UI/menu open. keep adding to the condition as more
         //UI artifacts are added.
 
-        return !(constructionMenuOpen || isUsingOffensive);
+        return !(constructionMenuOpen || isUsingOffensive || anyMenuOpen);
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -370,9 +379,9 @@ public class EPlayerController : MonoBehaviour
 
     public void PlayerIsDead(int attacker)
     {
-        if (isUsingOffensive && controlledOffensive)
+        if (isUsingOffensive && offsensiveInVicinity)
         {
-            controlledOffensive.ForceEjectPlayer();
+            offsensiveInVicinity.ForceEjectPlayer();
         }
         playerUI.ShowRespawnScreen(gameManager.GetRespawnDuration());
         playerCamera.transform.parent = null;
@@ -410,17 +419,17 @@ public class EPlayerController : MonoBehaviour
 
     public OffensiveControllerBase GetControlledOffensive()
     {
-        return controlledOffensive;
+        return offsensiveInVicinity;
     }
 
-    public void SetControlledOffensive(OffensiveControllerBase controllee)
+    public void SetOffensiveInVicinity(OffensiveControllerBase controllee)
     {
-        controlledOffensive = controllee;
+        offsensiveInVicinity = controllee;
     }
 
-    public void SetControlledOffensive()
+    public void SetOffensiveInVicinity()
     {
-        controlledOffensive = null;
+        offsensiveInVicinity = null;
     }
 
     public void SetIsUsingOffensive(bool val)

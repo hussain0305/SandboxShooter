@@ -154,9 +154,10 @@ public class PlayerUI : MonoBehaviour
         scoreboard.SetActive(val);
     }
 
-    public void TogglePauseMenu()
+    public bool TogglePauseMenu()
     {
         pauseMenu.SetActive(!pauseMenu.activeSelf);
+        return pauseMenu.activeSelf;
     }
 
     public void SetEnergyDroppedMessage(bool val)

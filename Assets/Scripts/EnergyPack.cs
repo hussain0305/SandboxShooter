@@ -17,7 +17,7 @@ public class EnergyPack : MonoBehaviour
     public Camera playerCam;
 
     [HideInInspector]
-    public bool isShooting;
+    public bool isShootingEnergy;
     
     private bool hasEnergyWeapon;
     private Transform owner;
@@ -44,7 +44,7 @@ public class EnergyPack : MonoBehaviour
         owner = transform.parent.root;
         player = owner.GetComponent<EPlayerController>();
         playerCam = Camera.main;
-        isShooting = false;
+        isShootingEnergy = false;
         hasEnergyWeapon = false;
     }
 
@@ -60,6 +60,7 @@ public class EnergyPack : MonoBehaviour
             {
                 if (hasEnergyWeapon)
                 {
+                    isShootingEnergy = true;
                     currentEnergyWeapon.ShootEnergyWeapon();
                 }
                 else
@@ -73,13 +74,14 @@ public class EnergyPack : MonoBehaviour
             }
         }
 
-        if(isShooting && Input.GetButton("Fire1"))//EnergyWeaponUse
+        if(isShootingEnergy && Input.GetButton("Fire1"))//EnergyWeaponUse
         {
+
         }
 
-        if (isShooting && Input.GetButtonUp("Fire1"))//EnergyWeaponUse
+        if (isShootingEnergy && Input.GetButtonUp("Fire1"))//EnergyWeaponUse
         {
-            //Stopped using energy weapon
+            isShootingEnergy = false;
         }
     }
     public void OnTriggerEnter(Collider other)

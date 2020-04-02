@@ -23,6 +23,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     //[Header("Movement Settings")]
     private float forwardSpeed = 10;
     private float dashSpeed = 30;
+    private float adsSpeed = 3;
     private float glideSpeed = 20;
     private float strafeSpeedMultiplier = 0.5f;
     private float jumpSpeed = 10;
@@ -48,6 +49,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     private PhotonView pView;
     private PhotonTransformViewClassic pTransform;
     private PlayerExternalMovement externalMovement;
+    private EPlayerController player;
     private RaycastHit probeHit;
 
     private Vector3 predictionVel;
@@ -56,6 +58,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     {
         pView = GetComponent<PhotonView>();
         characterController = GetComponent<CharacterController>();
+        player = GetComponent<EPlayerController>();
         characterAnimator = GetComponent<Animator>();
         pTransform = GetComponent<PhotonTransformViewClassic>();
         externalMovement = gameObject.AddComponent<PlayerExternalMovement>();
@@ -101,12 +104,12 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
             return;
         }
 
-        if (Input.GetButtonDown("Run") && !isDashing && (Input.GetAxis("Vertical") > 0))
+        if (Input.GetButtonDown("Run") && !isDashing && !player.handledWeapons.isADSing && (Input.GetAxis("Vertical") > 0))
         {
             DashPls();
         }
 
-        if (Input.GetButtonUp("Run"))
+        if (Input.GetButtonUp("Run") && isDashing)
         {
             StopDashingPls();
         }
@@ -159,14 +162,11 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         {
             canWallJump = false;
             moveDirection = 30 * playerCam.transform.forward;
-            //moveDirection += 7.5f * transform.up;
         }
 
         moveDirection.y -= gravity * Time.deltaTime;
 
         characterController.Move(moveDirection * Time.deltaTime);
-
-        //pTransform.SetSynchronizedValues(characterController.velocity, 0);
 
         characterAnimator.SetFloat("VelRight", axisHorizontal);
         characterAnimator.SetFloat("VelFwd", axisVertical * (Input.GetButton("Run") ? 1 : 0.5f));
@@ -377,7 +377,18 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
     public void SetExternalMovement(bool val)
     {
-
         externalMovement.enabled = val;
+    }
+
+    public void SetADSspeed(bool adsOn)
+    {
+        if (adsOn)
+        {
+            currentSpeed = adsSpeed;
+        }
+        else
+        {
+            currentSpeed = forwardSpeed;
+        }
     }
 }

@@ -44,14 +44,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0153eed14a2b18c4fa81b1bb0f50708d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  requiresBeams: 0
   projectile: {fileID: 601899379878230628, guid: c4fdf8f5b2ec153469d9098dfa0fafe0,
     type: 3}
   durationBetwenShots: 0.5
   projectileSpeed: 10
   projectileDamage: 800
   projectileCost: 20
-  beamsRequired: 0
   pathStrings:
   - Prefabs
   - EnergyWeapons
