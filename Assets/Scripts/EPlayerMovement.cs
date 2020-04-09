@@ -9,7 +9,8 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
     [HideInInspector]
     public bool isGrounded;
-
+    [HideInInspector]
+    public EMovementState currentMovementState;
     [HideInInspector]
     public bool isWallGliding;
     [HideInInspector]
@@ -45,7 +46,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     private Vector3 moveDirection;
     private Vector3 probeOffset;
     private CharacterController characterController;
-    private Animator characterAnimator;
+    //private Animator characterAnimator;
     private PhotonView pView;
     private PhotonTransformViewClassic pTransform;
     private PlayerExternalMovement externalMovement;
@@ -59,7 +60,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         pView = GetComponent<PhotonView>();
         characterController = GetComponent<CharacterController>();
         player = GetComponent<EPlayerController>();
-        characterAnimator = GetComponent<Animator>();
+        //characterAnimator = GetComponent<Animator>();
         pTransform = GetComponent<PhotonTransformViewClassic>();
         externalMovement = gameObject.AddComponent<PlayerExternalMovement>();
         SetExternalMovement(false);
@@ -96,11 +97,11 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
         if (isUsingOffensive)
         {
-            if (characterAnimator.GetFloat("VelFwd") != 0 || characterAnimator.GetFloat("VelRight") != 0)
-            {
-                //pTransform.SetSynchronizedValues(new Vector3(0 ,0 ,0), 0);
-                pView.RPC("RPC_StopOnOccupyingOffensive", RpcTarget.All);
-            }
+            //if (characterAnimator.GetFloat("VelFwd") != 0 || characterAnimator.GetFloat("VelRight") != 0)
+            //{
+            //    //pTransform.SetSynchronizedValues(new Vector3(0 ,0 ,0), 0);
+            //    pView.RPC("RPC_StopOnOccupyingOffensive", RpcTarget.All);
+            //}
             return;
         }
 
@@ -168,8 +169,8 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
 
         characterController.Move(moveDirection * Time.deltaTime);
 
-        characterAnimator.SetFloat("VelRight", axisHorizontal);
-        characterAnimator.SetFloat("VelFwd", axisVertical * (Input.GetButton("Run") ? 1 : 0.5f));
+        //characterAnimator.SetFloat("VelRight", axisHorizontal);
+        //characterAnimator.SetFloat("VelFwd", axisVertical * (Input.GetButton("Run") ? 1 : 0.5f));
     }
 
     public void SetIsUsingOffensive(bool val)
@@ -343,7 +344,7 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
     [PunRPC]
     void RPC_PlayAnimationOnClients(string triggerName)
     {
-        characterAnimator.SetTrigger(triggerName);
+        //characterAnimator.SetTrigger(triggerName);
     }
 
 
@@ -356,16 +357,16 @@ public class EPlayerMovement : MonoBehaviour, IPunObservable
         }
         else if (stream.IsReading)
         {
-            characterAnimator.SetFloat("VelRight", (float)stream.ReceiveNext());
-            characterAnimator.SetFloat("VelFwd", (float)stream.ReceiveNext());
+            //characterAnimator.SetFloat("VelRight", (float)stream.ReceiveNext());
+            //characterAnimator.SetFloat("VelFwd", (float)stream.ReceiveNext());
         }
     }
 
     [PunRPC]
     void RPC_StopOnOccupyingOffensive()
     {
-        characterAnimator.SetFloat("VelRight", 0);
-        characterAnimator.SetFloat("VelFwd", 0);
+        //characterAnimator.SetFloat("VelRight", 0);
+        //characterAnimator.SetFloat("VelFwd", 0);
     }
 
     IEnumerator FetchCamera()

@@ -16,7 +16,7 @@ public class PlayerWeapons : MonoBehaviour
     [HideInInspector]
     public HandledWeaponBase currentWeapon;
 
-    private Animator playerAnimator;
+    //private Animator playerAnimator;
     private Animator camAnimator;
     private EPlayerController player;
 
@@ -26,11 +26,11 @@ public class PlayerWeapons : MonoBehaviour
 
     private void Start()
     {
-        playerAnimator = GetComponent<Animator>();
+        //playerAnimator = GetComponent<Animator>();
         camAnimator = cam.GetComponent<Animator>();
         player = GetComponent<EPlayerController>();
-        playerAnimator.SetLayerWeight(0, 1f);
-        playerAnimator.SetLayerWeight(1, 0f);
+        //playerAnimator.SetLayerWeight(0, 1f);
+        //playerAnimator.SetLayerWeight(1, 0f);
     }
 
     private void Update()
@@ -80,7 +80,7 @@ public class PlayerWeapons : MonoBehaviour
         pickedWeapon.transform.localRotation = Quaternion.identity;
 
         hasWeapon = true;
-        playerAnimator.SetLayerWeight(1, 1f);
+        //playerAnimator.SetLayerWeight(1, 1f);
     }
 
     public void ThrowWeapon()
@@ -92,7 +92,7 @@ public class PlayerWeapons : MonoBehaviour
 
         currentWeapon = null;
         hasWeapon = false;
-        playerAnimator.SetLayerWeight(1, 0f);
+        //playerAnimator.SetLayerWeight(1, 0f);
     }
 
     public void DropWeapon()
@@ -103,13 +103,13 @@ public class PlayerWeapons : MonoBehaviour
         }
         currentWeapon = null;
         hasWeapon = false;
-        playerAnimator.SetLayerWeight(1, 0f);
+        //playerAnimator.SetLayerWeight(1, 0f);
 
     }
 
     public void StartADS()
     {
-        playerAnimator.SetTrigger("goADS");
+        //playerAnimator.SetTrigger("goADS");
         camAnimator.enabled = false;
         isADSing = true;
         player.playerMovement.SetADSspeed(isADSing);
@@ -119,7 +119,7 @@ public class PlayerWeapons : MonoBehaviour
 
     public void StopADS()
     {
-        playerAnimator.SetTrigger("goHip");
+        //playerAnimator.SetTrigger("goHip");
         camAnimator.enabled = true;
         isADSing = false;
         player.playerMovement.SetADSspeed(isADSing);

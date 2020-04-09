@@ -97,6 +97,9 @@
     <Compile Include="Assets\Scripts\HandledWeapons\HandledWeaponPickup.cs" />
     <Compile Include="Assets\Scripts\HandledWeapons\Rifle.cs" />
     <Compile Include="Assets\Scripts\HomingMissile.cs" />
+    <Compile Include="Assets\Scripts\InverseKinematics\IKProceduralAnimation.cs" />
+    <Compile Include="Assets\Scripts\InverseKinematics\IKSolver.cs" />
+    <Compile Include="Assets\Scripts\InverseKinematics\PlayerIKAnimation.cs" />
     <Compile Include="Assets\Scripts\Menus\CanvasCommunicator.cs" />
     <Compile Include="Assets\Scripts\Menus\Journal.cs" />
     <Compile Include="Assets\Scripts\Menus\MapSelection.cs" />

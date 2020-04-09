@@ -37,7 +37,7 @@ public class EPlayerController : MonoBehaviour
     private Vector3 camPosition;
     private Quaternion camRotation;
     private Transform playerBody;
-    private Animator characterAnimator;
+    //private Animator characterAnimator;
     private GameManager gameManager;
     private CharacterController characterController;
     private OffensiveControllerBase offsensiveInVicinity;
@@ -60,7 +60,7 @@ public class EPlayerController : MonoBehaviour
         playerMovement = GetComponent<EPlayerMovement>();
         handledWeapons = GetComponent<PlayerWeapons>();
         characterController = GetComponent<CharacterController>();
-        characterAnimator = GetComponent<Animator>();
+        //characterAnimator = GetComponent<Animator>();
         gameManager = GameObject.FindObjectOfType<GameManager>();
 
         //playerCamera = Camera.main;
@@ -102,7 +102,7 @@ public class EPlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!pView.IsMine || !characterAnimator || !characterController)
+        if (!pView.IsMine || !characterController)//!characterAnimator || 
         {
             return;
         }
